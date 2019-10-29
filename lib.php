@@ -362,7 +362,7 @@ function theme_academi_render_slideimg($p, $sliname) {
  * @param type|bool $format
  * @return type|string
  */
-function theme_academi_get_setting($setting, $format = false) {
+function theme_academi_get_setting($setting, $format = true) {
     global $CFG;
     require_once($CFG->dirroot . '/lib/weblib.php');
     static $theme;
