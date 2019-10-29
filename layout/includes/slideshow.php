@@ -34,7 +34,7 @@ if ($numberofslides) { ?>
                  $clstxt = ($s == "0") ? ' class="active"' : '';
             ?>
      <li data-target="#home-page-carousel" data-slide-to="<?php echo $s; ?>" <?php echo $clstxt; ?>></li>
-            <?php endfor; ?>
+        <?php endfor; ?>
       </ol>
 
     <!-- Wrapper for slides -->
@@ -52,7 +52,7 @@ if ($numberofslides) { ?>
               <div class="content-wrap">
                     <?php if (!empty($slidecaption)) { ?>
               <h2><?php echo $slidecaption; ?></h2><br>
-                <?php } ?>
+                    <?php } ?>
                 <?php echo $slidedesc; ?>
             </div>
           </div>

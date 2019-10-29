@@ -25,7 +25,7 @@
     var img = $("nav#header").find('.avatar').find('img[src$="/u/f2"]');
     var src = img.attr('src');
     img.attr('src', src + "_white");
-  /*  var msg = $("header#header").find('#nav-message-popover-container .nav-link').find("img[src$='t/message']");
+    /* var msg = $("header#header").find('#nav-message-popover-container .nav-link').find("img[src$='t/message']");
     msgsrc = msg.attr('src');
     msg.attr('src', msgsrc + "_white");
     var note = $("header#header").find('#nav-notification-popover-container .nav-link').find("img[src$='i/notifications']");
