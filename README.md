@@ -1,3 +1,3 @@
-# Academi V3.4 source files
+# Academi V3.5 source files
 
 Academi - a responsive moodle theme developed by LMSACE
