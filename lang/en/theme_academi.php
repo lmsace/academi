@@ -27,22 +27,7 @@ $string['aboutus'] = 'About Us';
 $string['address'] = 'Address';
 $string['calendar'] = 'Calendar';
 $string['configtitle'] = "Academi Settings";
-$string['choosereadme'] = '<div class="clearfix"><div class="theme_screenshot">
-<img class=img-polaroid src="academi/pix/screenshot.jpg" />
-<br/>
-<p></p>
-<h3>Theme Credits</h3>
-<p>
-<h3>Moodle Academi theme</h3>
-<p>
-This theme is based on the Boost Moodle theme.
-</p>
-
-<p>
-Authors: LMSACE Dev Team<br>
-Contact: info@lmsace.com<br>
-Website: <a href="http://www.lmsace.com">www.lmsace.com</a><br>
-</p>';
+$string['choosereadme'] = '<div class="clearfix"><div class="theme_screenshot"><img class=img-polaroid src="academi/pix/screenshot.jpg" /><br/><p></p><h3>Theme Credits</h3><p><h3>Moodle Academi theme</h3><p>This theme is based on the Boost Moodle theme.</p><p>Authors: LMSACE Dev Team<br>Contact: info@lmsace.com<br>Website: <a href="http://www.lmsace.com">www.lmsace.com</a><br></p>';
 
 $string['configtitle'] = 'Academi';
 $string['connectus'] = 'Connect with us';
@@ -90,18 +75,15 @@ Moodle development|https://moodle.org/development
 Moodle Docs|http://docs.moodle.org|Moodle Docs
 Moodle.com|http://moodle.com/';
 $string['infolink_desc'] = 'You can configure a custom Info Links here to be shown by themes. Each line consists of some menu text, a link URL (optional), a tooltip title (optional) and a language code or comma-separated list of codes (optional, for displaying the line to users of the specified language only), separated by pipe characters.For example:
-<pre>
-Moodle community|https://moodle.org
+<pre> Moodle community|https://moodle.org
 Moodle free support|https://moodle.org/support
 Moodle development|https://moodle.org/development
 Moodle Docs|http://docs.moodle.org|Moodle Docs
 German Moodle Docs|http://docs.moodle.org/de|Documentation in German|de
-Moodle.com|http://moodle.com/
-</pre>';
+Moodle.com|http://moodle.com/ </pre>';
 
 $string['logo'] = 'Logo';
-$string['logodesc'] = 'Please upload your custom logo here if you want to add it to the header.
-                       <br>The image should be 37px high and any reasonable width (minimum:250px) that suits.';
+$string['logodesc'] = 'Please upload your custom logo here if you want to add it to the header. <br>The image should be 37px high and any reasonable width (minimum:250px) that suits.';
 
 $string['newsblockcontent'] = 'News & Events Block Content';
 $string['newsblockcontentdesc'] = 'Whatever you add to this textarea will be displayed in the News & Events Block.';
@@ -122,7 +104,7 @@ $string['newseventcontent'] = '<div class="row">
               <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, sheets taining Lorem Ipsum passages, and more recently  into electronic typesetting, sheets taining Lorem Ipsum passages, and more recentwith desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
               <div class="readmore-btn"><a href="#">Read More</a></div>
             </div>
-          </div>
+               </div>
         </div>';
 $string['numberofslides'] = 'Number of slides';
 $string['numberofslides_desc'] = 'Number of slides on the slider.';
@@ -211,7 +193,6 @@ $string['moodle_support'] = "Moodle support";
 
 $string['primarymenu'] = "Primary menus";
 $string['primarymenudesc'] = "You can configure a primary menu here to be shown by themes. Each line consists of some menu text, a link URL (optional), a tooltip title (optional) and a language code or comma-separated list of codes (optional, for displaying the line to users of the specified language only), separated by pipe characters. Lines starting with a hyphen will appear as menu items in the previous top level menu, and dividers can be used by adding a line of one or more # characters where desired. For example:
-
 Moodle community|https://moodle.org
 -Moodle free support|https://moodle.org/support
 -Moodle Docs|http://docs.moodle.org|Moodle Docs

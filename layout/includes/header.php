@@ -45,9 +45,9 @@ $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
 $custommenu = $OUTPUT->custom_menu();
 
 if ($custommenu == "") {
-    $navbarclass = "navbar-toggler hidden-lg-up nocontent-navbar";
+    $navbarclass = "navbar-toggler d-lg-none nocontent-navbar";
 } else {
-    $navbarclass = "navbar-toggler hidden-lg-up";
+    $navbarclass = "navbar-toggler d-lg-none";
 }
 // Header Content.
 $logourl = get_logo_url();

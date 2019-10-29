@@ -356,6 +356,7 @@ function theme_academi_render_slideimg($p, $sliname) {
 }
 
 /**
+ *
  * Description
  * @param type|string $setting
  * @param type|bool $format

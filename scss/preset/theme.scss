@@ -39,6 +39,9 @@ $color_black_haze_approx: #f7f7f7;
 $concrete: #f2f2f2;
 $color_cedar_approx: #3e1a1a;
 $color_trendy_pink_approx: #8e558e;
+$color_monatana: #373a3c;
+$color_whisper: #e6e6e6;
+$color_light_gray: #f8f9fa;
 
 //fonts
 $font_0: Century Gothic;
@@ -78,7 +81,6 @@ $url_12: url([[pix:theme|ic-search]]);
 %extend_2 {
     color: $color_woodsmoke_approx;
     background: $color_alto_approx;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 0;
     text-decoration: none;
     outline: 0;
@@ -133,10 +135,12 @@ a {
         margin-left: 0;
     }
 }
+li.nav-item {
+    list-style: none;
+}
 .dropdown-menu {
     padding: 0;
     border-color: $color_ebb_approx;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 0;
     > li > a {
         &:hover {
@@ -162,6 +166,7 @@ a {
 .btn {
     height: 40px;
     outline: none;
+    line-height: 1.25;
     &.btn-link {
         height: auto;
         i:before {
@@ -200,16 +205,42 @@ i.icon {
 
 #header {
     border-bottom: 1px solid $color_ebb_approx;
-    background: $color_olivine_approx;
-    .popover-region i.icon:before  {
-        color: $white;
+    background: $color_olivine_approx !important;
+    .popover-region {
+        margin-top: 5px;
+        i.icon:before {
+            color: $white;
+        }
+    }
+    .right-menu .usermenu {
+        float: right;
     }
     .navbar-light .navbar-nav .nav-item + .nav-item {
         margin-right: 0;
     }
     .nav.navbar-nav {
-        display: inline-block;
-        margin-top: 5px;
+        .search-input-wrapper {
+            padding: 0;
+            > div i.icon {
+                color: $white;
+                margin-top: 8px;
+            }
+        }
+        li.nav-item {
+            float: left;
+        }
+        .userbutton {
+            margin: 0;
+            .avatars {
+                margin: 0;
+                .avatar {
+                    margin: 0;
+                    img.userpicture {
+                        margin: 0;
+                    }
+                }
+            }
+        }
         span {
             color: $white;
             display: inline-block;
@@ -223,6 +254,12 @@ i.icon {
             }
         }
     }
+    .address-head {
+        margin-top: 5px;
+        &.empty-address {
+            display: none;
+        }
+    }
     .navbar-nav {
         button {
             &.btn {
@@ -234,6 +271,24 @@ i.icon {
                 outline: none;
                 &:hover {
                     background: none;
+                }
+                &:focus {
+                    box-shadow: none;
+                    &:active {
+                        box-shadow: none;
+                        background: none !important;
+                    }
+                }
+                i {
+                    display: none;
+                }
+                span {
+                    &:nth-child(2) {
+                        display: none;
+                    }
+                    &:nth-child(3) {
+                        margin-top: 0;
+                    }
                 }
                 > span {
                     width: 27px;
@@ -263,8 +318,16 @@ i.icon {
                         transform: rotate(-45deg);
                         transition: all 0.5s ease 0s;
                     }
+                    &:nth-child(3) {
+                        top: 13px;
+                    }
                 }
             }
+        }
+        .nav-link {
+            padding-top: 0;
+            padding-left: 0;
+            padding-right: 0;
         }
     }
     .usermenu {
@@ -298,14 +361,11 @@ i.icon {
                 height: 35px;
                 background: $white;
                 border: 1px solid $white;
-                //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
                 border-radius: 18px;
                 .avatar {
-                    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
                     border-radius: 18px;
                 }
                 img {
-                    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
                     border-radius: 18px;
                 }
             }
@@ -319,15 +379,12 @@ i.icon {
                 background: none;
                 padding: 10px;
                 border: 0;
-                //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
                 box-shadow: none;
                 margin-bottom: 4px;
                 .icon-bar {
                     width: 30px;
                     height: 4px;
-                    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
                     border-radius: 0;
-                    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
                     box-shadow: none;
                 }
             }
@@ -345,9 +402,7 @@ i.icon {
                     background: $color_asparagus_approx;
                     padding: 0;
                     border: 0;
-                    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
                     border-radius: 0;
-                    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
                     box-shadow: none;
                     margin: 0;
                     li {
@@ -406,7 +461,6 @@ i.icon {
                     font-size: 16px;
                     color: $white;
                     line-height: 20px;
-                    //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
                     text-shadow: none;
                     &:hover {
                         background: $color_asparagus_approx;
@@ -417,16 +471,13 @@ i.icon {
                 }
                 > .active > a {
                     background: none;
-                    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
                     box-shadow: none;
                     &:hover {
                         background: none;
-                        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
                         box-shadow: none;
                     }
                     &:focus {
                         background: none;
-                        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
                         box-shadow: none;
                     }
                 }
@@ -441,9 +492,7 @@ i.icon {
             padding-right: 0;
             padding-left: 0;
             border: 0;
-            //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
             border-radius: 0;
-            //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
             box-shadow: none;
         }
     }
@@ -452,7 +501,6 @@ i.icon {
             color: $white;
             padding-left: 10px;
             padding-right: 10px;
-
             &:hover {
                 background: $color_asparagus_approx;
             }
@@ -464,16 +512,30 @@ i.icon {
             margin-left: 0;
         }
     }
-    .nav .dropdown .dropdown-menu a.dropdown-item {
-        color: $white;
-        background: $color_asparagus_approx;
-        &:hover {
-            color: $white;
-            background: $color_olivine_approx;
+    .nav .dropdown .dropdown-menu {
+        a.dropdown-item {
+            background: none;
+            border-bottom: 1px solid $color_bon_jour_approx;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            &:hover {
+                color: $white;
+                background: $color_alto_approx;
+            }
+            &:focus {
+                color: $white;
+                background: $color_alto_approx;
+            }
+            span {
+                color: $color_storm_dust_approx;
+            }
+            &:last-child {
+                border-bottom: 0;
+            }
         }
-        &:focus {
-            color: $white;
-            background: $color_olivine_approx;
+        .dropdown-divider {
+            margin: 0;
+            border: 0;
         }
     }
 }
@@ -490,29 +552,31 @@ i.icon {
         .row-fluid [class*="span"] {
             *margin-right: 2.074468085106383%;
         }
-         .navbar-toggleable-md .infoarea .dropdown .dropdown-menu {
+        .navbar-toggleable-md .infoarea .dropdown .dropdown-menu {
             left: 0;
             right: auto;
             a.nav-item.nav-link {
                 padding-left: 20px;
                 padding-right: 40px;
             }
-         }
+        }
     }
     .carousel-control {
         &.left:before {
             content: '\f105';
-            font-family: fontawesome;
+            font-family: 'fontawesome';
+            font-size: 30px;
             color: #fff;
             display: inline-block;
-            margin-top: 5px;
+            margin-top: 0;
         }
         &.right:after {
             content: '\f104';
-            font-family: fontawesome;
+            font-family: 'fontawesome';
+            font-size: 30px;
             color: #fff;
             display: inline-block;
-            margin-top: 5px;
+            margin-top: 0;
         }
     }
     .carousel-indicators {
@@ -717,11 +781,11 @@ i.icon {
     .courses.frontpage-course-list-all {
         padding: 0 15px;
         > .paging.paging-morelink {
-        text-align: left;
-        a:before {
-            font-family: $font_4;
-            content: "\f100\00a0";
-        }
+            text-align: left;
+            a:before {
+                font-family: $font_4;
+                content: "\f100\00a0";
+            }
         }
     }
     #coursesearch .coursesearchbox label {
@@ -795,6 +859,9 @@ i.icon {
         margin-top: 0;
         top: 0;
     }
+}
+.empty-footer {
+    display: none;
 }
 #footer {
     a {
@@ -920,7 +987,7 @@ i.icon {
     }
 }
 
-@media (min-width:992px) {
+@media (min-width: 992px) {
     .navbar-light {
         .container {
             padding-left: 15px;
@@ -955,7 +1022,8 @@ i.icon {
         padding: 15px;
     }
 }
-@media (min-width:768px) {
+
+@media (min-width: 768px) {
     .dir-rtl #header .usermenu .dropdown .dropdown-menu {
         left: auto;
         right: 0;
@@ -966,6 +1034,7 @@ i.icon {
         }
     }
 }
+
 @media (max-width: 991px) {
     .dir-rtl {
         #header .header-top .usermenu {
@@ -976,7 +1045,7 @@ i.icon {
             left: auto;
         }
     }
-    #header .header-top {
+    /*#header .header-top {
         .navbar {
             .nav {
                 li {
@@ -1024,6 +1093,14 @@ i.icon {
         .usermenu .login {
             padding: 3px 0;
         }
+    }*/
+    #header {
+        .nav.navbar-nav {
+            display: none;
+        }
+        ul.nav.navbar-nav {
+            display: block;
+        }
     }
     .navbar .nav-collapse.in .nav {
         .dropdown-submenu.open > a {
@@ -1040,6 +1117,7 @@ i.icon {
         padding: 5px 15px;
     }
 }
+
 @media (max-width: 767px) {
     .dir-rtl {
         #header .header-top {
@@ -1116,7 +1194,7 @@ i.icon {
     .navbar-toggler {
         float: right;
         padding: 0;
-        margin: 32px 0 0;
+        border: 0;
         &:before {
             content: '\f0c9';
             font-family: fontawesome;
@@ -1137,15 +1215,17 @@ i.icon {
         max-height: none;
         padding: 0;
         border-bottom: 0;
+        box-shadow: none;
     }
     .navbar-light .navbar-brand.has-logo {
-        max-width: 170px;
+        max-width: 200px;
         float: left;
         padding: 0;
         margin: 10px 0;
         .logo img {
             width: 100%;
             height: auto;
+            max-height: none;
         }
     }
     .infoarea {
@@ -1163,21 +1243,32 @@ i.icon {
     .logo a {
         display: inline-block;
     }
-    a.nav-link {
-        font-size: 18px;
-        padding: 26px 20px;
-        margin-bottom: 2px;
-        &:hover {
-            border-bottom: 2px solid $blaze_orange;
-            margin-bottom: -1px;
+    .infoarea {
+        a.nav-link {
+            font-size: 18px;
+            padding: 26px 20px;
+            &:hover {
+                border-bottom: 2px solid $blaze_orange;
+            }
+            &:active {
+                border-bottom: 2px solid $blaze_orange;
+            }
+            &:focus {
+                border-bottom: 2px solid $blaze_orange;
+            }
         }
-        &:active {
-            border-bottom: 2px solid $blaze_orange;
-            margin-bottom: -1px;
-        }
-        &:focus {
-            border-bottom: 2px solid $blaze_orange;
-            margin-bottom: -1px;
+        .nav-item a.nav-link {
+            font-size: 18px;
+            padding: 26px 20px;
+            &:hover {
+                border-bottom: 2px solid $blaze_orange;
+            }
+            &:active {
+                border-bottom: 2px solid $blaze_orange;
+            }
+            &:focus {
+                border-bottom: 2px solid $blaze_orange;
+            }
         }
     }
 }
@@ -1218,6 +1309,7 @@ i.icon {
         margin-right: 7px;
     }
 }
+
 @media (min-width: 1200px) {
     .dir-rtl {
         .header-main .row-fluid [class*="span"] {
@@ -1231,18 +1323,25 @@ i.icon {
         padding-left: 46px;
     }
 }
-@media (min-width:768px) and(max-width:979px) {
+
+@media (min-width: 768px) and (max-width: 979px) {
     .dir-rtl .header-main .row-fluid [class*="span"] {
         *margin-right: 2.709239449864817%;
     }
 }
+
 @media (min-width: 992px) {
+    .header-main .navbar-toggler {
+        display: none;
+    }
     .navbar-toggleable-md {
         float: right;
+        display: block;
         .infoarea .dropdown .dropdown-menu {
             margin-top: 1px;
             top: auto;
-
+            right: 0;
+            left: auto;
             a.dropdown-item {
                 &:hover {
                     color: #fff;
@@ -1255,12 +1354,11 @@ i.icon {
             }
         }
     }
-}
-@media (min-width: 992px) {
     .header-main .infoarea .nav-item {
         display: inline-block;
         a.nav-link {
             padding: 34px 20px;
+            border-bottom: 2px solid transparent;
         }
     }
 }
@@ -1272,24 +1370,37 @@ i.icon {
             display: inline-block;
         }
         .navbar-toggleable-md {
+            width: 100%;
             float: none;
-                a.nav-item.nav-link {
-                    text-align: left;
-                    display: block;
+            &:after {
+                content: '';
+                clear: both;
+                display: block;
+            }
+            a.nav-item.nav-link {
+                text-align: left;
+                display: block;
+                border: 0;
+                padding: 10px 20px;
+                margin: 0;
+                &:hover {
+                    color: $white;
+                    background: $color_olivine_approx;
                     border: 0;
-                    padding: 10px 20px;
-                    margin: 0;
-                    &:hover {
-                        color: $white;
-                        background: $color_olivine_approx
-                    }
-                    &:focus {
-                        color: $white;
-                        background: $color_olivine_approx
-                    }
                 }
-            .infoarea .dropdown {
-                position: static;
+                &:focus {
+                    color: $white;
+                    background: $color_olivine_approx;
+                    border: 0;
+                }
+            }
+            .infoarea {
+                .nav-item {
+                    width: 100%;
+                    display: inline-block;
+                }
+                .dropdown {
+                    position: static;
                     a.nav-link {
                         width: 100%;
                         text-align: left;
@@ -1298,31 +1409,32 @@ i.icon {
                         padding: 10px 20px;
                         margin: 0;
                         &:hover {
-                        color: $white;
-                        background: $color_olivine_approx
-                    }
-                    &:focus {
-                        color: $white;
-                        background: $color_olivine_approx
-                    }
-                    }
-
-                .dropdown-menu {
-                    width: 100%;
-                    margin: 0;
-                    position: static;
-                    border: 0;
-                    .dropdown-item {
-                        font-size: 16px;
-                        border: 0;
-                        padding: 10px 20px 10px 40px;
-                        &:hover {
                             color: $white;
-                            background: $color_olivine_approx
+                            background: $color_olivine_approx;
                         }
                         &:focus {
                             color: $white;
-                            background: $color_olivine_approx
+                            background: $color_olivine_approx;
+                        }
+                    }
+
+                    .dropdown-menu {
+                        width: 100%;
+                        margin: 0;
+                        position: static;
+                        border: 0;
+                        .dropdown-item {
+                            font-size: 16px;
+                            border: 0;
+                            padding: 10px 20px 10px 40px;
+                            &:hover {
+                                color: $white;
+                                background: $color_olivine_approx;
+                            }
+                            &:focus {
+                                color: $white;
+                                background: $color_olivine_approx;
+                            }
                         }
                     }
                 }
@@ -1330,6 +1442,7 @@ i.icon {
         }
     }
 }
+
 @media (min-width: 768px) {
     .dir-rtl {
         .header-main {
@@ -1393,6 +1506,12 @@ i.icon {
     }
 }
 
+@media (max-width: 767px) {
+    #header .nav.navbar-nav span.usertext {
+        display: none;
+    }
+}
+
 @media (max-width: 574px) {
     select {
         width: auto;
@@ -1446,7 +1565,8 @@ i.icon {
         }
     }
     .header-main {
-        .has-logo {
+        .navbar-light .navbar-brand .has-logo {
+            max-width: 200px;
             margin-right: 0;
             img {
                 width: 100%;
@@ -1474,17 +1594,26 @@ i.icon {
         margin-left: 0;
         margin-right: 23px;
     }
-}
-@media (max-width: 574px) {
-    .navbar .popover-region .popover-region-container {
-        top: 37px;
+    .page-context-header {
+        .page-header-headings h1 {
+            font-size: 20px;
+        }
+        .page-header-image {
+            max-width: 80px;
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
     }
 }
+
 @media (max-width: 380px) {
     .header-main .has-logo {
         max-width: 220px;
     }
 }
+
 .carousel-indicators {
     width: 60%;
     margin-left: -30%;
@@ -1500,7 +1629,6 @@ i.icon {
         height: 12px;
         background: $color_silver_chalice_approx;
         display: inline-block;
-        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
         border-radius: 6px;
         cursor: pointer;
         + li {
@@ -1514,32 +1642,33 @@ i.icon {
 .carousel-control {
     width: 44px;
     height: 44px;
+    text-align: center;
     background: $url_1 repeat 0 0;
     border: 0;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 0;
-    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     box-shadow: 0 0 0 4px $black_20;
     opacity: 1;
     top: 50%;
     margin-top: -22px;
+    position: absolute;
     &.left:before {
         content: '\f104';
-        font-family: fontawesome;
+        font-family: 'fontawesome';
+        font-size: 30px;
         color: #fff;
         display: inline-block;
-        margin-top: 5px;
+        margin-top: 0;
     }
     &.right:after {
         content: '\f105';
-        font-family: fontawesome;
+        font-family: 'fontawesome';
+        font-size: 30px;
         color: #fff;
         display: inline-block;
-        margin-top: 5px;
+        margin-top: 0;
     }
     i {
         font-size: 36px;
-        //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
         text-shadow: 0 1px 5px $black_90;
         vertical-align: middle;
     }
@@ -1552,6 +1681,9 @@ i.icon {
 }
 #page-footer {
     padding: 0 !important;
+    &:empty {
+        display: none;
+    }
 }
 
 label {
@@ -1579,12 +1711,12 @@ legend {
 }
 .breadcrumb {
     background: none;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 0;
+    display: block;
     > li {
         color: $color_gray_approx;
-        //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
         text-shadow: none;
+        display: inline-block;
         > .divider {
             font-size: 10px;
             color: $color_olivine_approx;
@@ -1598,18 +1730,11 @@ input {
         font-weight: bold;
         font-family: $font_1, $font_2, $font_3;
         color: $white;
-        //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
-        text-shadow: none;
-        background: $color_olivine_approx;
         padding: 11px 16px;
-        border: 0;
-        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
         border-radius: 0;
-        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
         box-shadow: none;
         background: $blaze_orange;
         border: 0;
-        //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
         text-shadow: none;
         &:hover {
             outline: 0;
@@ -1624,13 +1749,11 @@ input {
         &:active {
             color: $white;
             background: $color_fuscous_gray_approx;
-            //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
             box-shadow: none;
         }
         &.active {
             color: $white;
             background: $color_fuscous_gray_approx;
-            //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
             box-shadow: none;
         }
         &.disabled {
@@ -1641,7 +1764,6 @@ input {
     &#id_submitbutton {
         background: $blaze_orange;
         border: 0;
-        //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
         text-shadow: none;
         &:hover {
             color: $white;
@@ -1667,7 +1789,6 @@ input {
     &#id_submitbutton2 {
         background: $blaze_orange;
         border: 0;
-        //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
         text-shadow: none;
         &:hover {
             color: $white;
@@ -1703,15 +1824,12 @@ input {
         background: $color_fuscous_gray_approx;
     }
     &.active[type="button"] {
-        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
         box-shadow: none;
     }
     &.active[type="submit"] {
-        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
         box-shadow: none;
     }
     &.active[type="reset"] {
-        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
         box-shadow: none;
     }
 }
@@ -1719,14 +1837,11 @@ button {
     font-family: $font_1, $font_2, $font_3;
     color: $white;
     font-weight: bold;
-    //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     text-shadow: none;
     background: $color_olivine_approx;
     padding: 11px 16px;
     border: 0;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 0;
-    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     box-shadow: none;
     &:hover {
         color: $white;
@@ -1739,27 +1854,21 @@ button {
         outline: 0;
     }
     &.active {
-        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
         box-shadow: none;
     }
     &:active {
-        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
         box-shadow: none;
     }
 }
 select {
     font-family: $font_0, $font_1, $font_2, $font_3;
     color: $color_chicago_approx;
-    /* height: 40px; */
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 0;
     line-height: 36px;
     border-color: $color_alto_approx;
     &:focus {
         outline: 0;
-        border-color: $color_olivine_approx;
         border-color: $color_olivine_50_approx;
-        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
         box-shadow: inset 0 1px 1px $black_7_5, 0 0 8px $color_tea_green_approx;
     }
 }
@@ -1767,233 +1876,167 @@ textarea {
     font-family: $font_0, $font_1, $font_2, $font_3;
     color: $color_chicago_approx;
     height: auto;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 0;
     border-color: $color_alto_approx;
-    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     box-shadow: none;
     &:focus {
-        border-color: $color_olivine_approx;
         border-color: $color_olivine_50_approx;
-        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
         box-shadow: inset 0 1px 1px $black_7_5, 0 0 8px $color_tea_green_approx;
     }
 }
 textarea[cols] {
-    width: 206px;
     width: auto;
 }
 input[size] {
-    width: 206px;
     width: auto;
 }
 input[type="text"] {
     height: 40px;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 0;
     border-color: $color_alto_approx;
-    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     box-shadow: none;
     &:focus {
-        border-color: $color_olivine_approx;
         border-color: $color_olivine_50_approx;
-        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
         box-shadow: inset 0 1px 1px $black_7_5, 0 0 8px $color_tea_green_approx;
     }
 }
 input[type="password"] {
     height: 40px;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 0;
     border-color: $color_alto_approx;
-    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     box-shadow: none;
     &:focus {
-        border-color: $color_olivine_approx;
         border-color: $color_olivine_50_approx;
-        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
         box-shadow: inset 0 1px 1px $black_7_5, 0 0 8px $color_tea_green_approx;
     }
 }
 input[type="datetime"] {
     height: 40px;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 0;
     border-color: $color_alto_approx;
-    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     box-shadow: none;
     &:focus {
-        border-color: $color_olivine_approx;
         border-color: $color_olivine_50_approx;
-        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
         box-shadow: inset 0 1px 1px $black_7_5, 0 0 8px $color_tea_green_approx;
     }
 }
 input[type="datetime-local"] {
     height: 40px;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 0;
     border-color: $color_alto_approx;
-    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     box-shadow: none;
     &:focus {
-        border-color: $color_olivine_approx;
         border-color: $color_olivine_50_approx;
-        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
         box-shadow: inset 0 1px 1px $black_7_5, 0 0 8px $color_tea_green_approx;
     }
 }
 input[type="date"] {
     height: 40px;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 0;
     border-color: $color_alto_approx;
-    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     box-shadow: none;
     &:focus {
-        border-color: $color_olivine_approx;
         border-color: $color_olivine_50_approx;
-        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
         box-shadow: inset 0 1px 1px $black_7_5, 0 0 8px $color_tea_green_approx;
     }
 }
 input[type="month"] {
     height: 40px;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 0;
     border-color: $color_alto_approx;
-    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     box-shadow: none;
     &:focus {
-        border-color: $color_olivine_approx;
         border-color: $color_olivine_50_approx;
-        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
         box-shadow: inset 0 1px 1px $black_7_5, 0 0 8px $color_tea_green_approx;
     }
 }
 input[type="time"] {
     height: 40px;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 0;
     border-color: $color_alto_approx;
-    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     box-shadow: none;
     &:focus {
-        border-color: $color_olivine_approx;
         border-color: $color_olivine_50_approx;
-        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
         box-shadow: inset 0 1px 1px $black_7_5, 0 0 8px $color_tea_green_approx;
     }
 }
 input[type="week"] {
     height: 40px;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 0;
     border-color: $color_alto_approx;
-    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     box-shadow: none;
     &:focus {
-        border-color: $color_olivine_approx;
         border-color: $color_olivine_50_approx;
-        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
         box-shadow: inset 0 1px 1px $black_7_5, 0 0 8px $color_tea_green_approx;
     }
 }
 input[type="number"] {
     height: 40px;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 0;
     border-color: $color_alto_approx;
-    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     box-shadow: none;
     &:focus {
-        border-color: $color_olivine_approx;
         border-color: $color_olivine_50_approx;
-        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
         box-shadow: inset 0 1px 1px $black_7_5, 0 0 8px $color_tea_green_approx;
     }
 }
 input[type="email"] {
     height: 40px;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 0;
     border-color: $color_alto_approx;
-    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     box-shadow: none;
     &:focus {
-        border-color: $color_olivine_approx;
         border-color: $color_olivine_50_approx;
-        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
         box-shadow: inset 0 1px 1px $black_7_5, 0 0 8px $color_tea_green_approx;
     }
 }
 input[type="url"] {
     height: 40px;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 0;
     border-color: $color_alto_approx;
-    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     box-shadow: none;
     &:focus {
-        border-color: $color_olivine_approx;
         border-color: $color_olivine_50_approx;
-        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
         box-shadow: inset 0 1px 1px $black_7_5, 0 0 8px $color_tea_green_approx;
     }
 }
 input[type="search"] {
     height: 40px;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 0;
     border-color: $color_alto_approx;
-    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     box-shadow: none;
     &:focus {
-        border-color: $color_olivine_approx;
         border-color: $color_olivine_50_approx;
-        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
         box-shadow: inset 0 1px 1px $black_7_5, 0 0 8px $color_tea_green_approx;
     }
 }
 input[type="tel"] {
     height: 40px;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 0;
     border-color: $color_alto_approx;
-    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     box-shadow: none;
     &:focus {
-        border-color: $color_olivine_approx;
         border-color: $color_olivine_50_approx;
-        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
         box-shadow: inset 0 1px 1px $black_7_5, 0 0 8px $color_tea_green_approx;
     }
 }
 input[type="color"] {
     height: 40px;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 0;
     border-color: $color_alto_approx;
-    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     box-shadow: none;
     &:focus {
-        border-color: $color_olivine_approx;
         border-color: $color_olivine_50_approx;
-        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
         box-shadow: inset 0 1px 1px $black_7_5, 0 0 8px $color_tea_green_approx;
     }
 }
 .uneditable-input {
     height: 40px;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 0;
     border-color: $color_alto_approx;
-    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     box-shadow: none;
     &:focus {
-        border-color: $color_olivine_approx;
         border-color: $color_olivine_50_approx;
-        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
         box-shadow: inset 0 1px 1px $black_7_5, 0 0 8px $color_tea_green_approx;
     }
 }
@@ -2002,14 +2045,11 @@ input[type="button"] {
     font-weight: bold;
     font-family: $font_1, $font_2, $font_3;
     color: $white;
-    //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     text-shadow: none;
     background: $color_olivine_approx;
     padding: 11px 16px;
     border: 0;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 0;
-    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     box-shadow: none;
     &:hover {
         color: $white;
@@ -2020,10 +2060,11 @@ input[type="button"] {
         color: $white;
         background: $color_fuscous_gray_approx;
         outline: 0;
+        box-shadow: none;
     }
     &:active {
-        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
         box-shadow: none;
+        background: $color_fuscous_gray_approx;
     }
 }
 .btn-primary,
@@ -2031,14 +2072,11 @@ input[type="submit"] {
     font-weight: bold;
     font-family: $font_1, $font_2, $font_3;
     color: $white;
-    //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     text-shadow: none;
     background: $color_olivine_approx;
     padding: 11px 16px;
     border: 0;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 0;
-    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     box-shadow: none;
     &:hover {
         color: $white;
@@ -2049,32 +2087,44 @@ input[type="submit"] {
         color: $white;
         background: $color_fuscous_gray_approx;
         outline: 0;
-    }
-    &:active {
-        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
         box-shadow: none;
     }
+    &:active {
+        box-shadow: none;
+        background: $color_fuscous_gray_approx;
+    }
 }
-.btn-secondary:hover {
-    color: #373a3c;
-    background-color: #e6e6e6;
+.btn-secondary{
+    background-color: transparent;
+    &:hover {
+        color: $color_monatana;
+        background-color: $color_whisper;
+        border-color: $color_celeste_approx;
+    }
 }
 .btn-secondary:focus {
-    color: #373a3c;
-    background-color: #e6e6e6;
+    color: $color_monatana;
+    background-color: $color_whisper;
+    box-shadow: none;
+}
+.btn-secondary:focus {
+    color: $color_monatana;
+    background-color: $color_whisper;
+    box-shadow: none;
+}
+.btn-secondary:focus:active {
+    background-color: $color_whisper !important;
+    box-shadow: none !important;
 }
 input[type="reset"] {
     font-weight: bold;
     font-family: $font_1, $font_2, $font_3;
     color: $white;
-    //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     text-shadow: none;
     background: $color_olivine_approx;
     padding: 11px 16px;
     border: 0;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 0;
-    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     box-shadow: none;
     &:hover {
         color: $white;
@@ -2087,7 +2137,6 @@ input[type="reset"] {
         outline: 0;
     }
     &:active {
-        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
         box-shadow: none;
     }
 }
@@ -2252,28 +2301,31 @@ table {
 .block {
     padding-top: 0;
     border-color: $color_gray_nurse_approx;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 0;
-    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     box-shadow: none;
-    .card-block {
+    .card-body {
         padding: 0;
         .card-title {
+            width: 60%;
             padding: 15px;
             margin-bottom: 0;
+            display: inline-block !important;
         }
         .content {
             padding: 10px 18px;
-            margin: 0;
+            margin: 0 !important;
             background: $color_alabaster_approx;
             border-top: 1px solid $color_gray_nurse_approx;
+            .content {
+                border: 0;
+            }
             .userpicture {
                 margin: 0 5px;
             }
         }
     }
     .header {
-        margin: 10px;
+        margin: 15px;
         h2 {
             font-weight: normal;
             font-size: 21px;
@@ -2361,7 +2413,13 @@ table {
     .adminsearchform input[type="submit"] {
         margin-left: 0;
     }
+    .card-body {
+        .card-title {
+            width: 100%;
+        }
+    }
 }
+
 @media (min-width: 768px) and(max-width: 979px) {
     .block_calendar_month .content {
         padding-right: 0;
@@ -2372,6 +2430,7 @@ table {
         padding-left: 0;
     }
 }
+
 #frontpage-course-list {
     background: $white;
     border: 1px solid $color_gray_nurse_approx;
@@ -2397,7 +2456,6 @@ table {
             padding: 14px 0 18px;
             border: 0;
             border-bottom: 1px solid $color_bon_jour_approx;
-            //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
             border-radius: 0;
             margin: 0;
             &.last {
@@ -2471,7 +2529,7 @@ table {
                 > .categoryname {
                     line-height: 20px;
                     background-image: $url_2;
-                    background-position: left 20px;
+                    background-position: left 16px;
                     padding: 14px 6px 14px 20px;
                     margin: 0 12px;
                     a {
@@ -2499,9 +2557,7 @@ table {
         > .info {
             background: $color_olivine_approx;
             border: 0;
-            //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
             border-radius: 0;
-            //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
             box-shadow: none;
             margin: 0 0 9px;
             > .categoryname {
@@ -2600,6 +2656,7 @@ table {
         }
     }
 }
+
 @media (min-width: 575px) {
     .userprofile {
         .userprofilebox {
@@ -2641,11 +2698,13 @@ table {
         }
     }
 }
+
 @media (min-width: 992px) {
     .loginbox.onecolumn {
         width: 50%;
     }
 }
+
 .mform {
     .fitem {
         margin-bottom: 24px;
@@ -2701,8 +2760,23 @@ table {
         &:last-child {
             margin-bottom: 0;
         }
+        .btn {
+            background-color: $color_whisper;
+        }
+        &.enrolusersbutton {
+            .btn {
+                background-color: $color_olivine_approx;
+                &:hover {
+                    background-color: $color_fuscous_gray_approx;
+                }
+                &:focus {
+                    background-color: $color_fuscous_gray_approx;
+                }
+            }
+        }
     }
 }
+
 @media (max-width: 574px) {
     select {
         width: auto;
@@ -2744,16 +2818,16 @@ table {
         }
     }
 }
+
 .coursebox {
     padding: 10px 12px;
     border-color: $color_quill_gray_approx;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 0;
     margin-top: 9px;
     .info {
         position: relative;
         .coursename {
-            float: none !important;
+            float: none;
         }
         .moreinfo {
             float: none;
@@ -2772,8 +2846,6 @@ table {
             min-height: 40px;
         }
         .teachers {
-            padding-top: 12px;
-            padding-left: 20px;
             margin-left: 200px;
             margin-top: 20px;
             float: none;
@@ -2833,6 +2905,7 @@ table {
         }
     }
 }
+
 @media (min-width: 575px) {
     .coursebox .content {
         .courseimage {
@@ -2872,9 +2945,13 @@ table {
         }
     }
 }
+
 @media (max-width: 574px) {
     .coursebox .content {
         padding: 150px 0 0;
+        &.content-block {
+            padding-top: 0;
+        }
         .coursefile {
             left: 50%;
             margin-left: -50px;
@@ -2900,7 +2977,6 @@ table {
         width: 100%;
     }
 }
-
 
 .course-content {
     .topics {
@@ -2935,7 +3011,6 @@ table {
                 background: $color_link_water_approx;
                 padding: 10px 20px;
                 border: 1px solid $color_charlotte_approx;
-                //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
                 border-radius: 5px;
                 margin-bottom: 25px;
                 p {
@@ -3054,7 +3129,6 @@ table {
         min-height: 50px;
         border: 0;
         .messagesend .messagesendbox {
-            //Instead of the line below you could use @include box-sizing($bs)
             box-sizing: border-box;
         }
     }
@@ -3125,6 +3199,7 @@ select[size] {
 .report-eventlist-data-table {
     overflow: auto;
 }
+
 @media (min-width: 768px) and(max-width: 991px) {
     .dir-rtl {
         .form-item {
@@ -3165,6 +3240,7 @@ select[size] {
         }
     }
 }
+
 @media (min-width: 768px) and(max-width: 817px) {
     .form-item .form-label {
         width: 140px;
@@ -3173,6 +3249,7 @@ select[size] {
         width: 140px;
     }
 }
+
 @media (min-width: 575px) and(max-width: 767px) {
     .dir-rtl {
         .form-item .form-label {
@@ -3185,6 +3262,7 @@ select[size] {
         }
     }
 }
+
 /* @media (min-width: 575px) {
     .box form div .no-overflow {
         overflow: visible;
@@ -3208,9 +3286,7 @@ select[size] {
         }
         &:focus {
             color: $white;
-            background-color: $color_fuscous_gray_approx;
-            color: $white;
-            background: $color_trendy_pink_approx;
+            background: $color_fuscous_gray_approx;
         }
         &.focus {
             color: $white;
@@ -3220,6 +3296,14 @@ select[size] {
     &.focus:active {
         color: $white;
         background-color: $color_fuscous_gray_approx;
+        box-shadow: none !important;
+    }
+    &:not(:disabled):not(.disabled):active {
+        background-color: $color_fuscous_gray_approx;
+        border-color: $color_fuscous_gray_approx;
+        &:focus {
+            box-shadow: none;
+        }
     }
 }
 .calendar-event-panel {
@@ -3227,6 +3311,15 @@ select[size] {
 }
 #page {
     margin-top: 0;
+    #page-header {
+        display: block;
+        .card {
+            display: block;
+            .page-header-image img {
+                width: auto;
+            }
+        }
+    }
 }
 #page-site-index #header {
     margin-bottom: 0;
@@ -3237,9 +3330,7 @@ select[size] {
 .moodle-actionmenu[data-enhanced].show .menu {
     padding: 0;
     border-color: $color_ebb_approx;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 0;
-    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     box-shadow: none;
     margin: 0;
     a {
@@ -3281,14 +3372,11 @@ select[size] {
     font-weight: bold;
     font-family: $font_1, $font_2, $font_3;
     color: $white;
-    //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     text-shadow: none;
     background: $color_olivine_approx;
     padding: 11px 16px;
     border: 0;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 0;
-    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     box-shadow: none;
     &:hover {
         color: $white;
@@ -3305,14 +3393,11 @@ select[size] {
     font-weight: bold;
     font-family: $font_1, $font_2, $font_3;
     color: $white;
-    //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     text-shadow: none;
     background: $color_olivine_approx;
     padding: 11px 16px;
     border: 0;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 0;
-    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     box-shadow: none;
     &:hover {
         color: $white;
@@ -3333,7 +3418,6 @@ select[size] {
     input[type="submit"] {
         background: $blaze_orange;
         border: 0;
-        //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
         text-shadow: none;
         &:hover {
             color: $white;
@@ -3367,7 +3451,6 @@ td.submit {
     input {
         background: $blaze_orange;
         border: 0;
-        //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
         text-shadow: none;
         &:hover {
             color: $white;
@@ -3437,9 +3520,15 @@ form#coursesearch {
             color: $color_fuscous_gray_approx;
             padding-top: 7px;
         }
+        .input-group-btn {
+            position: absolute;
+            right: 0;
+            z-index: 4;
+        }
         input[type="text"] {
             max-width: 300px;
             width: 100%;
+            padding: 0 10px;
         }
         input[type="submit"] {
             width: 40px;
@@ -3617,10 +3706,15 @@ form#movecourses table tbody > tr:nth-child(2n + 1) {
 #page-admin-roles-usersroles p {
     margin: 15px 0;
 }
-#course-category-listings .moodle-actionmenu[data-enhance] .toggle-display.textmenu .caret {
-    vertical-align: middle;
-    margin-top: 0;
-    top: 0;
+#course-category-listings {
+    .moodle-actionmenu[data-enhance] .toggle-display.textmenu .caret {
+        vertical-align: middle;
+        margin-top: 0;
+        top: 0;
+    }
+    #category-listing .course-count i.icon {
+        margin-left: 5px;
+    }
 }
 .path-grade-report-user #graded_users_selector {
     float: none;
@@ -3659,6 +3753,7 @@ form#movecourses table tbody > tr:nth-child(2n + 1) {
 .mform .form-inline .custom-select {
     height: 40px;
 }
+
 @media (max-width: 767px) {
     .mform .form-inline .custom-select {
         max-width: 500px;
@@ -3687,12 +3782,13 @@ form#movecourses table tbody > tr:nth-child(2n + 1) {
         }
     }
 }
-@media (max-width: 574px) {
-    .content.content-block {
-        padding-top: 20px;
+.dir-rtl .content.content-block {
+    min-height: auto;
+    .summary {
+        padding-right: 0;
     }
-    .editing .section .activity .mod-indent-outer {
-        position: relative;
+    .teachers {
+        margin-right: 0;
     }
 }
 
@@ -3731,11 +3827,14 @@ form#movecourses table tbody > tr:nth-child(2n + 1) {
         }
     }
 }
-.has-blocks .menubar .dropdown a i.icon {
-    margin: 0;
-}
-.card.card-block .action-menu .menubar .dropdown a i {
+.card.card-block .action-menu .menubar .dropdown a i.icon {
     margin-right: 5px;
+}
+.listitem .action-menu .dropdown-toggle i.icon {
+    margin-right: 0;
+}
+.action-menu .dropdown-toggle i.icon {
+    margin: 0;
 }
 .block .calendar_filters {
     ul li a span {
@@ -3755,10 +3854,11 @@ form#movecourses table tbody > tr:nth-child(2n + 1) {
     vertical-align: middle;
 }
 #header .popover-region .popover-region-container {
+    top: 2rem;
     .popover-region-header-actions a i:before {
         color: $color_olivine_approx;
     }
-    .content-item-container{
+    .content-item-container {
         &:hover {
             background: $color_olivine_approx;
             .content-item-body h3 {
@@ -3767,6 +3867,60 @@ form#movecourses table tbody > tr:nth-child(2n + 1) {
         }
     }
 }
+.messaging-area-container {
+    .btn.btn-link {
+        color: $color_olivine_approx;
+    }
+    .messaging-area {
+        height: 507px;
+        .contacts-area {
+            height: auto;
+            .tabs .tab {
+                height: auto;
+                &:hover {
+                    color: $color_olivine_approx;
+                }
+                &:focus {
+                    color: $color_olivine_approx;
+                }
+                &.selected {
+                    color: $color_olivine_approx;
+                }
+            }
+            .contacts .contact {
+                &.selected {
+                  background-color: $color_olivine_approx;
+                }
+                &:hover {
+                    background: $color_olivine_approx
+                }
+                .picture {
+                    border-color: inherit;
+                }
+            }
+        }
+    }
+}
+.notification-area {
+    .control-area {
+        .content {
+            .content-item-container {
+                &.selected {
+                    background-color: $color_olivine_approx;
+                }
+                &:hover {
+                    background: $color_olivine_approx;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 574px) {
+    .navbar .popover-region .popover-region-container {
+        top: 2.9px;
+    }
+}
+
 .close:hover {
     background: none;
 }
@@ -3780,11 +3934,13 @@ form#movecourses table tbody > tr:nth-child(2n + 1) {
         margin-left: 0;
     }
 }
+
 @media (max-width: 991px) {
     .header-main .navbar-light .navbar-brand.has-logo {
         float: none;
     }
 }
+
 @media (max-width: 575px) {
     .card.card-block .action-menu .menubar .dropdown .dropdown-menu {
         left: 0;
@@ -3798,4 +3954,224 @@ form#movecourses table tbody > tr:nth-child(2n + 1) {
         font-size: 18px;
     }
 
+}
+
+/**/
+.pagelayout-frontpage {
+    #page {
+        padding-top: 50px;
+        #page-header {
+            display: none;
+        }
+    }
+}
+#page-my-index {
+    .has-blocks .card.card-block .block-region .block .card-block .card-text {
+        border: 0;
+    }
+}
+.block_myoverview .content-centred .nav.nav-pills .nav-item .nav-link.active {
+    background-color: $color_olivine_approx;
+}
+.has-blocks {
+    .card.card-block {
+        .block-region {
+            .block {
+                &.block_myoverview {
+                    border: 0;
+                    .card-text {
+                        border-left: 1px solid #ddd;
+                        border-right: 1px solid #ddd;
+                    }
+                }
+                .card-block {
+                    .card-title {
+                        display: none;
+                    }
+                    .title .card-title {
+                        display: block;
+                    }
+                    .card-text {
+                        padding: 0;
+                    }
+                    .block-controls {
+                        .menubar {
+                            .dropdown {
+                                a.dropdown-toggle {
+                                    i.icon {
+                                        margin: 0;
+                                    }
+                                }
+                                .dropdown-menu {
+                                    a.dropdown-item {
+                                        i.icon {
+                                            color: $color_olivine_approx;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.hidden-print .block-region .block {
+    .card-block {
+        .block-controls .menubar {
+            .dropdown {
+                a.dropdown-toggle {
+                    i.icon {
+                        margin: 0;
+                    }
+                }
+                .dropdown-menu {
+                    a.dropdown-item {
+                        i.icon {
+                            color: $color_olivine_approx;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#page-course-management {
+    #page #page-content {
+        ul.ml {
+            li {
+                .menubar {
+                    .dropdown {
+                        a.dropdown-toggle i.icon {
+                            margin: 0;
+                        }
+                        .dropdown-menu {
+                            a.dropdown-item {
+                                i.icon {
+                                    color: $color_olivine_approx;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#page {
+    #page-header .card {
+        .card-block .menubar .dropdown {
+            .dropdown-toggle i {
+                margin: 0;
+            }
+            .dropdown-menu .dropdown-item {
+                i {
+                    color: $color_olivine_approx;
+                }
+            }
+        }
+    }
+    #page-content {
+        .has-blocks {
+            .card.card-block {
+                .course-content .weeks li.section {
+                    .right .section_action_menu .action-menu {
+                        .menubar .dropdown .dropdown-menu a.dropdown-item i.icon {
+                            color: $color_olivine_approx;
+                        }
+                    }
+                    .content {
+                        ul.section li .mod-indent-outer .action-menu .menubar .dropdown {
+                            .dropdown-menu .dropdown-item i.icon {
+                                color: $color_olivine_approx;
+                            }
+                        }
+                        .sectionname .inplaceeditable .quickeditlink i.icon {
+                            vertical-align: top;
+                            &:before {
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.messaging-area-container .messaging-area .contacts-area .tabs .tab {
+    div {
+        color: $color_olivine_approx;
+    }
+    &:hover {
+        color: $color_olivine_approx;
+    }
+}
+.editor_atto_menu .dropdown-menu > li > a {
+    display: block;
+}
+#page-admin-search .nav.nav-tabs {
+    border: 0;
+}
+.userlist .initialbar {
+    margin-bottom: 20px;
+}
+#page-mod-quiz-attempt .submitbtns {
+    text-align: right;
+    .mod_quiz-next-nav {
+        float: none;
+    }
+}
+.block-region .block .card-block.course-info-container {
+    padding: 1.25rem;
+}
+
+.list-group-item.active {
+    background: $color_olivine_approx;
+    border-color: $color_olivine_approx;
+    span i.icon {
+        color: $white;
+    }
+}
+.initialbar .pagination .page-item {
+    &.active .page-link {
+        color: $white;
+        background-color: $color_olivine_approx;
+        border-color: $color_olivine_approx;
+        &:hover {
+            color: $white;
+        }
+    }
+    .page-link {
+        color: $color_olivine_approx;
+    }
+}
+
+@media (max-width: 575px) {
+    #page-login-index .card {
+        margin-top: 50px;
+    }
+}
+.form-control:focus {
+    box-shadow: none;
+}
+.block .card-body.course-info-container {
+    padding: 1.25rem;
+}
+@media (max-width: 574px) {
+    .card-deck .card.courses-view-course-item {
+        width: 100%;
+        flex-basis: auto;
+    }
+}
+.dropdown-menu {
+    .dropdown-item {
+        &:active {
+            background: $color_light_gray;
+            color: $blaze_orange;
+        }
+    }
 }

@@ -22,15 +22,15 @@
  */
 
 (function($) {
-    var img = $("header#header").find('.avatars').find('img[src$="/u/f2"]');
+    var img = $("nav#header").find('.avatar').find('img[src$="/u/f2"]');
     var src = img.attr('src');
     img.attr('src', src + "_white");
-    var msg = $("header#header").find('#nav-message-popover-container .nav-link').find("img[src$='t/message']");
+  /*  var msg = $("header#header").find('#nav-message-popover-container .nav-link').find("img[src$='t/message']");
     msgsrc = msg.attr('src');
     msg.attr('src', msgsrc + "_white");
     var note = $("header#header").find('#nav-notification-popover-container .nav-link').find("img[src$='i/notifications']");
     var notesrc = note.attr('src');
-    note.attr('src', notesrc + "_white");
+    note.attr('src', notesrc + "_white");*/
     /* ------- Check navbar button status -------- */
     if ($("#header .navbar-nav button").attr('aria-expanded') === "true") {
         $("#header .navbar-nav").find('button').addClass('is-active');
@@ -46,4 +46,14 @@
             }
         }, 200);
     });
+
+    var foothtml = $('footer#page-footer').text();
+    if ($.trim(foothtml).length == 0) {
+        $('footer#page-footer').addClass('empty-footer');
+    }
+    addhtml = $('.address-head').text();
+    if ($.trim(addhtml).length == 0) {
+        $('.address-head').addClass('empty-address');
+    }
+
 })(jQuery);
