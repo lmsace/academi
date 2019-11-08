@@ -695,6 +695,13 @@ i.icon {
             background-position: right 7px;
         }
     }
+    .frontpage-category-combo {
+        .content {
+            .teachers {
+                margin-right: 200px;
+            }
+        }
+    }
     select[multiple] {
         width: 100%;
         max-width: 220px;
@@ -775,13 +782,15 @@ i.icon {
             }
         }
     }
-    .courses.frontpage-course-list-all {
-        padding: 0 30px;
-        > .paging.paging-morelink {
-            text-align: left;
-            a:before {
-                font-family: $font_4;
-                content: "\f100\00a0";
+    .courses {
+        &.frontpage-course-list-all, &.frontpage-course-list-enrolled {
+            padding: 0 30px;
+            > .paging.paging-morelink {
+                text-align: left;
+                a:before {
+                    font-family: $font_4;
+                    content: "\f100\00a0";
+                }
             }
         }
     }
@@ -1238,16 +1247,15 @@ i.icon {
             margin-right: 5px;
         }
     }
-    .courses.frontpage-course-list-all {
-        > .paging.paging-morelink a:after {
-            font-family: $font_4;
-            content: "\00a0\f101";
+    .courses {
+        &.frontpage-course-list-all, &.frontpage-course-list-enrolled {
+            > .paging.paging-morelink a:after {
+                font-family: $font_4;
+                content: "\00a0\f101";
+            }
         }
     }
     .coursebox .info {
-        .coursename {
-            display: inline-block;
-        }
         .moreinfo {
             right: 0;
         }
@@ -1402,6 +1410,18 @@ i.icon {
                 &:first-child {
                     margin-right: 0;
                 }
+            }
+        }
+        .frontpage-category-combo .coursebox .content {
+            .summary {
+                padding: 0 200px 0 0;
+            }
+            .coursecat {
+                padding: 0 200px 0 0;
+            }
+            .teachers {
+                padding-right: 200px;
+                padding-left: 0;
             }
         }
     }
@@ -2377,7 +2397,7 @@ table {
         }
     }
 }
-#frontpage-available-course-list {
+#frontpage-available-course-list, #frontpage-course-list {
     padding: 15px 0 20px;
     border: 1px solid $color_bon_jour_approx;
     background: $color_gray_nurse_approx;
@@ -2387,8 +2407,10 @@ table {
         margin: 0 auto;
     }
 }
+
+
 .courses {
-    &.frontpage-course-list-all {
+    &.frontpage-course-list-all, &.frontpage-course-list-enrolled {
         max-width: 1270px;
         padding: 0 20px;
         margin: 0 auto;
@@ -2406,6 +2428,12 @@ table {
                     padding: 0;
                 }
                 .content {
+                    padding: 0;
+                }
+                .coursecat {
+                    padding: 0;
+                }
+                .teachers {
                     padding: 0;
                 }
                 .teachers {
@@ -2430,7 +2458,7 @@ table {
             }
             .summary {
                 .no-overflow {
-                    height: 70px;
+                    max-height: 70px;
                     overflow: hidden;
                     text-overflow: ellipsis;
                     -webkit-line-clamp: 3;
@@ -2438,6 +2466,9 @@ table {
                     display: -webkit-box;
                     p {
                         margin-bottom: 0;
+                        &:empty {
+                            display: none;
+                        }
                         img {
                             display: none;
                         }
@@ -2486,11 +2517,9 @@ table {
     max-width: 1270px;
     padding: 0 20px;
     margin: 15px auto 0;
-/*     border: 1px solid $color_gray_nurse_approx; */
     h2 {
         background: $white;
         padding: 9px 18px;
-        /* border-bottom: 1px solid $color_gray_nurse_approx; */
         margin: 0;
     }
 }
@@ -2788,9 +2817,6 @@ table {
             margin-bottom: 7px;
             display: block;
         }
-        /* input[type="text"] {
-            width: 60%;
-        } */
     }
     .dir-rtl .userprofile dl.list {
         dt {
@@ -2811,6 +2837,7 @@ table {
         border: 0;
     }
     .info {
+        margin-bottom: 10px;
         position: relative;
         .coursename {
             float: none;
@@ -2878,19 +2905,91 @@ table {
         }
     }
 }
-
-@media (min-width: 768px) {
-    .courses.frontpage-course-list-all .coursebox {
-        .info {
-            padding-left: 200px;
-        }
-        .content {
-            padding-left: 200px;
-            .coursefile {
-                left: 0;
+.frontpage-category-combo {
+    .coursebox {
+        &.content-block {
+            .content {
+                min-height: auto;
+            }
+            .summary {
+                padding: 10px 0 0 0;
             }
             .coursecat {
-                padding: 0 0 0 125px;
+                padding: 0;
+            }
+            .teachers {
+                padding: 0;
+            }
+        }
+        .content {
+            min-height: 140px;
+            position: relative;
+            .summary {
+                .no-overflow {
+                    max-height: 70px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                    display: -webkit-box;
+                }
+                padding-top: 10px;
+                img {
+                    display: none;
+                }
+            }
+            .courseimage {
+                height: 120px;
+                padding: 5px;
+                border: 1px solid $color_celeste_approx;
+                top: 0;
+                img {
+                    max-width: 160px;
+                    max-height: none;
+                    height: 100%;
+                }
+            }
+        }
+    }
+}
+
+
+
+@media (max-width: 767px) {
+    #page-mod-quiz-mod #id_reviewoptionshdr .fitem {
+        float: none;
+        width: 100%;
+    }
+}
+
+
+
+@media (min-width: 575px) {
+    .courses {
+        &.frontpage-course-list-all, &.frontpage-course-list-enrolled {
+            .coursebox {
+                .info {
+                    padding-left: 200px;
+                    .coursename a {
+                        width: 90%;
+                        height: 30px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
+                }
+                .content {
+                    padding-left: 200px;
+                    .summary {
+                        min-height: 67px;
+                    }
+                    .coursefile {
+                        left: 0;
+                    }
+                    .coursecat {
+                        padding: 0 0 0 125px;
+                    }
+                }
             }
         }
     }
@@ -2915,17 +3014,57 @@ table {
             margin-right: 200px;
         }
     }
+    .frontpage-category-combo .coursebox {
+        &.content-block {
+            .content {
+                .summary {
+                    padding: 10px 0 0 0;
+                }
+                .coursecat {
+                    padding: 0;
+                }
+                .teachers {
+                    padding: 0;
+                }
+            }
+        }
+        .content {
+            .summary {
+                padding: 0 0 0 200px;
+            }
+            .coursecat {
+                padding: 0 0 0 200px;
+            }
+            .teachers {
+                padding-left: 200px;
+            }
+        }
+    }
 }
 
-@media (max-width: 767px) {
-    .courses.frontpage-course-list-all .coursebox {
+@media (max-width: 574px) {
+    .courses {
+        &.frontpage-course-list-all, &.frontpage-course-list-enrolled {
+            .coursebox {
+                .info {
+                    padding-top: 140px;
+                }
+                .content {
+                    .courseimage {
+                        max-width: none;
+                        height: 140px;
+                    }
+                }
+            }
+        }
+    }
+    .frontpage-category-combo .coursebox {
+        &.content-block .content {
+            min-height: auto;
+            padding-top: 0;
+        }
         .content {
             padding: 140px 0 0;
-            .courseimage {
-                height: auto;
-                top: 80px;
-                left: 20px;
-            }
             .coursefile {
                 left: 50%;
                 margin-left: -50px;
@@ -2933,9 +3072,12 @@ table {
             .teachers {
                 margin-left: 0;
             }
+            .summary {
+                padding-top: 0;
+            }
         }
     }
-    .dir-rtl .coursebox .content {
+    .dir-rtl .frontpage-category-combo .coursebox .content {
         .summary {
             padding-right: 0;
         }
@@ -2946,10 +3088,6 @@ table {
         .teachers {
             margin-right: 0;
         }
-    }
-    #page-mod-quiz-mod #id_reviewoptionshdr .fitem {
-        float: none;
-        width: 100%;
     }
 }
 
@@ -3238,11 +3376,6 @@ select[size] {
     }
 }
 
-/* @media (min-width: 575px) {
-    .box form div .no-overflow {
-        overflow: visible;
-    }
-} */
 .btn-primary {
     &:active {
         &:hover {
@@ -3487,7 +3620,6 @@ div.backup-section + form {
 form#coursesearch {
     clear: both;
     fieldset.coursesearchbox {
-        /*display: block;*/
         label {
             color: $color_fuscous_gray_approx;
             padding-top: 7px;
@@ -3499,7 +3631,6 @@ form#coursesearch {
         }
         input[type="text"] {
             max-width: 300px;
-/*            width: 100%;*/
             padding: 0 10px;
         }
         input[type="submit"] {
@@ -3789,7 +3920,11 @@ tr.discussion {
     max-width: 1270px;
     padding: 0 20px;
     margin: 0 auto;
+    .coursebox {
+
+    }
 }
+
 .mform .form-inline .custom-select {
     height: 40px;
 }
@@ -3798,9 +3933,6 @@ tr.discussion {
     .mform .form-inline .custom-select {
         max-width: 500px;
         width: 100%;
-    }
-    .form-group {
-        /* max-width: 300px; */
     }
     .mform .fitem {
         margin-bottom: 10px;
@@ -3873,20 +4005,7 @@ tr.discussion {
 .path-calendar .maincalendar .calendartable td {
     vertical-align: middle;
 }
-/*#header .popover-region .popover-region-container {
-    top: 2rem;
-    .popover-region-header-actions a i:before {
-        color: $color_olivine_approx;
-    }
-    .content-item-container {
-        &:hover {
-            background: $color_olivine_approx;
-            .content-item-body h3 {
-                color: $white;
-            }
-        }
-    }
-}*/
+
 nav .popover-region {
     .content-item-container {
         &:hover {
@@ -4253,9 +4372,6 @@ nav .popover-region {
         .page-link {
             &:focus {
                 box-shadow: none;
-            }
-            i.icon {
-                /* line-height: 24px; */
             }
         }
     }
