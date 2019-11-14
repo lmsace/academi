@@ -26,7 +26,7 @@ defined('MOODLE_INTERNAL') || die;
 
 $THEME->name = 'academi';
 
-$THEME->sheets = [];
+$THEME->sheets = ['theme'];
 
 $THEME->editor_sheets = [];
 
@@ -44,9 +44,9 @@ $THEME->addblockposition = BLOCK_ADDBLOCK_POSITION_FLATNAV;
 
 $THEME->prescsscallback = 'theme_academi_get_pre_scss';
 
-$THEME->scss = function($theme) {
+/*$THEME->scss = function($theme) {
     return theme_academi_get_main_scss_content($theme);
-};
+};*/
 
 $THEME->csspostprocess = 'theme_academi_process_css';
 
