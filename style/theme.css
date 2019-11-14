@@ -1052,6 +1052,9 @@ h1, h2, h3, h4, h5, h6 {
       }
 }
  @media (min-width: 992px) {
+      .header-main .navbar .collapse:not(.show) {
+            display: block;
+      }
        .header-main .navbar-toggler {
              display: none;
       }
@@ -3206,9 +3209,6 @@ h1, h2, h3, h4, h5, h6 {
  .path-mod-forum .discussion-settings-menu .dropdown .dropdown-toggle:focus {
        background: none;
 }
- .path-mod-forum .discussion-settings-menu .dropdown .dropdown-menu .dropdown-item {
-       padding: 0;
-}
  .path-mod-forum .discussion-settings-menu .dropdown .dropdown-menu .dropdown-item a.btn {
        color: #88b77b;
 }
@@ -3253,9 +3253,6 @@ h1, h2, h3, h4, h5, h6 {
 }
  .path-grade-report-singleview div.reporttable form div.singleview_buttons {
        text-align: center;
-}
- tr.discussion td .dropdown .dropdown-menu .dropdown-item {
-       padding: 0;
 }
  tr.discussion td .dropdown .dropdown-menu .dropdown-item a.btn {
        color: #88b77b;
@@ -3684,169 +3681,173 @@ h1, h2, h3, h4, h5, h6 {
 }
  @media (max-width: 574px) {
        .card-deck .card.courses-view-course-item {
-             width: 100%;
-             flex-basis: auto;
+            width: 100%;
+            flex-basis: auto;
       }
 }
- .dropdown-menu .dropdown-item:active {
-       background: #f8f9fa;
-       color: #f60;
+.dropdown-menu .dropdown-item:active {
+      background: #f8f9fa;
+      color: #f60;
+}
+.dropdown-menu .dropdown-item.active {
+      background: #88b77b;
+      color: #fff;
 }
 /*moodle-3.6*/
- #page-wrapper {
+#page-wrapper {
        height: auto;
        margin-bottom: 50px;
 }
- .pagination .page-item .page-link:focus {
+.pagination .page-item .page-link:focus {
        box-shadow: none;
 }
- .activity-navigation a.btn.btn-link {
+.activity-navigation a.btn.btn-link {
        color: #88b77b;
 }
- .activity-navigation a.btn.btn-link:hover {
+.activity-navigation a.btn.btn-link:hover {
        color: #88b77b;
 }
- .block-myoverview .dropdown-menu .dropdown-item.active {
+.block-myoverview .dropdown-menu .dropdown-item.active {
        background: #88b77b;
 }
- .block-myoverview .dropdown-menu .dropdown-item:hover {
-       color: #fff;
-       background: #88b77b;
-}
- .block-myoverview .dropdown-menu .dropdown-item:hover i.icon {
-       color: #fff;
-}
- .block-myoverview .dropdown-menu .dropdown-item:focus {
+.block-myoverview .dropdown-menu .dropdown-item:hover {
        color: #fff;
        background: #88b77b;
 }
- .block-myoverview .dropdown-menu .dropdown-item:focus i.icon {
+.block-myoverview .dropdown-menu .dropdown-item:hover i.icon {
        color: #fff;
 }
- .block-myoverview .dropdown-menu .dropdown-item:active {
+.block-myoverview .dropdown-menu .dropdown-item:focus {
        color: #fff;
        background: #88b77b;
 }
- .block-myoverview .dropdown-menu .dropdown-item:active i.icon {
+.block-myoverview .dropdown-menu .dropdown-item:focus i.icon {
        color: #fff;
 }
- #page-my-index .block .block-cards .text-primary {
+.block-myoverview .dropdown-menu .dropdown-item:active {
+       color: #fff;
+       background: #88b77b;
+}
+.block-myoverview .dropdown-menu .dropdown-item:active i.icon {
+       color: #fff;
+}
+#page-my-index .block .block-cards .text-primary {
        color: inherit;
 }
- .btn.btn-outline-secondary.dropdown-toggle:hover {
+.btn.btn-outline-secondary.dropdown-toggle:hover {
        color: #fff;
        background: #88b77b;
 }
- .btn.btn-outline-secondary.dropdown-toggle:hover i.icon {
+.btn.btn-outline-secondary.dropdown-toggle:hover i.icon {
        color: #fff;
 }
- .btn.btn-outline-secondary.dropdown-toggle:focus {
+.btn.btn-outline-secondary.dropdown-toggle:focus {
        color: #fff;
        background: #88b77b;
        box-shadow: none;
 }
- .btn.btn-outline-secondary.dropdown-toggle:focus:active {
+.btn.btn-outline-secondary.dropdown-toggle:focus:active {
        color: #fff;
        box-shadow: none;
 }
- .btn.btn-outline-secondary.dropdown-toggle:focus:active i.icon {
+.btn.btn-outline-secondary.dropdown-toggle:focus:active i.icon {
        color: #fff;
 }
- .btn.btn-outline-secondary.dropdown-toggle:focus i.icon {
+.btn.btn-outline-secondary.dropdown-toggle:focus i.icon {
        color: #fff;
 }
- .btn.btn-outline-secondary.dropdown-toggle:active {
+.btn.btn-outline-secondary.dropdown-toggle:active {
        color: #fff;
        background: #88b77b;
 }
- .btn.btn-outline-secondary.dropdown-toggle:active i.icon {
+.btn.btn-outline-secondary.dropdown-toggle:active i.icon {
        color: #fff;
 }
- .block-timeline .dropdown-menu .dropdown-item.active {
+.block-timeline .dropdown-menu .dropdown-item.active {
        background: #88b77b;
 }
- button.close:hover, .moodle-dialogue-base button.closebutton:hover {
+button.close:hover, .moodle-dialogue-base button.closebutton:hover {
        background: none;
 }
- button.close:focus, .moodle-dialogue-base button.closebutton:focus {
+button.close:focus, .moodle-dialogue-base button.closebutton:focus {
        background: none;
 }
- #header .usermenu a.dropdown-toggle {
+#header .usermenu a.dropdown-toggle {
        padding: 0;
        box-shadow: none;
 }
- .action-menu .dropdown-toggle {
+.action-menu .dropdown-toggle {
        box-shadow: none;
 }
- .show > .btn-outline-secondary.dropdown-toggle {
+.show > .btn-outline-secondary.dropdown-toggle {
        background: none;
        color: inherit;
 }
- .block-region .block .card-body .block-myoverview .card-title {
+.block-region .block .card-body .block-myoverview .card-title {
        width: 100%;
        padding: 0;
        background: none;
        border: 0;
        margin-right: 0 !important;
 }
- .block-region .block .card-body .block-myoverview .card-title a {
+.block-region .block .card-body .block-myoverview .card-title a {
        font-size: 16px;
        color: #88b77b;
 }
- .header-main .message-app .header-container .input-group .input-group-prepend .input-group-text {
+.header-main .message-app .header-container .input-group .input-group-prepend .input-group-text {
        padding-right: 10px !important;
 }
- .header-main .message-app .header-container .badge {
+.header-main .message-app .header-container .badge {
        background-color: #88b77b !important;
 }
- .header-main .message-app .body-container .view-overview-body .section .badge {
+.header-main .message-app .body-container .view-overview-body .section .badge {
        background-color: #88b77b !important;
 }
- .header-main .message-app .body-container .view-overview-body .section .btn:focus {
+.header-main .message-app .body-container .view-overview-body .section .btn:focus {
        color: #88b77b;
 }
- .header-main .message-app .body-container .nav .nav-item a.nav-link.active {
+.header-main .message-app .body-container .nav .nav-item a.nav-link.active {
        background: #88b77b;
 }
- .header-main .message-app .body-container .custom-control.custom-radio .custom-control-input:checked ~ .custom-control-label:before {
+.header-main .message-app .body-container .custom-control.custom-radio .custom-control-input:checked ~ .custom-control-label:before {
        background-color: #88b77b;
 }
- .header-main .message-app .body-container .custom-control.custom-radio .custom-control-input:active ~ .custom-control-label:before {
+.header-main .message-app .body-container .custom-control.custom-radio .custom-control-input:active ~ .custom-control-label:before {
        background-color: rgba(136, 183, 123, .25);
 }
- .header-main .message-app .body-container .custom-control.custom-radio .custom-control-input:checked:focus ~ .custom-control-label:before {
+.header-main .message-app .body-container .custom-control.custom-radio .custom-control-input:checked:focus ~ .custom-control-label:before {
        background-color: #88b77b;
        box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(136, 183, 123, .25);
 }
- .header-main .message-app .body-container .switch input:checked + label:before {
+.header-main .message-app .body-container .switch input:checked + label:before {
        background-color: #88b77b;
 }
- .header-main .message-app .body-container .switch input:focus + label:before {
+.header-main .message-app .body-container .switch input:focus + label:before {
        box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(136, 183, 123, .25);
 }
- .header-main .message-app .body-container .switch input:checked:focus + label:before {
+.header-main .message-app .body-container .switch input:checked:focus + label:before {
        box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(136, 183, 123, .25);
 }
- .message-app .body-container .nav-pills .nav-link.active {
+.message-app .body-container .nav-pills .nav-link.active {
        background-color: #88b77b;
 }
- .block-region .block.card .card-body {
+.block-region .block.card .card-body {
        padding: 0 !important;
 }
- .block-recentlyaccessedcourses .card .card-body.course-info-container {
+.block-recentlyaccessedcourses .card .card-body.course-info-container {
        padding: 1.25rem !important;
 }
- #region-main.has-blocks .dashboard-card-deck .dashboard-card .card-body .card-title {
+#region-main.has-blocks .dashboard-card-deck .dashboard-card .card-body .card-title {
        width: 100%;
        margin-right: 0 !important;
 }
- #region-main .block-myoverview .dashboard-card-deck .dashboard-card .card-body {
+#region-main .block-myoverview .dashboard-card-deck .dashboard-card .card-body {
        padding: 10px !important;
 }
- #region-main .block-myoverview .progress {
+#region-main .block-myoverview .progress {
        border-radius: 5px;
 }
- #region-main .block-myoverview .progress .progress-bar {
+#region-main .block-myoverview .progress .progress-bar {
        background-color: #f60;
 }
 /*Moodle-3.7*/
@@ -3859,4 +3860,3 @@ h1, h2, h3, h4, h5, h6 {
  #recipientform select, .langimport select {
        max-width: 100%;
 }
- 
