@@ -24,45 +24,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * Parses CSS before it is cached.
- *
- * This function can make alterations and replace patterns within the CSS.
- *
- * @param type|string $theme The theme config object.
- * @return string The parsed CSS The parsed CSS.
- */
-function theme_academi_get_pre_scss($theme) {
-    $scss = theme_academi_set_fontwww();
-    return $scss;
-}
-
-/**
- * Get extra scss from settings.
- * @param type|string $theme
- * @return type|string
- */
-function theme_academi_get_extra_scss($theme) {
-    return !empty($theme->settings->customcss) ? $theme->settings->customcss : '';
-}
-
-/**
- * Get theme main scss content.
- * @param type|string $theme
- * @return string
- */
-function theme_academi_get_main_scss_content($theme) {
-    global $CFG;
-    $scss = '';
-    $parentconfig = theme_config::load('boost');
-    $scss .= theme_boost_get_main_scss_content($parentconfig);
-    $themescssfile = $CFG->dirroot.'/theme/academi/scss/preset/theme.scss';
-    if ( file_exists($themescssfile) ) {
-        $scss .= file_get_contents($themescssfile);
-    }
-    return $scss;
-}
-
-/**
  * Load the Jquery and migration files
  * Load the our theme js file
  * @param moodle_page $page.
@@ -317,7 +278,6 @@ function theme_academi_set_fontwww() {
     return $fontwww;
 }
 
-
 // Logo Image URL Fetch from theme settings.
 // @ return string.
 if (!function_exists('get_logo_url')) {
@@ -382,7 +342,6 @@ function theme_academi_get_setting($setting, $format = true) {
     }
 }
 
-
 // Return the current theme url.
 // @ return string.
 if (!function_exists('theme_url')) {
@@ -423,5 +382,3 @@ function  theme_academi_infolink() {
     }
     return $content;
 }
-
-

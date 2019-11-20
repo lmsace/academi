@@ -514,21 +514,16 @@ h1, h2, h3, h4, h5, h6 {
        float: none;
        width: auto;
        padding: 5px;
-       margin: 0;
        clear: none;
-       border: 1px solid #ccc;
-       padding-left: 0;
-       padding-right: 20px;
-       margin-left: 0;
-       margin-top: 20px;
+       padding-right: 0;
+       margin: 0;
+       margin-top: 10px;
 }
  .dir-rtl .coursebox .content .courseimage {
        float: none;
        width: auto;
-       padding: 5px;
        margin: 0;
        clear: none;
-       border: 1px solid #ccc;
        position: absolute;
        top: 10px;
 }
@@ -546,7 +541,7 @@ h1, h2, h3, h4, h5, h6 {
        padding-right: 30px;
        background-position: right 7px;
 }
- .dir-rtl .frontpage-category-combo .content .teachers {
+ .dir-rtl .course_category_tree .content .teachers {
        margin-right: 200px;
 }
  .dir-rtl select[multiple] {
@@ -1169,14 +1164,13 @@ h1, h2, h3, h4, h5, h6 {
        .dir-rtl .header-main .row-fluid [class*="span"]:first-child {
              margin-right: 0;
       }
-       .dir-rtl .frontpage-category-combo .coursebox .content .summary {
+       .dir-rtl .course_category_tree .coursebox .content .summary {
              padding: 0 200px 0 0;
       }
-       .dir-rtl .frontpage-category-combo .coursebox .content .coursecat {
+       .dir-rtl .course_category_tree .coursebox .content .coursecat {
              padding: 0 200px 0 0;
       }
-       .dir-rtl .frontpage-category-combo .coursebox .content .teachers {
-             padding-right: 200px;
+       .dir-rtl .course_category_tree .coursebox .content .teachers {
              padding-left: 0;
       }
        .carousel-overlay-content .content-wrap {
@@ -2087,7 +2081,7 @@ h1, h2, h3, h4, h5, h6 {
        border: 1px solid #e2e2e2;
        background: #e9e9e9;
 }
- #frontpage-available-course-list h2, #frontpage-course-list h2 {
+ #frontpage-available-course-list h2, #frontpage-course-list h2, #frontpage-category-combo h2 {
        max-width: 1270px;
        padding: 20px;
        margin: 0 auto;
@@ -2135,7 +2129,7 @@ h1, h2, h3, h4, h5, h6 {
        padding: 0;
 }
  .courses.frontpage-course-list-all .coursebox .summary .no-overflow, .courses.frontpage-course-list-enrolled .coursebox .summary .no-overflow {
-       max-height: 70px;
+       max-height: 67px;
        overflow: hidden;
        text-overflow: ellipsis;
        -webkit-line-clamp: 3;
@@ -2154,13 +2148,13 @@ h1, h2, h3, h4, h5, h6 {
  .courses.frontpage-course-list-all .coursebox .content .courseimage, .courses.frontpage-course-list-enrolled .coursebox .content .courseimage {
        max-width: 200px;
        width: 100%;
-       height: 148px;
        top: 0;
        left: 0;
 }
  .courses.frontpage-course-list-all .coursebox .content .courseimage img, .courses.frontpage-course-list-enrolled .coursebox .content .courseimage img {
        max-width: none;
-       max-height: none;
+       max-height: 180px;
+       min-height: 148px;
        width: 100%;
        height: 100%;
        object-fit: cover;
@@ -2192,9 +2186,7 @@ h1, h2, h3, h4, h5, h6 {
        margin: 0;
 }
  .course_category_tree.frontpage-category-names {
-       background: #f9f9f9;
        padding: 0 20px 20px;
-       border-bottom: 1px solid #e9e9e9;
 }
  .course_category_tree.frontpage-category-names .category.with_children > .info > .categoryname {
        background-image: url([[pix:theme|svg_grey/t/expanded]]);
@@ -2487,13 +2479,11 @@ h1, h2, h3, h4, h5, h6 {
        min-height: 40px;
 }
  .coursebox .content .teachers {
-       margin-left: 200px;
-       margin-top: 20px;
+       margin: 0;
+       margin-top: 10px;
        float: none;
        width: auto;
-       padding: 5px;
        clear: none;
-       border: 1px solid #ccc;
 }
  .coursebox .content .teachers li {
        font-family: Arial, Helvetica, sans-serif;
@@ -2534,43 +2524,43 @@ h1, h2, h3, h4, h5, h6 {
        background-position: left 7px;
        padding-left: 30px;
 }
- .frontpage-category-combo .coursebox.content-block .content {
+ .course_category_tree .coursebox.content-block .content {
        min-height: auto;
 }
- .frontpage-category-combo .coursebox.content-block .summary {
+ .course_category_tree .coursebox.content-block .summary {
        padding: 10px 0 0 0;
 }
- .frontpage-category-combo .coursebox.content-block .coursecat {
+ .course_category_tree .coursebox.content-block .coursecat {
        padding: 0;
 }
- .frontpage-category-combo .coursebox.content-block .teachers {
+ .course_category_tree .coursebox.content-block .teachers {
        padding: 0;
 }
- .frontpage-category-combo .coursebox .content {
+ .course_category_tree .coursebox .content {
        min-height: 140px;
        position: relative;
 }
- .frontpage-category-combo .coursebox .content .summary {
+ .course_category_tree .coursebox .content .summary {
        padding-top: 10px;
 }
- .frontpage-category-combo .coursebox .content .summary .no-overflow {
-       max-height: 70px;
+ .course_category_tree .coursebox .content .summary .no-overflow {
+       max-height: 67px;
        overflow: hidden;
        text-overflow: ellipsis;
        -webkit-line-clamp: 3;
        -webkit-box-orient: vertical;
        display: -webkit-box;
 }
- .frontpage-category-combo .coursebox .content .summary img {
+ .course_category_tree .coursebox .content .summary img {
        display: none;
 }
- .frontpage-category-combo .coursebox .content .courseimage {
+ .course_category_tree .coursebox .content .courseimage {
        height: 120px;
        padding: 5px;
        border: 1px solid #ccc;
        top: 0;
 }
- .frontpage-category-combo .coursebox .content .courseimage img {
+ .course_category_tree .coursebox .content .courseimage img {
        max-width: 160px;
        max-height: none;
        height: 100%;
@@ -2612,33 +2602,34 @@ h1, h2, h3, h4, h5, h6 {
              right: 0;
              left: auto;
       }
-       .dir-rtl .coursebox .content .summary {
+       /*.dir-rtl .coursebox .content .summary {
              padding: 0 200px 0 0;
-      }
+      }*/
        .dir-rtl .coursebox .content .coursecat {
              padding: 0 110px 0 0;
       }
-       .dir-rtl .coursebox .content .teachers {
-             padding-right: 20px;
-             padding-left: 0;
-             margin-right: 200px;
+      .dir-rtl .course_category_tree .coursebox.content-block .teachers {
+              margin-right: 0;
       }
-       .frontpage-category-combo .coursebox.content-block .content .summary {
+      .dir-rtl .course_category_tree .coursebox .content .teachers {
+       padding-right: 0;
+      }
+       .course_category_tree .coursebox.content-block .content .summary {
              padding: 10px 0 0 0;
       }
-       .frontpage-category-combo .coursebox.content-block .content .coursecat {
+       .course_category_tree .coursebox.content-block .content .coursecat {
              padding: 0;
       }
-       .frontpage-category-combo .coursebox.content-block .content .teachers {
+       .course_category_tree .coursebox.content-block .content .teachers {
              padding: 0;
       }
-       .frontpage-category-combo .coursebox .content .summary {
+       .course_category_tree .coursebox .content .summary {
              padding: 0 0 0 200px;
       }
-       .frontpage-category-combo .coursebox .content .coursecat {
+       .course_category_tree .coursebox .content .coursecat {
              padding: 0 0 0 200px;
       }
-       .frontpage-category-combo .coursebox .content .teachers {
+       .course_category_tree .coursebox .content .teachers {
              padding-left: 200px;
       }
 }
@@ -2650,31 +2641,31 @@ h1, h2, h3, h4, h5, h6 {
              max-width: none;
              height: 140px;
       }
-       .frontpage-category-combo .coursebox.content-block .content {
+       .course_category_tree .coursebox.content-block .content {
              min-height: auto;
              padding-top: 0;
       }
-       .frontpage-category-combo .coursebox .content {
+       .course_category_tree .coursebox .content {
              padding: 140px 0 0;
       }
-       .frontpage-category-combo .coursebox .content .coursefile {
+       .course_category_tree .coursebox .content .coursefile {
              left: 50%;
              margin-left: -50px;
       }
-       .frontpage-category-combo .coursebox .content .teachers {
+       .course_category_tree .coursebox .content .teachers {
              margin-left: 0;
       }
-       .frontpage-category-combo .coursebox .content .summary {
+       .course_category_tree .coursebox .content .summary {
              padding-top: 0;
       }
-       .dir-rtl .frontpage-category-combo .coursebox .content .summary {
+       .dir-rtl .course_category_tree .coursebox .content .summary {
              padding-right: 0;
       }
-       .dir-rtl .frontpage-category-combo .coursebox .content .coursefile {
+       .dir-rtl .course_category_tree .coursebox .content .coursefile {
              left: 50%;
              margin-left: -50px;
       }
-       .dir-rtl .frontpage-category-combo .coursebox .content .teachers {
+       .dir-rtl .course_category_tree .coursebox .content .teachers {
              margin-right: 0;
       }
 }
@@ -3380,7 +3371,7 @@ h1, h2, h3, h4, h5, h6 {
        width: 100%;
        object-fit: cover;
 }
- #frontpage-category-combo {
+ .course_category_tree {
        max-width: 1270px;
        padding: 0 20px;
        margin: 0 auto;
@@ -3539,24 +3530,24 @@ h1, h2, h3, h4, h5, h6 {
  .pagelayout-frontpage #page #region-bs-main-and-pre {
        padding: 0;
 }
- .pagelayout-frontpage #page #region-bs-main-and-pre .box {
+ .pagelayout-frontpage #page #page-content .box {
        max-width: 1270px;
        padding: 0 20px;
        margin: 0 auto;
 }
- .pagelayout-frontpage #page #region-bs-main-and-pre .box form {
+ .pagelayout-frontpage #page #page-content .box form {
        border: 1px solid #e9e9e9;
        padding: 20px;
 }
- .pagelayout-frontpage #page #region-bs-main-and-pre .box form .coursesearchbox {
+ .pagelayout-frontpage #page #page-content .box form .coursesearchbox {
        width: 100%;
        text-align: left;
        display: inline-block;
 }
- .pagelayout-frontpage #page #region-bs-main-and-pre .box form .coursesearchbox label {
+ .pagelayout-frontpage #page #page-content .box form .coursesearchbox label {
        display: inline-block;
 }
- .pagelayout-frontpage #page #region-bs-main-and-pre .box form .coursesearchbox input[type="text"] {
+ .pagelayout-frontpage #page #page-content .box form .coursesearchbox input[type="text"] {
        max-width: none;
        width: 50%;
        display: inline-block;

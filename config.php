@@ -42,15 +42,7 @@ $THEME->requiredblocks = '';
 
 $THEME->addblockposition = BLOCK_ADDBLOCK_POSITION_FLATNAV;
 
-$THEME->prescsscallback = 'theme_academi_get_pre_scss';
-
-/*$THEME->scss = function($theme) {
-    return theme_academi_get_main_scss_content($theme);
-};*/
-
 $THEME->csspostprocess = 'theme_academi_process_css';
-
-$THEME->extrascsscallback = 'theme_academi_get_extra_scss';
 
 $THEME->javascripts_footer = ['theme'];
 
