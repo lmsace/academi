@@ -3738,7 +3738,8 @@ nav .popover-region .content-item-container:hover .view-more {
 .has-blocks .card.card-block .block-region .block .card-block .block-controls .menubar .dropdown a.dropdown-toggle i.icon {
     margin: 0;
 }
-.has-blocks .card.card-block .block-region .block .card-block .block-controls .menubar .dropdown .dropdown-menu a.dropdown-item i.icon {
+.has-blocks .card.card-block .block-region .block .card-block .block-controls
+.menubar .dropdown .dropdown-menu a.dropdown-item i.icon {
     color: var(--color_primary);
 }
 .hidden-print .block-region .block .card-block .block-controls .menubar .dropdown a.dropdown-toggle i.icon {
@@ -3759,16 +3760,20 @@ nav .popover-region .content-item-container:hover .view-more {
 #page #page-header .card .card-block .menubar .dropdown .dropdown-menu .dropdown-item i {
     color: var(--color_primary);
 }
-#page #page-content .has-blocks .card.card-block .course-content .weeks li.section .right .section_action_menu .action-menu .menubar .dropdown .dropdown-menu a.dropdown-item i.icon {
+#page #page-content .has-blocks .card.card-block .course-content .weeks li.section
+.right .section_action_menu .action-menu .menubar .dropdown .dropdown-menu a.dropdown-item i.icon {
     color: var(--color_primary);
 }
-#page #page-content .has-blocks .card.card-block .course-content .weeks li.section .content ul.section li .mod-indent-outer .action-menu .menubar .dropdown .dropdown-menu .dropdown-item i.icon {
+#page #page-content .has-blocks .card.card-block .course-content .weeks li.section
+.content ul.section li .mod-indent-outer .action-menu .menubar .dropdown .dropdown-menu .dropdown-item i.icon {
     color: var(--color_primary);
 }
-#page #page-content .has-blocks .card.card-block .course-content .weeks li.section .content .sectionname .inplaceeditable .quickeditlink i.icon {
+#page #page-content .has-blocks .card.card-block .course-content .weeks li.section
+.content .sectionname .inplaceeditable .quickeditlink i.icon {
     vertical-align: top;
 }
-#page #page-content .has-blocks .card.card-block .course-content .weeks li.section .content .sectionname .inplaceeditable .quickeditlink i.icon:before {
+#page #page-content .has-blocks .card.card-block .course-content .weeks li.section
+.content .sectionname .inplaceeditable .quickeditlink i.icon:before {
     font-size: 12px;
 }
 .messaging-area-container .messaging-area .contacts-area .tabs .tab div {
@@ -3970,15 +3975,19 @@ button.close:focus,
 .header-main .message-app .body-container .nav .nav-item a.nav-link.active {
     background: var(--color_primary);
 }
-.header-main .message-app .body-container .custom-control.custom-radio .custom-control-input:checked + .custom-control-label:before,
-.header-main .message-app .body-container .custom-control.custom-switch .custom-control-input:checked + .custom-control-label:before {
+.header-main .message-app .body-container .custom-control.custom-radio
+.custom-control-input:checked + .custom-control-label:before,
+.header-main .message-app .body-container .custom-control.custom-switch
+.custom-control-input:checked + .custom-control-label:before {
     background-color: var(--color_primary);
     border-color: var(--color_primary);
 }
-.header-main .message-app .body-container .custom-control.custom-radio .custom-control-input:active + .custom-control-label:before {
+.header-main .message-app .body-container .custom-control.custom-radio
+.custom-control-input:active + .custom-control-label:before {
     background-color: rgba(136, 183, 123, .25);
 }
-.header-main .message-app .body-container .custom-control.custom-radio .custom-control-input:checked:focus + .custom-control-label:before {
+.header-main .message-app .body-container .custom-control.custom-radio
+.custom-control-input:checked:focus + .custom-control-label:before {
     background-color: var(--color_primary);
     box-shadow: 0 0 0 1px var(--white), 0 0 0 0.2rem rgba(136, 183, 123, .25);
 }
