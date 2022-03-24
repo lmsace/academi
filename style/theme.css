@@ -4053,10 +4053,10 @@ button.close:focus,
 .message-app .body-container .custom-control.custom-radio .custom-control-input:focus ~ .custom-control-label::before {
     box-shadow: 0 0 0 0.2rem var(--color_primary_approx_60);
 }
-.message-app .body-container .custom-control.custom-radio .custom-control-input:not(:disabled):active
-~ .custom-control-label:before,
-.message-app .body-container .custom-control.custom-switch .custom-control-input:not(:disabled):active
-~ .custom-control-label:before {
+.message-app .body-container .custom-control.custom-radio
+.custom-control-input:not(:disabled):active ~ .custom-control-label:before,
+.message-app .body-container .custom-control.custom-switch
+.custom-control-input:not(:disabled):active ~ .custom-control-label:before {
     border-color: var(--color_primary);
     background-color: var(--color_primary);
 }
