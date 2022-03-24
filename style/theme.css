@@ -105,6 +105,9 @@ a:not([class]):focus,
     background: none;
     box-shadow: none;
 }
+.btn:not(:disabled):not(.disabled) {
+    border-color: var(--color_gallery_approx);
+}
 .container {
     max-width: 1270px;
 }
@@ -181,9 +184,16 @@ i.icon {
 }
 .custom-select:focus {
     box-shadow: none;
+    border-color: var(--color_primary);
 }
 .userlist table#participants th {
     vertical-align: middle;
+}
+.form-autocomplete-suggestions li:hover,
+.form-autocomplete-suggestions li:focus,
+.form-autocomplete-suggestions li[aria-selected="true"] {
+    background: var(--color_primary);
+    box-shadow: none;
 }
 #header {
     border-bottom: 1px solid var(--color_mercury_approx);
@@ -806,6 +816,8 @@ i.icon {
 #footer .footer-main .infoarea .footer-logo a img {
     width: 100%;
     height: auto;
+    max-height: 150px;
+    object-fit: contain;
 }
 #footer .footer-main .foot-links {
     padding: 24px 0 0;
@@ -974,6 +986,10 @@ i.icon {
         float: none;
         text-align: right;
     }
+    .nav-tabs .nav-link.active:not(:disabled):not(.disabled):active, .nav-tabs .nav-link.active:not(:disabled):not(.disabled).active, .show>.nav-tabs .nav-link.active.dropdown-toggle, .nav-pills .nav-link.active:not(:disabled):not(.disabled):active, .nav-pills .nav-link.active:not(:disabled):not(.disabled).active, .show>.nav-pills .nav-link.active.dropdown-toggle {
+        background: var(--color_primary);
+        border-color: var(--color_primary);
+    }
     .header-main .logo {
         text-align: center;
     }
@@ -1018,6 +1034,7 @@ i.icon {
     margin-top: 50px;
     background: var(--white);
     border-bottom: 1px solid var(--color_mercury_approx);
+    padding: 5px 0;
 }
 .header-main .navbar-toggler {
     float: right;
@@ -1054,7 +1071,8 @@ i.icon {
 .header-main .navbar-light .navbar-brand.has-logo .logo img {
     width: 100%;
     height: auto;
-    max-height: none;
+    max-height: 150px;
+    object-fit: contain; 
 }
 .header-main .infoarea .nav-item.nav-link {
     padding: 34px 20px;
@@ -1132,7 +1150,13 @@ i.icon {
     }
 }
 
-@media (min-width: 768px) and (max-width: 979px) {
+@media (min-width: 992px) and (max-width: 1050px) {
+    .header-main .navbar .collapse:not(.show) {
+        width: 76%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
     .dir-rtl .header-main .row-fluid [class*="span"] {
         *margin-right: 2.7092394499%;
     }
@@ -1140,7 +1164,8 @@ i.icon {
 
 @media (min-width: 992px) {
     .header-main .navbar .collapse:not(.show) {
-        display: block;
+        width: 80%;
+        display: inline-block;
     }
     .header-main .navbar-toggler {
         display: none;
@@ -1167,7 +1192,7 @@ i.icon {
         display: inline-block;
     }
     .header-main .infoarea .nav-item a.nav-link {
-        padding: 34px 20px;
+        padding: 20px 20px 10px 10px;
         border-bottom: 2px solid transparent;
     }
 }
@@ -2445,7 +2470,10 @@ table#permissions tbody tr:hover > th {
     text-decoration: none;
 }
 
-@media (min-width: 575px) {
+@media (min-width: 576px) {
+    /*.form-check-input {
+        top: 7px;
+    }*/
     .userprofile .userprofilebox .profilepicture {
         float: left;
     }
@@ -2673,7 +2701,7 @@ table#permissions tbody tr:hover > th {
     padding-top: 10px;
 }
 .course_category_tree .coursebox .content .summary .no-overflow {
-    max-height: 67px;
+    max-height: 80px;
     overflow: hidden;
     text-overflow: ellipsis;
     -webkit-line-clamp: 3;
@@ -3088,8 +3116,12 @@ select[size] {
 #page #page-header {
     display: block;
 }
+.page-context-header .page-header-image {
+    max-width: 60px;
+}
 #page #page-header .page-header-image img {
-    width: auto;
+    width: 100%;
+    height: auto;
 }
 #page-site-index #header {
     margin-bottom: 0;
@@ -3127,6 +3159,9 @@ select[size] {
     background: rgba(0, 0, 0, .8);
     padding: 18px;
     display: inline-block;
+}
+.carousel-overlay-content .content-wrap p:empty {
+    display: none;
 }
 #notice .singlebutton + .singlebutton input {
     font-weight: bold;
@@ -3471,6 +3506,9 @@ tr.discussion .btn i.icon {
     margin-top: 0;
     top: 0;
 }
+#course-category-listings .listitem[data-selected='1'] {
+    border-left-color: var(--color_primary);
+}
 #course-category-listings #category-listing .course-count i.icon {
     margin-left: 5px;
 }
@@ -3503,6 +3541,12 @@ tr.discussion .btn i.icon {
     padding: 0 20px;
     margin: 0 auto;
 }
+#site-news-forum .content-alignment-container a.btn-link {
+    border: 0;
+}
+#site-news-forum .post-content-container img {
+    max-width: 350px !important;
+}
 #site-news-forum .forumaddnew {
     margin-bottom: 15px;
 }
@@ -3511,6 +3555,7 @@ tr.discussion .btn i.icon {
     max-width: 500px;
 }
 #site-news-forum .forumpost .attachedimages img {
+    max-width: 350px !important;
     width: 100%;
     object-fit: cover;
 }
@@ -3695,6 +3740,9 @@ nav .popover-region .content-item-container:hover .view-more {
 }
 .pagelayout-frontpage #page #page-content .box form .input-group {
     width: 100%;
+}
+.pagelayout-frontpage #page #page-content .box form .input-group .form-control {
+    max-width: none;
 }
 .pagelayout-frontpage #page #page-content .box form .coursesearchbox {
     width: 100%;
@@ -3905,6 +3953,7 @@ nav .popover-region .content-item-container:hover .view-more {
 .btn.btn-outline-secondary.dropdown-toggle:active,
 .btn.btn-outline-secondary.dropdown-toggle:focus:active {
     color: var(--white);
+    border-color: var(--color_primary);
     background: var(--color_primary);
     box-shadow: none;
 }
@@ -3933,6 +3982,9 @@ button.close:focus,
 .moodle-dialogue-base button.closebutton:focus {
     background: none;
 }
+.moodle-dialogue-bd .nav-pills .nav-link.active {
+    background: var(--color_primary);
+}
 #header .usermenu a.dropdown-toggle {
     padding: 0;
     box-shadow: none;
@@ -3955,6 +4007,12 @@ button.close:focus,
     font-size: 16px;
     color: var(--color_primary);
 }
+.message-app .icon {
+    color: var(--color_primary);
+}
+.header-main .message-app .header-container .input-group .input-group-append {
+
+}
 .header-main .message-app .header-container .input-group .input-group-prepend .input-group-text {
     padding-right: 10px !important;
 }
@@ -3970,25 +4028,36 @@ button.close:focus,
 .header-main .message-app .body-container .nav .nav-item a.nav-link.active {
     background: var(--color_primary);
 }
-.header-main .message-app .body-container .custom-control.custom-radio .custom-control-input:checked + .custom-control-label:before,
-.header-main .message-app .body-container .custom-control.custom-switch .custom-control-input:checked + .custom-control-label:before {
+.message-app .body-container .custom-control.custom-radio .custom-control-input:focus ~ .custom-control-label::before,
+.message-app .body-container .custom-control.custom-switch .custom-control-input:focus ~ .custom-control-label::before,
+.message-app .body-container .custom-control.custom-radio .custom-control-input:checked + .custom-control-label:before,
+.message-app .body-container .custom-control.custom-switch .custom-control-input:checked + .custom-control-label:before {
     background-color: var(--color_primary);
     border-color: var(--color_primary);
+    box-shadow: 0 0 0 0.2rem var(--color_primary);
 }
-.header-main .message-app .body-container .custom-control.custom-radio .custom-control-input:active + .custom-control-label:before {
+.message-app .body-container .custom-control.custom-radio .custom-control-input:active + .custom-control-label:before {
     background-color: rgba(136, 183, 123, .25);
 }
-.header-main .message-app .body-container .custom-control.custom-radio .custom-control-input:checked:focus + .custom-control-label:before {
+.message-app .body-container .custom-control.custom-radio .custom-control-input:checked:focus + .custom-control-label:before {
     background-color: var(--color_primary);
     box-shadow: 0 0 0 1px var(--white), 0 0 0 0.2rem rgba(136, 183, 123, .25);
 }
-.header-main .message-app .body-container .switch input:checked + label:before {
+.message-app .body-container .custom-control.custom-radio .custom-control-input:focus ~ .custom-control-label::before {
+    box-shadow: 0 0 0 0.2rem var(--color_primary_approx_60);
+}
+.message-app .body-container .custom-control.custom-radio .custom-control-input:not(:disabled):active ~ .custom-control-label:before,
+.message-app .body-container .custom-control.custom-switch .custom-control-input:not(:disabled):active ~ .custom-control-label:before {
+    border-color: var(--color_primary);
     background-color: var(--color_primary);
 }
-.header-main .message-app .body-container .switch input:focus + label:before {
+.message-app .body-container .switch input:checked + label:before {
+    background-color: var(--color_primary);
+}
+.message-app .body-container .switch input:focus + label:before {
     box-shadow: 0 0 0 1px var(--white), 0 0 0 0.2rem rgba(136, 183, 123, .25);
 }
-.header-main .message-app .body-container .switch input:checked:focus + label:before {
+.message-app .body-container .switch input:checked:focus + label:before {
     box-shadow: 0 0 0 1px var(--white), 0 0 0 0.2rem rgba(136, 183, 123, .25);
 }
 .message-app .body-container .nav-pills .nav-link.active {

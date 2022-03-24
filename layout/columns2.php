@@ -67,7 +67,7 @@ $gpurl = theme_academi_get_setting('gpurl');
 $address = theme_academi_get_setting('address');
 $emailid = theme_academi_get_setting('emailid');
 $phoneno = theme_academi_get_setting('phoneno');
-$copyrightfooter = theme_academi_get_setting('copyright_footer');
+$copyrightfooter = theme_academi_get_setting('copyright_footer','format_html');
 $infolink = theme_academi_get_setting('infolink');
 $infolink = theme_academi_infolink();
 
