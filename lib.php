@@ -47,11 +47,8 @@ function theme_academi_process_css($css, $theme) {
     $logo = $theme->setting_file_url('logo', 'logo');
     $css = theme_academi_pre_css_set_fontwww($css);
     // Set custom CSS.
-    if (!empty($theme->settings->customcss)) {
-        $customcss = $theme->settings->customcss;
-    } else {
-        $customcss = null;
-    }
+    $customcss = $theme->settings->customcss;
+    $css = theme_academi_set_customcss($css , $customcss);
     return $css;
 }
 
@@ -307,10 +304,13 @@ function theme_academi_render_slideimg($p, $sliname) {
     global $PAGE, $OUTPUT;
     $nos = theme_academi_get_setting('numberofslides');
     $i = $p % 3;
-    $slideimage = $OUTPUT->image_url('home/slide'.$i, 'theme');
     // Get slide image or fallback to default.
+    $slideimage = '';
     if (theme_academi_get_setting($sliname)) {
         $slideimage = $PAGE->theme->setting_file_url($sliname , $sliname);
+    }
+    if (empty($sliname)) {
+        $slideimage = '';
     }
     return $slideimage;
 }

@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Columns1 layout
+ * Columns 2 Layout
  * @package    theme_academi
  * @copyright  2015 onwards LMSACE Dev Team (http://www.lmsace.com)
  * @author    LMSACE Dev Team
@@ -23,9 +23,7 @@
  */
 
 defined('MOODLE_INTERNAL') || die();
-
 $bodyattributes = $OUTPUT->body_attributes([]);
-
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
     'output' => $OUTPUT,
@@ -33,4 +31,3 @@ $templatecontext = [
 ];
 
 echo $OUTPUT->render_from_template('theme_academi/columns1', $templatecontext);
-

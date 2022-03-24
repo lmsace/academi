@@ -69,8 +69,8 @@ $string['infoblocktitle'] = 'Info Block Title';
 $string['infoblocktitledefault'] = 'Who we are';
 $string['infoblocktitledesc'] = 'The title of the info block';
 $string['infolink'] = 'Info Links';
-$string['infolinkdefault'] = 'Moodle community|https://moodle.org
-Moodle free support|https://moodle.org/support
+$string['infolinkdefault'] = 'Moodle community|https://moodle.org Moodle free
+support|https://moodle.org/support
 Moodle development|https://moodle.org/development
 Moodle Docs|http://docs.moodle.org|Moodle Docs
 Moodle.com|http://moodle.com/';
@@ -81,7 +81,6 @@ Moodle development|https://moodle.org/development
 Moodle Docs|http://docs.moodle.org|Moodle Docs
 German Moodle Docs|http://docs.moodle.org/de|Documentation in German|de
 Moodle.com|http://moodle.com/ </pre>';
-
 $string['logo'] = 'Logo';
 $string['logodesc'] = 'Please upload your custom logo here if you want to add it to the header. <br>The image should be 37px high and any reasonable width (minimum:250px) that suits.';
 
@@ -200,3 +199,4 @@ Moodle community|https://moodle.org
 -###
 -Moodle development|https://moodle.org/development
 Moodle.com|http://moodle.com/";
+$string['privacy:metadata'] = 'The academi theme does not store any personal data about any user.';

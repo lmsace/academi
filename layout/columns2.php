@@ -149,4 +149,3 @@ $templatecontext = [
 
 $templatecontext['flatnavigation'] = $PAGE->flatnav;
 echo $OUTPUT->render_from_template('theme_academi/columns2', $templatecontext);
-

@@ -27,11 +27,8 @@ $string['about'] = 'حول';
 $string['aboutus'] = 'معلومات عنا';
 $string['address'] = 'عنوان';
 $string['calendar'] = 'تقويم';
-$string['choosereadme'] = '<div class="clearfix"><div class="theme_screenshot"><img class=img-polaroid src="academi/pix/screenshot.jpg" /><h3>قروض موضوع</h3><p><h3>Moodle Academi موضوع</h3><p>ويستند هذا الموضوع على موضوع Boost موودل.</p>
-<p>
-المؤلف: LMSACE فريق ديف<br>
-الاتصال: info@lmsace.com<br>
-موقع الكتروني: <a href="http://www.lmsace.com">www.lmsace.com</a><br></p>';
+$string['choosereadme'] = '<div class="clearfix"><div class="theme_screenshot"><img class=img-polaroid src="academi/pix/screenshot.jpg" /><h3>قروض موضوع</h3><p><h3>Moodle Academi موضوع</h3><p>ويستند هذا الموضوع على موضوع Boost موودل.</p><p>
+المؤلف: LMSACE فريق ديف<br>الاتصال: info@lmsace.com<br>موقع الكتروني: <a href="http://www.lmsace.com">www.lmsace.com</a><br></p>';
 $string['configtitle'] = 'Academi';
 $string['connectus'] = 'اتصل بنا';
 $string['contact'] = 'اتصال';
@@ -72,8 +69,7 @@ $string['infoblocktitle'] = 'معلومات كتلة عنوان';
 $string['infoblocktitledefault'] = 'من نحن';
 $string['infoblocktitledesc'] = 'عنوان كتلة من المعلومات';
 $string['infolink'] = 'معلومات سريعة';
-$string['infolinkdefault'] = 'المجتمع موودل|https://moodle.org
-الدعم المجاني موودل|https://moodle.org/support
+$string['infolinkdefault'] = 'المجتمع موودل|https://moodle.orgالدعم المجاني موودل|https://moodle.org/support
 تطوير موودل|https://moodle.org/development
 موودل|http://docs.moodle.org|Moodle Docs
 Moodle.com|http://moodle.com/';

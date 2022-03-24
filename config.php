@@ -26,7 +26,7 @@ defined('MOODLE_INTERNAL') || die;
 
 $THEME->name = 'academi';
 
-$THEME->sheets = ['theme'];
+$THEME->sheets = ['theme' , 'custom'];
 
 $THEME->editor_sheets = [];
 
@@ -155,3 +155,4 @@ $THEME->layouts = array(
         'defaultregion' => 'side-pre'
     )
 );
+

@@ -37,7 +37,6 @@ echo $OUTPUT->doctype() ?>
 </head>
 
 <body <?php echo $OUTPUT->body_attributes(); ?>>
-
 <?php echo $OUTPUT->standard_top_of_body_html() ?>
 
 <header role="banner" class="navbar navbar-fixed-top moodle-has-zindex">
@@ -83,3 +82,4 @@ echo $OUTPUT->doctype() ?>
 </div>
 </body>
 </html>
+

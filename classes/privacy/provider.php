@@ -15,20 +15,21 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version configuration for the theme academi
+ * Theme Config details
+ *
  * @package    theme_academi
- * @copyright  2015 onwards LMSACE Dev Team (http://www.lmsace.com)
- * @author    LMSACE Dev Team
+ * @copyright  2015 LmsaceDev Team , lmsace.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ *
  */
-
-defined('MOODLE_INTERNAL') || die;
-
-$plugin->version    = 2022032400; // This component release level.
-$plugin->maturity   = MATURITY_STABLE; // This version's maturity level.
-$plugin->release    = 'v3.9'; // This version's release version.
-$plugin->requires   = 2020061500; // This version's moodle require release.
-$plugin->component  = 'theme_academi'; // This component type_name.
-$plugin->dependencies = array(
-    'theme_boost'  => 2019022600, // This version's depended the component and its require release.
-);
+namespace theme_academi\privacy;
+class provider implements \core_privacy\local\metadata\null_provider {
+    /**
+     * Returns meta data about this system.
+     *
+     * @return  string
+     */
+    public static function get_reason() : string {
+        return 'privacy:metadata';
+    }
+}

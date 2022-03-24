@@ -50,7 +50,6 @@ class theme_academi_core_course_renderer extends core_course_renderer {
             return '';
         }
         if ($course instanceof stdClass) {
-            // require_once($CFG->libdir. '/coursecatlib.php');.
             $course = new core_course_list_element($course);
         }
         if (empty($course->get_course_overviewfiles())) {

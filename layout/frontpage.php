@@ -22,6 +22,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 defined('MOODLE_INTERNAL') || die();
+$theme = theme_config::load('academi');
 
 // Get the HTML for the settings bits.
 $html = theme_academi_get_html_for_settings($OUTPUT, $PAGE);
@@ -31,6 +32,7 @@ if (right_to_left()) {
     $regionbsid = 'region-bs-main-and-pre';
 }
 echo $OUTPUT->doctype() ?>
+
 <html <?php echo $OUTPUT->htmlattributes(); ?>>
 <head>
     <title><?php echo $OUTPUT->page_title(); ?></title>
@@ -95,6 +97,6 @@ if ($toggleslideshow == 1) {
     </div>
     <?php echo (!empty($flatnavbar)) ? $flatnavbar : ""; ?>
 </div>
-<?php  require_once(dirname(__FILE__) . '/includes/footer.php');  ?>
+<?php  require_once(dirname(__FILE__) . '/includes/footer.php'); ?>
 </body>
 </html>
