@@ -289,7 +289,7 @@ if (!function_exists('get_logo_url')) {
             $theme = theme_config::load('academi');
         }
         $logo = $theme->setting_file_url('logo', 'logo');
-        $logo = empty($logo) ? $OUTPUT->image_url('home/logo', 'theme') : $logo;
+        $logo = empty($logo) ? '' : $logo;
         return $logo;
     }
 }

@@ -92,6 +92,19 @@ button.close:focus {
     outline: none;
     box-shadow: none;
 }
+.aalink.focus,
+#page-footer a:not([class]).focus,
+.arrow_link.focus,
+a:not([class]).focus,
+.activityinstance > a.focus,
+.aalink:focus,
+#page-footer a:not([class]):focus,
+.arrow_link:focus,
+a:not([class]):focus,
+.activityinstance > a:focus {
+    background: none;
+    box-shadow: none;
+}
 .container {
     max-width: 1270px;
 }
@@ -118,18 +131,12 @@ li.nav-item {
     border-color: var(--color_mercury_approx);
     border-radius: 0;
 }
-.dropdown-menu > li > a:hover {
-    color: var(--dark_grey);
-    background: var(--color_alto_approx);
-}
+.dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus {
     color: var(--dark_grey);
     background: var(--color_alto_approx);
 }
-.dropdown-submenu:hover > a {
-    color: var(--dark_grey);
-    background: var(--color_alto_approx);
-}
+.dropdown-submenu:hover > a,
 .dropdown-submenu:focus > a {
     color: var(--dark_grey);
     background: var(--color_alto_approx);
@@ -149,10 +156,7 @@ li.nav-item {
 .btn[role="button"] {
     height: auto;
 }
-.btn.btn-secondary:disabled:hover {
-    color: var(--color_chicago_approx);
-    background-color: var(--color_celeste_approx);
-}
+.btn.btn-secondary:disabled:hover,
 .btn.btn-secondary:disabled:focus {
     color: var(--color_chicago_approx);
     background-color: var(--color_celeste_approx);
@@ -166,13 +170,20 @@ li.nav-item {
 }
 .btn:focus {
     outline: none;
+    box-shadow: none;
 }
 a:focus {
     outline: none;
 }
 i.icon {
     font-size: 16px;
-    color: var(--color_primary);
+    /*color: var(--color_primary);*/
+}
+.custom-select:focus {
+    box-shadow: none;
+}
+.userlist table#participants th {
+    vertical-align: middle;
 }
 #header {
     border-bottom: 1px solid var(--color_mercury_approx);
@@ -180,6 +191,8 @@ i.icon {
 }
 #header .popover-region {
     margin-top: 5px;
+    float: left;
+    margin-right: 10px;
 }
 #header .popover-region i.icon:before {
     color: var(--white);
@@ -469,16 +482,17 @@ i.icon {
     padding-top: 8px;
     padding-bottom: 8px;
 }
-#header .nav .dropdown .dropdown-menu a.dropdown-item:hover {
-    color: var(--white);
-    background: var(--color_alto_approx);
-}
+#header .nav .dropdown .dropdown-menu a.dropdown-item:hover,
 #header .nav .dropdown .dropdown-menu a.dropdown-item:focus {
     color: var(--white);
-    background: var(--color_alto_approx);
+    background: var(--color_primary);
 }
 #header .nav .dropdown .dropdown-menu a.dropdown-item span {
-    color: var(--color_storm_dust_approx);
+    color: var(--color_primary);
+}
+#header .nav .dropdown .dropdown-menu a.dropdown-item:hover span,
+#header .nav .dropdown .dropdown-menu a.dropdown-item:focus span {
+    color: var(--white);
 }
 #header .nav .dropdown .dropdown-menu a.dropdown-item:last-child {
     border-bottom: 0;
@@ -965,9 +979,6 @@ i.icon {
     }
     .header-main .infoarea {
         text-align: center;
-    }
-    .carousel-control {
-        display: none;
     }
     #footer .footer-main {
         padding-right: 20px;
@@ -3668,12 +3679,22 @@ nav .popover-region .content-item-container:hover .view-more {
 }
 .pagelayout-frontpage #page #page-content .box {
     max-width: 1270px;
-    padding: 0 20px;
+    padding: 0 20px !important;
     margin: 0 auto;
+}
+.simplesearchform .btn {
+    border-radius: 0;
+}
+.pagelayout-frontpage #page #page-content .box .simplesearchform {
+    /*max-width: 400px;*/
+    width: 100%;
 }
 .pagelayout-frontpage #page #page-content .box form {
     border: 1px solid var(--mercury);
     padding: 20px;
+}
+.pagelayout-frontpage #page #page-content .box form .input-group {
+    width: 100%;
 }
 .pagelayout-frontpage #page #page-content .box form .coursesearchbox {
     width: 100%;
@@ -3781,6 +3802,13 @@ nav .popover-region .content-item-container:hover .view-more {
 .list-group-item.active span i.icon {
     color: var(--white);
 }
+.page-item .page-link {
+    color: var(--color_primary);
+}
+.page-item.active .page-link {
+    border-color: var(--color_primary);
+    background: var(--color_primary);
+}
 .initialbar .pagination .page-item.active .page-link {
     color: var(--white);
     background-color: var(--color_primary);
@@ -3814,8 +3842,17 @@ nav .popover-region .content-item-container:hover .view-more {
         flex-basis: auto;
     }
 }
-.dropdown-menu .dropdown-item:active {
+.dropdown-menu .dropdown-item:active,
+.dropdown-menu .dropdown-item:hover,
+.dropdown-menu .dropdown-item:focus,
+.dropdown-menu .dropdown-item:focus-within {
+    color: var(--color_secondary);
     background: var(--wild_sand);
+}
+.dropdown-menu .dropdown-item:active a,
+.dropdown-menu .dropdown-item:hover a,
+.dropdown-menu .dropdown-item:focus a,
+.dropdown-menu .dropdown-item:focus-within a {
     color: var(--color_secondary);
 }
 .dropdown-menu .dropdown-item.active {
@@ -3880,6 +3917,14 @@ nav .popover-region .content-item-container:hover .view-more {
 .block-timeline .dropdown-menu .dropdown-item.active {
     background: var(--color_primary);
 }
+.block-timeline .dropdown-menu .dropdown-item:hover,
+.block-timeline .dropdown-menu .dropdown-item.active,
+.block-timeline .dropdown-menu .dropdown-item:focus,
+.block-timeline .dropdown-menu .dropdown-item:active {
+    color: var(--white);
+    background: var(--color_primary);
+}
+
 button.close:hover,
 .moodle-dialogue-base button.closebutton:hover {
     background: none;
@@ -3960,7 +4005,7 @@ button.close:focus,
     margin-right: 0;
 }
 #region-main .block-myoverview .dashboard-card-deck .dashboard-card .card-body {
-    padding: 10px;
+    padding: 10px !important;
 }
 #region-main .block-myoverview .progress {
     border-radius: 5px;

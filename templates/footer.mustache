@@ -28,9 +28,12 @@
         <div class="col-md-5">
             <div class="infoarea">
             {{#footlogo}}
+            {{#logourl}}
             <div class="footer-logo">
                 <a href="#"><img src="{{logourl}}" width="100" height="100" alt="Academi"></a>
             </div>
+            {{/logourl}}
+            
             {{/footlogo}}
                 {{{footnote}}}
           </div>
@@ -99,13 +102,13 @@
     </div>
     {{/ copyright_footer}}
 
-    <nav class="nav navbar-nav d-md-none">
+    <!-- <nav class="nav navbar-nav d-md-none">
         {{# output.custom_menu_flat }}
             <ul class="list-unstyled pt-3">
                 {{> theme_boost/custom_menu_footer }}
             </ul>
         {{/ output.custom_menu_flat }}
-    </nav>
+    </nav> -->
   </div>
 {{/footerblock}}
 
