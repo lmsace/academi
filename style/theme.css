@@ -3791,7 +3791,7 @@ nav .popover-region .content-item-container:hover .view-more {
 .has-blocks .card.card-block .block-region .block .card-block .block-controls .menubar .dropdown a.dropdown-toggle i.icon {
     margin: 0;
 }
-.has-blocks .card.card-block .block-region .block .card-block .block-controls .menubar .dropdown .dropdown-menu 
+.has-blocks .card.card-block .block-region .block .card-block .block-controls .menubar .dropdown .dropdown-menu
 a.dropdown-item i.icon {
     color: var(--color_primary);
 }
@@ -3813,19 +3813,19 @@ a.dropdown-item i.icon {
 #page #page-header .card .card-block .menubar .dropdown .dropdown-menu .dropdown-item i {
     color: var(--color_primary);
 }
-#page #page-content .has-blocks .card.card-block .course-content .weeks li.section .right .section_action_menu .action-menu 
+#page #page-content .has-blocks .card.card-block .course-content .weeks li.section .right .section_action_menu .action-menu
 .menubar .dropdown .dropdown-menu a.dropdown-item i.icon {
     color: var(--color_primary);
 }
-#page #page-content .has-blocks .card.card-block .course-content .weeks li.section .content ul.section li .mod-indent-outer 
+#page #page-content .has-blocks .card.card-block .course-content .weeks li.section .content ul.section li .mod-indent-outer
 .action-menu .menubar .dropdown .dropdown-menu .dropdown-item i.icon {
     color: var(--color_primary);
 }
-#page #page-content .has-blocks .card.card-block .course-content .weeks li.section .content .sectionname .inplaceeditable 
+#page #page-content .has-blocks .card.card-block .course-content .weeks li.section .content .sectionname .inplaceeditable
 .quickeditlink i.icon {
     vertical-align: top;
 }
-#page #page-content .has-blocks .card.card-block .course-content .weeks li.section .content .sectionname .inplaceeditable 
+#page #page-content .has-blocks .card.card-block .course-content .weeks li.section .content .sectionname .inplaceeditable
 .quickeditlink i.icon:before {
     font-size: 12px;
 }
@@ -4053,9 +4053,9 @@ button.close:focus,
 .message-app .body-container .custom-control.custom-radio .custom-control-input:focus ~ .custom-control-label::before {
     box-shadow: 0 0 0 0.2rem var(--color_primary_approx_60);
 }
-.message-app .body-container .custom-control.custom-radio .custom-control-input:not(:disabled):active ~ 
+.message-app .body-container .custom-control.custom-radio .custom-control-input:not(:disabled):active ~
 .custom-control-label:before,
-.message-app .body-container .custom-control.custom-switch .custom-control-input:not(:disabled):active ~ 
+.message-app .body-container .custom-control.custom-switch .custom-control-input:not(:disabled):active ~
 .custom-control-label:before {
     border-color: var(--color_primary);
     background-color: var(--color_primary);
