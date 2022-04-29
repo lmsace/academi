@@ -54,9 +54,14 @@ if (isloggedin()) {
 } else {
     $navdraweropen = false;
 }
-if ($navdraweropen) {
+$navdrawerstatus = theme_academi_get_setting('navdrawerstatus');
+
+if ($navdraweropen && $navdrawerstatus) {
     $extraclasses[] = 'drawer-open-left';
 }
+$themestyleheader = theme_academi_get_setting('themestyleheader');
+$extraclasses[] = ($themestyleheader) ? 'theme-based-header' : 'moodle-based-header';
+
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $blockshtml = $OUTPUT->blocks('side-pre');
 $hasblocks = strpos($blockshtml, 'data-block=') !== false;
@@ -105,7 +110,8 @@ $phoneno = theme_academi_get_setting('phoneno');
 $copyrightfooter = theme_academi_get_setting('copyright_footer','format_html');
 $infolink = theme_academi_get_setting('infolink');
 $infolink = theme_academi_infolink();
-$navdrawerstatus = theme_academi_get_setting('navdrawerstatus');
+
+
 
 $sinfo = get_string('info', 'theme_academi');
 $scontactus = get_string('contact_us', 'theme_academi');
@@ -182,7 +188,8 @@ $templatecontext = [
     "footerblock1"     => $footerblock1,
     "colclass"         => $colclass,
     "block1"           => $block1,
-    'navdrawerstatus'  => $navdrawerstatus
+    'navdrawerstatus'  => $navdrawerstatus,
+    'themestyleheader' => $themestyleheader
 ];
 
 $nav = $PAGE->flatnav;

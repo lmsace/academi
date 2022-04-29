@@ -17,7 +17,7 @@
 {{!
     Page navbar.
 }}
-<nav id="header" class="fixed-top navbar navbar-light bg-faded navbar-static-top navbar-expand moodle-has-zindex" aria-label="{{#str}}sitemenubar, admin{{/str}}">
+<nav id="header" class="{{^themestyleheader }} moodle-based-header {{/themestyleheader }} fixed-top navbar navbar-light bg-faded navbar-static-top navbar-expand moodle-has-zindex" aria-label="{{#str}}sitemenubar, admin{{/str}}">
 
      <div class="container navbar-nav">
         <div data-region="drawer-toggle" class="d-inline-block mr-3">
@@ -29,22 +29,51 @@
             </button>
             {{/navdrawerstatus}}
 
+            {{^themestyleheader  }} {{!-- Hide menu nave for moodle style }}
             <button class="navbar-toggler aabtn d-block d-md-none my-1 mr-2" data-toggle="drawers" data-action="toggle" data-target="theme_boost-drawers-primary">
                 <span class="navbar-toggler-icon"></span>
                 <span class="sr-only">{{#str}}sidepanel, core{{/str}}</span>
             </button>
+            <a href="{{{ config.wwwroot }}}/?redirect=0" class="navbar-brand {{# logourl }}has-logo{{/ logourl }}
+                {{^ logourl }}
+                    hidden-sm-down
+                {{/ logourl }}
+                    ">
+                {{# logourl }}
+                    <span class="logo">
+                        <img src="{{logourl}}" alt="{{sitename}}">
+                    </span>
+                {{/ logourl }}
+                {{^ logourl }}
+                    <span class="site-name hidden-sm-down">{{{ sitename }}}</span>
+                {{/ logourl }}
+            </a>
+            {{/themestyleheader}}
+
+            {{#themestyleheader}}
+                <nav class="nav navbar-nav hidden-md-down address-head">
+                    {{# phoneno}}
+                        <span><i class="fa fa-phone"></i>{{#str}}callus, theme_academi{{/str}} : {{ phoneno }}</span>
+                    {{/ phoneno}}
+                    {{# emailid}}
+                        <span><i class="fa fa-envelope-o"></i>{{#str}}email, theme_academi{{/str}} : <a href="mailto:{{emailid}}">{{ emailid }}</a></span>
+                    {{/ emailid}}
+                </nav>
+            {{/themestyleheader}}
         </div>
 
-        {{#primarymoremenu}}
-            <div class="primary-navigation">
-                {{> core/moremenu}}
-            </div>
-        {{/primarymoremenu}}
+        {{^themestyleheader  }} {{!-- Hide menu nave for moodle style }}
+            {{#primarymoremenu}}
+                <div class="primary-navigation">
+                    {{> core/moremenu}}
+                </div>
+            {{/primarymoremenu}}
 
-        <ul class="navbar-nav d-none d-md-flex my-1 px-1">
-            <!-- page_heading_menu -->
-            {{{ output.page_heading_menu }}}
-        </ul>
+            <ul class="navbar-nav d-none d-md-flex my-1 px-1">
+                <!-- page_heading_menu -->
+                {{{ output.page_heading_menu }}}
+            </ul>
+        {{/themestyleheader}}
 
         <div id="usernavigation" class="navbar-nav ml-auto">
             {{#langmenu}}
