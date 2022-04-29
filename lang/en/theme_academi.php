@@ -200,3 +200,11 @@ Moodle community|https://moodle.org
 -Moodle development|https://moodle.org/development
 Moodle.com|http://moodle.com/";
 $string['privacy:metadata'] = 'The academi theme does not store any personal data about any user.';
+$string['primarycolor'] = 'Primary color';
+$string['primarycolor_desc'] = 'Select primary color for your brand ';
+$string['secondarycolor'] = 'Secondary color';
+$string['secondarycolor_desc'] = 'Select a color that will be used as secondary color through out moodle site';
+$string['navdrawerstatus'] = 'Navigation Drawer';
+$string['navdrawerstatus_desc'] = 'By enabling this option, User will able to use the left side navigation drawer.';
+$string['enable'] = 'Enable';
+$string['disable'] = 'Disable';

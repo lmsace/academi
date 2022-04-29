@@ -46,6 +46,12 @@ $THEME->csspostprocess = 'theme_academi_process_css';
 
 $THEME->javascripts_footer = ['theme'];
 
+$THEME->iconsystem = \core\output\icon_system::FONTAWESOME;
+
+$THEME->haseditswitch = true;
+
+$THEME->usescourseindex = true;
+
 $THEME->layouts = array(
     // Most backwards compatible layout without the blocks - this is the layout used by default.
     'base' => array(

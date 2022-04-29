@@ -31,6 +31,38 @@ if (is_siteadmin()) {
     /* Header Settings */
     $temp = new admin_settingpage('theme_academi_header', get_string('headerheading', 'theme_academi'));
 
+    // Primary pattern color.
+    $name = 'theme_academi/primarycolor';
+    $title = get_string('primarycolor', 'theme_academi');
+    $description = get_string('primarycolor_desc', 'theme_academi');
+    $default = "#88b77b";
+    $previewconfig = null;
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    // Secondary pattern color.
+    $name = 'theme_academi/secondarycolor';
+    $title = get_string('secondarycolor', 'theme_academi');
+    $description = get_string('secondarycolor_desc', 'theme_academi');
+    $default = "#f60";
+    $previewconfig = null;
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    // Header Overlay.
+    $name = 'theme_academi/navdrawerstatus';
+    $title = get_string('navdrawerstatus', 'theme_academi');
+    $description = get_string('navdrawerstatus_desc', 'theme_academi');
+    $default = '1';
+    $choices = array(
+        1 => get_string('enable', 'theme_academi'),
+        0 => get_string('disable', 'theme_academi'),
+    );
+    $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+    $temp->add($setting);
+
     // Logo file setting.
     $name = 'theme_academi/logo';
     $title = get_string('logo', 'theme_academi');

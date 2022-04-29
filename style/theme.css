@@ -1,7 +1,7 @@
 :root {
-    --color_primary: #88b77b;
-    --color_secondary: #f60;
-    
+    --color_primary: [[setting:primarycolor]];/*  #88b77b; */
+    --color_secondary: [[setting:secondarycolor]];/* #f60; */
+    --white: #fff;
     --black: #000;
     --dark_grey: #111;
     --dark_gray: #2d2d2d;

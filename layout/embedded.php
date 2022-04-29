@@ -15,30 +15,22 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * The embedded layout.
+ * An embedded layout for the boost theme.
  *
- * @package   theme_academi
- * @copyright 2015 LMSACE Dev Team,lmsace.com
+ * @package   theme_boost
+ * @copyright 2016 Damyon Wiese
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
 defined('MOODLE_INTERNAL') || die();
 
-echo $OUTPUT->doctype() ?>
-<html <?php echo $OUTPUT->htmlattributes(); ?>>
-<head>
-    <title><?php echo $OUTPUT->page_title(); ?></title>
-    <link rel="shortcut icon" href="<?php echo $OUTPUT->favicon(); ?>" />
-    <?php echo $OUTPUT->standard_head_html() ?>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+$fakeblockshtml = $OUTPUT->blocks('side-pre', array(), 'aside', true);
+$hasfakeblocks = strpos($fakeblockshtml, 'data-block="_fake"') !== false;
 
-<body <?php echo $OUTPUT->body_attributes(); ?>>
-<?php echo $OUTPUT->standard_top_of_body_html() ?>
-<div id="page">
-    <div id="page-content" class="clearfix">
-        <?php echo $OUTPUT->main_content(); ?>
-    </div>
-</div>
-<?php echo $OUTPUT->standard_end_of_body_html() ?>
-</body>
-</html>
+$templatecontext = [
+    'output' => $OUTPUT,
+    'hasfakeblocks' => $hasfakeblocks,
+    'fakeblocks' => $fakeblockshtml,
+];
+
+echo $OUTPUT->render_from_template('theme_boost/embedded', $templatecontext);
