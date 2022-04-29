@@ -250,8 +250,10 @@ i.icon {
 }
 #header .navbar-nav .editmode-switch-form .input-group .custom-control .custom-control-input ~ .custom-control-label:before {
     border-color: var(--white);
+    background: var(--white);
 }
-#header .navbar-nav .editmode-switch-form .input-group .custom-control .custom-control-input:focus:not(:checked) ~ .custom-control-label:before {
+#header .navbar-nav .editmode-switch-form .input-group .custom-control .custom-control-input:focus:not(:checked) ~ .custom-control-label:before,
+#header .navbar-nav .editmode-switch-form .input-group .custom-control .custom-control-input:focus ~ .custom-control-label:before {
     border-color: var(--white);
     box-shadow: none;
 }
