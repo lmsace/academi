@@ -2308,6 +2308,7 @@ table#permissions tbody tr:hover > th {
     line-height: 20px;
     background-image: url([[pix:theme|theme_t/collapsed_empty]]);
     background-repeat: no-repeat;
+    background-position: left;
     padding: 13px 18px 13px 28px;
     margin: 0 0 0 18px;
 }
@@ -2317,6 +2318,14 @@ table#permissions tbody tr:hover > th {
     color: var(--white);
     line-height: 20px;
     vertical-align: top;
+}
+.course_category_tree .collapsible-actions a:before {
+    content: '\f105';
+    font-family: var(--font_2);
+    margin-right: 5px;
+}
+.course_category_tree .collapsible-actions a.collapse-all:before {
+    content: '\f107';
 }
 .loginbox {
     padding-bottom: 0;
@@ -3608,6 +3617,9 @@ tr.discussion .btn i.icon {
 .path-calendar .maincalendar .calendartable td {
     vertical-align: middle;
 }
+.maincalendar .calendarmonth td.today .day-number-circle {
+    background: var(--color_primary);
+}
 nav .popover-region .content-item-container:hover {
     background: var(--color_primary);
 }
@@ -4206,6 +4218,7 @@ button.close:focus,
     background: var(--color_primary);
 }
 #header .usermenu .dropdown-menu {
+    border-radius: 5px;
     box-shadow: 2px 5px 5px var(--black_20);
 }
 #header .usermenu a.dropdown-toggle {
