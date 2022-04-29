@@ -1,32 +1,33 @@
 :root {
     --color_primary: #88b77b;
     --color_secondary: #f60;
-    --white: #fff;
+    
     --black: #000;
-    --wild_sand: #f4f4f4;
+    --dark_grey: #111;
+    --dark_gray: #2d2d2d;
+    --color_mountain_mist_approx: #999;
+    --grey: #828282;
+    --color_chicago_approx: #5c5c5c;
     --color_storm_dust_approx: #656565;
+    --color_gravel_approx: #434343;
+    --color_celeste_approx: #ccc;
     --light_grey: #acacac;
     --color_alto_approx: #dedede;
-    --dark_grey: #111;
-    --color_mercury_approx: #e8e3e3;
-    --color_chicago_approx: #5c5c5c;
-    --color_celeste_approx: #ccc;
-    --light_blue: #5a7ec9;
-    --dark_gray: #2d2d2d;
-    --grey: #828282;
-    --asparagus: #689f59;
-    --dark_red: #cd2129;
-    --color_mountain_mist_approx: #999;
     --color_gallery_approx: #eee;
     --mercury: #e5e5e5;
+    --wild_sand: #f4f4f4;
+    --color_mercury_approx: #e8e3e3;
+    --light_blue: #5a7ec9;
+    --asparagus: #689f59;
+    --dark_red: #cd2129;
     --color_cerulean: #2caae1;
     --color_cinnabar: #dd4b39;
     --color_montana: #373a3c;
     --boston_blue: #3a87ad;
-    --color_gravel_approx: #434343;
     --pattens_blue: #d9edf7;
     --seal_brown: #3e1a1a;
-    --color_tranquil :#dce1e0;
+    --color_tranquil: #dce1e0;
+    --white: #fff;
     --black_20: rgba(0, 0, 0, 0.2);
     --color_primary_approx_30: rgba(63, 151, 210, .3);
     --color_primary_approx_60: rgba(63, 151, 210, .6);
@@ -136,7 +137,7 @@ li.nav-item {
 }
 .dropdown-menu {
     padding: 0;
-    border-color: var(--color_mercury_approx);
+    border-color: var(--wild_sand);
     border-radius: 0;
 }
 .dropdown-menu > li > a:hover,
@@ -249,6 +250,16 @@ i.icon {
     display: inline-block;
     margin-right: 5px;
 }
+#header .nav.navbar-nav.address-head span {
+    margin-right: 10px;
+}
+#header .nav.navbar-nav span.userinitials {
+    text-align: center;
+    line-height: 34px;
+    border: 1px solid var(--white);
+    background: none;
+    margin-right: 0;
+}
 #header .nav.navbar-nav span i {
     margin-right: 5px;
 }
@@ -271,15 +282,11 @@ i.icon {
     outline: none;
     display: block;
 }
-#header .navbar-nav button.btn:hover {
-    background: none;
-}
-#header .navbar-nav button.btn:focus {
-    box-shadow: none;
-}
+#header .navbar-nav button.btn:hover,
+#header .navbar-nav button.btn:focus,
 #header .navbar-nav button.btn:focus:active {
-    box-shadow: none;
     background: none;
+    box-shadow: none;
 }
 #header .navbar-nav button.btn i.fa-bars {
     display: none;
@@ -354,6 +361,9 @@ i.icon {
 #header .navbar-nav .nav-link {
     padding: 0;
 }
+#header .navbar-nav .popover-region .popover-region-toggle.nav-link .icon {
+    font-weight: normal;
+}
 #header .usermenu .login {
     color: var(--white);
 }
@@ -389,123 +399,6 @@ i.icon {
 #header .usermenu .moodle-actionmenu .toggle-display .userbutton .avatars img {
     border-radius: 18px;
 }
-#header .header-top {
-    background: var(--color_primary);
-}
-#header .header-top .navbar {
-    margin-bottom: 0;
-}
-#header .header-top .navbar .btn-navbar {
-    background: none;
-    padding: 10px;
-    border: 0;
-    box-shadow: none;
-    margin-bottom: 4px;
-}
-#header .header-top .navbar .btn-navbar .icon-bar {
-    width: 30px;
-    height: 4px;
-    border-radius: 0;
-    box-shadow: none;
-}
-#header .header-top .navbar .brand {
-    display: none;
-}
-#header .header-top .navbar .nav .dropdown-menu::before {
-    border: 0;
-}
-#header .header-top .navbar .nav .dropdown-menu::after {
-    border: 0;
-}
-#header .header-top .navbar .nav .dropdown-menu {
-    background: var(--asparagus);
-    padding: 0;
-    border: 0;
-    border-radius: 0;
-    box-shadow: none;
-    margin: 0;
-}
-#header .header-top .navbar .nav .dropdown-menu li {
-    background: none;
-    padding: 0;
-}
-#header .header-top .navbar .nav .dropdown-menu > li > a {
-    font-size: 16px;
-    color: var(--white);
-    line-height: 34px;
-    padding: 0 30px 0 20px;
-}
-#header .header-top .navbar .nav .dropdown-menu > li > a:hover {
-    background: var(--color_primary);
-}
-#header .header-top .navbar .nav .dropdown-menu > li > a:focus {
-    background: var(--color_primary);
-}
-#header .header-top .navbar .nav .dropdown-submenu > a::after {
-    border-top-color: var(--white);
-    margin-top: 15px;
-}
-#header .header-top .navbar .nav .dropdown-submenu:hover > a {
-    background: var(--color_primary);
-}
-#header .header-top .navbar .nav .dropdown-submenu:focus > a {
-    background: var(--color_primary);
-}
-#header .header-top .navbar .nav .dropdown-submenu > a:after {
-    border-color: transparent var(--white);
-}
-#header .header-top .navbar .nav li.dropdown.open > .dropdown-toggle {
-    background: var(--asparagus);
-}
-#header .header-top .navbar .nav li.dropdown.open.active > .dropdown-toggle {
-    background: var(--asparagus);
-}
-#header .header-top .navbar .nav li.dropdown > .dropdown-toggle .caret {
-    border-bottom-color: var(--white);
-    border-top-color: var(--white);
-    margin-left: 4px;
-    vertical-align: middle;
-    margin-top: 0;
-}
-#header .header-top .navbar .nav li.dropdown.active > .dropdown-toggle {
-    background: var(--asparagus);
-}
-#header .header-top .navbar .nav > li > a {
-    font-size: 16px;
-    color: var(--white);
-    line-height: 20px;
-    text-shadow: none;
-}
-#header .header-top .navbar .nav > li > a:hover {
-    background: var(--asparagus);
-}
-#header .header-top .navbar .nav > li > a:focus {
-    background: var(--asparagus);
-}
-#header .header-top .navbar .nav > .active > a {
-    background: none;
-    box-shadow: none;
-}
-#header .header-top .navbar .nav > .active > a:hover {
-    background: none;
-    box-shadow: none;
-}
-#header .header-top .navbar .nav > .active > a:focus {
-    background: none;
-    box-shadow: none;
-}
-#header .header-top .navbar .nav-collapse.active {
-    border-top-color: var(--asparagus);
-}
-#header .header-top .navbar-inner {
-    min-height: 10px;
-    background: none;
-    padding-right: 0;
-    padding-left: 0;
-    border: 0;
-    border-radius: 0;
-    box-shadow: none;
-}
 #header nav.nav a.nav-link {
     color: var(--white);
     padding-left: 10px;
@@ -522,7 +415,7 @@ i.icon {
 }
 #header .nav .dropdown .dropdown-menu a.dropdown-item {
     background: none;
-    border-bottom: 1px solid var(--mercury);
+    border-bottom: 1px solid var(--wild_sand);
     padding-top: 8px;
     padding-bottom: 8px;
 }
@@ -688,13 +581,6 @@ i.icon {
 }
 .dir-rtl .form-item .form-description {
     margin-left: 0;
-}
-.dir-rtl #header .header-top .navbar .nav .dropdown-menu > li > a {
-    padding: 0 20px 0 30px;
-}
-.dir-rtl #header .header-top .navbar .nav .dropdown-submenu > a::after {
-    border-left-color: transparent;
-    border-right-color: var(--white);
 }
 .dir-rtl #footer .social-media ul li {
     float: right;
@@ -944,24 +830,6 @@ i.icon {
         padding-left: 15px;
         padding-right: 15px;
     }
-    #header .header-top .navbar .nav > li {
-        background: url([[pix:theme|img-nav_divider]]) no-repeat right center;
-        padding: 0 2px 0 0;
-    }
-    #header .header-top .navbar .nav > li > a {
-        font-weight: normal;
-        padding: 25px 20px;
-    }
-    #header .header-top .navbar .nav li:last-child {
-        background: none;
-    }
-    #header .header-top .usermenu .login {
-        padding: 15px 0;
-    }
-    .dir-rtl #header .header-top .navbar .nav > li {
-        background-position: left center;
-        padding: 0 0 0 2px;
-    }
     .jsenabled #header .usermenu .moodle-actionmenu .toggle-display.textmenu {
         padding: 15px;
     }
@@ -972,15 +840,9 @@ i.icon {
         left: auto;
         right: 0;
     }
-    #header .header-top .usermenu .login {
-        font-size: 16px;
-    }
 }
 
 @media (max-width: 991px) {
-    .dir-rtl #header .header-top .usermenu {
-        float: right;
-    }
     .dir-rtl .moodle-actionmenu[data-enhanced].show .menu.align-tr-br {
         right: 0;
         left: auto;
@@ -1000,21 +862,12 @@ i.icon {
     .navbar .nav-collapse.in .nav .dropdown-menu .dropdown-submenu.open > a {
         background: var(--color_primary);
     }
-    .dir-ltr #header .header-top .usermenu {
-        float: left;
-    }
     .jsenabled #header .usermenu .moodle-actionmenu .toggle-display.textmenu {
         padding: 5px 15px;
     }
 }
 
 @media (max-width: 767px) {
-    .dir-rtl #header .header-top .usermenu {
-        padding-right: 20px;
-    }
-    .dir-rtl #header .header-top .navbar .btn-navbar {
-        margin-left: 20px;
-    }
     .dir-rtl .form-item .form-label {
         float: none;
         text-align: right;
@@ -1054,12 +907,6 @@ i.icon {
         width: 180px;
         margin: 0 auto;
     }
-    .dir-ltr #header .header-top .usermenu {
-        padding-left: 20px;
-    }
-    .dir-ltr #header .header-top .navbar .btn-navbar {
-        margin-right: 20px;
-    }
     .carousel-overlay-content .content-wrap {
         padding: 50px 20px;
     }
@@ -1068,7 +915,7 @@ i.icon {
     }
 }
 .header-main {
-    margin-top: 50px;
+    margin-top: 60px;
     background: var(--white);
     border-bottom: 1px solid var(--color_mercury_approx);
     padding: 5px 0;
@@ -1131,22 +978,18 @@ i.icon {
     font-size: 18px;
     padding: 26px 20px;
 }
-.header-main .infoarea a.nav-link:hover {
-    border-bottom: 2px solid var(--color_secondary);
-}
-.header-main .infoarea a.nav-link:active {
-    border-bottom: 2px solid var(--color_secondary);
-}
+.header-main .infoarea a.nav-link:hover,
+.header-main .infoarea a.nav-link:active,
 .header-main .infoarea a.nav-link:focus {
     border-bottom: 2px solid var(--color_secondary);
 }
 .header-main .infoarea .nav-item a.nav-link {
     font-size: 18px;
-    padding: 26px 20px;
+    text-align: left;
+    padding: 15px 20px;
+    border-bottom: 2px solid transparent;
 }
-.header-main .infoarea .nav-item a.nav-link:hover {
-    border-bottom: 2px solid var(--color_secondary);
-}
+.header-main .infoarea .nav-item a.nav-link:hover,
 .header-main .infoarea .nav-item a.nav-link:active {
     border-bottom: 2px solid var(--color_secondary);
 }
@@ -1190,23 +1033,7 @@ i.icon {
     }
 }
 
-@media (min-width: 992px) and (max-width: 1050px) {
-    .header-main .navbar .collapse:not(.show) {
-        width: 76%;
-    }
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-    .dir-rtl .header-main .row-fluid [class*="span"] {
-        *margin-right: 2.7092394499%;
-    }
-}
-
 @media (min-width: 992px) {
-    .header-main .navbar .collapse:not(.show) {
-        width: 80%;
-        display: inline-block;
-    }
     .header-main .navbar-toggler {
         display: none;
     }
@@ -1234,6 +1061,9 @@ i.icon {
     .header-main .infoarea .nav-item a.nav-link {
         padding: 20px 20px 10px 10px;
         border-bottom: 2px solid transparent;
+    }
+    .header-main .navbar .collapse:not(.show) {
+        display: inline-block;
     }
 }
 
@@ -2304,9 +2134,10 @@ table#permissions tbody tr:hover > th {
 }
 #frontpage-available-course-list,
 #frontpage-course-list {
-    padding: 15px 0 20px;
     border: 1px solid var(--mercury);
     background: var(--mercury);
+    padding: 15px 0 20px;
+    margin: 0;
 }
 #frontpage-available-course-list h2,
 #frontpage-course-list h2,
@@ -2321,8 +2152,9 @@ table#permissions tbody tr:hover > th {
     padding: 0 20px;
     margin: 0 auto;
 }
-.courses.frontpage-course-list-all .coursebox,
-.courses.frontpage-course-list-enrolled .coursebox {
+#frontpage-available-course-list .coursebox,
+#frontpage-course-list .coursebox,
+.course-search-result .coursebox {
     padding: 20px;
     border: 0;
     border-bottom: 1px solid var(--mercury);
@@ -2356,11 +2188,6 @@ table#permissions tbody tr:hover > th {
 .courses.frontpage-course-list-enrolled .coursebox.last {
     border-bottom: 0;
 }
-.courses.frontpage-course-list-all .coursebox .info .coursename,
-.courses.frontpage-course-list-enrolled .coursebox .info .coursename {
-    margin: 0;
-    margin-bottom: 10px;
-}
 .courses.frontpage-course-list-all .coursebox .info .coursename a,
 .courses.frontpage-course-list-enrolled .coursebox .info .coursename a {
     color: var(--asparagus);
@@ -2392,6 +2219,7 @@ table#permissions tbody tr:hover > th {
 .courses.frontpage-course-list-enrolled .coursebox .content .courseimage {
     max-width: 200px;
     width: 100%;
+    height: 100%;
     top: 0;
     left: 0;
 }
@@ -2399,6 +2227,7 @@ table#permissions tbody tr:hover > th {
 .courses.frontpage-course-list-enrolled .coursebox .content .courseimage img {
     max-width: none;
     min-height: 148px;
+    max-height: none;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -2448,6 +2277,7 @@ table#permissions tbody tr:hover > th {
 .course_category_tree.frontpage-category-names .category > .info > .categoryname {
     line-height: 20px;
     background-image: url([[pix:theme|svg_grey/t/collapsed_empty]]);
+    background-repeat: no-repeat;
     background-position: left 16px;
     padding: 14px 6px 14px 20px;
     margin: 0 12px;
@@ -2477,6 +2307,7 @@ table#permissions tbody tr:hover > th {
 .course_category_tree .category > .info > .categoryname {
     line-height: 20px;
     background-image: url([[pix:theme|theme_t/collapsed_empty]]);
+    background-repeat: no-repeat;
     padding: 13px 18px 13px 28px;
     margin: 0 0 0 18px;
 }
@@ -2771,7 +2602,7 @@ table#permissions tbody tr:hover > th {
     margin: 0;
 }
 .coursebox > .info > .coursename {
-    margin: 0;
+    margin: 0 10px 10px 0;
 }
 .coursebox > .info > .coursename a {
     font-size: 21px;
@@ -4373,6 +4204,9 @@ button.close:focus,
 }
 .moodle-dialogue-bd .nav-pills .nav-link.active {
     background: var(--color_primary);
+}
+#header .usermenu .dropdown-menu {
+    box-shadow: 2px 5px 5px var(--black_20);
 }
 #header .usermenu a.dropdown-toggle {
     padding: 0;
