@@ -20,41 +20,45 @@
 
 {{> theme_academi/navbar }}
 
+{{#themestyleheader}}
+    <div class="header-main">
+        <div class="container">
+            <nav class="navbar navbar-light bg-faded">
+                <a href="{{{ config.wwwroot }}}/?redirect=0" class="navbar-brand {{# logourl }}has-logo{{/ logourl }}
+                {{^ logourl }}
+                    hidden-sm-down
+                {{/ logourl }}
+                    ">
+                {{# logourl }}
+                    <span class="logo">
+                        <img src="{{logourl}}" alt="{{sitename}}">
+                    </span>
+                {{/ logourl }}
+                {{^ logourl }}
+                    <span class="site-name hidden-sm-down">{{{ sitename }}}</span>
+                {{/ logourl }}
+                </a>
 
-<div class="header-main">
-    <div class="container">
-    	<nav class="navbar navbar-light bg-faded">
-            <a href="{{{ config.wwwroot }}}/?redirect=0" class="navbar-brand {{# logourl }}has-logo{{/ logourl }}
-            {{^ logourl }}
-                hidden-sm-down
-            {{/ logourl }}
-                ">
-            {{# logourl }}
-                <span class="logo">
-                    <img src="{{logourl}}" alt="{{sitename}}">
-                </span>
-            {{/ logourl }}
-            {{^ logourl }}
-                <span class="site-name hidden-sm-down">{{{ sitename }}}</span>
-            {{/ logourl }}
-            </a>
+                <button class="{{{navbarclass}}}" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"></button>
 
-        	<button class="{{{navbarclass}}}" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"></button>
+                <div class="collapse navbar-toggleable-md" id="navbarResponsive">
 
-        	<div class="collapse navbar-toggleable-md" id="navbarResponsive">
+                    <div class="infoarea ">
+                        {{#primarymoremenu}}
+                        <div class="primary-navigation">
+                            {{> core/moremenu}}
+                        </div>
+                        {{/primarymoremenu}}
 
-                <div class="infoarea ">
+                        <ul class="navbar-nav d-none d-md-flex my-1 px-1">
+                            <!-- page_heading_menu -->
+                            {{{ output.page_heading_menu }}}
+                        </ul>
+                    </div>
 
-                    <!-- custom_menu -->
-                    {{{ output.custom_menu }}}
-                    <!-- page_heading_menu -->
-                    {{{ output.page_heading_menu }}}
                 </div>
-
-            </div>
-        </nav>
+            </nav>
+        </div>
+        {{{ output.standard_after_main_region_html }}}
     </div>
-    {{{ output.standard_after_main_region_html }}}
-</div>
-
-
+{{/themestyleheader}}

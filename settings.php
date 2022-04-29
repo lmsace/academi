@@ -63,6 +63,17 @@ if (is_siteadmin()) {
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $temp->add($setting);
 
+    $name = 'theme_academi/themestyleheader';
+    $title = get_string('themestyleheader', 'theme_academi');
+    $description = get_string('themestyleheader_desc', 'theme_academi');
+    $default = '1';
+    $choices = array(
+        1 => get_string('themebased', 'theme_academi'),
+        0 => get_string('moodlebased', 'theme_academi'),
+    );
+    $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+    $temp->add($setting);
+
     // Logo file setting.
     $name = 'theme_academi/logo';
     $title = get_string('logo', 'theme_academi');
