@@ -23,11 +23,17 @@
  */
 defined('MOODLE_INTERNAL') || die();
 
+$copyrightfooter = theme_academi_get_setting('copyright_footer','format_html');
+
+$logourl = get_logo_url();
 $templatecontext = [
     // We cannot pass the context to format_string, this layout can be used during
     // installation. At that stage database tables do not exist yet.
     'sitename' => format_string($SITE->shortname, true, ["escape" => false]),
-    'output' => $OUTPUT
+    'output' => $OUTPUT,
+    'footersmall' => true,
+    "copyright_footer" => $copyrightfooter,
+    "logourl" => $logourl,
 ];
 
 echo $OUTPUT->render_from_template('theme_academi/maintenance', $templatecontext);

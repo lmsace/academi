@@ -38,7 +38,7 @@ function theme_academi_page_init(moodle_page $page) {
  * If background image not available in the settings take the default images.
  *
  * @param string $css
- * @param string $theme
+ * @param object $theme
  * @return string
  */
 function theme_academi_process_css($css, $theme) {
@@ -49,6 +49,22 @@ function theme_academi_process_css($css, $theme) {
     // Set custom CSS.
     $customcss = $theme->settings->customcss;
     $css = theme_academi_set_customcss($css , $customcss);
+    $css = theme_academi_set_brandcolors($css, $theme);
+    return $css;
+}
+
+/**
+ * Update brand primary and secondary color in CSS.
+ *
+ * @param string $css
+ * @param object $theme
+ * @return void
+ */
+function theme_academi_set_brandcolors($css, $theme) {
+    $primarycolor = ($theme->settings->primarycolor ?? '#88b77b') ?: '#88b77b';
+    $secondarycolor = ($theme->settings->secondarycolor ?? '#f60') ?: '#f60';
+    $css = str_replace('[[setting:primarycolor]]', $primarycolor, $css);
+    $css = str_replace('[[setting:secondarycolor]]', $secondarycolor, $css);
     return $css;
 }
 
@@ -342,19 +358,6 @@ function theme_academi_get_setting($setting, $format = true) {
     }
 }
 
-// Return the current theme url.
-// @ return string.
-if (!function_exists('theme_url')) {
-    /**
-     * Url for theme_academi.
-     * @return type|string
-     */
-    function theme_url() {
-        global $CFG, $PAGE;
-        $themeurl = $CFG->wwwroot.'/theme/'. $PAGE->theme->name;
-        return $themeurl;
-    }
-}
 
 /**
  * Footer Info links.

@@ -33,20 +33,34 @@
 
 <body {{{ bodyattributes }}}>
 
+{{> core/local/toast/wrapper}}
+
 <div id="page-wrapper">
 
     {{{ output.standard_top_of_body_html }}}
 
+    {{> theme_academi/header }}
+
     <div id="page" class="container-fluid mt-0">
         <div id="page-content" class="row">
             <div id="region-main-box" class="col-12">
-                <section id="region-main" class="col-12">
-                    {{{ output.course_content_header }}}
+                <section id="region-main" class="col-12 h-100" aria-label="{{#str}}content{{/str}}">
+                <div class="login-wrapper">
+                    <div class="login-container">
                     {{{ output.main_content }}}
-                    {{{ output.course_content_footer }}}
+                    </div>
+                </div>
                 </section>
             </div>
         </div>
     </div>
 </div>
+
+{{> theme_academi/footer }}
+{{#js}}
+M.util.js_pending('theme_boost/loader');
+require(['theme_boost/loader'], function() {
+  M.util.js_complete('theme_boost/loader');
+});
+{{/js}}
 

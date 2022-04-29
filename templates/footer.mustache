@@ -17,104 +17,154 @@
 {{!
     Page footer.
 }}
-<footer id="page-footer" class="py-3 bg-dark text-light">
-{{#footerblock}}
+{{#footersmall}}
+<footer id="page-footer" class="fixed-bottom footer-popover footer-dark bg-dark text-light">
 <div id="footer">
-    <div class="footer-main">
-    <div class="container">
-    <div id="course-footer">{{{ output.course_footer }}}</div>
-        <div class="row">
+      
+<div class="footer-bootom">
+  {{# copyright_footer}}
+    <p>{{{copyright_footer}}}</p>
+  {{/ copyright_footer}}
+</div>
+</div>
+{{/footersmall}}
 
-        <div class="col-md-5">
-            <div class="infoarea">
-            {{#footlogo}}
-            {{#logourl}}
-            <div class="footer-logo">
-                <a href="#"><img src="{{logourl}}" width="100" height="100" alt="Academi"></a>
+{{^footersmall}}
+<footer id="page-footer" class="footer-popover footer-dark bg-dark text-light">
+  {{#footerblock}}
+  <div id="footer">
+      <div class="footer-main">
+      <div class="container">
+      <div id="course-footer">{{{ output.course_footer }}}</div>
+          <div class="row">
+
+          <div class="col-md-5">
+              <div class="infoarea">
+              {{#footlogo}}
+              {{#logourl}}
+              <div class="footer-logo">
+                  <a href="#"><img src="{{logourl}}" width="100" height="100" alt="Academi"></a>
+              </div>
+              {{/logourl}}
+
+              {{/footlogo}}
+                  {{{footnote}}}
             </div>
-            {{/logourl}}
-            
-            {{/footlogo}}
-                {{{footnote}}}
           </div>
-        </div>
 
-        <div class="col-md-3">
-            <div class="foot-links">
-            {{# infolink}}
-            <h2>{{s_info}}</h2>
-             <ul>
-                {{{infolink}}}
-             </ul>
-             {{/ infolink}}
+          <div class="col-md-3">
+              <div class="foot-links">
+              {{# infolink}}
+              <h2>{{#str}} info, theme_academi {{/str}}</h2>
+              <ul>
+                  {{{infolink}}}
+              </ul>
+              {{/ infolink}}
+            </div>
           </div>
-        </div>
-        {{#block3}}
-        <div class="col-md-4">
-          <div class="contact-info">
-            <h2 class="nopadding">{{s_contact_us}}</h2>
+          {{#block3}}
+          <div class="col-md-4">
+            <div class="contact-info">
+              <h2 class="nopadding">{{#str}} contact_us, theme_academi {{/str}}</h2>
 
-             <p>{{# address}}{{address}}{{/ address}}<br>
-            {{# phoneno}}
-              <i class="fa fa-phone-square"></i> {{phone}} : {{phoneno}}<br>
-            {{/ phoneno}}
-            {{# emailid}}
-              <i class="fa fa-envelope"></i> {{email}} : <a class="mail-link" href="mailto:{{emailid}}">{{emailid}}</a><br>
-            {{/ emailid}}
-            </p>
+              <p>{{# address}}{{address}}{{/ address}}<br>
+              {{# phoneno}}
+                <i class="fa fa-phone-square"></i> {{phone}} : {{phoneno}}<br>
+              {{/ phoneno}}
+              {{# emailid}}
+                <i class="fa fa-envelope"></i> {{email}} : <a class="mail-link" href="mailto:{{emailid}}">{{emailid}}</a><br>
+              {{/ emailid}}
+              </p>
 
+            </div>
+          {{# socialurl}}
+            <div class="social-media">
+              <h6>{{#str}} followus, theme_academi {{/str}}</h6>
+              <ul>
+              {{# fburl}}
+                  <li class="smedia-01"><a href="{{fburl}}"><i class="fa fa-facebook-square"></i></a></li>
+              {{/ fburl}}
+              {{# pinurl}}
+                <li class="smedia-02"><a href="{{pinurl}}"><i class="fa fa-pinterest-square"></i></a></li>
+              {{/ pinurl}}
+              {{# twurl}}
+                  <li class="smedia-03"><a href="{{twurl}}"><i class="fa fa-twitter-square"></i></a></li>
+              {{/ twurl}}
+              {{# gpurl}}
+                  <li class="smedia-04"><a href="{{gpurl}}"><i class="fa fa-google-plus-square"></i></a></li>
+              {{/ gpurl}}
+              </ul>
+            </div>
+          {{/ socialurl}}
           </div>
-         {{# url}}
-          <div class="social-media">
-            <h6>{{s_followus}}</h6>
-            <ul>
-             {{# fburl}}
-                <li class="smedia-01"><a href="{{fburl}}"><i class="fa fa-facebook-square"></i></a></li>
-            {{/ fburl}}
-            {{# pinurl}}
-               <li class="smedia-02"><a href="{{pinurl}}"><i class="fa fa-pinterest-square"></i></a></li>
-            {{/ pinurl}}
-            {{# twurl}}
-                <li class="smedia-03"><a href="{{twurl}}"><i class="fa fa-twitter-square"></i></a></li>
-            {{/ twurl}}
-            {{# gpurl}}
-                <li class="smedia-04"><a href="{{gpurl}}"><i class="fa fa-google-plus-square"></i></a></li>
-            {{/ gpurl}}
-            </ul>
-          </div>
-        {{/ url}}
+          {{/block3}}
         </div>
-        {{/block3}}
       </div>
     </div>
-  </div>
 
-    {{# copyright_footer}}
-    <div class="footer-bootom">
-        <p>{{{copyright_footer}}}</p>
+      <div class="footer-bootom">
+        {{# copyright_footer}}
+          <p>{{{copyright_footer}}}</p>
+        {{/ copyright_footer}}
+        {{! Moodle footer debug footer }}
+        <div class="footer-content-debugging py-sm-3">
+            <div class="container">
+                {{{ output.debug_footer_html }}}
+            </div>
+        </div>
+      </div>
+
+      {{! Moodle footer help icon popover }}
+      <div data-region="footer-container-popover">
+        <button class="btn btn-icon bg-secondary icon-no-margin btn-footer-popover" data-action="footer-popover" aria-label="{{#str}}showfooter, theme_boost{{/str}}">
+            {{#pix}}e/question, core{{/pix}}
+        </button>
+      </div>
+      <div class="footer-content-popover container" data-region="footer-content-popover">
+
+          {{# output.page_doc_link }}
+              <div class="footer-section p-3 border-bottom">
+                  {{{ output.page_doc_link }}}
+              </div>
+          {{/ output.page_doc_link }}
+
+          <div class="footer-section p-3 border-bottom">
+              <div class="logininfo">
+                  {{{ output.login_info }}}
+              </div>
+              <div class="tool_usertours-resettourcontainer">
+              </div>
+
+              {{{ output.standard_footer_html }}}
+              {{{ output.standard_end_of_body_html }}}
+          </div>
+          <div class="footer-section p-3">
+              <div>{{#str}}poweredbymoodle, core{{/str}}</div>
+              {{#output.moodle_release}}
+                  <div>
+                      {{#str}}version, core{{/str}} {{{ output.moodle_release }}}
+                  </div>
+              {{/output.moodle_release}}
+          </div>
+      </div>
     </div>
-    {{/ copyright_footer}}
+  {{/footerblock}}
 
-    <!-- <nav class="nav navbar-nav d-md-none">
-        {{# output.custom_menu_flat }}
-            <ul class="list-unstyled pt-3">
-                {{> theme_boost/custom_menu_footer }}
-            </ul>
-        {{/ output.custom_menu_flat }}
-    </nav> -->
-  </div>
-{{/footerblock}}
-
-  </footer>
+</footer>
 <!--E.O.Footer-->
 
-<footer>
-{{{output.standard_footer_html}}}
-</footer>
-{{{output.standard_end_of_body_html}}}
 {{#js}}
-require(['theme_boost/loader']);
-require(['theme_boost/drawer'], function(mod) {
-    mod.init();
+M.util.js_pending('theme_boost/loader');
+require(['theme_boost/loader', 'theme_boost/drawer'], function(Loader, Drawer) {
+    Drawer.init();
+    M.util.js_complete('theme_boost/loader');
 });
 {{/js}}
+
+{{#js}}
+require(['theme_boost/footer-popover'], function(FooterPopover) {
+    FooterPopover.init();
+});
+{{/js}}
+
+{{/footersmall}}

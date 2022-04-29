@@ -17,48 +17,48 @@
 {{!
     Page navbar.
 }}
-<nav  id="header" class="fixed-top navbar navbar-light bg-faded navbar-static-top navbar-expand moodle-has-zindex">
+<nav id="header" class="fixed-top navbar navbar-light bg-faded navbar-static-top navbar-expand moodle-has-zindex" aria-label="{{#str}}sitemenubar, admin{{/str}}">
 
      <div class="container navbar-nav">
-
-
         <div data-region="drawer-toggle" class="d-inline-block mr-3">
+            {{#navdrawerstatus}}
             <button aria-expanded="{{#navdraweropen}}true{{/navdraweropen}}{{^navdraweropen}}false{{/navdraweropen}}" aria-controls="nav-drawer" type="button" class="btn nav-link float-sm-left mr-1 btn-secondary" data-action="toggle-drawer" data-side="left" data-preference="drawer-open-nav">{{#pix}}i/menubars{{/pix}}<span class="sr-only">{{#str}}sidepanel, core{{/str}}</span>
-            <span aria-hidden="true"> </span>
-            <span aria-hidden="true"> </span>
-            <span aria-hidden="true"> </span>
-
+                <span aria-hidden="true"> </span>
+                <span aria-hidden="true"> </span>
+                <span aria-hidden="true"> </span>
             </button>
+            {{/navdrawerstatus}}
 
-            <nav class="nav navbar-nav hidden-md-down address-head">
-                {{# phoneno}}
-                    <span><i class="fa fa-phone"></i>{{s_callus}} : {{ phoneno }}</span>
-                {{/ phoneno}}
-                {{# emailid}}
-                    <span><i class="fa fa-envelope-o"></i>{{s_email}} : <a href="mailto:{{emailid}}">{{ emailid }}</a></span>
-                {{/ emailid}}
-            </nav>
-
+            <button class="navbar-toggler aabtn d-block d-md-none my-1 mr-2" data-toggle="drawers" data-action="toggle" data-target="theme_boost-drawers-primary">
+                <span class="navbar-toggler-icon"></span>
+                <span class="sr-only">{{#str}}sidepanel, core{{/str}}</span>
+            </button>
         </div>
 
-
-
-        <ul class="nav navbar-nav ml-auto">
-            <div class="d-none d-lg-block">
-                {{{ output.search_box }}}
+        {{#primarymoremenu}}
+            <div class="primary-navigation">
+                {{> core/moremenu}}
             </div>
-            <!-- navbar_plugin_output -->
-            <li class="nav-item">
-                {{{ output.navbar_plugin_output }}}
-            </li>
-            <!-- user_menu -->
-            <li class="nav-item d-flex align-items-center">
-                {{{ output.user_menu }}}
-            </li>
+        {{/primarymoremenu}}
+
+        <ul class="navbar-nav d-none d-md-flex my-1 px-1">
+            <!-- page_heading_menu -->
+            {{{ output.page_heading_menu }}}
         </ul>
+
+        <div id="usernavigation" class="navbar-nav ml-auto">
+            {{#langmenu}}
+                {{> theme_boost/language_menu }}
+            {{/langmenu}}
+            {{{ output.search_box }}}
+            {{{ output.navbar_plugin_output }}}
+            <div class="d-flex align-items-stretch usermenu-container" data-region="usermenu">
+                {{#usermenu}}
+                    {{> core/user_menu }}
+                {{/usermenu}}
+            </div>
+            {{{ output.edit_switch }}}
+        </div>
         <!-- search_box -->
-
-
     </div>
 </nav>
-

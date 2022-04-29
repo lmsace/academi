@@ -43,36 +43,54 @@
 
 <body {{{ output.body_attributes }}}>
 
-<div id="page-wrapper">
+{{> core/local/toast/wrapper}}
 
-    {{{ output.standard_top_of_body_html }}}
+<div id="page-wrapper" class="text-center">
+
+    <div class="header-main text-center">
+        <div class="container">
+            <nav class="navbar navbar-light bg-faded text-center">
+                <a href="{{{ config.wwwroot }}}/?redirect=0" class="navbar-brand {{# logourl }}has-logo{{/ logourl }}
+                    {{^ logourl }}
+                        hidden-sm-down
+                    {{/ logourl }}
+                        ">
+                    {{# logourl }}
+                        <span class="logo">
+                            <img src="{{logourl}}" alt="{{sitename}}">
+                        </span>
+                    {{/ logourl }}
+                    {{^ logourl }}
+                        <span class="site-name hidden-sm-down">{{{ sitename }}}</span>
+                    {{/ logourl }}
+                </a>
+            </nav>
+        </div>
+    </div>
 
     <div id="page" class="container pb-3">
 
-        <div class="row">
+        <div class="row text-center">
             <div class="col-12 py-3">
                 {{{ output.page_heading }}}
             </div>
         </div>
 
         <div id="page-content" class="row">
-            <section id="region-main" class="col-12">
+            <section id="region-main" class="col-12" aria-label="{{#str}}content{{/str}}">
                 {{{ output.main_content }}}
             </section>
         </div>
 
     </div>
+    {{> theme_academi/footer }}
 </div>
-
-<footer id="page-footer" class="py-3 bg-dark text-light">
-    <div class="container">
-        {{{ output.standard_footer_html }}}
-        {{{ output.standard_end_of_body_html }}}
-    </div>
-</footer>
 
 </body>
 </html>
 {{#js}}
-require(['theme_boost/loader']);
+M.util.js_pending('theme_boost/loader');
+require(['theme_boost/loader'], function() {
+  M.util.js_complete('theme_boost/loader');
+});
 {{/js}}
