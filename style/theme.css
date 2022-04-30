@@ -226,6 +226,10 @@ i.icon {
 #header .navbar-nav {
     height: 100%;
 }
+#header .navbar-nav .langmenu .dropdown .dropdown-toggle {
+    color: var(--white);
+    border: 0;
+}
 #header .navbar-nav .usermenu .dropdown-menu {
     border-radius: 5px;
     box-shadow: 2px 5px 5px var(--black_20);
