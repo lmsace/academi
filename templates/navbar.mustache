@@ -21,14 +21,7 @@
 
      <div class="container navbar-nav">
         <div data-region="drawer-toggle" class="d-inline-block mr-3">
-            {{#navdrawerstatus}}
-            <button aria-expanded="{{#navdraweropen}}true{{/navdraweropen}}{{^navdraweropen}}false{{/navdraweropen}}" aria-controls="nav-drawer" type="button" class="btn nav-link float-sm-left mr-1 btn-secondary" data-action="toggle-drawer" data-side="left" data-preference="drawer-open-nav">{{#pix}}i/menubars{{/pix}}<span class="sr-only">{{#str}}sidepanel, core{{/str}}</span>
-                <span aria-hidden="true"> </span>
-                <span aria-hidden="true"> </span>
-                <span aria-hidden="true"> </span>
-            </button>
-            {{/navdrawerstatus}}
-
+            
             {{^themestyleheader  }} {{!-- Hide menu nave for moodle style }}
             <button class="navbar-toggler aabtn d-block d-md-none my-1 mr-2" data-toggle="drawers" data-action="toggle" data-target="theme_boost-drawers-primary">
                 <span class="navbar-toggler-icon"></span>
@@ -91,3 +84,4 @@
         <!-- search_box -->
     </div>
 </nav>
+{{> theme_boost/primary-drawer-mobile }}

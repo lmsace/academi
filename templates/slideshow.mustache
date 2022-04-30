@@ -1,0 +1,127 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    Page navbar.
+}}
+{{#countslideimage}}
+    <div class="theme-slider">
+    <div id="home-page-carousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      {{#numberofslides}}
+        <li data-target="#home-page-carousel" data-slide-to="{{s}}" class="{{clstxt1}}"></li>
+      {{/numberofslides}}
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+
+      {{#slides}}
+      <div class="carousel-item {{clstxt1}}" style="background-image: url({{{slideimg}}});" >
+        <!-- <img src="<?php echo $slideimg; ?>" alt="slide"> -->
+          <div class=" carousel-overlay-content container-fluid">
+              <div class="content-wrap">
+              {{#slidecaption}}
+              <h2>{{{slidecaption}}}</h2><br>
+              {{/slidecaption}}
+
+              {{{slidedesc}}}
+            </div>
+
+          </div>
+      </div>
+      {{/slides}}
+    </div>
+    
+    {{#countslideimage}}
+    
+    <div class = "pagenav">
+      <a class="left carousel-control carousel-control-prev" href="#home-page-carousel" data-slide="prev">
+      </a>
+      <a class="right carousel-control carousel-control-next" href="#home-page-carousel" data-slide="next">
+      </a>
+    </div>
+    {{/countslideimage}}
+    </div>
+    </div>
+
+    <style>
+
+    .carousel-item-next.carousel-item-left,
+    .carousel-item-prev.carousel-item-right {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    }
+
+    @supports ((-webkit-transform-style: preserve-3d) or (transform-style: preserve-3d)) {
+    .carousel-item-next.carousel-item-left,
+    .carousel-item-prev.carousel-item-right {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    }
+    }
+
+    .carousel-item-next,
+    .active.carousel-item-right {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    }
+
+    @supports ((-webkit-transform-style: preserve-3d) or (transform-style: preserve-3d)) {
+    .carousel-item-next,
+    .active.carousel-item-right {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+    }
+    }
+
+    .carousel-item-prev,
+    .active.carousel-item-left {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    }
+
+    @supports ((-webkit-transform-style: preserve-3d) or (transform-style: preserve-3d)) {
+    .carousel-item-prev,
+    .active.carousel-item-left {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    }
+    }
+
+    .carousel-fade .carousel-item {
+    opacity: 0;
+    transition-duration: .6s;
+    transition-property: opacity;
+    }
+
+
+    @supports ((-webkit-transform-style: preserve-3d) or (transform-style: preserve-3d)) {
+    .carousel-fade .carousel-item-next,
+    .carousel-fade .carousel-item-prev,
+    .carousel-fade .carousel-item.active,
+    .carousel-fade .active.carousel-item-left,
+    .carousel-fade .active.carousel-item-prev {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    }
+    }
+
+
+
+    </style>
+  {{/countslideimage}}

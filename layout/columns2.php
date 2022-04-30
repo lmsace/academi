@@ -48,17 +48,7 @@ if (isset($PAGE->theme->addblockposition) &&
     $PAGE->blocks->add_fake_block($block, BLOCK_POS_RIGHT);
 }
 $extraclasses = [];
-// Add navbar open or close.
-if (isloggedin()) {
-    $navdraweropen = (get_user_preferences('drawer-open-nav', 'true') == 'true');
-} else {
-    $navdraweropen = false;
-}
-$navdrawerstatus = theme_academi_get_setting('navdrawerstatus');
 
-if ($navdraweropen && $navdrawerstatus) {
-    $extraclasses[] = 'drawer-open-left';
-}
 $themestyleheader = theme_academi_get_setting('themestyleheader');
 $extraclasses[] = ($themestyleheader) ? 'theme-based-header' : 'moodle-based-header';
 
@@ -111,8 +101,6 @@ $copyrightfooter = theme_academi_get_setting('copyright_footer','format_html');
 $infolink = theme_academi_get_setting('infolink');
 $infolink = theme_academi_infolink();
 
-
-
 $sinfo = get_string('info', 'theme_academi');
 $scontactus = get_string('contact_us', 'theme_academi');
 $phone = get_string('phone', 'theme_academi');
@@ -154,7 +142,6 @@ $templatecontext = [
     'sidepreblocks'  => $blockshtml,
     'hasblocks'      => $hasblocks,
     'bodyattributes' => $bodyattributes,
-    'navdraweropen'  => $navdraweropen,
 
     'primarymoremenu'           => $primarymenu['moremenu'],
     'secondarymoremenu'         => $secondarynavigation ?: false,
@@ -188,11 +175,9 @@ $templatecontext = [
     "footerblock1"     => $footerblock1,
     "colclass"         => $colclass,
     "block1"           => $block1,
-    'navdrawerstatus'  => $navdrawerstatus,
+
     'themestyleheader' => $themestyleheader
 ];
 
-$nav = $PAGE->flatnav;
-$templatecontext['flatnavigation'] = $nav;
-$templatecontext['firstcollectionlabel'] = $nav->get_collectionlabel();
+
 echo $OUTPUT->render_from_template('theme_academi/columns2', $templatecontext);

@@ -204,10 +204,6 @@ $string['primarycolor'] = 'Primary color';
 $string['primarycolor_desc'] = 'Select primary color for your brand ';
 $string['secondarycolor'] = 'Secondary color';
 $string['secondarycolor_desc'] = 'Select a color that will be used as secondary color through out moodle site';
-$string['navdrawerstatus'] = 'Navigation Drawer';
-$string['navdrawerstatus_desc'] = 'By enabling this option, User will able to use the left side navigation drawer.';
-$string['enable'] = 'Enable';
-$string['disable'] = 'Disable';
 $string['themestyleheader'] = 'Header style';
 $string['themestyleheader_desc'] = 'Select the any of the style for your header, In moodle based style, Menus are displayed in the top header.
 <br>And the bottom header will be hidden. In theme based modal, Menus are displaying in the bottom header.';

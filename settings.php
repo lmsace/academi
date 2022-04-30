@@ -51,17 +51,6 @@ if (is_siteadmin()) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
-    // Header Overlay.
-    $name = 'theme_academi/navdrawerstatus';
-    $title = get_string('navdrawerstatus', 'theme_academi');
-    $description = get_string('navdrawerstatus_desc', 'theme_academi');
-    $default = '1';
-    $choices = array(
-        1 => get_string('enable', 'theme_academi'),
-        0 => get_string('disable', 'theme_academi'),
-    );
-    $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
-    $temp->add($setting);
 
     $name = 'theme_academi/themestyleheader';
     $title = get_string('themestyleheader', 'theme_academi');

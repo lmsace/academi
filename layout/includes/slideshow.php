@@ -23,20 +23,30 @@
  */
 defined('MOODLE_INTERNAL') || die();
 
-$numberofslides = theme_academi_get_setting('numberofslides');
-
+$data['numberofslides'] = theme_academi_get_setting('numberofslides');
 $slideimage = array();
+
 for ($s1 = 1; $s1 <= $numberofslides; $s1++) {
-    $slideimage [] = theme_academi_render_slideimg($s1, 'slide' . $s1 . 'image');
+    $slideimage[] = theme_academi_render_slideimg($s1, 'slide' . $s1 . 'image');
 }
-$slideimage = (array_filter($slideimage, function($value) {
 
-        return !is_null($value) && $value !== '';
-})
-);
+$slideimage = array_filter($slideimage, function($value) {
+    return !is_null($value) && $value !== '';
+});
 
-$countslideimage = count($slideimage);
+$data['countslideimage'] = count($slideimage);
 $visableslide = 0;
+for ($s1 = 1; $s1 <= $data['numberofslides']; $s1++) :
+    $slide['slidecaption'] = theme_academi_get_setting('slide' . $s1 . 'caption', true);
+    $slide['slidedesc'] = theme_academi_get_setting('slide' . $s1 . 'desc', 'format_html');
+    $slide['slideimg'] = theme_academi_render_slideimg($s1, 'slide' . $s1 . 'image');
+    if ($slide['slideimg']) {
+        $visableslide += 1;
+        $slide['clstxt1'] = ($visableslide == "1") ? ' active' : '';
+    }
+    $data['slides'][] = $slide;
+endfor;
+
 if ($countslideimage) {
     if ($numberofslides) {
 
@@ -55,7 +65,7 @@ if ($countslideimage) {
     <!-- Wrapper for slides -->
 
     <div class="carousel-inner" role="listbox">
-        
+
         <?php for ($s1 = 1; $s1 <= $numberofslides; $s1++) :
                 $slidecaption = theme_academi_get_setting('slide' . $s1 . 'caption', true);
                 $slidedesc = theme_academi_get_setting('slide' . $s1 . 'desc', 'format_html');
@@ -151,14 +161,14 @@ if ($countslideimage) {
 
 
     @supports ((-webkit-transform-style: preserve-3d) or (transform-style: preserve-3d)) {
-    .carousel-fade .carousel-item-next,
-    .carousel-fade .carousel-item-prev,
-    .carousel-fade .carousel-item.active,
-    .carousel-fade .active.carousel-item-left,
-    .carousel-fade .active.carousel-item-prev {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    }
+      .carousel-fade .carousel-item-next,
+      .carousel-fade .carousel-item-prev,
+      .carousel-fade .carousel-item.active,
+      .carousel-fade .active.carousel-item-left,
+      .carousel-fade .active.carousel-item-prev {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      }
     }
 
 
