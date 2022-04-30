@@ -20,12 +20,11 @@
 {{#footersmall}}
 <footer id="page-footer" class=" footer-popover footer-dark bg-dark text-light">
 <div id="footer">
-      
-<div class="footer-bootom">
-  {{# copyright_footer}}
-    <p>{{{copyright_footer}}}</p>
-  {{/ copyright_footer}}
-</div>
+  <div class="footer-bootom">
+    {{# copyright_footer}}
+      <p>{{{copyright_footer}}}</p>
+    {{/ copyright_footer}}
+  </div>
 </div>
 {{/footersmall}}
 
@@ -152,6 +151,7 @@
 
 </footer>
 <!--E.O.Footer-->
+{{/footersmall}}
 
 {{#js}}
 M.util.js_pending('theme_boost/loader');
@@ -167,4 +167,3 @@ require(['theme_boost/footer-popover'], function(FooterPopover) {
 });
 {{/js}}
 
-{{/footersmall}}
