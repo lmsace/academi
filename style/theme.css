@@ -211,6 +211,9 @@ i.icon {
     float: left;
     margin-right: 10px;
 }
+#header.navbar.fixed-top #usernavigation .nav-link {
+    padding: 0 5px;
+}
 #header .popover-region i.icon:before {
     color: var(--white);
 }
@@ -219,6 +222,47 @@ i.icon {
 }
 #header .navbar-light .navbar-nav .nav-item + .nav-item {
     margin-right: 0;
+}
+#header .navbar-nav {
+    height: 100%;
+}
+#header .navbar-nav .usermenu .dropdown-menu {
+    border-radius: 5px;
+    box-shadow: 2px 5px 5px var(--black_20);
+}
+#header .navbar-nav .usermenu .dropdown-menu .carousel .carousel-inner .carousel-item a {
+    padding: 10px 15px;
+}
+#header .navbar-nav .usermenu .dropdown-menu .carousel .carousel-inner .carousel-item.submenu .header .btn,
+#header .navbar-nav .usermenu .dropdown-menu .carousel .carousel-inner .carousel-item.submenu .header .btn > span:first-child,
+#header .navbar-nav .usermenu .dropdown-menu .carousel .carousel-inner .carousel-item.submenu .header > span {
+    display: inline-block;
+    vertical-align: middle;
+}
+#header .navbar-nav .divider {
+    display: none;
+}
+#header .navbar-nav .editmode-switch-form {
+    margin-left: 10px;
+}
+#header .navbar-nav .editmode-switch-form .input-group label {
+    color: var(--white);
+}
+#header .navbar-nav .editmode-switch-form .input-group .custom-control .custom-control-input ~ .custom-control-label:before {
+    border-color: var(--white);
+    background: var(--white);
+}
+#header .navbar-nav .editmode-switch-form .input-group .custom-control .custom-control-input:focus:not(:checked) ~ .custom-control-label:before,
+#header .navbar-nav .editmode-switch-form .input-group .custom-control .custom-control-input:focus ~ .custom-control-label:before {
+    border-color: var(--white);
+    box-shadow: none;
+}
+#header .navbar-nav .editmode-switch-form .input-group .custom-control .custom-control-input:not(:disabled):active ~ .custom-control-label:before {
+    background-color: var(--white);
+    border-color: var(--white);
+}
+#header .navbar-nav .editmode-switch-form .input-group .custom-control.custom-switch .custom-control-label:after {
+    background-color: var(--color_primary);
 }
 #header .nav.navbar-nav .search-input-wrapper {
     padding: 0;
@@ -231,7 +275,11 @@ i.icon {
     margin-bottom: 0;
 }
 #header .nav.navbar-nav li.nav-item {
+    margin-right: 10px;
     float: left;
+}
+#header .nav.navbar-nav li.nav-item:last-child {
+    margin-right: 0;
 }
 #header .nav.navbar-nav .userbutton {
     margin: 0;
@@ -275,7 +323,7 @@ i.icon {
 }
 #header .navbar-nav button.btn {
     width: 40px;
-    height: 30px;
+    height: 40px;
     padding: 0;
     background: none;
     border: 0;
@@ -305,6 +353,8 @@ i.icon {
     margin: 5px auto 0;
 }
 #header .navbar-nav button.btn > span:first-child {
+    height: 100%;
+    line-height: 30px;
     margin-top: 0;
     top: 13px;
     transition: all 0.5s ease 0s;
@@ -359,7 +409,15 @@ i.icon {
     padding-right: 40px;
 }
 #header .navbar-nav .nav-link {
+    color: var(--white);
     padding: 0;
+}
+#header .navbar-nav .moremenu .nav-link:hover {
+    background: none;
+    border-bottom: 3px solid var(--white);
+}
+#header .navbar-nav .moremenu .nav-link.active {
+    border-color: var(--white);
 }
 #header .navbar-nav .popover-region .popover-region-toggle.nav-link .icon {
     font-weight: normal;
@@ -372,10 +430,17 @@ i.icon {
 }
 #header .usermenu a.dropdown-toggle {
     color: var(--white);
+    border: 0;
+    border-radius: 5px;
+    box-shadow: 2px 5px 5px var(--black_20);
 }
-/* #header .usermenu .dropdown .dropdown-menu {
-    top: auto;
-} */
+#header .usermenu a.dropdown-toggle {
+    padding: 0;
+    box-shadow: none;
+}
+#header .usermenu .moodle-actionmenu a.dropdown-toggle:focus {
+    color: var(--white);
+}
 #header .usermenu .dropdown .dropdown-menu a i {
     margin-right: 5px;
 }
@@ -4216,17 +4281,6 @@ button.close:focus,
 }
 .moodle-dialogue-bd .nav-pills .nav-link.active {
     background: var(--color_primary);
-}
-#header .usermenu .dropdown-menu {
-    border-radius: 5px;
-    box-shadow: 2px 5px 5px var(--black_20);
-}
-#header .usermenu a.dropdown-toggle {
-    padding: 0;
-    box-shadow: none;
-}
-#header .usermenu .moodle-actionmenu a.dropdown-toggle:focus {
-    color: var(--white);
 }
 .action-menu .dropdown-toggle {
     box-shadow: none;
