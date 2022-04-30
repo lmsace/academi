@@ -3665,6 +3665,9 @@ nav .popover-region .content-item-container:hover .view-more {
 .moremenu .nav.nav-tabs {
     border-bottom: 0;
 }
+.main-inner .secondary-navigation .moremenu .nav-link[data-toggle="tab"]:after {
+    display: none;
+}
 .moremenu .nav.nav-tabs .nav-item {
     margin-right: 1px;
 }
@@ -3773,6 +3776,18 @@ nav .popover-region .content-item-container:hover .view-more {
     }
     .moremenu .nav.nav-tabs > .nav-item .nav-link[href="#linkmodules"]:before {
         content: '\f1b3';
+    }
+    .moremenu .nav.nav-tabs > .nav-item .nav-link[href="#linkappearance"]:before {
+        content: '\f200';
+    }
+    .moremenu .nav.nav-tabs > .nav-item .nav-link[href="#linkserver"]:before {
+        content: '\f1c0';
+    }
+    .moremenu .nav.nav-tabs > .nav-item .nav-link[href="#linkreports"]:before {
+        content: '\f0f6';
+    }
+    .moremenu .nav.nav-tabs > .nav-item .nav-link[href="#linkdevelopment"]:before {
+        content: '\f013';
     }
     .moremenu .nav.nav-tabs > .dropdownmoremenu .nav-item .nav-link {
         padding: 10px 20px;
