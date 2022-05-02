@@ -31,7 +31,7 @@ class theme_academi_core_renderer extends theme_boost\output\core_renderer {
     /**
      * Custom menu in header.
      * @param custom_menu $menu
-     * @return type
+     * @return string
      */
     public function custom_menu_render(custom_menu $menu) {
         global $CFG;

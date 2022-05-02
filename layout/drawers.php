@@ -17,7 +17,7 @@
 /**
  * A drawer based layout for the boost theme.
  *
- * @package   theme_boost
+ * @package   theme_academi
  * @copyright 2021 Bas Brands
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

@@ -24,8 +24,8 @@
 
 /**
  * Load the Jquery and migration files
- * Load the our theme js file
- * @param moodle_page $page.
+ * @param moodle_page $page
+ * @return void
  */
 function theme_academi_page_init(moodle_page $page) {
     $page->requires->jquery();
@@ -154,8 +154,9 @@ function theme_academi_serve_css($filename) {
 
 /**
  * Set browser cache used in php header.
- * @param type|string $lastmodified
- * @param type|string $etag
+ * @param string $lastmodified
+ * @param string $etag
+ * @return void
  */
 function theme_academi_send_unmodified($lastmodified, $etag) {
     $lifetime = 60 * 60 * 24 * 60;
@@ -173,10 +174,11 @@ function theme_academi_send_unmodified($lastmodified, $etag) {
 /**
  *  Cached css for theme_academi
  *
- * @param type|string $path
- * @param type|string $filename
- * @param type|string $lastmodified
- * @param type|string $etag
+ * @param string $path
+ * @param string $filename
+ * @param string $lastmodified
+ * @param string $etag
+ * @return void
  */
 function theme_academi_send_cached_css($path, $filename, $lastmodified, $etag) {
     global $CFG;
@@ -203,9 +205,10 @@ function theme_academi_send_cached_css($path, $filename, $lastmodified, $etag) {
 /**
  * Adds any custom CSS to the CSS before it is cached.
  *
- * @param type|string $css The original CSS.
- * @param type|string $customcss The custom CSS to add.
- * @return type|string The CSS which now contains our custom CSS.
+ * @param string $css The original CSS.
+ * @param string $customcss The custom CSS to add.
+ * @return string The CSS which now contains our custom CSS.
+ * @return string $css
  */
 function theme_academi_set_customcss($css, $customcss) {
     $tag = '[[setting:customcss]]';
@@ -256,8 +259,8 @@ function theme_academi_get_html_for_settings(renderer_base $output, moodle_page 
 /**
  * Loads the CSS Styles and put the font path
  *
- * @param type|string $css
- * @return type|string
+ * @param string $css
+ * @return string
  */
 function theme_academi_pre_css_set_fontwww($css) {
     global $CFG, $PAGE;
@@ -275,8 +278,7 @@ function theme_academi_pre_css_set_fontwww($css) {
 
 /**
  * Load the font folder path into the scss.
- * @param type|string $css
- * @return type|string
+ * @return string
  */
 function theme_academi_set_fontwww() {
     global $CFG, $PAGE;
@@ -311,9 +313,9 @@ if (!function_exists('get_logo_url')) {
 
 /**
  * Renderer the slider images.
- * @param type|string $p
- * @param type|string $sliname
- * @return type|string
+ * @param string $p
+ * @param string $sliname
+ * @return string
  */
 function theme_academi_render_slideimg($p, $sliname) {
     global $PAGE, $OUTPUT;
@@ -333,9 +335,9 @@ function theme_academi_render_slideimg($p, $sliname) {
 /**
  *
  * Description
- * @param type|string $setting
- * @param type|bool $format
- * @return type|string
+ * @param string $setting
+ * @param bool $format
+ * @return string
  */
 function theme_academi_get_setting($setting, $format = true) {
     global $CFG;

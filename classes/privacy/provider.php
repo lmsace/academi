@@ -23,6 +23,10 @@
  *
  */
 namespace theme_academi\privacy;
+
+/**
+ * Define for privacy provider.
+ */
 class provider implements \core_privacy\local\metadata\null_provider {
     /**
      * Returns meta data about this system.

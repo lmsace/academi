@@ -15,9 +15,11 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @package    theme_enlight
+ * Define install function.
+ *
+ * @package    theme_academi
  * @copyright  2015 onwards LMSACE Dev Team (http://www.lmsace.com)
- * @authors    LMSACE Dev Team
+ * @author     LMSACE Dev Team
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 

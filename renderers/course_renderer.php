@@ -37,9 +37,9 @@ class theme_academi_core_course_renderer extends core_course_renderer {
     /**
      * Overrite the course  box.
      * @param coursecat_helper $chelper
-     * @param type|array $course
-     * @param type|string $additionalclasses
-     * @return type
+     * @param array $course
+     * @param string $additionalclasses
+     * @return void
      */
     protected function coursecat_coursebox(coursecat_helper $chelper, $course, $additionalclasses = '') {
         global $CFG;
