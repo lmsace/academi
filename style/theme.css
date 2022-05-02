@@ -15,7 +15,7 @@
     --color_alto_approx: #dedede;
     --color_gallery_approx: #eee;
     --mercury: #e5e5e5;
-    --wild_sand: #f4f4f4;
+    --wild_sand: #f8f8f8;
     --color_mercury_approx: #e8e3e3;
     --light_blue: #5a7ec9;
     --asparagus: #689f59;
@@ -533,7 +533,7 @@ legend + div {
     line-height: 24px;
 }
 .drawer.drawer-right {
-    z-index: 1;
+    z-index: 1100;
 }
 #page #page-header .card #page-navbar {
     height: 100%;
@@ -891,6 +891,12 @@ select[size] {
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
+    .form-item .form-label {
+        width: 140px;
+    }
+    .mform .fitem div.fitemtitle {
+        width: 140px;
+    }
     .dir-rtl .form-item .form-label {
         float: none;
     }
@@ -923,12 +929,16 @@ select[size] {
     }
 }
 
-@media (min-width: 768px) and (max-width: 991px) {
-    .form-item .form-label {
-        width: 140px;
+@media (min-width: 768px) {
+    .main-inner .header-maxwidth,
+    .main-inner .secondary-navigation {
+        max-width: none;
     }
-    .mform .fitem div.fitemtitle {
-        width: 140px;
+    .main-inner .secondary-navigation .navigation {
+        max-width: none;
+        width: 80%;
+        margin: 0 auto;
+        border: 0;
     }
 }
 
@@ -1117,6 +1127,18 @@ select[size] {
     .dir-rtl .mform .fitem div.fitemtitle {
         float: none;
         text-align: right;
+    }
+}
+
+@media (min-width: 768px) {
+    #page.drawers .main-inner {
+        padding: 0;
+    }
+}
+
+@media (min-width: 576px) {
+    #page.drawers .main-inner {
+        margin-top: 0;
     }
 }
 
@@ -2087,7 +2109,7 @@ select[size] {
     color: var(--grey);
     text-shadow: none;
     display: inline-block;
-    padding: 15px;
+    padding: 5px 15px;
     position: relative;
 }
 .breadcrumb > li a {
@@ -2364,11 +2386,11 @@ select[size] {
 /*Available courses*/
 #frontpage-course-list {
     background: var(--white);
-    border: 1px solid var(--mercury);
+    border: 1px solid var(--wild_sand);
 }
 #frontpage-course-list h2 {
     padding: 9px 18px;
-    border-bottom: 1px solid var(--mercury);
+    border-bottom: 1px solid var(--wild_sand);
     margin: 0;
 }
 #frontpage-course-list .buttons .singlebutton {
@@ -2385,8 +2407,8 @@ select[size] {
 #frontpage-category-combo,
 #frontpage-category-names,
 #site-news-forum {
-    border: 1px solid var(--mercury);
-    background: var(--mercury);
+    border: 1px solid var(--wild_sand);
+    background: var(--wild_sand);
     padding: 30px;
     margin: 0;
 }
@@ -2395,7 +2417,7 @@ select[size] {
 .course-search-result .coursebox {
     padding: 20px;
     border: 0;
-    border-bottom: 1px solid var(--mercury);
+    border-bottom: 1px solid var(--wild_sand);
     border-radius: 5px;
     background: var(--white);
     margin: 20px 0;
@@ -2989,9 +3011,17 @@ select[size] {
     max-width: 40px;
     margin-top: 0;
 }
+.page-context-header .page-header-image > a,
 .page-context-header .page-header-image img {
     width: 100%;
     height: auto;
+}
+.page-context-header .page-header-image a .userinitials {
+    width: 100%;
+    height: auto;
+    font-size: 16px;
+    display: inline-block;
+    padding: 10px;
 }
 .page-context-header .header-button-group {
     margin-left: 10px;
@@ -3791,9 +3821,9 @@ nav .popover-region .content-item-container:hover .view-more {
 .main-inner .secondary-navigation .moremenu .nav-link[data-toggle="tab"]:after {
     display: none;
 }
-.main-inner .page-context-header .page-header-headings {
+/* .main-inner .page-context-header .page-header-headings {
     margin-left: 15px;
-}
+} */
 .moremenu .nav.nav-tabs .nav-item {
     margin-right: 1px;
 }
@@ -3817,12 +3847,15 @@ nav .popover-region .content-item-container:hover .view-more {
 }
 /* .pagelayout-frontpage .moremenu .nav.nav-tabs .nav-item {
     width: 100%;
-} */
+} 
 .pagelayout-frontpage .moremenu .nav.nav-tabs .nav-link {
     border-radius: 0;
-}
+}*/
 .moremenu .nav.nav-tabs .nav-link.active {
     color: var(--white);
+}
+.drawer-toggles .drawer-right-toggle {
+    z-index: 3;
 }
 .main-inner .drawer-toggles .drawer-toggler button {
     padding: 10px;
@@ -4089,10 +4122,12 @@ nav .popover-region .content-item-container:hover .view-more {
     background: var(--color_primary);
     color: var(--white);
 }
-
+#page-grade-grading-manage .actions .action {
+    height: auto;
+}
 #page-wrapper {
     height: auto;
-    margin-top: 50px;
+    margin-top: 60px;
 }
 .pagination .page-item .page-link:focus {
     box-shadow: none;
@@ -4357,6 +4392,7 @@ button.close:focus,
     height: auto;
 }
 body.limitedwidth #page.drawers .main-inner {
+    padding-top: 0;
     margin: 0;
 }
 body.limitedwidth.pagelayout-frontpage #page.drawers .main-inner {
