@@ -4122,7 +4122,9 @@ nav .popover-region .content-item-container:hover .view-more {
     background: var(--color_primary);
     color: var(--white);
 }
-
+#page-grade-grading-manage .actions .action {
+    height: auto;
+}
 #page-wrapper {
     height: auto;
     margin-top: 60px;
