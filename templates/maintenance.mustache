@@ -50,19 +50,10 @@
     <div class="header-main ">
         <div class="container">
             <nav class="navbar navbar-light bg-faded ">
-                <a href="{{{ config.wwwroot }}}/?redirect=0" class="navbar-brand {{# logourl }}has-logo{{/ logourl }}
-                    {{^ logourl }}
+                <a href="{{{ config.wwwroot }}}/?redirect=0" class="navbar-brand {{^ logourl }}
                         hidden-sm-down
-                    {{/ logourl }}
-                        ">
-                    {{# logourl }}
-                        <span class="logo">
-                            <img src="{{logourl}}" alt="{{sitename}}">
-                        </span>
-                    {{/ logourl }}
-                    {{^ logourl }}
-                        <span class="site-name hidden-sm-down">{{{ sitename }}}</span>
-                    {{/ logourl }}
+                    {{/ logourl }}">
+                    <span class="site-name hidden-sm-down">{{{ sitename }}}</span>
                 </a>
             </nav>
         </div>
