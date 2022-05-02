@@ -85,15 +85,14 @@ if ($countslideimage) {
                     <?php } ?>
                 <?php echo $slidedesc; ?>
             </div>
-            
           </div>
       </div>
-        <?php
+                <?php
             }
         endfor; ?>
     </div>
-    <?php
-    if ($countslideimage > 1) {
+                    <?php
+                    if ($countslideimage > 1) {
     ?>
     <div class = "pagenav">
       <a class="left carousel-control carousel-control-prev" href="#home-page-carousel" data-slide="prev">
@@ -103,8 +102,8 @@ if ($countslideimage) {
 
       </a>
     </div>
-    <?php
-    }
+                        <?php
+                    }
     ?>
     </div>
     </div>
@@ -175,6 +174,6 @@ if ($countslideimage) {
 
     </style>
     <!--E.O.Slider-->
-    <?php
+        <?php
     }
 }

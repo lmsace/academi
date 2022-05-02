@@ -21,14 +21,11 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Theme_academi install function.
  *
  * @return void
  */
-
 function xmldb_theme_academi_install() {
     global $CFG;
 
@@ -51,7 +48,6 @@ function xmldb_theme_academi_install() {
         $filerecord->itemid = 0;
         $filerecord->filename = 'slide1image.jpg';
         $fs->create_file_from_pathname($filerecord, $CFG->dirroot . '/theme/academi/pix/home/slide1.jpg');
-
 
         $fs = get_file_storage();
         $filerecord = new stdClass();

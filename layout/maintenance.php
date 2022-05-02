@@ -23,7 +23,7 @@
  */
 defined('MOODLE_INTERNAL') || die();
 
-$copyrightfooter = theme_academi_get_setting('copyright_footer','format_html');
+$copyrightfooter = theme_academi_get_setting('copyright_footer', 'format_html');
 
 $logourl = get_logo_url();
 $templatecontext = [

@@ -22,8 +22,6 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Academi core renderer renderer from the moodle core renderer
  * @copyright  2015 onwards LMSACE Dev Team (http://www.lmsace.com)
