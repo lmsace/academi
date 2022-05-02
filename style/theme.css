@@ -2109,7 +2109,7 @@ select[size] {
     color: var(--grey);
     text-shadow: none;
     display: inline-block;
-    padding: 15px;
+    padding: 5px 15px;
     position: relative;
 }
 .breadcrumb > li a {
@@ -3853,6 +3853,9 @@ nav .popover-region .content-item-container:hover .view-more {
 }*/
 .moremenu .nav.nav-tabs .nav-link.active {
     color: var(--white);
+}
+.drawer-toggles .drawer-right-toggle {
+    z-index: 3;
 }
 .main-inner .drawer-toggles .drawer-toggler button {
     padding: 10px;
