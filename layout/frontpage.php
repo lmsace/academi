@@ -90,24 +90,26 @@ $regionmainsettingsmenu = $buildregionmainsettings ? $OUTPUT->region_main_settin
 $header = $PAGE->activityheader;
 $headercontent = $header->export_for_template($renderer);
 
-// Slide show contnet
-$data['numberofslides'] = theme_academi_get_setting('numberofslides');
-$visableslide = 0;
-for ($s1 = 1; $s1 <= $data['numberofslides']; $s1++) :
-    $slide['s'] = $s1;
-    $slide['slidecaption'] = theme_academi_get_setting('slide' . $s1 . 'caption', true);
-    $slide['slidedesc'] = theme_academi_get_setting('slide' . $s1 . 'desc', 'format_html');
-    $slide['slideimg'] = theme_academi_render_slideimg($s1, 'slide' . $s1 . 'image');
-    if ($slide['slideimg']) {
-        $visableslide += 1;
-        $slide['clstxt1'] = ($visableslide == "1") ? ' active' : '';
-        $data['slides'][] = $slide;
-    }
-endfor;
-$data['countslideimage'] = $visableslide;
-
-// End Slide show contnet.
-$templatecontext += $data;
+// Slide show contnet.
+if (theme_academi_get_setting('toggleslideshow')) {
+    $data['numberofslides'] = theme_academi_get_setting('numberofslides');
+    $visableslide = 0;
+    for ($s1 = 1; $s1 <= $data['numberofslides']; $s1++) :
+        $slide['s'] = $s1;
+        $slide['slidecaption'] = theme_academi_get_setting('slide' . $s1 . 'caption', true);
+        $slide['slidedesc'] = theme_academi_get_setting('slide' . $s1 . 'desc', 'format_html');
+        $slide['slideimg'] = theme_academi_render_slideimg($s1, 'slide' . $s1 . 'image');
+        if ($slide['slideimg']) {
+            $visableslide += 1;
+            $slide['clstxt1'] = ($visableslide == "1") ? ' active' : '';
+            $data['slides'][] = $slide;
+        }
+    endfor;
+    $data['countslideimage'] = $visableslide;
+    $data['pagination'] = ($visableslide > 1);
+    // End Slide show contnet.
+    $templatecontext += $data;
+}
 
 $templatecontext += [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
