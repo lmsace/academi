@@ -64,37 +64,40 @@ h6 {
     color: var(--color_montana);
 }
 .aabtn.focus,
-.btn-link.focus,
-.nav-link.focus,
-.atto_link_button.focus,
-[role="button"].focus,
-.list-group-item-action.focus,
-input[type="checkbox"].focus,
-input[type="radio"].focus,
-input[type="file"].focus,
-input[type="image"].focus,
-.sr-only-focusable.focus,
-a.dropdown-item.focus,
-a.dropdown-toggle.focus,
-.modal-dialog[tabindex="0"].focus,
-.moodle-dialogue-base .closebutton.focus,
-button.close.focus,
 .aabtn:focus,
+.btn-link.focus,
 .btn-link:focus,
+.nav-link.focus,
 .nav-link:focus,
-.atto_link_button:focus,
-[role="button"]:focus,
+.editor_atto_toolbar button.focus,
+.editor_atto_toolbar button:focus,
+.editor_atto_toolbar .atto_toolbar_row.focus,
+.editor_atto_toolbar .atto_toolbar_row:focus,
+[role="button"].focus, [role="button"]:focus,
+.list-group-item-action.focus,
 .list-group-item-action:focus,
+input[type="checkbox"].focus,
 input[type="checkbox"]:focus,
+input[type="radio"].focus,
 input[type="radio"]:focus,
+input[type="file"].focus,
 input[type="file"]:focus,
+input[type="image"].focus,
 input[type="image"]:focus,
+.sr-only-focusable.focus,
 .sr-only-focusable:focus,
-a.dropdown-item:focus,
+a.dropdown-toggle.focus,
 a.dropdown-toggle:focus,
+.modal-dialog[tabindex="0"].focus,
 .modal-dialog[tabindex="0"]:focus,
+.moodle-dialogue-base .closebutton.focus,
 .moodle-dialogue-base .closebutton:focus,
-button.close:focus {
+button.close.focus,
+button.close:focus,
+.form-autocomplete-selection.focus,
+.form-autocomplete-selection:focus,
+[role="treeitem"]:not([aria-expanded="true"]).focus,
+[role="treeitem"]:not([aria-expanded="true"]):focus {
     outline: none;
     box-shadow: none;
 }
@@ -397,6 +400,10 @@ i.icon {
 .form-autocomplete-suggestions li:focus,
 .form-autocomplete-suggestions li[aria-selected="true"] {
     background: var(--color_primary);
+    box-shadow: none;
+}
+[role="treeitem"][aria-expanded="true"].focus > *:first-child,
+[role="treeitem"][aria-expanded="true"]:focus > *:first-child {
     box-shadow: none;
 }
 
@@ -2120,11 +2127,24 @@ select[size] {
 .page-mycourses .block .card-body .block-myoverview hr {
     display: none;
 }
+#block-region-side-pre .block {
+    padding: 0;
+}
 .block .card-body .content {
     padding: 10px 18px;
     margin: 0 !important;
     background: var(--wild_sand);
     border-top: 1px solid var(--mercury);
+}
+.block .card-body .content .info {
+    margin-bottom: 10px;
+}
+.block .block_private_files .content .footer {
+    padding: 0 ;
+    margin: 0;
+}
+.block .card-body .content .tag_cloud .inline-list li a {
+    font-size: 16px;
 }
 .block .card-body .content.card-text .block-myoverview hr + div {
     display: block !important;
@@ -4159,7 +4179,15 @@ button.close:focus,
 }
 .main-inner .drawer-left-toggle button.btn:not(:disabled):not(.disabled),
 .main-inner .drawer-right-toggle button.btn:not(:disabled):not(.disabled) {
+    border-color: var(--color_secondary);
+    background-color: var(--color_secondary);
+}
+.main-inner .drawer-left-toggle button.btn:not(:disabled):not(.disabled):hover,
+.main-inner .drawer-right-toggle button.btn:not(:disabled):not(.disabled):hover,
+.main-inner .drawer-left-toggle button.btn:not(:disabled):not(.disabled):focus,
+.main-inner .drawer-right-toggle button.btn:not(:disabled):not(.disabled):focus {
     border-color: var(--color_primary);
+    background-color: var(--color_primary);
 }
 
 .secondarynavigation + #page-content #region-main {
