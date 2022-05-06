@@ -522,9 +522,6 @@ legend + div {
     color: var(--color_storm_dust_approx);
     line-height: 24px;
 }
-.drawer.drawer-right {
-    z-index: 1100;
-}
 #page #page-header .card #page-navbar {
     height: 100%;
     box-shadow: 1px 1px 5px var(--black_20);
@@ -4291,7 +4288,9 @@ button.close:focus,
 }
 
 /*Incoruse page*/
-
+.drawer.drawer-right {
+    z-index: 1;
+}
 .main-inner .drawer-left-toggle button,
 .main-inner .drawer-right-toggle button {
     background: var(--color_primary);
