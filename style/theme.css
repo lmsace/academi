@@ -4200,6 +4200,12 @@ button.close:focus,
 .message-app .icon {
     color: var(--color_primary);
 }
+.message-app .list-group .list-group-item.list-group-item-action:hover {
+    background: var(--color_primary);
+}
+.message-app .list-group .list-group-item.list-group-item-action:hover > .d-flex .d-flex .text-muted i.icon {
+    color: var(--white);
+}
 .header-main .message-app .header-container .input-group .input-group-prepend .input-group-text {
     padding-right: 10px !important;
 }
@@ -4218,10 +4224,14 @@ button.close:focus,
 .custom-control.custom-radio .custom-control-input:focus ~ .custom-control-label::before,
 .custom-control.custom-switch .custom-control-input:focus ~ .custom-control-label::before,
 .custom-control.custom-radio .custom-control-input:checked + .custom-control-label:before,
-.custom-control.custom-switch .custom-control-input:checked + .custom-control-label:before {
+.custom-control.custom-switch .custom-control-input:checked + .custom-control-label:before,
+.custom-switch .custom-control-label:before {
     background-color: var(--color_primary);
     border-color: var(--color_primary);
-    box-shadow: 0 0 0 0.2rem var(--color_primary);
+    box-shadow: none;
+}
+.custom-switch .custom-control-label:after {
+    background-color: var(--white);
 }
 .custom-control.custom-radio .custom-control-input:active + .custom-control-label:before {
     background-color: rgba(136, 183, 123, .25);
@@ -4235,6 +4245,10 @@ button.close:focus,
 }
 .custom-control.custom-radio .custom-control-input:not(:disabled):active ~ .custom-control-label:before,
 .custom-control.custom-switch .custom-control-input:not(:disabled):active ~ .custom-control-label:before {
+    border-color: var(--color_primary);
+    background-color: var(--color_primary);
+}
+.custom-control.custom-checkbox .custom-control-input:checked ~ .custom-control-label:before {
     border-color: var(--color_primary);
     background-color: var(--color_primary);
 }
@@ -4372,8 +4386,11 @@ body.limitedwidth.pagelayout-frontpage #page.drawers .main-inner {
 .pagelayout-frontpage.format-site .secondary-navigation {
     padding: 0;
 }
-.pagelayout-frontpage #page.drawers div[role="main"] {
+#page.drawers div[role="main"] {
     padding: 0;
+}
+.pagelayout-mydashboard #region-main {
+    padding: 0 15px;
 }
 
 @media (min-width: 768px) {
