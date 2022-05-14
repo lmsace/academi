@@ -15,13 +15,49 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    Page navbar.
+
+    @template theme_boost/navbar
+
+    This template renders the top navbar.
+
+    Example context (json):
+    {
+        "output": {
+            "should_display_navbar_logo": true,
+            "get_compact_logo_url": "http://placekitten.com/50/50",
+            "custom_menu": "<li>..</li>",
+            "page_heading_menu": "<li>..</li>",
+            "search_box": "<div><input type='text'></div>",
+            "navbar_plugin_output": "<div class='dropdown'>Messaging</div>",
+            "user_menu": "<div class='dropdown'>John Doe</div>"
+        },
+        "config": {
+            "wwwroot": "#",
+            "homeurl": "/my/"
+        },
+        "sitename": "Moodle Site",
+        "mobileprimarynav": [
+            {
+                "text": "Dashboard",
+                "url": "/my",
+                "isactive": true
+            },
+            {
+                "text": "Site home",
+                "url": "/",
+                "isactive": false
+            },
+            {
+                "text": "My courses",
+                "url": "/course",
+                "isactive": false
+            }
+        ]
+    }
 }}
 <nav id="header" class="{{^themestyleheader }} moodle-based-header {{/themestyleheader }} fixed-top navbar navbar-light bg-faded navbar-static-top navbar-expand moodle-has-zindex" aria-label="{{#str}}sitemenubar, admin{{/str}}">
 
      <div class="container-fluid navbar-nav">
-        <div data-region="drawer-toggle" class="d-inline-block mr-3">
-
             {{^themestyleheader  }} {{!-- Hide menu nave for moodle style }}
             <button class="navbar-toggler aabtn d-block d-md-none my-1 mr-2" data-toggle="drawers" data-action="toggle" data-target="theme_boost-drawers-primary">
                 <span class="navbar-toggler-icon"></span>
@@ -53,7 +89,6 @@
                     {{/ emailid}}
                 </nav>
             {{/themestyleheader}}
-        </div>
 
         {{^themestyleheader  }} {{!-- Hide menu nave for moodle style }}
             {{#primarymoremenu}}
