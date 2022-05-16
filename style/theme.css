@@ -1,6 +1,6 @@
 :root {
-    --color_primary: [[setting:primarycolor]];
-    --color_secondary: [[setting:secondarycolor]];
+    --color_primary: #444;
+    --color_secondary: #333;
     --white: #fff;
     --black: #000;
     --dark_grey: #111;
