@@ -1,6 +1,6 @@
 :root {
-    --color_primary: #444;
-    --color_secondary: #333;
+    --color_primary: [[setting:primarycolor]];
+    --color_secondary: [[setting:secondarycolor]];
     --white: #fff;
     --black: #000;
     --dark_grey: #111;
@@ -1739,7 +1739,7 @@ select[size] {
     width: 100%;
     height: auto;
     max-height: 150px;
-    object-fit: contain; 
+    object-fit: contain;
 }
 .header-main .infoarea .nav-item.nav-link {
     padding: 34px 20px;
@@ -2111,7 +2111,7 @@ select[size] {
     padding-right: 10px;
     background: var(--color_primary);
 }
-.breadcrumb .breadcrumb-item+.breadcrumb-item:before {
+.breadcrumb .breadcrumb-item + .breadcrumb-item:before {
     content: '\f105';
     font-family: var(--font_2);
     margin-right: 10px;
@@ -2128,7 +2128,7 @@ select[size] {
     border-left: 20px solid var(--color_primary);
     position: absolute;
     right: -20px;
-    top: 0px;
+    top: 0;
 }
 .breadcrumb > li > .divider {
     font-size: 10px;
@@ -2179,7 +2179,7 @@ select[size] {
     margin-bottom: 10px;
 }
 .block .block_private_files .content .footer {
-    padding: 0 ;
+    padding: 0;
     margin: 0;
 }
 .block .card-body .content .tag_cloud .inline-list li a {
@@ -2266,7 +2266,7 @@ select[size] {
     text-indent: -999em;
     text-align: center;
 }
-.block .calendar-controls .current  {
+.block .calendar-controls .current {
     font-size: 16px;
 }
 .block .calendar-controls .current a {
@@ -2688,6 +2688,7 @@ select[size] {
         padding-left: 0;
     }
 }
+
 @media (min-width: 575px) {
     .courses.frontpage-course-list-all .coursebox .info,
     .courses.frontpage-course-list-enrolled .coursebox .info {
@@ -3532,7 +3533,7 @@ nav .popover-region .content-item-container:hover .view-more {
 }
 .simplesearchform .withclear + button {
     color: var(--white);
-    background: var(--color_primary)
+    background: var(--color_primary);
 }
 .cb-toolbar-container .icon-no-margin,
 .cb-toolbar-container .icon-no-margin.btn:not(:disabled):not(.disabled) {
@@ -3640,7 +3641,7 @@ nav .popover-region .content-item-container:hover .view-more {
     padding: 0 20px;
     margin: 0 auto;
 }
-.pagelayout-frontpage #page #page-content .box .simplesearchform  {
+.pagelayout-frontpage #page #page-content .box .simplesearchform {
     width: 100%;
 }
 .pagelayout-frontpage #page #page-content .box form {
@@ -3709,7 +3710,8 @@ nav .popover-region .content-item-container:hover .view-more {
 .has-blocks .card.card-block .block-region .block .card-block .block-controls .menubar .dropdown a.dropdown-toggle i.icon {
     margin: 0;
 }
-.has-blocks .card.card-block .block-region .block .card-block .block-controls .menubar .dropdown .dropdown-menu a.dropdown-item i.icon {
+.has-blocks .card.card-block .block-region .block .card-block .block-controls
+.menubar .dropdown .dropdown-menu a.dropdown-item i.icon {
     color: var(--color_primary);
 }
 .hidden-print .block-region .block .card-block .block-controls .menubar .dropdown a.dropdown-toggle i.icon {
@@ -3730,16 +3732,20 @@ nav .popover-region .content-item-container:hover .view-more {
 #page #page-header .card .card-block .menubar .dropdown .dropdown-menu .dropdown-item i {
     color: var(--color_primary);
 }
-#page #page-content .has-blocks .card.card-block .course-content .weeks li.section .right .section_action_menu .action-menu .menubar .dropdown .dropdown-menu a.dropdown-item i.icon {
+#page #page-content .has-blocks .card.card-block .course-content .weeks li.section .right
+.section_action_menu .action-menu .menubar .dropdown .dropdown-menu a.dropdown-item i.icon {
     color: var(--color_primary);
 }
-#page #page-content .has-blocks .card.card-block .course-content .weeks li.section .content ul.section li .mod-indent-outer .action-menu .menubar .dropdown .dropdown-menu .dropdown-item i.icon {
+#page #page-content .has-blocks .card.card-block .course-content .weeks li.section .content
+ul.section li .mod-indent-outer .action-menu .menubar .dropdown .dropdown-menu .dropdown-item i.icon {
     color: var(--color_primary);
 }
-#page #page-content .has-blocks .card.card-block .course-content .weeks li.section .content .sectionname .inplaceeditable .quickeditlink i.icon {
+#page #page-content .has-blocks .card.card-block .course-content .weeks li.section .content
+.sectionname .inplaceeditable .quickeditlink i.icon {
     vertical-align: top;
 }
-#page #page-content .has-blocks .card.card-block .course-content .weeks li.section .content .sectionname .inplaceeditable .quickeditlink i.icon:before {
+#page #page-content .has-blocks .card.card-block .course-content .weeks li.section .content
+.sectionname .inplaceeditable .quickeditlink i.icon:before {
     font-size: 12px;
 }
 .messaging-area-container .messaging-area .contacts-area .tabs .tab div {
@@ -3867,7 +3873,7 @@ nav .popover-region .content-item-container:hover .view-more {
     }
     .moremenu .nav.nav-tabs .nav-link.active {
         border-color: var(--color_primary);
-        border-right-color: var(--white);    
+        border-right-color: var(--white);
     }
     #page-admin-search .moremenu .nav.nav-tabs .nav-item .nav-link {
         height: 100%;
@@ -4347,7 +4353,7 @@ button.close:focus,
     background: var(--color_primary);
     border-color: var(--color_primary);
 }
-.drawer .drawercontent .courseindex-item:hover, 
+.drawer .drawercontent .courseindex-item:hover,
 .drawer .drawercontent .courseindex-item:hover a {
     color: var(--white);
     background: var(--color_primary);
