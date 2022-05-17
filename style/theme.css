@@ -1644,7 +1644,10 @@ select[size] {
     color: var(--color_primary);
     margin-bottom: 0;
 }
-.footer-container-popover .btn-footer-popover {
+button.btn-footer-popover,
+button.btn-footer-popover:hover,
+button.btn-footer-popover:focus,
+button.btn-footer-popover:active {
     color: var(--white);
     background: var(--color_primary) !important;
 }
