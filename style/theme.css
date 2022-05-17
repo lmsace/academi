@@ -4402,7 +4402,9 @@ body.limitedwidth.pagelayout-frontpage #page.drawers .main-inner {
 
 @media (min-width: 768px) {
     .pagelayout-standard #page.drawers .main-inner,
-    body.limitedwidth #page.drawers .main-inner {
+    body.limitedwidth #page.drawers .main-inner,
+    .pagelayout-standard #page.drawers .footer-popover,
+    body.limitedwidth #page.drawers .footer-popover {
         max-width: none;
     }
 }
