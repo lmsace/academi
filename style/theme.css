@@ -1644,6 +1644,10 @@ select[size] {
     color: var(--color_primary);
     margin-bottom: 0;
 }
+.footer-container-popover .btn-footer-popover {
+    color: var(--white);
+    background: var(--color_primary) !important;
+}
 
 .dir-rtl #footer .footer-main p i {
     margin-left: 5px;
