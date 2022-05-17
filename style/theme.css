@@ -4312,9 +4312,6 @@ button.close:focus,
 }
 
 /*Incoruse page*/
-.drawer.drawer-right {
-    z-index: 1050;
-}
 .main-inner .drawer-left-toggle button,
 .main-inner .drawer-right-toggle button {
     background: var(--color_primary);
