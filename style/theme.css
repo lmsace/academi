@@ -2996,7 +2996,6 @@ button.btn-footer-popover:active {
     border-bottom-right-radius: 5px;
 }
 .page-context-header .page-header-image {
-    max-width: 40px;
     margin-top: 0;
 }
 .page-context-header .page-header-image > a,
