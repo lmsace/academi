@@ -24,9 +24,9 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version    = 2022051700; // This component release level.
+$plugin->version    = 2022072600; // This component release level.
 $plugin->maturity   = MATURITY_STABLE; // This version's maturity level.
-$plugin->release    = 'v4.0'; // This version's release version.
+$plugin->release    = 'v4.0.1'; // This version's release version.
 $plugin->requires   = 2022041900; // This version's moodle require release.
 $plugin->component  = 'theme_academi'; // This component type_name.
 $plugin->dependencies = array(

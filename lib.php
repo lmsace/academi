@@ -28,8 +28,7 @@
  * @return void
  */
 function theme_academi_page_init(moodle_page $page) {
-    $page->requires->jquery();
-    $page->requires->js('/theme/academi/javascript/theme.js');
+    $page->requires->js_call_amd('theme_academi/theme');
 }
 
 /**
