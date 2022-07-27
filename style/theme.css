@@ -1154,6 +1154,21 @@ select[size] {
 #header .navbar-nav {
     height: 100%;
 }
+#header .navbar-nav .navbar-toggler:hover,
+#header .navbar-nav .navbar-toggler:focus,
+#header .navbar-nav .navbar-toggler:active {
+    background: none;
+}
+#header .navbar-nav .navbar-toggler:before {
+    content: '\f0c9';
+    font-family: var(--font_2);
+    color: var(--white);
+    font-size: 24px;
+    font-weight: normal;
+}
+#header .navbar-nav .navbar-toggler span {
+    display: none;
+}
 #header .navbar-nav .langmenu .dropdown .dropdown-toggle {
     color: var(--white);
     border: 0;
@@ -4397,6 +4412,7 @@ body.limitedwidth.pagelayout-frontpage #page.drawers .main-inner {
     padding: 0;
 }
 .format-site .secondary-navigation .navigation {
+    width: auto;
     border: 0;
 }
 .pagelayout-frontpage.format-site .secondary-navigation {
