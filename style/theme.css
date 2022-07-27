@@ -1227,6 +1227,10 @@ select[size] {
 #header .nav.navbar-nav li.nav-item:last-child {
     margin-right: 0;
 }
+#header .nav.navbar-nav li.nav-item .dropdown-menu li.nav-item {
+    margin: 0;
+    float: none;
+}
 #header .nav.navbar-nav .userbutton {
     margin: 0;
 }
