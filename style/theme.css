@@ -1134,6 +1134,9 @@ select[size] {
     border-bottom: 1px solid var(--color_mercury_approx);
     background: var(--color_primary);
 }
+#header .navbar-nav.more-nav {
+    height: auto;
+}
 #header .popover-region {
     height: 100%;
     float: left;
@@ -1486,7 +1489,7 @@ select[size] {
         display: none;
     }
     #header ul.nav.navbar-nav {
-        display: block;
+        display: flex;
     }
     #header .nav.navbar-nav li.nav-item .popover-region {
         margin-top: 7px;
@@ -2195,9 +2198,6 @@ button.btn-footer-popover:active {
 .block .card-body .content.card-text .block-myoverview hr {
     border: 0;
 }
-.block .card-body .content.card-text .block-myoverview hr + div {
-    display: block !important;
-}
 .block .card-body .content.card-text .block-myoverview hr + div .dropdown .btn {
     border-color: var(--color_alto_approx);
 }
@@ -2369,6 +2369,12 @@ button.btn-footer-popover:active {
     .block .minicalendar td {
         padding-right: 0;
         padding-left: 0;
+    }
+}
+
+@media (max-width: 575px) {
+    .block .card-body .content.card-text .block-myoverview hr + div {
+        display: block !important;
     }
 }
 
