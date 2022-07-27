@@ -949,9 +949,6 @@ select[size] {
         background: var(--color_primary);
         border-color: var(--color_primary);
     }
-    .primary-navigation {
-        display: block;
-    }
 }
 
 @media (min-width: 576px) {
