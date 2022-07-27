@@ -1803,6 +1803,12 @@ button.btn-footer-popover:active {
     margin-right: 5px;
 }
 
+@media (max-width: 767px) {
+    .header-main .navbar-light .primary-navigation {
+        display: block;
+    }
+}
+
 /*Header main RTL*/
 .dir-rtl .header-main .navbar-light .primary-navigation .navigation .dropdown-menu {
     left: 0;
@@ -3820,10 +3826,14 @@ ul.section li .mod-indent-outer .action-menu .menubar .dropdown .dropdown-menu .
 }
 #page-admin-search .tab-content .tab-pane .list-unstyled li a:hover,
 #page-admin-search .tab-content .tab-pane .list-unstyled li a:focus {
-    color: var(--color_secondary);
+    color: var(--color_secondary);http://dev.lmsace.com/m40/course/search.php
 }
 .moremenu .nav.nav-tabs {
     border-bottom: 0;
+}
+.moremenu .dropdownmoremenu > .dropdown-menu .dropdown-menu .dropdown-item:hover,
+.moremenu .dropdownmoremenu > .dropdown-menu .dropdown-menu .dropdown-item:focus {
+    background: var(--color_primary);
 }
 .main-inner .secondary-navigation .moremenu .nav-link[data-toggle="tab"]:after {
     display: none;
