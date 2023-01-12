@@ -1208,6 +1208,9 @@ select[size] {
     border-color: var(--white);
 }
 #header .navbar-nav .editmode-switch-form .input-group .custom-control.custom-switch .custom-control-label:after {
+    background-color: var(--color_chicago_approx);
+}
+#header .navbar-nav .editmode-switch-form .input-group .custom-control.custom-switch .custom-control-input:checked ~ .custom-control-label:after {
     background-color: var(--color_primary);
 }
 #header .nav.navbar-nav .search-input-wrapper {
@@ -2094,9 +2097,9 @@ button.btn-footer-popover:active {
 }
 
 @media (min-width: 768px) {
-    .carousel-inner .carousel-item {
+    /* .carousel-inner .carousel-item {
         min-height: 418px;
-    }
+    } */
     .carousel-overlay-content .content-wrap {
         padding: 110px 75px;
     }
@@ -2117,7 +2120,7 @@ button.btn-footer-popover:active {
 
 /*Breadcrumb*/
 .breadcrumb {
-    background: none;
+    background: var(--wild_sand);
     border-radius: 0;
     display: block;
     padding: 0;
@@ -2190,7 +2193,7 @@ button.btn-footer-popover:active {
     margin-right: 10px;
 }
 .page-mycourses #page-header .header-actions-container .header-action .btn-group .btn-link {
-    line-height: 25px !important;
+    line-height: 21px !important;
 }
 .page-mycourses #page-header .header-actions-container .header-action .btn-group .btn-link i {
     padding-top: 0 !important;
@@ -2223,10 +2226,10 @@ button.btn-footer-popover:active {
 .block .card-body .content.card-text .block-myoverview hr + div .dropdown .btn {
     border-color: var(--color_alto_approx);
 }
-.page-mycourses .block .card-body .content.card-text .block-myoverview hr + div > div {
+/* .page-mycourses .block .card-body .content.card-text .block-myoverview hr + div > div {
     display: inline-block !important;
     vertical-align: top;
-}
+} */
 .block .card-body .content .block-timeline .no-gutters .dropdown-toggle {
     background: var(--white);
 }
@@ -2537,6 +2540,7 @@ button.btn-footer-popover:active {
 }
 .coursebox .info {
     position: relative;
+    margin-bottom: 10px;
 }
 .coursebox .info .coursename {
     float: none;
@@ -3889,9 +3893,9 @@ ul.section li .mod-indent-outer .action-menu .menubar .dropdown .dropdown-menu .
     #page-admin-search .secondary-navigation .moremenu {
         height: 100%;
     }
-    .moremenu .nav.nav-tabs .nav-item {
+    /* .moremenu .nav.nav-tabs .nav-item {
         width: 100%;
-    }
+    } */
     .moremenu .nav.nav-tabs .nav-link {
         width: 100%;
         height: auto;
@@ -3903,7 +3907,7 @@ ul.section li .mod-indent-outer .action-menu .menubar .dropdown .dropdown-menu .
         border-color: var(--color_tranquil);
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
-        padding: 15px 10px;
+        padding: 15px 30px;
     }
     #page-admin-search .moremenu .nav.nav-tabs .nav-link {
         border-right-color: var(--white);
@@ -4342,7 +4346,6 @@ button.close:focus,
     max-width: 100%;
 }
 
-
 @media (max-width: 767px) {
     .block-region .block.card {
         border: 1px solid var(--mercury);
@@ -4397,6 +4400,16 @@ button.close:focus,
 .drawer .drawercontent .courseindex-item:hover .courseindex-link:hover span {
     color: var(--white);
 }
+.drawer-left,	
+.drawer-right {	
+    box-shadow: 2px 5px 5px var(--black_20);
+    z-index: 1050;
+}	
+.course-section .sectionbadges .badge,	
+.courseindex .courseindex-section.current .current-badge {	
+    color: var(--white);	
+    background: var(--color_secondary);	
+}
 
 @media (min-width: 1200px) {
     .pagelayout-course #page.drawers .main-inner {
@@ -4435,9 +4448,9 @@ body.limitedwidth.pagelayout-frontpage #page.drawers .main-inner {
 #page.drawers div[role="main"] {
     padding: 0;
 }
-.pagelayout-mydashboard #region-main {
+/* .pagelayout-mydashboard #region-main {
     padding: 0 15px;
-}
+} */
 
 @media (min-width: 768px) {
     .pagelayout-standard #page.drawers .main-inner,
@@ -4445,6 +4458,9 @@ body.limitedwidth.pagelayout-frontpage #page.drawers .main-inner {
     .pagelayout-standard #page.drawers .footer-popover,
     body.limitedwidth #page.drawers .footer-popover {
         max-width: none;
+    }
+    .pagelayout-mydashboard #region-main .add_block_button {
+        margin: 0 15px;
     }
 }
 
@@ -4456,5 +4472,8 @@ body.limitedwidth.pagelayout-frontpage #page.drawers .main-inner {
     border: 0;
 }
 .path-course .tertiary-navigation > div:last-child .dropdown .dropdown-menu {
-    left: auto;
+    top: 100% !important;
+    left: auto !important;
+    right: 0;
+    transform: none !important;
 }
