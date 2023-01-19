@@ -19,144 +19,141 @@
 }}
 {{#footersmall}}
 <footer id="page-footer" class=" footer-popover footer-dark bg-dark text-light">
-<div id="footer">
-  <div class="footer-bootom">
-    {{# copyright_footer}}
-      <p>{{{copyright_footer}}}</p>
-    {{/ copyright_footer}}
-  </div>
-</div>
+    <div id="footer">
+        <div class="footer-bottom">
+            {{# copyright_footer}}
+                <p>{{{copyright_footer}}}</p>
+            {{/ copyright_footer}}
+        </div>
+    </div>
 {{/footersmall}}
 
 {{^footersmall}}
 <footer id="page-footer" class="footer-popover footer-dark bg-dark text-light">
-  {{#footerblock}}
-  <div id="footer">
-      <div class="footer-main">
-      <div class="container-fluid">
-      <div id="course-footer">{{{ output.course_footer }}}</div>
-          <div class="row">
+    {{#footerblock}}
+    <div id="footer">
+        <div class="footer-main">
+            <div class="container-fluid">
+                <div id="course-footer">{{{ output.course_footer }}}</div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="infoarea">
+                                {{#footlogo}}
+                                    {{#logourl}}
+                                    <div class="footer-logo">
+                                        <a href="#"><img src="{{logourl}}" width="100" height="100" alt="Academi"></a>
+                                    </div>
+                                    {{/logourl}}
+                                {{/footlogo}}
+                                {{{footnote}}}
+                            </div>
+                        </div>
 
-          <div class="col-md-5">
-              <div class="infoarea">
-              {{#footlogo}}
-              {{#logourl}}
-              <div class="footer-logo">
-                  <a href="#"><img src="{{logourl}}" width="100" height="100" alt="Academi"></a>
-              </div>
-              {{/logourl}}
+                        <div class="col-md-3">
+                            <div class="foot-links">
+                                {{# infolink}}
+                                    <h2>{{#str}} info, theme_academi {{/str}}</h2>
+                                    <ul>
+                                        {{{infolink}}}
+                                    </ul>
+                                {{/ infolink}}
+                            </div>
+                        </div>
 
-              {{/footlogo}}
-                  {{{footnote}}}
-            </div>
-          </div>
+                        {{#block3}}
+                            <div class="col-md-4">
+                                <div class="contact-info">
+                                    <h2 class="nopadding">{{#str}} contact_us, theme_academi {{/str}}</h2>
+                                    <p>{{# address}}{{address}}{{/ address}}</p>
+                                    {{# phoneno}}
+                                    <p><i class="fa fa-phone-square"></i> {{phone}} : {{phoneno}}</p>
+                                    {{/ phoneno}}
+                                    {{# emailid}}
+                                    <p><i class="fa fa-envelope"></i> {{email}} : <a class="mail-link" href="mailto:{{emailid}}">{{emailid}}</a></p>
+                                    {{/ emailid}}
+                                </div>
 
-          <div class="col-md-3">
-              <div class="foot-links">
-              {{# infolink}}
-              <h2>{{#str}} info, theme_academi {{/str}}</h2>
-              <ul>
-                  {{{infolink}}}
-              </ul>
-              {{/ infolink}}
-            </div>
-          </div>
-          {{#block3}}
-          <div class="col-md-4">
-            <div class="contact-info">
-              <h2 class="nopadding">{{#str}} contact_us, theme_academi {{/str}}</h2>
-
-              <p>{{# address}}{{address}}{{/ address}}<br>
-              {{# phoneno}}
-                <i class="fa fa-phone-square"></i> {{phone}} : {{phoneno}}<br>
-              {{/ phoneno}}
-              {{# emailid}}
-                <i class="fa fa-envelope"></i> {{email}} : <a class="mail-link" href="mailto:{{emailid}}">{{emailid}}</a><br>
-              {{/ emailid}}
-              </p>
-
-            </div>
-          {{# socialurl}}
-            <div class="social-media">
-              <h6>{{#str}} followus, theme_academi {{/str}}</h6>
-              <ul>
-              {{# fburl}}
-                  <li class="smedia-01"><a href="{{fburl}}"><i class="fa fa-facebook-square"></i></a></li>
-              {{/ fburl}}
-              {{# pinurl}}
-                <li class="smedia-02"><a href="{{pinurl}}"><i class="fa fa-pinterest-square"></i></a></li>
-              {{/ pinurl}}
-              {{# twurl}}
-                  <li class="smedia-03"><a href="{{twurl}}"><i class="fa fa-twitter-square"></i></a></li>
-              {{/ twurl}}
-              {{# gpurl}}
-                  <li class="smedia-04"><a href="{{gpurl}}"><i class="fa fa-google-plus-square"></i></a></li>
-              {{/ gpurl}}
-              </ul>
-            </div>
-          {{/ socialurl}}
-          </div>
-          {{/block3}}
-        </div>
-      </div>
-    </div>
-
-      <div class="footer-bootom">
-        {{# copyright_footer}}
-          <p>{{{copyright_footer}}}</p>
-        {{/ copyright_footer}}
-        {{! Moodle footer debug footer }}
-        <div class="footer-content-debugging py-sm-3">
-            <div class="container">
-                {{{ output.debug_footer_html }}}
-            </div>
-        </div>
-      </div>
-
-      {{! Moodle footer help icon popover }}
-      <div data-region="footer-container-popover">
-        <button class="btn btn-icon bg-secondary icon-no-margin btn-footer-popover" data-action="footer-popover" aria-label="{{#str}}showfooter, theme_boost{{/str}}">
-            {{#pix}}e/question, core{{/pix}}
-        </button>
-      </div>
-      <div class="footer-content-popover container" data-region="footer-content-popover">
-        {{# output.has_popover_links }}
-            <div class="footer-section p-3 border-bottom">
-                {{# output.page_doc_link }}
-                    <div>{{{ output.page_doc_link }}}</div>
-                {{/ output.page_doc_link }}
-
-                {{# output.services_support_link }}
-                    <div>{{{ output.services_support_link }}}</div>
-                {{/ output.services_support_link }}
-
-                {{# output.supportemail }}
-                    <div>{{{ output.supportemail }}}</div>
-                {{/ output.supportemail }}
-            </div>
-        {{/ output.has_popover_links }}
-        <div class="footer-section p-3 border-bottom">
-            <div class="logininfo">
-                {{{ output.login_info }}}
-            </div>
-            <div class="tool_usertours-resettourcontainer">
-            </div>
-
-            {{{ output.standard_footer_html }}}
-            {{{ output.standard_end_of_body_html }}}
-        </div>
-        <div class="footer-section p-3">
-            <div>{{#str}}poweredbymoodle, core{{/str}}</div>
-            {{#output.moodle_release}}
-                <div>
-                    {{#str}}version, core{{/str}} {{{ output.moodle_release }}}
+                                {{# socialurl}}
+                                    <div class="social-media">
+                                        <h6>{{#str}} followus, theme_academi {{/str}}</h6>
+                                        <ul>
+                                        {{# fburl}}
+                                            <li class="smedia-01"><a href="{{fburl}}"><i class="fa fa-facebook-square"></i></a></li>
+                                        {{/ fburl}}
+                                        {{# pinurl}}
+                                        <li class="smedia-02"><a href="{{pinurl}}"><i class="fa fa-pinterest-square"></i></a></li>
+                                        {{/ pinurl}}
+                                        {{# twurl}}
+                                            <li class="smedia-03"><a href="{{twurl}}"><i class="fa fa-twitter-square"></i></a></li>
+                                        {{/ twurl}}
+                                        {{# gpurl}}
+                                            <li class="smedia-04"><a href="{{gpurl}}"><i class="fa fa-google-plus-square"></i></a></li>
+                                        {{/ gpurl}}
+                                        </ul>
+                                    </div>
+                                {{/ socialurl}}
+                            </div>
+                        {{/block3}}
+                    </div>
                 </div>
-            {{/output.moodle_release}}
-        </div>
-      </div>
-    </div>
-  {{/footerblock}}
+            </div>
 
+            <div class="footer-bottom">
+                {{# copyright_footer}}
+                    <p>{{{copyright_footer}}}</p>
+                {{/ copyright_footer}}
+
+                {{! Moodle footer debug footer }}
+                <div class="footer-content-debugging">
+                    <div class="container">{{{ output.debug_footer_html }}}</div>
+                </div>
+            </div>
+
+            {{! Moodle footer help icon popover }}
+            <div data-region="footer-container-popover">
+                <button class="btn btn-icon bg-secondary icon-no-margin btn-footer-popover" data-action="footer-popover" aria-label="{{#str}}showfooter, theme_boost{{/str}}">
+                    {{#pix}}e/question, core{{/pix}}
+                </button>
+            </div>
+    
+            <div class="footer-content-popover container" data-region="footer-content-popover">
+            {{# output.has_popover_links }}
+                <div class="footer-section p-3 border-bottom">
+                    {{# output.page_doc_link }}
+                        <div>{{{ output.page_doc_link }}}</div>
+                    {{/ output.page_doc_link }}
+
+                    {{# output.services_support_link }}
+                        <div>{{{ output.services_support_link }}}</div>
+                    {{/ output.services_support_link }}
+
+                    {{# output.supportemail }}
+                        <div>{{{ output.supportemail }}}</div>
+                    {{/ output.supportemail }}
+                </div>
+            {{/ output.has_popover_links }}
+        
+            <div class="footer-section p-3 border-bottom">
+                <div class="logininfo">
+                    {{{ output.login_info }}}
+                </div>
+                <div class="tool_usertours-resettourcontainer">
+                </div>
+                {{{ output.standard_footer_html }}}
+                {{{ output.standard_end_of_body_html }}}
+            </div>
+
+            <div class="footer-section p-3">
+                <div>{{#str}}poweredbymoodle, core{{/str}}</div>
+                {{#output.moodle_release}}
+                    <div>
+                        {{#str}}version, core{{/str}} {{{ output.moodle_release }}}
+                    </div>
+                {{/output.moodle_release}}
+            </div>
+        </div>
+    </div>
+    {{/footerblock}}
 </footer>
 <!--E.O.Footer-->
 {{/footersmall}}
