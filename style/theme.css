@@ -3659,6 +3659,9 @@ nav .popover-region .content-item-container:hover .view-more {
 .pagelayout-frontpage #page {
     max-width: none;
 }
+.pagelayout-frontpage #page-wrapper {
+    height: auto;
+}
 .pagelayout-frontpage #page #page-header {
     display: none;
 }
@@ -4413,6 +4416,9 @@ body.limitedwidth.pagelayout-frontpage #page.drawers .main-inner {
 .format-site .secondary-navigation .navigation {
     width: auto;
     border: 0;
+}
+.pagelayout-frontpage.format-site .secondary-navigation .navigation {
+    margin: 0;
 }
 .pagelayout-frontpage.format-site .secondary-navigation {
     padding: 0;
