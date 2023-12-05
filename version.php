@@ -24,11 +24,11 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version    = 2022072700; // This component release level.
+$plugin->version    = 2023102400; // This component release level.
 $plugin->maturity   = MATURITY_STABLE; // This version's maturity level.
-$plugin->release    = 'v4.0.2'; // This version's release version.
-$plugin->requires   = 2022041900; // This version's moodle require release.
+$plugin->release    = 'v4.3'; // This version's release version.
+$plugin->requires   = 2022041200; // This version's moodle require release.
 $plugin->component  = 'theme_academi'; // This component type_name.
-$plugin->dependencies = array(
+$plugin->dependencies = [
     'theme_boost'  => 2022041900, // This version depended the component and its require release.
-);
+];

@@ -23,99 +23,113 @@
  */
 
 defined('MOODLE_INTERNAL') || die();
+require_once($CFG->dirroot."/theme/academi/classes/helper.php");
 
-
-// Header Content.
-$logourl = get_logo_url();
-$phoneno = theme_academi_get_setting('phoneno');
-$emailid = theme_academi_get_setting('emailid');
-$scallus = get_string('callus', 'theme_academi');
-$semail = get_string('email', 'theme_academi');
-
-
-// Footer Content.
-$logourl = get_logo_url();
-$footlogo = theme_academi_get_setting('footlogo');
-$footlogo = (!$footlogo) ? 0 : 1;
-$footnote = theme_academi_get_setting('footnote', 'format_html');
-$fburl = theme_academi_get_setting('fburl');
-$pinurl = theme_academi_get_setting('pinurl');
-$twurl = theme_academi_get_setting('twurl');
-$gpurl = theme_academi_get_setting('gpurl');
-$address = theme_academi_get_setting('address');
-$emailid = theme_academi_get_setting('emailid');
-$phoneno = theme_academi_get_setting('phoneno');
-$copyrightfooter = theme_academi_get_setting('copyright_footer', 'format_html');
-$infolink = theme_academi_get_setting('infolink');
-$infolink = theme_academi_infolink();
-
-$sinfo = get_string('info', 'theme_academi');
-$scontactus = get_string('contact_us', 'theme_academi');
-$phone = get_string('phone', 'theme_academi');
-$email = get_string('email', 'theme_academi');
-$sfollowus = get_string('followus', 'theme_academi');
-
-$url = ($fburl != '' || $pinurl != '' || $twurl != '' || $gpurl != '') ? 1 : 0;
-$block3 = ($address != '' || $phoneno != '' || $emailid != '' || $url != 0) ? 1 : 0;
-
-$footerblock1 = ($footlogo != 0 || $footnote != '' || $infolink != '' || $url != 0 || $block3 != 0) ? 1 : 0;
-$footerblock = ($footlogo != 0 || $footnote != '' || $infolink != ''
-    || $url != 0 || $block3 != 0 || $copyrightfooter != '') ? 1 : 0;
-
-$block1 = ($footlogo || $footnote) ? 1 : 0;
-$infoslink = ($infolink != '') ? 1 : 0;
-
-$blockarrange = $block1 + $infoslink + $block3;
-
-switch ($blockarrange) {
-    case 3:
-        $colclass = 'col-md-4';
-        break;
-    case 2:
-        $colclass = 'col-md-6';
-        break;
-    case 1:
-        $colclass = 'col-md-12';
-        break;
-    case 0:
-        $colclass = '';
-        break;
-    default:
-        $colclass = 'col-md-4';
-    break;
+/**
+ * Return the soical media content for the theme academi footer.
+ *
+ * @return array $social.
+ */
+function socialmedia() {
+    $numofsocialmedia = theme_academi_get_setting('numofsocialmedia');
+    $social = [];
+    for ($sm = 1; $sm <= $numofsocialmedia; $sm++) {
+        $status = theme_academi_get_setting('socialmedia'.$sm.'_status');
+        $icon = theme_academi_get_setting('socialmedia'.$sm.'_icon');
+        $sicon = (!empty($icon)) ? $icon : '';
+        $url = theme_academi_get_setting('socialmedia'.$sm.'_url');
+        $iconcolorval = theme_academi_get_setting('socialmedia'.$sm.'_iconcolor');
+        $iconcolor = (!empty($iconcolorval)) ? $iconcolorval : '';
+        $socialmedia[] = [
+            'socialstatus' => $status,
+            'sicon' => $sicon,
+            'surl' => $url,
+            'siconcolor' => $iconcolor,
+            'sno' => $sm,
+        ];
+        $social['socialmedia'] = $socialmedia;
+    }
+    return $social;
 }
 
-$templatecontext = [
-    'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
-    'output' => $OUTPUT,
-    "logourl" => $logourl,
-    "footlogo" => $footlogo,
-    "footnote" => $footnote,
-    "fburl" => $fburl,
-    "pinurl" => $pinurl,
-    "twurl" => $twurl,
-    "gpurl" => $gpurl,
-    "address" => $address,
-    "emailid" => $emailid,
-    "phoneno" => $phoneno,
-    "s_callus" => $scallus,
-    "s_email" => $semail,
-    "copyright_footer" => $copyrightfooter,
-    "infolink" => $infolink,
-    "s_info" => $sinfo,
-    "s_contact_us" => $scontactus,
-    "phone" => $phone,
-    "email" => $email,
-    "s_followus" => $sfollowus,
-    "socialurl" => $url,
-    "infolink" => $infolink,
-    "block3" => $block3,
-    "footerblock" => $footerblock,
-    "footerblock1" => $footerblock1,
-    "colclass" => $colclass,
-    "block1" => $block1
+/**
+ * Manage the footer content for the theme academi footer.
+ *
+ * @return array $templatecontext footer template contents.
+ */
+function footer() {
+    global $PAGE;
+    $footerlogourl = theme_academi_get_logo_url('footer');
+    $footlogostatus = theme_academi_get_setting('footlogostatus');
+    $footerbgimg = theme_academi_get_setting('footerbgimg', 'file');
+    $footerbgimgclass = (!empty($footerbgimg)) ? 'footer-image' : '';
+    $footnote = theme_academi_lang(theme_academi_get_setting('footnote', 'format_html'));
+    $helperobj = new \theme_academi\helper();
+    $infolink = $helperobj->footer_infolink();
+    $address = theme_academi_get_setting('address');
+    $emailid = theme_academi_get_setting('emailid');
+    $phoneno = theme_academi_get_setting('phoneno');
+    $copyrightfooter = theme_academi_get_setting('copyright_footer', 'format_html');
+    $fstatus1 = theme_academi_get_setting('footerb1_status');
+    $fstatus2 = theme_academi_get_setting('footerb2_status');
+    $fstatus3 = theme_academi_get_setting('footerb3_status');
+    $fstatus4 = theme_academi_get_setting('footerb4_status');
 
-];
+    $ftitle1 = theme_academi_get_setting('footerbtitle1');
+    $ftitle2 = theme_academi_get_setting('footerbtitle2');
+    $ftitle3 = theme_academi_get_setting('footerbtitle3');
+    $ftitle4 = theme_academi_get_setting('footerbtitle4');
 
+    $phone = get_string('phone', 'theme_academi');
+    $email = get_string('email', 'theme_academi');
 
-echo $OUTPUT->render_from_template('theme_academi/footer', $templatecontext);
+    $backtotopbtn = theme_academi_get_setting('backToTop_status');
+
+    $totalstatus = $fstatus1 + $fstatus2 + $fstatus3 + $fstatus4;
+
+    switch ($totalstatus) {
+        case 4:
+            $colclass = 'col-lg-3 col-md-6';
+            break;
+        case 3:
+            $colclass = 'col-md-4';
+            break;
+        case 2:
+            $colclass = 'col-md-6';
+            break;
+        case 1:
+            $colclass = 'col-md-12';
+            break;
+        case 0:
+            $colclass = '';
+            break;
+        default:
+            $colclass = 'col-md-4';
+            break;
+    }
+    $templatecontext = [
+        "footerlogourl" => $footerlogourl,
+        "footlogostatus" => $footlogostatus,
+        "footnote" => $footnote,
+        "infolink" => $infolink,
+        "address" => $address,
+        "emailid" => $emailid,
+        "phoneno" => $phoneno,
+        "phone" => $phone,
+        "email" => $email,
+        "copyrightfooter" => $copyrightfooter,
+        "fstatus1" => $fstatus1,
+        "fstatus2" => $fstatus2,
+        "fstatus3" => $fstatus3,
+        "fstatus4" => $fstatus4,
+        "ftitle1" => $ftitle1,
+        "ftitle2" => $ftitle2,
+        "ftitle3" => $ftitle3,
+        "ftitle4" => $ftitle4,
+        "colclass" => $colclass,
+        'footerbgimgclass' => $footerbgimgclass,
+        'backtotopbtn' => $backtotopbtn,
+    ];
+    $templatecontext += socialmedia();
+    return $templatecontext;
+}

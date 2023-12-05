@@ -15,7 +15,18 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    Page header.
+    @template theme_academi/header.
+
+    Page header template.
+
+    Example context (json):
+    {
+        "themestyleheader": 'true',
+        "output": {
+            "page_heading_menu": "<li>..</li>"
+        },
+        "sitename": "Moodle"
+    }
 }}
 
 {{> theme_academi/navbar }}

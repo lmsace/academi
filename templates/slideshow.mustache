@@ -15,112 +15,67 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    Page navbar.
+    @template theme_academi/slideshow
+
+    Home page slider in the academi theme.
+
+    Example context (json):
+    {
+        "sitename": "Moodle",
+        "output": {
+            "doctype": "<!DOCTYPE html>",
+            "page_title": "slide show page",
+            "main_content": "<h1>Headings make html validators happier</h1>"
+        },
+        "bodyattributes":"",
+        "status": "true",
+        "numofslide": "1",
+        "slidestatus": "true"
+    }
 }}
-{{#countslideimage}}
-    <div class="theme-slider">
-    <div id="home-page-carousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      {{#numberofslides}}
-        <li data-target="#home-page-carousel" data-slide-to="{{s}}" class="{{clstxt1}}"></li>
-      {{/numberofslides}}
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-
-      {{#slides}}
-      <div class="carousel-item {{clstxt1}}" style="background-image: url({{{slideimg}}});" >
-        <!-- <img src="<?php echo $slideimg; ?>" alt="slide"> -->
-          <div class=" carousel-overlay-content container-fluid">
-              <div class="content-wrap">
-              {{#slidecaption}}
-              <h2>{{{slidecaption}}}</h2><br>
-              {{/slidecaption}}
-
-              {{{slidedesc}}}
-            </div>
-
-          </div>
-      </div>
-      {{/slides}}
+{{#status}}
+    <div class="homepage-carousel">
+        {{#numofslide}}
+            <a href="#" class="prevBtn carousel-control left"> <span aria-hidden="true"></span> </a>
+            <a href="#" class="nextBtn carousel-control right"> <span aria-hidden="true"></span> </a>
+        {{/numofslide}}
+        <div id="homepage-carousel">
+            {{#slides}}
+                {{#slidestatus}}
+                    {{#slideimg}}
+                        <div class="homecarousel-slide-item carousel-item">
+                            <div class="slide-item slide-content {{overlayClass}}">
+                                <div class="slide-main-background">
+                                    {{#slideimg}}
+                                        <img src="{{{slideimg}}}" class="slide-image">
+                                    {{/slideimg}}
+                                </div>
+                                {{! Slide content }}
+                                {{#slidecontentstatus}}
+                                    <div class="slide-text content_overlayer {{contentClass}}" style="width:{{contentwidth}};">
+                                        <div class="heading-content">
+                                            {{#caption}}
+                                                <h1 data-animation='animated {{contentAnimation}}' class="{{contentAclass}}">{{{caption}}}</h1>
+                                            {{/caption}}
+                                            <br>
+                                            {{#desc}}
+                                                <p data-animation='animated {{contentAnimation}}' class="{{contentAclass}}">{{{desc}}}</p>
+                                            {{/desc}}
+                                            <div class="link-button">
+                                                {{#btntxt}}
+                                                    <a href="{{{btnlink}}}" target="{{btntarget}}" class='btn btn-primary {{contentAclass}}' data-animation='animated {{contentAnimation}}'>
+                                                        {{btntxt}}
+                                                    </a>
+                                                {{/btntxt}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                {{/slidecontentstatus}}
+                            </div>
+                        </div>
+                    {{/slideimg}}
+                {{/slidestatus}}
+            {{/slides}}
+        </div>
     </div>
-
-    {{#pagination}}
-    <div class = "pagenav">
-      <a class="left carousel-control carousel-control-prev" href="#home-page-carousel" data-slide="prev">
-      </a>
-      <a class="right carousel-control carousel-control-next" href="#home-page-carousel" data-slide="next">
-      </a>
-    </div>
-    {{/pagination}}
-    </div>
-    </div>
-
-    <style>
-
-    .carousel-item-next.carousel-item-left,
-    .carousel-item-prev.carousel-item-right {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-    }
-
-    @supports ((-webkit-transform-style: preserve-3d) or (transform-style: preserve-3d)) {
-    .carousel-item-next.carousel-item-left,
-    .carousel-item-prev.carousel-item-right {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    }
-    }
-
-    .carousel-item-next,
-    .active.carousel-item-right {
-    -webkit-transform: translateX(100%);
-    transform: translateX(100%);
-    }
-
-    @supports ((-webkit-transform-style: preserve-3d) or (transform-style: preserve-3d)) {
-    .carousel-item-next,
-    .active.carousel-item-right {
-    -webkit-transform: translate3d(100%, 0, 0);
-    transform: translate3d(100%, 0, 0);
-    }
-    }
-
-    .carousel-item-prev,
-    .active.carousel-item-left {
-    -webkit-transform: translateX(-100%);
-    transform: translateX(-100%);
-    }
-
-    @supports ((-webkit-transform-style: preserve-3d) or (transform-style: preserve-3d)) {
-    .carousel-item-prev,
-    .active.carousel-item-left {
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
-    }
-    }
-
-    .carousel-fade .carousel-item {
-    opacity: 0;
-    transition-duration: .6s;
-    transition-property: opacity;
-    }
-
-
-    @supports ((-webkit-transform-style: preserve-3d) or (transform-style: preserve-3d)) {
-    .carousel-fade .carousel-item-next,
-    .carousel-fade .carousel-item-prev,
-    .carousel-fade .carousel-item.active,
-    .carousel-fade .active.carousel-item-left,
-    .carousel-fade .active.carousel-item-prev {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    }
-    }
-
-
-
-    </style>
-  {{/countslideimage}}
+{{/status}}

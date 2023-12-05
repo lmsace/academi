@@ -30,7 +30,6 @@ require_once(dirname(__FILE__) .'/includes/layoutdata.php');
 $templatecontext += [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
     'output' => $OUTPUT,
-    'bodyattributes' => $bodyattributes
+    'bodyattributes' => $bodyattributes,
 ];
-
 echo $OUTPUT->render_from_template('theme_academi/login', $templatecontext);

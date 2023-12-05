@@ -22,13 +22,38 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+define('FRONTPAGEPROMOTEDCOURSE', 10);
+define('FRONTPAGESITEFEATURES', 11);
+define('FRONTPAGEMARKETINGSPOT', 12);
+define('FRONTPAGEJUMBOTRON', 13);
+
+define('THEMEDEFAULT', 16);
+define('SMALL', 15);
+define('MEDIUM', 17);
+define('LARGE', 18);
+
+define('MOODLEBASED', 0);
+define('THEMEBASED', 1);
+
+define('CAROUSEL', 1);
+
+define('EXPAND', 0);
+define('COLLAPSE', 1);
+
+define('NO', 0);
+define('YES', 1);
+
+define('SAMEWINDOW', 0);
+define('NEWWINDOW', 1);
+
 /**
  * Load the Jquery and migration files
  * @param moodle_page $page
  * @return void
  */
 function theme_academi_page_init(moodle_page $page) {
-    $page->requires->js_call_amd('theme_academi/theme');
+    global $CFG;
+    $page->requires->js_call_amd('theme_academi/theme', 'init');
 }
 
 /**
@@ -41,165 +66,12 @@ function theme_academi_page_init(moodle_page $page) {
  */
 function theme_academi_process_css($css, $theme) {
     global $OUTPUT, $CFG;
-    // Set the background image for the logo.
-    $logo = $theme->setting_file_url('logo', 'logo');
     $css = theme_academi_pre_css_set_fontwww($css);
     // Set custom CSS.
     $customcss = $theme->settings->customcss;
     $css = theme_academi_set_customcss($css , $customcss);
-    $css = theme_academi_set_brandcolors($css, $theme);
     return $css;
 }
-
-/**
- * Update brand primary and secondary color in CSS.
- *
- * @param string $css
- * @param object $theme
- * @return void
- */
-function theme_academi_set_brandcolors($css, $theme) {
-    $primarycolor = ($theme->settings->primarycolor ?? '#88b77b') ?: '#88b77b';
-    $secondarycolor = ($theme->settings->secondarycolor ?? '#f60') ?: '#f60';
-    $css = str_replace('[[setting:primarycolor]]', $primarycolor, $css);
-    $css = str_replace('[[setting:secondarycolor]]', $secondarycolor, $css);
-    return $css;
-}
-
-/**
- * Adds the logo to CSS.
- *
- * @param string $css The CSS.
- * @param string $logo The URL of the logo.
- * @return string The parsed CSS
- */
-function theme_academi_set_logo($css, $logo) {
-    $tag = '[[setting:logo]]';
-    $replacement = $logo;
-    if (is_null($replacement)) {
-        $replacement = '';
-    }
-    $css = str_replace($tag, $replacement, $css);
-    return $css;
-}
-
-/**
- * Serves any files associated with the theme settings.
- *
- * @param stdClass $course
- * @param stdClass $cm
- * @param context $context
- * @param string $filearea
- * @param array $args
- * @param bool $forcedownload
- * @param array $options
- * @return bool
- */
-function theme_academi_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
-    static $theme;
-
-    if (empty($theme)) {
-        $theme = theme_config::load('academi');
-    }
-    if ($context->contextlevel == CONTEXT_SYSTEM) {
-
-        if ($filearea === 'logo') {
-            return $theme->setting_file_serve('logo', $args, $forcedownload, $options);
-        } else if ($filearea === 'style') {
-            theme_academi_serve_css($args[1]);
-        } else if ($filearea === 'pagebackground') {
-            return $theme->setting_file_serve('pagebackground', $args, $forcedownload, $options);
-        } else if (preg_match("/slide[1-9][0-9]*image/", $filearea) !== false) {
-            return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
-        } else {
-            send_file_not_found();
-        }
-    } else {
-        send_file_not_found();
-    }
-}
-
-/**
- * Serves CSS for image file updated to styles.
- *
- * @param string $filename
- * @return string
- */
-function theme_academi_serve_css($filename) {
-    global $CFG;
-    if (!empty($CFG->themedir)) {
-        $thestylepath = $CFG->themedir . '/academi/style/';
-    } else {
-        $thestylepath = $CFG->dirroot . '/theme/academi/style/';
-    }
-    $thesheet = $thestylepath . $filename;
-
-    /* http://css-tricks.com/snippets/php/intelligent-php-cache-control/ - rather than /lib/csslib.php as it is a static file who's
-      contents should only change if it is rebuilt.  But! There should be no difference with TDM on so will see for the moment if
-      that decision is a factor. */
-
-    $etagfile = md5_file($thesheet);
-    // File.
-    $lastmodified = filemtime($thesheet);
-    // Header.
-    $ifmodifiedsince = (isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) ? $_SERVER['HTTP_IF_MODIFIED_SINCE'] : false);
-    $etagheader = (isset($_SERVER['HTTP_IF_NONE_MATCH']) ? trim($_SERVER['HTTP_IF_NONE_MATCH']) : false);
-
-    if ((($ifmodifiedsince) && (strtotime($ifmodifiedsince) == $lastmodified)) || $etagheader == $etagfile) {
-        theme_academi_send_unmodified($lastmodified, $etagfile);
-    }
-    theme_academi_send_cached_css($thestylepath, $filename, $lastmodified, $etagfile);
-}
-
-/**
- * Set browser cache used in php header.
- * @param string $lastmodified
- * @param string $etag
- * @return void
- */
-function theme_academi_send_unmodified($lastmodified, $etag) {
-    $lifetime = 60 * 60 * 24 * 60;
-    header('HTTP/1.1 304 Not Modified');
-    header('Expires: ' . gmdate('D, d M Y H:i:s', time() + $lifetime) . ' GMT');
-    header('Cache-Control: public, max-age=' . $lifetime);
-    header('Content-Type: text/css; charset=utf-8');
-    header('Etag: "' . $etag . '"');
-    if ($lastmodified) {
-        header('Last-Modified: ' . gmdate('D, d M Y H:i:s', $lastmodified) . ' GMT');
-    }
-    die;
-}
-
-/**
- *  Cached css for theme_academi
- *
- * @param string $path
- * @param string $filename
- * @param string $lastmodified
- * @param string $etag
- * @return void
- */
-function theme_academi_send_cached_css($path, $filename, $lastmodified, $etag) {
-    global $CFG;
-    require_once($CFG->dirroot . '/lib/configonlylib.php');  // For min_enable_zlib_compression function.
-    // 60 days only - the revision may get incremented quite often.
-    $lifetime = 60 * 60 * 24 * 60;
-
-    header('Etag: "' . $etag . '"');
-    header('Content-Disposition: inline; filename="'.$filename.'"');
-    header('Last-Modified: ' . gmdate('D, d M Y H:i:s', $lastmodified) . ' GMT');
-    header('Expires: ' . gmdate('D, d M Y H:i:s', time() + $lifetime) . ' GMT');
-    header('Pragma: ');
-    header('Cache-Control: public, max-age=' . $lifetime);
-    header('Accept-Ranges: none');
-    header('Content-Type: text/css; charset=utf-8');
-    if (!min_enable_zlib_compression()) {
-        header('Content-Length: ' . filesize($path . $filename));
-    }
-    readfile($path . $filename);
-    die;
-}
-
 
 /**
  * Adds any custom CSS to the CSS before it is cached.
@@ -220,39 +92,42 @@ function theme_academi_set_customcss($css, $customcss) {
 }
 
 /**
- * Returns an object containing HTML for the areas affected by settings.
+ * Serves any files associated with the theme settings.
  *
- * Do not add Clean specific logic in here, child themes should be able to
- * rely on that function just by declaring settings with similar names.
- *
- * @param renderer_base $output Pass in $OUTPUT.
- * @param moodle_page $page Pass in $PAGE.
- * @return stdClass An object with the following properties:
- *      - navbarclass A CSS class to use on the navbar. By default ''.
- *      - heading HTML to use for the heading. A logo if one is selected or the default heading.
- *      - footnote HTML to use as a footnote. By default ''.
+ * @param stdClass $course
+ * @param stdClass $cm
+ * @param context $context
+ * @param string $filearea
+ * @param array $args
+ * @param bool $forcedownload
+ * @param array $options
+ * @return bool
  */
-function theme_academi_get_html_for_settings(renderer_base $output, moodle_page $page) {
-    global $CFG;
-    $return = new stdClass;
+function theme_academi_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = []) {
+    static $theme;
+    $bgimgs = ['footerbgimg', 'loginbg'];
 
-    $return->navbarclass = '';
-    if (!empty($page->theme->settings->invert)) {
-        $return->navbarclass .= ' navbar-inverse';
+    if (empty($theme)) {
+        $theme = theme_config::load('academi');
     }
+    if ($context->contextlevel == CONTEXT_SYSTEM) {
 
-    if (!empty($page->theme->settings->logo)) {
-        $return->heading = html_writer::link($CFG->wwwroot, '', array('title' => get_string('home'), 'class' => 'logo'));
+        if ($filearea === 'logo') {
+            return $theme->setting_file_serve('logo', $args, $forcedownload, $options);
+        } else if ($filearea === 'footerlogo') {
+            return $theme->setting_file_serve('footerlogo', $args, $forcedownload, $options);
+        } else if ($filearea === 'pagebackground') {
+            return $theme->setting_file_serve('pagebackground', $args, $forcedownload, $options);
+        } else if (preg_match("/slide[1-9][0-9]*image/", $filearea) !== false) {
+            return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
+        } else if (in_array($filearea, $bgimgs)) {
+            return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
+        } else {
+            send_file_not_found();
+        }
     } else {
-        $return->heading = $output->page_heading();
+        send_file_not_found();
     }
-
-    $return->footnote = '';
-    if (!empty($page->theme->settings->footnote)) {
-        $return->footnote = '<div class="footnote text-center">'.format_text($page->theme->settings->footnote).'</div>';
-    }
-
-    return $return;
 }
 
 /**
@@ -262,15 +137,13 @@ function theme_academi_get_html_for_settings(renderer_base $output, moodle_page 
  * @return string
  */
 function theme_academi_pre_css_set_fontwww($css) {
-    global $CFG, $PAGE;
+    global $CFG;
     if (empty($CFG->themewww)) {
         $themewww = $CFG->wwwroot."/theme";
     } else {
         $themewww = $CFG->themewww;
     }
-
     $tag = '[[setting:fontwww]]';
-    $theme = theme_config::load('academi');
     $css = str_replace($tag, $themewww.'/academi/fonts/', $css);
     return $css;
 }
@@ -280,55 +153,37 @@ function theme_academi_pre_css_set_fontwww($css) {
  * @return string
  */
 function theme_academi_set_fontwww() {
-    global $CFG, $PAGE;
+    global $CFG;
     if (empty($CFG->themewww)) {
         $themewww = $CFG->wwwroot."/theme";
     } else {
         $themewww = $CFG->themewww;
     }
-    $theme = theme_config::load('academi');
     $fontwww = '$fontwww: "'.$themewww.'/academi/fonts/"'.";\n";
     return $fontwww;
 }
 
-// Logo Image URL Fetch from theme settings.
-// @ return string.
-if (!function_exists('get_logo_url')) {
-    /**
-     * Description
-     * @return type|string
-     */
-    function get_logo_url() {
-        global $OUTPUT;
-        static $theme;
-        if (empty($theme)) {
-            $theme = theme_config::load('academi');
-        }
-        $logo = $theme->setting_file_url('logo', 'logo');
-        $logo = empty($logo) ? '' : $logo;
-        return $logo;
-    }
-}
 
 /**
- * Renderer the slider images.
- * @param string $p
- * @param string $sliname
- * @return string
+ * Description
+ *
+ * @param string $type logo position type.
+ * @return type|string
  */
-function theme_academi_render_slideimg($p, $sliname) {
-    global $PAGE, $OUTPUT;
-    $nos = theme_academi_get_setting('numberofslides');
-    $i = $p % 3;
-    // Get slide image or fallback to default.
-    $slideimage = '';
-    if (theme_academi_get_setting($sliname)) {
-        $slideimage = $PAGE->theme->setting_file_url($sliname , $sliname);
+function theme_academi_get_logo_url($type = 'header') {
+    global $OUTPUT;
+    static $theme;
+    if (empty($theme)) {
+        $theme = theme_config::load('academi');
     }
-    if (empty($sliname)) {
-        $slideimage = '';
+    if ($type == 'header') {
+        $logo = $theme->setting_file_url('logo', 'logo');
+        $logo = empty($logo) ? $OUTPUT->get_compact_logo_url() : $logo;
+    } else if ($type == 'footer') {
+        $logo = $theme->setting_file_url('footerlogo', 'footerlogo');
+        $logo = empty($logo) ? '' : $logo;
     }
-    return $slideimage;
+    return $logo;
 }
 
 /**
@@ -339,7 +194,7 @@ function theme_academi_render_slideimg($p, $sliname) {
  * @return string
  */
 function theme_academi_get_setting($setting, $format = true) {
-    global $CFG;
+    global $CFG, $PAGE;
     require_once($CFG->dirroot . '/lib/weblib.php');
     static $theme;
     if (empty($theme)) {
@@ -348,40 +203,93 @@ function theme_academi_get_setting($setting, $format = true) {
     if (empty($theme->settings->$setting)) {
         return false;
     } else if (!$format) {
-        return $theme->settings->$setting;
+        $return = $theme->settings->$setting;
     } else if ($format === 'format_text') {
-        return format_text($theme->settings->$setting, FORMAT_PLAIN);
+        $return = format_text($theme->settings->$setting, FORMAT_PLAIN);
     } else if ($format === 'format_html') {
-        return format_text($theme->settings->$setting, FORMAT_HTML, array('trusted' => true, 'noclean' => true));
+        $return = format_text($theme->settings->$setting, FORMAT_HTML, ['trusted' => true, 'noclean' => true]);
+    } else if ($format === 'file') {
+        $return = $PAGE->theme->setting_file_url($setting, $setting);
     } else {
-        return format_string($theme->settings->$setting);
+        $return = format_string($theme->settings->$setting);
+    }
+    return (isset($return)) ? theme_academi_lang($return) : '';
+}
+
+/**
+ * Returns the language values from the given lang string or key.
+ * @param string $key
+ * @return string
+ */
+function theme_academi_lang($key='') {
+    $pos = strpos($key, 'lang:');
+    if ($pos !== false) {
+        list($l, $k) = explode(":", $key);
+        if (get_string_manager()->string_exists($k, 'theme_academi')) {
+            $v = get_string($k, 'theme_academi');
+            return $v;
+        } else {
+            return $key;
+        }
+    } else {
+        return $key;
     }
 }
 
+/**
+ * Returns the main SCSS content.
+ *
+ * @param theme_config $theme The theme config object.
+ * @return string
+ */
+function theme_academi_get_main_scss_content($theme) {
+    global $CFG;
+
+    $scss = '';
+    $filename = (isset($theme->settings->preset) && !empty($theme->settings->preset)) ? $theme->settings->preset : null;
+    $fs = get_file_storage();
+
+    $context = \context_system::instance();
+    if ($filename == 'academi') {
+        $scss .= file_get_contents($CFG->dirroot . '/theme/academi/scss/preset/default.scss');
+    } else if ($filename == 'eguru') {
+        $scss .= file_get_contents($CFG->dirroot . '/theme/academi/scss/preset/eguru.scss');
+    } else if ($filename == 'klass') {
+        $scss .= file_get_contents($CFG->dirroot . '/theme/academi/scss/preset/klass.scss');
+    } else if ($filename == 'enlightlite') {
+        $scss .= file_get_contents($CFG->dirroot . '/theme/academi/scss/preset/enlightlite.scss');
+    } else if ($filename && ($presetfile = $fs->get_file($context->id, 'theme_academi', 'preset', 0, '/', $filename))) {
+        $scss .= $presetfile->get_content();
+    } else {
+        // Fallback to default.
+        $scss .= file_get_contents($CFG->dirroot . '/theme/academi/scss/preset/default.scss');
+    }
+    return $scss;
+}
 
 /**
- * Footer Info links.
- * @return type|string
+ * Get the configuration values into main scss variables.
+ *
+ * @param string $theme theme data.
+ * @return string $scss return the scss values.
  */
-function  theme_academi_infolink() {
-    $infolink = theme_academi_get_setting('infolink');
-    $content = "";
-    $infosettings = explode("\n", $infolink);
-    foreach ($infosettings as $key => $settingval) {
+function theme_academi_get_pre_scss($theme) {
+    $scss = '';
+    $helperobj = new theme_academi\helper();
+    $scss .= $helperobj->load_bgimages($theme, $scss);
+    $scss .= $helperobj->load_additional_scss_settings();
+    return $scss;
+}
 
-        $expset = explode("|", $settingval);
-        if (isset($expset[1])) {
-            list($ltxt, $lurl) = $expset;
-        }
-
-        if (isset($ltxt) != '' || isset($lurl) != '') {
-            $ltxt = trim($ltxt);
-            $lurl = trim($lurl);
-        }
-        if (empty($ltxt)) {
-            continue;
-        }
-        $content .= '<li><a href="'.$lurl.'" target="_blank">'.$ltxt.'</a></li>';
-    }
-    return $content;
+/**
+ * Inject additional SCSS.
+ *
+ * @param theme_config $theme The theme config object.
+ * @return string
+ */
+function theme_academi_get_extra_scss($theme) {
+    // Load the settings from the parent.
+    $theme = theme_config::load('boost');
+    // Call the parent themes get_extra_scss function.
+    return theme_boost_get_extra_scss($theme);
 }

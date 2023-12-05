@@ -22,52 +22,176 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['about'] = 'About';
-$string['aboutus'] = 'About Us';
-$string['address'] = 'Address';
-$string['calendar'] = 'Calendar';
-$string['configtitle'] = "Academi Settings";
-$string['choosereadme'] = '<div class="clearfix"><div class="theme_screenshot"><img class=img-polaroid src="academi/pix/screenshot.jpg" /><br/><p></p><h3>Theme Credits</h3><p><h3>Moodle Academi theme</h3><p>This theme is based on the Boost Moodle theme.</p><p>Authors: LMSACE Dev Team<br>Contact: info@lmsace.com<br>Website: <a href="http://www.lmsace.com">www.lmsace.com</a><br></p>';
-
+$string['pluginname'] = 'Academi';
 $string['configtitle'] = 'Academi';
-$string['connectus'] = 'Connect with us';
-$string['contact'] = 'Contact';
-$string['copyright_footer'] = 'Copyright';
-$string['copyright_default'] = 'Copyright &copy; 2017 - Developed by <a href="http://lmsace.com">LMSACE.com</a>. Powered by <a href="https://moodle.org">Moodle</a>';
+$string['choosereadme'] = '<div class="clearfix"><div class="theme_screenshot"><img class=img-polaroid src="academi/pix/screenshot.jpg" /><br/><p></p><h3>Theme Credits</h3><p><h3>Moodle Academi theme</h3><p>This theme is based on the Boost Moodle theme.</p><p>Authors: LMSACE Dev Team<br>Contact: info@lmsace.com<br>Website: <a href="http://www.lmsace.com">www.lmsace.com</a><br></p>';
+$string['privacy:metadata'] = 'The academi theme does not store any personal data about any user.';
+// General.
+$string['home'] = "Home";
+$string['headerheading'] = 'General';
+$string['logo'] = 'Logo';
+$string['logodesc'] = 'Please upload your custom logo here if you want to add it to the header. <br>The image should be 37px high and any reasonable width (minimum:250px) that suits.';
+$string['primarycolor'] = 'Primary color';
+$string['primarycolor_desc'] = 'Select primary color for your brand ';
+$string['secondarycolor'] = 'Secondary color';
+$string['secondarycolor_desc'] = 'Select a color that will be used as secondary color through out moodle site';
+$string['themestyleheader'] = 'Header style';
+$string['themestyleheader_desc'] = 'Select the any of the style for your header, In moodle based style, Menus are displayed in the top header.
+<br>And the bottom header will be hidden. In theme based modal, Menus are displaying in the bottom header.';
+$string['themebased'] = 'Theme based';
+$string['moodlebased'] = 'Moodle based';
+$string['pagesize'] = 'Inner Page content size';
+$string['pagesize_desc'] = 'Please choose a content size option that will serve as the main inner content size across all Moodle inner pages on your site. This selection will not affect the content size of your home page.';
+$string['custom'] = "Custom";
+$string['moodledefault'] = "Moodle default";
+$string['container'] = "Container";
+$string['pagesizecustomval'] = 'Page content Custom value';
+$string['pagesizecustomval_desc'] = 'Please specify a custom value for the page content size.';
+$string['loginbg'] = 'Login background image';
+$string['loginbg_desc'] = 'The image to display as a background for the login page. ';
+$string["comboListboxType"] = 'Combo list display style';
+$string["comboListboxType_desc"] = 'Select a display style for combo list block.';
 $string['customcss'] = 'Custom CSS';
 $string['customcssdesc'] = 'Whatever CSS rules you add to this textarea will be reflected in every page, making for easier customization of this theme.';
-$string['defaultaddress'] = '308 Negra Narrow Lane, Albeeze, New york, 87104';
-$string['defaultemailid'] = 'info@example.com';
-$string['defaultphoneno'] = '(000) 123-456';
-$string['emailid'] = 'Email';
-$string['fburl'] = 'Facebook';
-$string['fburl_default'] = 'https://www.facebook.com/yourfacebookid';
-$string['fburldesc'] = 'The Facebook url of your organisation.';
-$string['fcourses'] = 'Featured Courses';
-$string['fcoursesdesc'] = 'Please Choose the Featured Courses';
-$string['featuredcoursesheading'] = 'Featured Courses';
-$string['footbgimg'] = 'Background Image';
-$string['footbgimgdesc'] = 'Background Image size should be following size 1345 X 517';
+$string["expand"] = "Expanded";
+$string["collapse"] = "Collapsed";
+$string['title'] = 'Title';
+$string['titledesc'] = 'To set the title for the this block, enter the block title as plain text or use the "lang" prefix followed by the appropriate "language_key" for multi-lingual support. You can find the theme language keys for multi-lingual support in the "/theme/academi/lang/en/theme_academi.php" file.';
+$string['description'] = 'Description';
+$string['description_desc'] = 'To set the description for the this block, enter the block description as plain text or use the "lang" prefix followed by the appropriate "language_key" for multi-lingual support. You can find the theme language keys for multi-lingual support in the "/theme/academi/lang/en/theme_academi.php" file.';
+$string['description_default'] = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry';
+$string['content'] = 'Content';
+$string['content_desc'] = 'To set the content for the this block, enter the block content as plain text or use the "lang" prefix followed by the appropriate "language_key" for multi-lingual support. You can find the theme language keys for multi-lingual support in the "/theme/academi/lang/en/theme_academi.php" file.';
+// Favicon.
+$string['favicon'] = 'Favicon';
+$string['favicon_desc'] = 'Here, you can upload a custom image (.ico or .png format) that the browser will show as the favicon of your Moodle website. <br> If no custom favicon is uploaded, the theme favicon will be used.';
+// Marketing Spot.
+$string['about'] = 'About';
+$string['aboutus'] = 'About Us';
+$string['mspotheading'] = 'Marketing Spot';
+$string['status'] = 'Activate block';
+$string['statusdesc'] = 'This option allows you to control the visibility of the block and manage the content displayed on the front page effectively.';
+$string['mspotdescription_desc'] = 'To set the content for the this block, enter the block content as plain text or use the "lang" prefix followed by the appropriate "language_key" for multi-lingual support. You can find the theme language keys for multi-lingual support in the "/theme/academi/lang/en/theme_academi.php" file.<br><br> Whatever you add to this textarea will be displayed in the Marketing Spot block in front page. <b style="color: red;">Important: Use html div tag with style="display:none" before adding the iframe as shown in the default value</b>';
+$string['mspotdesc'] = '<p> Ipsum in aspernatur ut possimus sint. Quia omnis est occaecati possimus ea. Quas molestiae perspiciatis occaecati qui rerum. Deleniti quod porro sed quisquam saepe. Numquam mollitia recusandae non ad at et a. </p> <p> Ad vitae recusandae odit possimus. Quaerat cum ipsum corrupti. Odit qui asperiores ea corporis deserunt veritatis quidem expedita perferendis. Qui rerum eligendi ex doloribus quia sit. Porro rerum eum eum. </p> <p> Ad vitae recusandae odit possimus. Quaerat cum ipsum corrupti. Odit qui asperiores ea corporis deserunt veritatis quidem expedita perferendis.</p>';
+$string['media'] = 'Media';
+$string['mspotmedia_desc'] = "";
+// Jumbotron.
+$string['jumbotronheading'] = 'Jumbotron';
+$string['learnanytime'] = 'LEARN ANYTIME, ANYWHERE';
+$string['learnanytimedesc'] = 'Enjoy our free online courses, wherever you are and whenever you want. Access course content on mobile, tablet or desktop.';
+$string['buttontxt'] = 'Button text';
+$string['jumbotronbtntext_desc'] = 'Enter the text for the first button of the "Jumbotron" block as plain text or multi-language support.';
+$string['viewallcourses'] = 'View all courses';
+$string['buttonlink'] = 'Button Link';
+$string['jumbotronbtnlink_desc'] = 'Enter the URL to set the link for the button of the "Jumbotron".';
+$string['buttontarget'] = 'Button target';
+$string['jumbotronbtntarget_desc'] = 'Choose this option, whether the button link should be opened in a "Same" or "New" window on the "Jumbotron" block.';
+$string['sameWindow'] = 'Same window';
+$string['newWindow'] = 'New window';
+// Site features.
+$string['sitefeatures'] = 'Site features';
+$string['sitefblock'] = 'Site Feature {$a->block}';
+$string['sitefeaturesdefault'] = 'OUR SITE FEATURES';
+$string['numberofsitef'] = 'Number of site features';
+$string['numberofsitef_desc'] = 'This allows you to control the quantity of site features showcased in the frontpage block.';
+$string['image'] = 'Image';
+$string['icon'] = 'Icon';
+$string['icondesc'] = 'Enter the name of the icon you wish to use.  List is <a href="http://fortawesome.github.io/Font-Awesome/cheatsheet/" target="_new">here</a>. Just enter what is after the "fa-".';
+$string['imagedesc'] = 'Upload a custom image for the "Featured element". We recommend that you use images with 75 * 75-pixel dimensions.';
+$string['sitefblockicon1_default'] = 'globe';
+$string['sitefblockicon2_default'] = 'graduation-cap';
+$string['sitefblockicon3_default'] = 'bullhorn';
+$string['sitefblockicon4_default'] = 'mobile';
+$string['sb1_default_title'] = 'Multilingual';
+$string['sb2_default_title'] = 'Online Study';
+$string['sb3_default_title'] = 'Community Support';
+$string['sb4_default_title'] = 'Responsive Design';
+$string['sb_default_content'] = 'This is Photoshop\'s version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat.';
+ // Preset.
+$string['presetheading'] = 'Theme preset';
+// Available coures.
+$string['availablecoursetype'] = 'Available courses display style';
+$string['availablecoursetype_desc'] = 'Please select a display style for the listing of available courses.';
+$string['carousel'] = 'Carousel';
+// Promoted courses.
+$string['promotedcoursesheading'] = 'Promoted Courses';
+$string['pcourses'] = 'Promoted Courses';
+$string['promotedtitledesc'] = 'Please give the Promoted courses block title,
+either language key or Text.For ex: lang:display or Display';
+$string['promotedtitledefault'] = 'PROMOTED COURSES';
+$string['pcoursesdesc'] = 'Please give the promoted courses id should separated by comma.';
+// Back to top button.
+$string['backToTop_status'] = "Add back to top button";
+$string['backToTop_statusdesc'] = "This option controls whether or not to enable a back to top button on your pages.";
+// Home page slider.
+$string['numberofslides'] = 'Number of slides';
+$string['numberofslides_desc'] = 'Number of slides on the slider.';
+$string['readmore'] = 'Read More';
+$string['region-side-post'] = 'Right';
+$string['region-side-pre'] = 'Left';
+$string['slidecontentstatus'] = 'Slide Content';
+$string['slidecontentstatus_desc'] = 'To control the visibility of a slide content in the homepage slider, select the option "Disable" for the specific slide content you wish to hide.';
+$string['slidecaption'] = 'Slide caption';
+$string['slidecaptiondefault'] = 'Bootstrap Based Slider - {$a->slideno}';
+$string['slidecaptiondesc'] = 'Enter the caption text to use for the slide';
+$string['slideimage'] = 'Slide image';
+$string['slideimagedesc'] = 'The image should be 1400px X 418px.';
+$string['slideno'] = 'Slide {$a->slide}';
+$string['slidenodesc'] = 'Enter the settings for slide {$a->slide}.';
+$string['slideshowdesc'] = 'This creates a slide show of up to twelve slides for you to promote important elements of your site.  The show is responsive where image height is set according to screen size.  The recommended height is 418px.  The width is set at 100% and therefore the actual height will be smaller if the width is greater than the screen size.  At smaller screen sizes the height is reduced dynamically without the need to provide separate images.  For reference screen width < 767px = height 438px, width between 768px and 979px = height 418px and width > 980px = height 418px.  If no image is selected for a slide, then the default_slide images in the pix folder is used.';
+$string['slideshowheading'] = 'Homepage Slider';
+$string['slideshowheadingsub'] = 'Front page Slide show.';
+$string['slidedesc'] = 'Slide Description';
+$string['slidedesctext'] = 'Enter the description of the slide.';
+$string['slidedescdefault'] = 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.';
+$string['toggleslideshow'] = 'Slide show display';
+$string['toggleslideshowdesc'] = 'Choose if you wish to hide or show the slide show.';
+$string['autoslideshow'] = 'Auto play';
+$string['autoslideshowdesc'] = 'To enable automatic scrolling of slides after the page loads, use this option. When enabled, the homepage slider will automatically transition between slides without requiring user input or interaction.';
+$string['slideinterval'] = 'Pause Time';
+$string['slideintervaldesc'] = 'To adjust the pause or wait time between each slide change in the slideshow, use this option. The value is measured in milliseconds, where 1 second is equal to 1000 milliseconds.';
+$string['slideOverlay'] = 'Overlay opacity';
+$string['slideOverlay_desc'] = 'To control the opacity level of the overlay in the slideshow, use this option. The default value for this option is 0.4, which means the overlay will have a 40% opacity, allowing the content behind it to be partially visible.';
+$string['slideStatus'] = 'Status (Slide #{$a->slide})';
+$string['slideStatus_desc'] = 'To control the visibility of a slide in the homepage slider, select the option "Disable" for the specific slide you wish to hide. Choosing "Disable" will prevent the slide from appearing in the homepage slider, effectively hiding it from view.';
+$string['enable'] = 'Enable';
+$string['disable'] = 'Disable';
+$string['slidebtntext'] = 'Button Text';
+$string['slidebtntext_desc'] = 'To set the text for the button on the slide, use this option. If you do not want to have a button on your slide, leave this option blank. Enter the button text as plain text or use the "lang" prefix followed by the appropriate "language_key" for multi-lingual support. You can find the theme language keys for multi-lingual support in the "/theme/academi/lang/en/theme_academi.php" file.';
+$string['knowmore'] = 'Know More';
+$string['slidebtnlink'] = 'Button URL';
+$string['slidebtnlink_desc'] = 'To set the link for the button on the slide, use this option. Enter the URL or web address where you want the button to redirect users when clicked';
+$string['slidebtntarget'] = 'Button Target';
+$string['slidebtntarget_desc'] = 'By selecting this option, when users click the button on the slide, the linked content will open in a separate browser tab or window, leaving the original page intact.';
+$string['sameWindow'] = 'Same Window';
+$string['newWindow'] = 'New Window';
+$string['slideCont_full'] = 'Content Width';
+$string['slideCont_fulldesc'] = 'To adjust the content width of the slide, use this option. The content width will be calculated as a percentage of the main grid width. The default value for this option is 50%, meaning the content will occupy half of the available space in the slide.';
+$string['slidecontent'] = 'Content position';
+$string['slidecontentdesc'] = 'To determine the position of the slide title, description, and button within the slide, use this option.';
+$string['topLeft'] = 'TopLeft';
+$string['topCenter'] = 'TopCenter';
+$string['topRight'] = 'TopRight';
+$string['centerLeft'] = 'CenterLeft';
+$string['center'] = 'Center';
+$string['centerRight'] = 'CenterRight';
+$string['bottomLeft'] = 'BottomLeft';
+$string['bottomCenter'] = 'BottomCenter';
+$string['bottomRight'] = 'BottomRight';
+// Footer.
 $string['footerheading'] = 'Footer';
-$string['enable'] = 'Footerlogo Enable';
+$string['footerblock'] = 'Footer Block ';
+$string['fblock_statusdesc'] = 'If you wish to disable this block on footer section, uncheck the checkbox <i>Activate this block</i>.';
+$string['footerbtitledesc'] = 'Enter a title for this block as plain text or lang:language_key for multi-lingual support. You can find the theme language keys here: /theme/academi/lang/en/theme_academi.php';
+$string['footerenable'] = 'Enable Footer logo';
+$string['footerlogo'] = 'Footer logo';
+$string['footerlogodesc'] = 'Please upload your custom footer logo here if you want to add it to the footer.The image should be 80px high and any reasonable width (minimum:205px) that suits.';
 $string['footnote'] = 'Footnote';
 $string['footnotedefault'] = '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and tronic typesetting, sheets taining Lorem Ipsum passages.<br><a href="#">Read More &raquo;</a></p>';
 $string['footnotedesc'] = 'Whatever you add to this textarea will be displayed in the footer throughout your Moodle site.';
-$string['frontpageheading'] = 'Front page';
-$string['gpurl'] = 'Google+';
-$string['gpurl_default'] = 'https://www.google.com/+yourgoogleplusid';
-$string['gpurldesc'] = 'The Google+ url of your organisation.';
-$string['headerheading'] = 'General';
-$string['homebanner'] = 'Home Page Banner';
-$string['homebanner_slogan'] = 'We have the largest collection of courses';
-$string['homebannerdesc'] = 'The image should be 1345px X 535px.';
-$string['infoblockheading'] = 'Info Block';
-$string['infoblocktext'] = 'Info Block Text';
-$string['infoblocktextdefault'] = '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries <a href="javascript:void(0);">ReadMore <i class="fa fa-angle-double-right"></i></a></p>';
-$string['infoblocktextdesc'] = 'The text of the info block';
-$string['infoblocktitle'] = 'Info Block Title';
-$string['infoblocktitledefault'] = 'Who we are';
-$string['infoblocktitledesc'] = 'The title of the info block';
+$string['footerbgimg'] = 'Footer background Image';
+$string['footerbgimgdesc'] = 'Please upload your custom footer background image here if you want to add it to the footer.Background Image size should be following size 1345 X 517';
+$string['socialmediadesc'] = '<strong>This block contains social media</strong>';
 $string['infolink'] = 'Info Links';
 $string['infolinkdefault'] = 'Moodle community|https://moodle.org Moodle free
 support|https://moodle.org/support
@@ -81,131 +205,72 @@ Moodle development|https://moodle.org/development
 Moodle Docs|http://docs.moodle.org|Moodle Docs
 German Moodle Docs|http://docs.moodle.org/de|Documentation in German|de
 Moodle.com|http://moodle.com/ </pre>';
-$string['logo'] = 'Logo';
-$string['logodesc'] = 'Please upload your custom logo here if you want to add it to the header. <br>The image should be 37px high and any reasonable width (minimum:250px) that suits.';
+$string['numofsocialmedia'] = 'Number of Social media';
+$string['numofsocialmediadesc'] = 'This allows you to manage the amount of social media content displayed in the Footer block.';
+$string['smediastatus'] = 'Activate your social media';
+$string['smediastatus_desc'] = 'This option allows you to control the visibility of the block and manage the social media displayed on the Footer block effectively.';
+$string['socialmediaicon_desc'] = 'The Social Media icon of your organisation';
+$string['url'] = 'URL';
+$string['socialmediaurl_desc'] = 'The Social Media url of your organisation';
+$string['iconcolor'] = 'Icon Color';
+$string['socialmediaiconcolor_desc'] = 'Change the colours on the Social Media Icons color';
+$string['footerbtitle1default'] = 'About Us';
+$string['footerbtitle2default'] = 'Info';
+$string['footerbtitle3default'] = 'Contact Us';
+$string['footerbtitle4default'] = 'Follow Us';
+// Social Icon defaults.
+$string['socialmediaicon1_default'] = 'twitter';
+$string['socialmediaicon2_default'] = 'google-plus';
+$string['socialmediaicon3_default'] = 'pinterest-p';
+$string['socialmediaicon4_default'] = 'facebook-f';
+$string['socialmediaicon5_default'] = 'instagram';
+$string['socialmediaicon6_default'] = 'linkedin';
+$string['socialmediaicon7_default'] = 'skype';
+$string['socialmediaicon8_default'] = 'github';
+// Social media url defaults.
+$string['socialmediaurl1_default'] = 'https://twitter.com/yourtwittername';
+$string['socialmediaurl2_default'] = 'https://www.google.com/+yourgoogleplusid';
+$string['socialmediaurl3_default'] = 'https://in.pinterest.com/yourpinterestname/';
+$string['socialmediaurl4_default'] = 'https://www.facebook.com/yourfacebookid';
+$string['socialmediaurl5_default'] = 'https://www.instagram.com//yourinstagramusername';
+$string['socialmediaurl6_default'] = 'https://in.linkedin.com//yourlinkedinid';
+$string['socialmediaurl7_default'] = 'https://www.skype.com/en/';
+$string['socialmediaurl8_default'] = 'https://github.com/';
 
-$string['newsblockcontent'] = 'News & Events Block Content';
-$string['newsblockcontentdesc'] = 'Whatever you add to this textarea will be displayed in the News & Events Block.';
-$string['newsblockheading'] = 'News & Events Block';
-$string['newseventbg'] = 'News & Events Block Background Image';
-$string['newseventbgdesc'] = 'The image should be 1345px X 760px.';
-$string['newseventcontent'] = '<div class="row">
-        	<div class="col-lg-6 col-md-6 col-sm-6">
-<div class="embed-wrap">
- <div class="embed-responsive embed-responsive-16by9">
-  <iframe src="https://www.youtube.com/embed/fNE7pyDyw3Y" allowfullscreen="" frameborder="0" height="391" width="545"></iframe>
- </div>
-</div>
-          </div>
-        	<div class="col-lg-6 col-md-6 col-sm-6">
-          	<div class="info-wrap">
-              <h2 class="nomargint">news &amp; events of 2017</h2>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, sheets taining Lorem Ipsum passages, and more recently  into electronic typesetting, sheets taining Lorem Ipsum passages, and more recentwith desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-              <div class="readmore-btn"><a href="#">Read More</a></div>
-            </div>
-               </div>
-        </div>';
-$string['numberofslides'] = 'Number of slides';
-$string['numberofslides_desc'] = 'Number of slides on the slider.';
-$string['numberoftmonials'] = 'Number of Testimonials';
-$string['numberoftmonials_desc'] = 'Number of Testimonials on the Home Page.';
+// Social Icon color defaults.
+$string['socialmediaiconcolor1_default'] = '#47caf6';
+$string['socialmediaiconcolor2_default'] = '#e84c3d';
+$string['socialmediaiconcolor3_default'] = '#cd2129';
+$string['socialmediaiconcolor4_default'] = '#3598dc';
+$string['socialmediaiconcolor5_default'] = '#f131b8';
+$string['socialmediaiconcolor6_default'] = '#0A66C2';
+$string['socialmediaiconcolor7_default'] = '#00aff0';
+$string['socialmediaiconcolor8_default'] = '#333';
+$string['socialmeida'] = 'Social Media {$a->socialmedia}';
+$string['footerblockgeneral'] = "Genaral Footer block";
+$string['footerbgOverlay'] = 'Footer Overlay Opacity';
+$string['footerbgOverlay_desc'] = 'To control the opacity level of the overlay in the footer block, use this option. The default value for this option is 0.4, which means the overlay will have a 40% opacity, allowing the content behind it to be partially visible.';
+$string['importsettings'] = "Import other preset settings.";
+$string['importthemesettings']  = 'Import the {$a} settings';
+// Copyright.
+$string['copyright_footer'] = 'Copyright';
+$string['copyright_default'] = 'Copyright &copy; 2017 - Developed by <a href="http://lmsace.com">LMSACE.com</a>. Powered by <a href="https://moodle.org">Moodle</a>';
 $string['phoneno'] = 'Phone No';
-$string['pinurl'] = 'Pinterest';
-$string['pinurl_default'] = 'https://in.pinterest.com/yourpinterestname/';
-$string['pinurldesc'] = 'The Pinterest url of your organisation.';
-$string['pluginname'] = 'Academi';
-$string['readmore'] = 'Read More';
-$string['region-side-post'] = 'Right';
-$string['region-side-pre'] = 'Left';
-$string['sb1_default_cnt'] = '<p>Lorem Ipsum is simply dummy text of <br class="visible-lg">the printing and typesetting industry.</p>';
-$string['sb1_default_title'] = 'Learn Online Courses';
-$string['sb2_default_cnt'] = '<p>Lorem Ipsum is simply dummy text of <br class="visible-lg">the printing and typesetting industry.</p>';
-$string['sb2_default_title'] = 'Become an Instructor';
-$string['sb3_default_cnt'] = '<p>Lorem Ipsum is simply dummy text of <br class="visible-lg">the printing and typesetting industry.</p>';
-$string['sb3_default_title'] = 'Enroll Courses';
-$string['sb4_default_cnt'] = '<p>Lorem Ipsum is simply dummy text of <br class="visible-lg">the printing and typesetting industry.</p>';
-$string['sb4_default_title'] = 'Earn Money';
-$string['signup'] = 'Sign up';
-$string['sitefblock1'] = 'Site Feature First Block';
-$string['sitefblock2'] = 'Site Feature Second Block';
-$string['sitefblock3'] = 'Site Feature Third Block';
-$string['sitefblock4'] = 'Site Feature Fourth Block';
-$string['sitefblockbuttontext'] = 'Link text';
-$string['sitefblockbuttontextdesc'] = 'Text to appear on the button.';
-$string['sitefblockbuttonurl'] = 'Link URL';
-$string['sitefblockbuttonurldesc'] = 'URL the button will point to.';
-$string['sitefblockcontent'] = 'Content';
-$string['sitefblockcontentdesc'] = 'Content to display in the Site Features Block.  Keep it short and sweet.';
-$string['sitefblockimage'] = 'Image';
-$string['sitefblockimagedesc'] = 'This provides the option of displaying an image above the text in the Site Features Block';
-$string['sitefblockimgcolors'] = 'Image Background colour';
-$string['sitefblockimgcolorsdesc'] = 'Change the colours on the Site Feature Blocks Image Background color';
-$string['sitefblocksheading'] = 'Site Feature blocks';
-$string['sitefblocktitle'] = 'Title';
-$string['sitefblocktitledesc'] = 'Title to show in this Site Features Block';
-$string['sitefblockurltarget'] = 'Link target';
-$string['sitefblockurltargetdesc'] = 'Choose how the link should be opened';
-$string['sitefblockurltargetnew'] = 'New page';
-$string['sitefblockurltargetparent'] = 'Parent frame';
-$string['sitefblockurltargetself'] = 'Current page';
-$string['sitefeaturebg'] = 'Site Features Background Image';
-$string['sitefeaturebgdesc'] = 'The image should be 1345px X 379px.';
-$string['sitenews'] = 'Site News';
-$string['slidecapbgcolor'] = 'Slide Caption Background colour';
-$string['slidecapbgcolordesc'] = 'What colour the slide caption background should be.';
-$string['slidecapcolor'] = 'Slide Caption text colour';
-$string['slidecapcolordesc'] = 'What colour the slide caption text should be.';
-$string['slidecaption'] = 'Slide caption';
-$string['slidecaptiondefault'] = 'Bootstrap Based Slider - {$a->slideno}';
-$string['slidecaptiondesc'] = 'Enter the caption text to use for the slide';
-$string['slideimage'] = 'Slide image';
-$string['slideimagedesc'] = 'The image should be 1400px X 418px.';
-$string['slidedescbgcolor'] = 'Slide Description Background colour';
-$string['slidedescbgcolordesc'] = 'What colour the slide description background should be.';
-$string['slidedesccolor'] = 'Slide Description text colour';
-$string['slidedesccolordesc'] = 'What colour the slide description text should be.';
-$string['slideno'] = 'Slide {$a->slide}';
-$string['slidenodesc'] = 'Enter the settings for slide {$a->slide}.';
-$string['slideshowdesc'] = 'This creates a slide show of up to twelve slides for you to promote important elements of your site.  The show is responsive where image height is set according to screen size.  The recommended height is 418px.  The width is set at 100% and therefore the actual height will be smaller if the width is greater than the screen size.  At smaller screen sizes the height is reduced dynamically without the need to provide separate images.  For reference screen width < 767px = height 438px, width between 768px and 979px = height 418px and width > 980px = height 418px.  If no image is selected for a slide, then the default_slide images in the pix folder is used.';
-$string['slideshowheading'] = 'Slide show';
-$string['slideshowheadingsub'] = 'Slide show for the front page';
-$string['slidedesc'] = 'Slide Description';
-$string['slidedesctext'] = 'Enter the description of the slide.';
-$string['slidedescdefault'] = '<p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</p>';
-$string['toggleslideshow'] = 'Slide show display';
-$string['toggleslideshowdesc'] = 'Choose if you wish to hide or show the slide show.';
-$string['twurl'] = 'Twitter';
-$string['twurl_default'] = 'https://twitter.com/yourtwittername';
-$string['twurldesc'] = 'The Twitter url of your organisation.';
-
-
 $string['contact_us'] = "Contact us";
-$string['followus'] = "Follow us";
 $string['info'] = "Info";
 $string['phone'] = "Phone";
 $string['email'] = "E-mail";
-$string['callus'] = "Call us";
-$string['home'] = "Home";
-$string['moodle_community'] = "Moodle community";
-$string['moodle_docs'] = "Moodle Docs";
-$string['moodle_support'] = "Moodle support";
-
-$string['primarymenu'] = "Primary menus";
-$string['primarymenudesc'] = "You can configure a primary menu here to be shown by themes. Each line consists of some menu text, a link URL (optional), a tooltip title (optional) and a language code or comma-separated list of codes (optional, for displaying the line to users of the specified language only), separated by pipe characters. Lines starting with a hyphen will appear as menu items in the previous top level menu, and dividers can be used by adding a line of one or more # characters where desired. For example:
-Moodle community|https://moodle.org
--Moodle free support|https://moodle.org/support
--Moodle Docs|http://docs.moodle.org|Moodle Docs
--German Moodle Docs|http://docs.moodle.org/de|Documentation in German|de
--###
--Moodle development|https://moodle.org/development
-Moodle.com|http://moodle.com/";
-$string['privacy:metadata'] = 'The academi theme does not store any personal data about any user.';
-$string['primarycolor'] = 'Primary color';
-$string['primarycolor_desc'] = 'Select primary color for your brand ';
-$string['secondarycolor'] = 'Secondary color';
-$string['secondarycolor_desc'] = 'Select a color that will be used as secondary color through out moodle site';
-$string['themestyleheader'] = 'Header style';
-$string['themestyleheader_desc'] = 'Select the any of the style for your header, In moodle based style, Menus are displayed in the top header.
-<br>And the bottom header will be hidden. In theme based modal, Menus are displaying in the bottom header.';
-$string['themebased'] = 'Theme based';
-$string['moodlebased'] = 'Moodle based';
+$string['contact'] = 'Contact';
+$string['defaultaddress'] = '308 Negra Narrow Lane, Albeeze, New york, 87104';
+$string['defaultemailid'] = 'info@example.com';
+$string['defaultphoneno'] = '(000) 123-456';
+$string['emailid'] = 'Email';
+$string['address'] = 'Address';
+$string['calendar'] = 'Calendar';
+$string['callus'] = 'Call us';
+// Content font size.
+$string['fontsize'] = 'Content Font Size';
+$string['fontsize_desc'] = 'Change the font size of your site\'s content.';
+$string['small'] = 'Small';
+$string['medium'] = 'Medium';
+$string['large'] = 'Large';

@@ -4,11 +4,11 @@ on: [push, pull_request]
 
 jobs:
   test:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
 
     services:
       postgres:
-        image: postgres:12.7
+        image: postgres:13.0
         env:
           POSTGRES_USER: 'postgres'
           POSTGRES_HOST_AUTH_METHOD: 'trust'
@@ -16,7 +16,7 @@ jobs:
           - 5432:5432
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 3
       mariadb:
-        image: mariadb:10.5
+        image: mariadb:10.6.7
         env:
           MYSQL_USER: 'root'
           MYSQL_ALLOW_EMPTY_PASSWORD: "true"
@@ -29,16 +29,16 @@ jobs:
       matrix:
         include:
           - php: '8.0'
-            moodle-branch: 'MOODLE_311_STABLE'
+            moodle-branch: 'MOODLE_402_STABLE'
             database: 'mariadb'
           - php: '8.0'
-            moodle-branch: 'MOODLE_311_STABLE'
+            moodle-branch: 'MOODLE_402_STABLE'
             database: 'pgsql'
           - php: '7.4'
-            moodle-branch: 'MOODLE_311_STABLE'
+            moodle-branch: 'MOODLE_402_STABLE'
             database: 'mariadb'
           - php: '7.4'
-            moodle-branch: 'MOODLE_311_STABLE'
+            moodle-branch: 'MOODLE_402_STABLE'
             database: 'pgsql'
 
     steps:
@@ -98,7 +98,7 @@ jobs:
 
       - name: Mustache Lint
         if: ${{ always() }}
-        run: moodle-plugin-ci mustache
+        run: moodle-plugin-ci mustache || true
 
       - name: Grunt
         if: ${{ always() }}

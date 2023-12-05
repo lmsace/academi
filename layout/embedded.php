@@ -24,13 +24,11 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$fakeblockshtml = $OUTPUT->blocks('side-pre', array(), 'aside', true);
+$fakeblockshtml = $OUTPUT->blocks('side-pre', [], 'aside', true);
 $hasfakeblocks = strpos($fakeblockshtml, 'data-block="_fake"') !== false;
-
 $templatecontext = [
     'output' => $OUTPUT,
     'hasfakeblocks' => $hasfakeblocks,
     'fakeblocks' => $fakeblockshtml,
 ];
-
 echo $OUTPUT->render_from_template('theme_boost/embedded', $templatecontext);
