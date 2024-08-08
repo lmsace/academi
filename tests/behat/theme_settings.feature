@@ -27,7 +27,7 @@ In order to use the features
   @javascript @_file_upload
   Scenario: Setting: Replace logo and add Favicon
     Given I am on site homepage
-    And I navigate to "Appearance > Themes > Academi" in site administration
+    And I navigate to theme settings page
     And I click on "Homepage Slider" "link" in the "#adminsettings .nav-tabs" "css_element"
     And I select "Yes" from the "Slide show display" singleselect
     And I select "Yes" from the "Auto play" singleselect
