@@ -21,27 +21,13 @@ body {
 }
 .moremenu {
     .nav.nav-tabs {
-        border-bottom: 0;
         .nav-item {
             margin-right: 1px;
-            &:last-child {
-                margin-right: 0;
-            }
             .nav-link {
                 width: 100%;
-                color: $primary;
-                font-weight: bold;
-                text-align: center;
-                background: $light_grey;
-                border-color: $light_grey;
-                border-radius: 5px;
-                &:hover,
-                &:focus,
-                &:active,
-                &.active {
-                    color: $white;
-                    background-color: $secondary;
-                }
+                border-color: $wild_sand;
+                background-color: $wild_sand;
+                flex-direction: row;
             }
         }
     }
@@ -175,31 +161,40 @@ body {
 
 /* Site Features */
 .site-features.icon-block {
-    .custom-site-expo .sitebox .site-feature-head .rcthumb {
-        width: 100px;
-        height: 100px;
-        font-size: 35px;
-        border-radius: 30px;
-        box-shadow: none;
-        overflow: hidden;
-        position: relative;
-        z-index: 0;
-        &:before {
-            content: '';
-            width: 50px;
-            height: 50px;
-            position: absolute;
-            background: $white_20;
-            border-radius: 50%;
-            top: -20px;
-            left: -20px;
-            z-index: -1;
-            transition: all .8s ease;
+    .custom-site-expo .sitebox {
+        .site-feature-head .rcthumb {
+            width: 100px;
+            height: 100px;
+            font-size: 35px;
+            border-radius: 30px;
+            box-shadow: none;
+            overflow: hidden;
+            position: relative;
+            z-index: 0;
+            &:before {
+                content: '';
+                width: 50px;
+                height: 50px;
+                position: absolute;
+                background: $white_20;
+                border-radius: 50%;
+                top: -20px;
+                left: -20px;
+                z-index: -1;
+                transition: all .8s ease;
+            }
+            &:hover::before {
+                width: 130%;
+                height: 130%;
+                transition: all .8s ease;
+            }
         }
-        &:hover::before {
-            width: 130%;
-            height: 130%;
-            transition: all .8s ease;
+        .site-feature-body {
+            h6,
+            h6 a {
+                color: $black;
+                font-weight: bold;
+            }
         }
     }
 }
@@ -207,35 +202,33 @@ body {
 
 /* Marketing Spot */
 .marketing-spot .info-media {
-    max-width: 470px;
     overflow: hidden;
-    border-radius: 10px;
-    border: 4px solid $secondary;
-    background: $white_50;
-    box-shadow: 2px 10px 10px $black_20;
-    padding: 13px;
-    position: relative;
-    offset-path: path("M0,10 C60,10 10,0 10, 10");
-    offset-anchor: top left;
-    animation: move 2000ms infinite alternate ease-in-out;
-    transform: skew(3deg, 3deg);
     img {
+        max-width: 500px;
         border-radius: 10px;
+        margin: 0 auto;
     }
 }
 
 /* Course Category */
-.course_category_tree.frontpage-category-names .category {
-    display: inline-block;
-    margin-right: 15px;
-    > .info {
-        border-radius: 40px;
-        .categoryname {
-            &:before {
-                display: none;
-            }
-            .numberofcourse {
-                color: $color_mine_shaft_approx;
+.course_category_tree.frontpage-category-names {
+    .content > .subcategories {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .category {
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 15px;
+        > .info {
+            border-radius: 40px;
+            .categoryname {
+                &:before {
+                    display: none;
+                }
+                .numberofcourse {
+                    color: $color_mine_shaft_approx;
+                }
             }
         }
     }
@@ -325,6 +318,31 @@ body {
         }
     }
 }
+
+@media (max-width: 991px) {
+    .jumbotron-block {
+        margin: 0;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .jumbotron-block {
+        margin: 0;
+        .inner-wrap {
+            &:before {
+                width: 35%;
+                top: -30px;
+            }
+            &:hover:before {
+                width: 45%;
+                height: 100%;
+                top: -50px;
+                right: -100px;
+            }
+        }
+    }
+}
+
 /* End of Jumbotron block */
 
 /* Footer */
@@ -336,12 +354,14 @@ body {
             font-size: 24px;
             font-weight: normal;
         }
-        .foot-links ul li a:hover {
-            color: $white;
+        a {
+            &:hover,
+            &:focus,
+            &:active {
+                color: $white;
+                text-decoration: none;
+            }
         }
-    }
-    a {
-        color: $white;
     }
 }
 /* End of Footer */

@@ -99,6 +99,70 @@ h6 {
     color: $primary;
 }
 
+/* Secondary navigation menu */
+.secondary-navigation .moremenu.navigation .nav-tabs {
+    &:first-child .nav-item a {
+        margin-left: 5px;
+    }
+    &:last-child .nav-item a {
+        margin-right: 5px;
+    }
+    .nav-item {
+        background-color: $wild_sand;
+        .nav-link {
+            border: 0;
+            background-color: transparent;
+            box-shadow: none;
+            position: relative;
+            z-index: 0;
+            &:focus:active {
+                background: none;
+            }
+            &:before {
+                display: none;
+            }
+            &:hover,
+            &:focus,
+            &:active,
+            &.active {
+                color: $primary;
+                &:before {
+                    content: '';
+                    width: 100%;
+                    height: 70%;
+                    border-radius: 10px;
+                    background: $white;
+                    display: block;
+                    position: absolute;
+                    left: 0;
+                    z-index: -1;
+                }
+            }
+        }
+    }
+    .dropdownmoremenu .dropdown-menu .dropdown-item {
+        margin: 0;
+        &:hover,
+        &:focus,
+        &:active {
+            color: $primary;
+            background: $white;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .secondary-navigation .moremenu.navigation .nav-tabs .nav-item .nav-link {
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+            background: none;
+        }
+    }
+}
+/* End of Secondary navigation menu */
+
 /* Promoted Courses */
 .promoted-courses .promatedcourse-slider {
     .slider-item .course-box {
@@ -183,6 +247,10 @@ h6 {
         .site-feature-body {
             text-align: left;
             padding-top: 0;
+            h6 {
+                color: $black;
+                font-weight: bold;
+            }
         }
         &:hover {
             background-color: $primary;
@@ -193,6 +261,7 @@ h6 {
             }
             .site-feature-body {
                 h6,
+                h6 a,
                 p {
                     color: $white;
                 }
@@ -241,15 +310,27 @@ h6 {
     .info-content p {
         color: $color_mine_shaft_approx;
     }
+    .info-media img {
+        max-width: 500px;
+        margin: 0 auto;
+    }
 }
 /* End of Marketing Spot */
 
+/* Jumbotron */
+@media (max-width: 575px) {
+    .jumbotron-block .inner-wrap:hover:before {
+        height: 90%;
+        top: 0;
+        right: -110px;
+    }
+}
+/* End of Jumbotron */
+
 /* Course Category */
 .course_category_tree.frontpage-category-names .category {
-    display: inline-block;
     padding-top: 2px;
     padding-bottom: 2px;
-    margin-right: 15px;
     > .info {
         border: 1px solid transparent;
         border-radius: 25px;
@@ -261,6 +342,7 @@ h6 {
                 display: none;
             }
             .numberofcourse {
+                font-size: 16px;
                 color: $color_mine_shaft_approx;
                 margin-left: 2px;
             }
@@ -291,6 +373,7 @@ h6 {
             &:after {
                 content: '\f212';
                 font-family: $font_0;
+                font-weight: $font_weight;
                 margin-right: 10px;
                 float: left;
             }
@@ -322,14 +405,19 @@ h6 {
 /* Footer */
 #footer {
     .footer-main {
-        a {
-            color: $white;
-        }
         h2 {
             font-size: 24px;
             font-family: $font_3;
             font-weight: normal;
             color: $white;
+        }
+        a {
+            &:hover,
+            &:focus,
+            &:active {
+                color: $white;
+                text-decoration: none;
+            }
         }
         .social-media ul li {
             &:after {
@@ -340,7 +428,14 @@ h6 {
             }
         }
     }
-    &.footer-image .foot-links ul li a:hover {
+    .footer-bottom a {
+        &:hover,
+        &:focus,
+        &:active {
+            color: $white;
+        }
+    }
+    &.footer-image .foot-links ul a:hover {
         color: $white;
     }
 }

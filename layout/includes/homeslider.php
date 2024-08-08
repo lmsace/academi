@@ -50,9 +50,11 @@ function general() {
  * @return array $data data for home pageslider.
  */
 function homeslider() {
+    global $PAGE;
     $data = [];
     $data['numofslide'] = theme_academi_get_setting('numberofslides');
     $helperobj = new theme_academi\helper();
+    (int) $slider = 0;
     for ($s = 1; $s <= $data['numofslide']; $s++) {
         $slide = [];
         $slide['slidestatus'] = theme_academi_get_setting('slide' . $s .'status');
@@ -65,6 +67,11 @@ function homeslider() {
         $btntarget = theme_academi_lang(theme_academi_get_setting('slide' . $s . 'btntarget'));
         $slide['btntarget'] = ($btntarget == 1) ? '_blank' : '_self';
         $contwidth = theme_academi_get_setting('slide' . $s . 'contFullwidth');
+
+        if ((!empty($slide['slidestatus'])) && (!empty($slide['slideimg']))) {
+            $slider = $slider + 1;
+        }
+
         if ($contwidth == "auto") {
             $contwidth = "auto";
         } else {
@@ -87,6 +94,11 @@ function homeslider() {
             $data['slides'][] = $slide;
         }
     }
+    $status = theme_academi_get_setting('toggleslideshow');
+    $data['sliderblockstatus'] = ($slider == 0) ? false : $status;
+    if (!$data['sliderblockstatus']) {
+        $data['isblockempty'] = is_siteadmin() || $PAGE->user_is_editing() ? true : false;
+    }
     return $data;
 }
 
@@ -94,6 +106,5 @@ $sliderconfig = [];
 $slidergeneral = general();
 $sliderconfig += $slidergeneral;
 $sliderconfig += homeslider();
-$PAGE->requires->data_for_js('homecarouselconfig', $slidergeneral);
-$PAGE->requires->js_call_amd('theme_academi/homeslider', 'init', ['selector' => '#homepage-carousel']);
+$PAGE->requires->js_call_amd('theme_academi/homeslider', 'init', ['selector' => '#homepage-carousel', 'options' => $slidergeneral]);
 $PAGE->requires->css("/theme/academi/style/animate.css");

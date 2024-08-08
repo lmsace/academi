@@ -25,10 +25,21 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-require_once($CFG->dirroot.'/theme/academi/lib.php');
-
 // General section.
 $temp = new admin_settingpage('theme_academi_header', get_string('headerheading', 'theme_academi'));
+
+// Nav style select option.
+$name = 'theme_academi/navstyle';
+$title = get_string('navstyle', 'theme_academi');
+$description = get_string('navstyle_desc', 'theme_academi');
+$default = LOGO;
+$choices = [
+    LOGO => get_string('logo', 'theme_academi'),
+    SITENAME => get_string('sitename', 'theme_academi'),
+    LOGOANDSITENAME => get_string('logoandsitename', 'theme_academi'),
+];
+$setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+$temp->add($setting);
 
 // Logo file upload option.
 $name = 'theme_academi/logo';
@@ -141,7 +152,7 @@ $temp->add($setting);
 // Background image setting.
 $name = 'theme_boost/backgroundimage';
 $title = get_string('backgroundimage', 'theme_boost');
-$description = get_string('backgroundimage_desc', 'theme_boost');
+$description = get_string('backgroundimage_desc', 'theme_academi');
 $setting = new admin_setting_configstoredfile($name, $title, $description, 'backgroundimage');
 $setting->set_updatedcallback('theme_reset_all_caches');
 $temp->add($setting);

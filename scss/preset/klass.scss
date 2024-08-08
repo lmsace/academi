@@ -42,12 +42,16 @@ body {
     background: none;
     &:hover,
     &:focus,
-    &:active {
+    &:active,
+    &:focus:active {
         color: $secondary;
-        background-color: $wild_sand;
+        background: none;
     }
-    &.active {
+    &.active,
+    &.active:focus,
+    &.active:active {
         color: $secondary;
+        background: none;
         border-bottom-color: $primary;
     }
 }
@@ -60,17 +64,27 @@ body {
 #page-wrapper #page #page-content {
     padding-bottom: 0 !important;
 }
-.course_category_tree .category > .info > .categoryname.aabtn:before {
-    color: $primary;
+.course_category_tree .category {
+    > .info > .categoryname.aabtn:before {
+        color: $primary;
+    }
+    .numberofcourse {
+        font-size: 16px;
+    }
 }
 
 @media (max-width: 767px) {
-    .moremenu .nav.nav-tabs .nav-item .nav-link {
+    .moremenu.navigation .nav.nav-tabs .nav-item .nav-link {
         &:hover,
         &:focus,
         &:active,
+        &:focus:active,
         &.active {
-            color: $white;
+            color: $secondary;
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+            background: none;
         }
     }
 }
@@ -177,8 +191,12 @@ body {
             box-shadow: none;
         }
     }
-    .site-feature-body h6 {
-        color: $secondary;
+    .site-feature-body {
+        h6,
+        h6 a {
+            color: $secondary;
+            font-weight: bold;
+        }
     }
 }
 /* End of Site Features */
@@ -203,13 +221,16 @@ body {
         z-index: -1;
         /* transform: skew(-10deg, 0deg); */
     }
+    .info-media img {
+        max-width: 500px;
+        width: auto;
+        margin: 0 auto;
+    }
 }
 
 @media (min-width: 992px) {
     .info-block {
         .info-head {
-            width: 49%;
-            margin-left: auto;
             h2,
             p {
                 text-align: left;
@@ -248,9 +269,7 @@ body {
 @media (max-width: 991px) {
     .jumbotron-block {
         background-color: $wild_sand;
-        .inner-wrap {
-            position: static;
-        }
+        margin: 0;
     }
 }
 /* End of Jumbotron block */
@@ -327,7 +346,7 @@ body {
             font-size: 24px;
             font-weight: normal;
         }
-        .foot-links ul li a {
+        .foot-links ul a {
             color: $color_mine_shaft_approx;
             &:hover,
             &:focus,
@@ -339,6 +358,14 @@ body {
             color: $color_mine_shaft_approx;
             margin-bottom: 8px;
         }
+        .contact-info a {
+            color: $color_mine_shaft_approx;
+            &:hover,
+            &:focus,
+            &:active {
+                color: $secondary;
+            }
+        }
         .social-media ul li a {
             background-color: $white;
             &:after {
@@ -348,8 +375,13 @@ body {
     }
     &.footer-image .footer-main {
         border-color: $secondary_70;
-        .foot-links ul li a {
+        .foot-links ul a {
             color: $white;
+            &:hover,
+            &:focus,
+            &:active {
+                color: $secondary;
+            }
         }
         p {
             color: $white;
@@ -361,7 +393,18 @@ body {
     .footer-bottom {
         border-top: 2px solid $primary;
         background-color: $wild_sand;
+        a {
+            color: $primary;
+            &:hover,
+            &:focus,
+            &:active {
+                color: $secondary;
+            }
+        }
         p {
+            color: $color_mine_shaft_approx;
+        }
+        .footer-content-debugging {
             color: $color_mine_shaft_approx;
         }
     }

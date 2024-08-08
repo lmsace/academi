@@ -35,6 +35,7 @@ if ($pagesize == 'container') {
 } else if ($pagesize == 'custom') {
     $extraclasses[] = 'custom-container';
 }
+
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $templatecontext += [
     'bodyattributes' => $bodyattributes,

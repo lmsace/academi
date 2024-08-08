@@ -90,7 +90,7 @@ $url_1: rgba(0, 0, 0, 0.4) !default;
 $footerbgimg: url('') !default;
 $loginbg: url('') !default;
 
-$font_0: var(--fa-style-family, "Font Awesome 6 Free", fontawesome);
+$font_0: var(--fa-style-family, "Font Awesome 6 Free", "Font Awesome 6 Brands", fontawesome);
 $font_weight: var(--fa-style, 900);
 $fontsize: 16px !default;
 

@@ -34,48 +34,57 @@
     }
 }}
 {{#status}}
-    <div class="homepage-carousel">
-        {{#numofslide}}
-            <a href="#" class="prevBtn carousel-control left"> <span aria-hidden="true"></span> </a>
-            <a href="#" class="nextBtn carousel-control right"> <span aria-hidden="true"></span> </a>
-        {{/numofslide}}
-        <div id="homepage-carousel">
-            {{#slides}}
-                {{#slidestatus}}
-                    {{#slideimg}}
-                        <div class="homecarousel-slide-item carousel-item">
-                            <div class="slide-item slide-content {{overlayClass}}">
-                                <div class="slide-main-background">
-                                    {{#slideimg}}
-                                        <img src="{{{slideimg}}}" class="slide-image">
-                                    {{/slideimg}}
-                                </div>
-                                {{! Slide content }}
-                                {{#slidecontentstatus}}
-                                    <div class="slide-text content_overlayer {{contentClass}}" style="width:{{contentwidth}};">
-                                        <div class="heading-content">
-                                            {{#caption}}
-                                                <h1 data-animation='animated {{contentAnimation}}' class="{{contentAclass}}">{{{caption}}}</h1>
-                                            {{/caption}}
-                                            <br>
-                                            {{#desc}}
-                                                <p data-animation='animated {{contentAnimation}}' class="{{contentAclass}}">{{{desc}}}</p>
-                                            {{/desc}}
-                                            <div class="link-button">
-                                                {{#btntxt}}
-                                                    <a href="{{{btnlink}}}" target="{{btntarget}}" class='btn btn-primary {{contentAclass}}' data-animation='animated {{contentAnimation}}'>
-                                                        {{btntxt}}
-                                                    </a>
-                                                {{/btntxt}}
+    {{#isblockempty}}
+        <div class="custom-alert-block alert alert-warning">
+            {{#str}}blockemptymessage, theme_academi{{/str}}
+        </div>
+    {{/isblockempty}}
+
+
+    {{#sliderblockstatus}}
+        <div class="homepage-carousel">
+            {{#numofslide}}
+                <a href="#" class="prevBtn carousel-control left"> <span aria-hidden="true"></span> </a>
+                <a href="#" class="nextBtn carousel-control right"> <span aria-hidden="true"></span> </a>
+            {{/numofslide}}
+            <div id="homepage-carousel">
+                {{#slides}}
+                    {{#slidestatus}}
+                        {{#slideimg}}
+                            <div class="homecarousel-slide-item carousel-item">
+                                <div class="slide-item slide-content {{overlayClass}}">
+                                    <div class="slide-main-background">
+                                        {{#slideimg}}
+                                            <img src="{{{slideimg}}}" class="slide-image">
+                                        {{/slideimg}}
+                                    </div>
+                                    {{! Slide content }}
+                                    {{#slidecontentstatus}}
+                                        <div class="slide-text content_overlayer {{contentClass}}" style="width:{{contentwidth}};">
+                                            <div class="heading-content">
+                                                {{#caption}}
+                                                    <h1 data-animation='animated {{contentAnimation}}' class="{{contentAclass}}">{{{caption}}}</h1>
+                                                {{/caption}}
+                                                <br>
+                                                {{#desc}}
+                                                    <p data-animation='animated {{contentAnimation}}' class="{{contentAclass}}">{{{desc}}}</p>
+                                                {{/desc}}
+                                                <div class="link-button">
+                                                    {{#btntxt}}
+                                                        <a href="{{{btnlink}}}" target="{{btntarget}}" class='btn btn-primary {{contentAclass}}' data-animation='animated {{contentAnimation}}'>
+                                                            {{btntxt}}
+                                                        </a>
+                                                    {{/btntxt}}
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                {{/slidecontentstatus}}
+                                    {{/slidecontentstatus}}
+                                </div>
                             </div>
-                        </div>
-                    {{/slideimg}}
-                {{/slidestatus}}
-            {{/slides}}
+                        {{/slideimg}}
+                    {{/slidestatus}}
+                {{/slides}}
+            </div>
         </div>
-    </div>
+    {{/sliderblockstatus}}
 {{/status}}

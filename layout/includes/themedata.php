@@ -23,11 +23,29 @@
  */
 defined('MOODLE_INTERNAL') || die();
 require_once(dirname(__FILE__) .'/footer.php');
+require_once($CFG->dirroot.'/theme/academi/lib.php');
 
 $logourl = theme_academi_get_logo_url('header');
 $phoneno = theme_academi_get_setting('phoneno');
 $emailid = theme_academi_get_setting('emailid');
 $themestyleheader = theme_academi_get_setting('themestyleheader');
+$navstyle = theme_academi_get_setting('navstyle');
+
+switch ($navstyle) {
+    case LOGO:
+        $showlogo = true;
+        $showsitename = false;
+        break;
+    case SITENAME:
+        $showsitename = true;
+        $showlogo = false;
+        break;
+    case LOGOANDSITENAME:
+        $showsitename = true;
+        $showlogo = true;
+        break;
+}
+
 $custommenu = $OUTPUT->custom_menu();
 if ($custommenu == "") {
     $navbarclass = "navbar-toggler d-lg-none nocontent-navbar";
@@ -39,5 +57,7 @@ $templatecontext = [
     "logourl" => $logourl,
     "navbarclass" => $navbarclass,
     "themestyleheader" => $themestyleheader,
+    'showsitename' => $showsitename,
+    'showlogo' => $showlogo,
 ];
 $templatecontext += footer();

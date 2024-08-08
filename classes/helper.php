@@ -111,34 +111,6 @@ class helper {
     }
 
     /**
-     * Footer Info links.
-     *
-     * @return string $content
-     */
-    public function footer_infolink() {
-        $infolink = theme_academi_get_setting('infolink');
-        $content = "";
-        $infosettings = explode("\n", $infolink);
-        foreach ($infosettings as $key => $settingval) {
-
-            $expset = explode("|", $settingval);
-            if (isset($expset[1])) {
-                list($ltxt, $lurl) = $expset;
-            }
-
-            if (isset($ltxt) != '' || isset($lurl) != '') {
-                $ltxt = trim($ltxt);
-                $lurl = trim($lurl);
-            }
-            if (empty($ltxt)) {
-                continue;
-            }
-            $content .= '<li><a href="'.$lurl.'" target="_blank">'.$ltxt.'</a></li>';
-        }
-        return $content;
-    }
-
-    /**
      * Fetch the hide course ids.
      *
      * @return array
@@ -162,7 +134,7 @@ class helper {
      * @param string $text
      * @return string
      */
-    public function strip_html_tags( $text ) {
+    public function strip_html_tags($text) {
         $text = preg_replace(
             [
                 // Remove invisible content.

@@ -68,32 +68,44 @@
 
 {{! Promototed course }}
 {{#promatedcourse}}
-    <div class="promoted-courses" id="promoted-courses">
-        <div class="container">
-            <div class="titlebar">
-                {{#promotedtitle}}
-                    <h2><b>{{promotedtitle}}</b></h2>
-                {{/promotedtitle}}
-                {{#promotedcoursedesc}}
-                    <p>{{promotedcoursedesc}}</p>
-                {{/promotedcoursedesc}}
-            </div>
-            <div class="promatedcourse-slider" data-crow="{{totalfcourse}}">
-                {{#courses}}
-                    {{#.}}
-                        <div class="slider-item">
-                            <div class="course-box">
-                                <div class="thumb">
-                                    <a href="{{courseurl}}"><img src="{{imgurl}}" width="135" height="135" alt=""></a>
+    {{#isblockempty}}
+        <div class="custom-alert-block alert alert-warning">
+            {{#str}}blockemptymessage, theme_academi{{/str}}
+        </div>
+    {{/isblockempty}}
+
+    {{#blockisempty}}
+        <div class="promoted-courses" id="promoted-courses">
+            <div class="container">
+                {{#promotedcontent}}
+                    <div class="titlebar">
+                        {{#promotedtitle}}
+                            <h2><b>{{promotedtitle}}</b></h2>
+                        {{/promotedtitle}}
+                        {{#promotedcoursedesc}}
+                            <p>{{promotedcoursedesc}}</p>
+                        {{/promotedcoursedesc}}
+                    </div>
+                {{/promotedcontent}}
+                {{#coursestatus}}
+                    <div class="promatedcourse-slider" data-crow="{{totalfcourse}}">
+                        {{#courses}}
+                            {{#.}}
+                                <div class="slider-item">
+                                    <div class="course-box">
+                                        <div class="thumb">
+                                            <a href="{{courseurl}}"><img src="{{imgurl}}" width="135" height="135" alt=""></a>
+                                        </div>
+                                        <div class="info">
+                                            <h5><a href="{{courseurl}}"> {{coursename}} </a></h5>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="info">
-                                    <h5><a href="{{courseurl}}"> {{coursename}} </a></h5>
-                                </div>
-                            </div>
-                        </div>
-                    {{/.}}
-                {{/courses}}
+                            {{/.}}
+                        {{/courses}}
+                    </div>
+                {{/coursestatus}}
             </div>
         </div>
-    </div>
+    {{/blockisempty}}
 {{/promatedcourse}}

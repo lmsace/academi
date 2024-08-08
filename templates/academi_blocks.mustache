@@ -34,91 +34,130 @@
 }}
 
 {{#sitefeatures}}
-    <div class="site-features {{class}}" id="sitefeatures">
-        <div class="custom-site-expo">
-            <div class="container">
-                <div class='sitefeature-block-title'>
-                    {{#blocktitle}}
-                        <h2><b>{{blocktitle}}</b></h2>
-                    {{/blocktitle}}
-                    {{#blockdesc}}
-                        <p>{{{blockdesc}}}</p>
-                    {{/blockdesc}}
-                </div>
+    {{#isblockempty}}
+        <div class="custom-alert-block alert alert-warning">
+            {{#str}}blockemptymessage, theme_academi{{/str}}
+        </div>
+    {{/isblockempty}}
 
-                <div class="row">
-                    {{#feature}}
-                        {{#status}}
-                            <div class="{{colclass}}">
-                                <div class="sitebox">
-                                    {{#icon}}
-                                        <div class="site-feature-head">
-                                            <div class="rcthumb">
-                                                <i class="fa fa-{{icon}}"></i>
+    {{#blockisempty}}
+        <div class="site-features {{class}}" id="sitefeatures">
+            <div class="custom-site-expo">
+                <div class="container">
+                    {{#blockstatus}}
+                        <div class='sitefeature-block-title'>
+                            {{#blocktitle}}
+                                <h2><b>{{blocktitle}}</b></h2>
+                            {{/blocktitle}}
+                            {{#blockdesc}}
+                                <p>{{{blockdesc}}}</p>
+                            {{/blockdesc}}
+                        </div>
+                    {{/blockstatus}}
+
+                    <div class="row">
+                        {{#feature}}
+                            {{#status}}
+                                <div class="{{colclass}}">
+                                    <div class="sitebox">
+                                        {{#icon}}
+                                            <div class="site-feature-head">
+                                                <div class="rcthumb">
+                                                    <i class="fa fa-{{icon}}"></i>
+                                                </div>
                                             </div>
-                                        </div>
-                                    {{/icon}}
-                                    {{#sfbbody}}
-                                        <div class="site-feature-body">
-                                            {{#title}}<h6>{{title}}</h6>{{/title}}
-                                            {{#content}}<p>{{content}}</p>{{/content}}
-                                        </div>
-                                    {{/sfbbody}}
+                                        {{/icon}}
+                                        {{#sfbbody}}
+                                            <div class="site-feature-body">
+                                                {{#title}}
+                                                    {{#url}}
+                                                        <h6>
+                                                            <a href="{{url}}" target='_blank'>{{title}}</a>
+                                                        </h6>
+                                                    {{/url}}
+                                                    {{^url}}
+                                                        <h6>{{title}}</h6>
+                                                    {{/url}}
+                                                {{/title}}
+                                                {{#content}}<p>{{content}}</p>{{/content}}
+                                            </div>
+                                        {{/sfbbody}}
+                                    </div>
                                 </div>
-                            </div>
-                        {{/status}}
-                    {{/feature}}
+                            {{/status}}
+                        {{/feature}}
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    {{/blockisempty}}
 {{/sitefeatures}}
 
 {{#mspot}}
-    <div class="marketing-spot" id="marketingspot">
-        <div class="container">
-            <div class="info-block">
-                <div class="info-head">
-                    {{#title}}<h2><b>{{title}}</b></h2>{{/title}}
-                    {{#desc}}<p>{{desc}}</p>{{/desc}}
-                </div>
-                <div class="row">
-                    {{#content}}
+    {{#isblockempty}}
+        <div class="custom-alert-block alert alert-warning">
+            {{#str}}blockemptymessage, theme_academi{{/str}}
+        </div>
+    {{/isblockempty}}
+
+    {{#blockisempty}}
+        <div class="marketing-spot" id="marketingspot">
+            <div class="container">
+                <div class="info-block">
+                    <div class="row">
                         <div class="{{colclass}}">
-                            <div class="info-content">
-                                <p>{{{content}}}</p>
-                            </div>
+                            {{#mspotheadcontent}}
+                                <div class="info-head">
+                                    {{#title}}<h2><b>{{title}}</b></h2>{{/title}}
+                                    {{#desc}}<p>{{desc}}</p>{{/desc}}
+                                </div>
+                            {{/mspotheadcontent}}
+                            {{#content}}
+                                <div class="info-content">
+                                    <p>{{{content}}}</p>
+                                </div>
+                            {{/content}}
                         </div>
-                    {{/content}}
-                    {{#media}}
-                        <div class="{{colclass}}">
-                            <div class="info-media">
-                                <img src="{{{media}}}" class="media-image">
+                        {{#media}}
+                            <div class="{{colclass}}">
+                                <div class="info-media">
+                                    <img src="{{{media}}}" class="media-image">
+                                </div>
                             </div>
-                        </div>
-                    {{/media}}
+                        {{/media}}
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    {{/blockisempty}}
 {{/mspot}}
 
 {{#jumbotron}}
-    <div class="jumbotron-block" id="jumbotron">
-        <div class="container">
-            <div class="inner-wrap">
-                <div class="desc-wrap">
-                    {{#title}}<h2><b>{{title}}</b></h2>{{/title}}
-                    {{#desc}}<p>{{desc}}</p>{{/desc}}
-                </div>
-                <div class="btn-block">
+    {{#isblockempty}}
+        <div class="custom-alert-block alert alert-warning">
+            {{#str}}blockemptymessage, theme_academi{{/str}}
+        </div>
+    {{/isblockempty}}
+
+    {{#blockisempty}}
+        <div class="jumbotron-block {{^jumbotroncontent}}jumbotron-btn-block{{/jumbotroncontent}}" id="jumbotron">
+            <div class="container">
+                <div class="inner-wrap">
+                    {{#jumbotroncontent}}
+                        <div class="desc-wrap">
+                            {{#title}}<h2><b>{{title}}</b></h2>{{/title}}
+                            {{#desc}}<p>{{desc}}</p>{{/desc}}
+                        </div>
+                    {{/jumbotroncontent}}
                     {{#btntext}}
-                        <a href="{{{buttonlink}}}" target="{{btntarget}}" class='btn-jumbo'>
-                            {{{btntext}}}
-                        </a>
+                        <div class="btn-block">
+                            <a href="{{{buttonlink}}}" target="{{btntarget}}" class='btn-jumbo'>
+                                {{{btntext}}}
+                            </a>
+                        </div>
                     {{/btntext}}
                 </div>
             </div>
         </div>
-    </div>
+    {{/blockisempty}}
 {{/jumbotron}}

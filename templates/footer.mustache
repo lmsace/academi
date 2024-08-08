@@ -54,117 +54,131 @@
 {{^footersmall}}
     <footer id="page-footer" class="footer-popover footer-dark text-light">
         <div id="footer" {{#footerbgimgclass}} class="{{footerbgimgclass}}" {{/footerbgimgclass}}>
-            <div class="footer-main">
-                <div class="container-fluid">
-                    <div id="course-footer">
-                        {{{ output.course_footer }}}
-                    </div>
-                    <div class="row">
-                        {{! Footer block 1 start }}
-                            {{#fstatus1}}
-                                <div class="{{colclass}}">
-                                    <div class="infoarea">
-                                        {{#ftitle1}}
-                                            <h2>{{ftitle1}}</h2>
-                                        {{/ftitle1}}
-                                        {{#footlogostatus}}
-                                            {{#footerlogourl}}
-                                                <div class="footer-logo">
-                                                    <a href="#"><img src="{{footerlogourl}}" width="100" height="100" alt="Academi"></a>
-                                                </div>
-                                            {{/footerlogourl}}
-                                        {{/footlogostatus}}
-                                        {{#footnote}}
-                                            {{{footnote}}}
-                                        {{/footnote}}
+            {{#footerstatus}}
+                <div class="footer-main">
+                    <div class="container-fluid">
+                        <div id="course-footer">
+                            {{{ output.course_footer }}}
+                        </div>
+                        <div class="row">
+                            {{! Footer block 1 start }}
+                                {{#fstatus1}}
+                                    <div class="{{colclass}}">
+                                        <div class="infoarea">
+                                            {{#ftitle1}}
+                                                <h2>{{ftitle1}}</h2>
+                                            {{/ftitle1}}
+                                            {{#footlogostatus}}
+                                                {{#footerlogourl}}
+                                                    <div class="footer-logo">
+                                                        <a href="#"><img src="{{footerlogourl}}" width="100" height="100" alt="Academi"></a>
+                                                    </div>
+                                                {{/footerlogourl}}
+                                            {{/footlogostatus}}
+                                            {{#footnote}}
+                                                {{{footnote}}}
+                                            {{/footnote}}
+                                        </div>
                                     </div>
-                                </div>
-                            {{/fstatus1}}
-                        {{! Footer block 1 end }}
+                                {{/fstatus1}}
+                            {{! Footer block 1 end }}
 
-                        {{! Footer block 2 start }}
-                            {{#fstatus2}}
-                                <div class="{{colclass}} footer-links-block">
-                                    <div class="foot-links">
-                                        {{#ftitle2}}
-                                            <h2>{{ftitle2}}</h2>
-                                        {{/ftitle2}}
-                                        {{# infolink}}
+                            {{! Footer block 2 start }}
+                                {{#fstatus2}}
+                                    <div class="{{colclass}} footer-links-block">
+                                        <div class="foot-links">
+                                            {{#ftitle2}}
+                                                <h2>{{ftitle2}}</h2>
+                                            {{/ftitle2}}
+                                            {{# infolink}}
+                                                <ul>
+                                                    {{{infolink}}}
+                                                </ul>
+                                            {{/ infolink}}
+                                        </div>
+                                    </div>
+                                {{/fstatus2}}
+                            {{! Footer block 2 end }}
+
+                            {{! Footer block 3 start }}
+                                {{#fstatus3}}
+                                    <div class="{{colclass}}">
+                                        <div class="contact-info">
+                                            {{#ftitle3}}
+                                                <h2>{{ftitle3}}</h2>
+                                            {{/ftitle3}}
+                                            {{# address}}
+                                                <p>{{address}}</p>
+                                            {{/ address}}
+                                            {{# phoneno}}
+                                                <p><i class="fa fa-phone-square"></i> {{phone}} : {{phoneno}}</p>
+                                            {{/ phoneno}}
+                                            {{# emailid}}
+                                                <p><i class="fa fa-envelope"></i> {{email}} : <a class="mail-link" href="mailto:{{emailid}}">{{emailid}}</a></p>
+                                            {{/ emailid}}
+                                        </div>
+                                    </div>
+                                {{/fstatus3}}
+                            {{! Footer block 3 end }}
+
+                            {{! Footer block 4 start }}
+                                {{#fstatus4}}
+                                    <div class="{{colclass}}">
+                                        <div class="social-media">
+                                            {{#ftitle4}}
+                                                <h2>{{ftitle4}}</h2>
+                                            {{/ftitle4}}
                                             <ul>
-                                                {{{infolink}}}
+                                            {{#socialmedia}}
+                                                {{# socialstatus}}
+                                                    {{#sicon}}
+                                                        <li class="smedia-{{sno}}">
+                                                            <a href="{{{surl}}}" target="_blank" style="background-color: {{{siconcolor}}}">
+                                                                <span class="media-icon">
+                                                                    <i class="fa fa-{{sicon}}"></i>
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                    {{/sicon}}
+                                                {{/ socialstatus}}
+                                            {{/socialmedia}}
                                             </ul>
-                                        {{/ infolink}}
+                                        </div>
                                     </div>
-                                </div>
-                            {{/fstatus2}}
-                        {{! Footer block 2 end }}
-
-                        {{! Footer block 3 start }}
-                            {{#fstatus3}}
-                                <div class="{{colclass}}">
-                                    <div class="contact-info">
-                                        {{#ftitle3}}
-                                            <h2>{{ftitle3}}</h2>
-                                        {{/ftitle3}}
-                                        {{# address}}
-                                            <p>{{address}}</p>
-                                        {{/ address}}
-                                        {{# phoneno}}
-                                            <p><i class="fa fa-phone-square"></i> {{phone}} : {{phoneno}}</p>
-                                        {{/ phoneno}}
-                                        {{# emailid}}
-                                            <p><i class="fa fa-envelope"></i> {{email}} : <a class="mail-link" href="mailto:{{emailid}}">{{emailid}}</a></p>
-                                        {{/ emailid}}
-                                    </div>
-                                </div>
-                            {{/fstatus3}}
-                        {{! Footer block 3 end }}
-
-                        {{! Footer block 4 start }}
-                            {{#fstatus4}}
-                                <div class="{{colclass}}">
-                                    <div class="social-media">
-                                        {{#ftitle4}}
-                                            <h2>{{ftitle4}}</h2>
-                                        {{/ftitle4}}
-                                        <ul>
-                                        {{#socialmedia}}
-                                            {{# socialstatus}}
-                                                {{#sicon}}
-                                                    <li class="smedia-{{sno}}">
-                                                        <a href="{{{surl}}}" target="_blank" style="background-color: {{{siconcolor}}}">
-                                                            <span class="media-icon">
-                                                                <i class="fa fa-{{sicon}}"></i>
-                                                            </span>
-                                                        </a>
-                                                    </li>
-                                                {{/sicon}}
-                                            {{/ socialstatus}}
-                                        {{/socialmedia}}
-                                        </ul>
-                                    </div>
-                                </div>
-                            {{/fstatus4}}
-                        {{! Footer block 4 end }}
+                                {{/fstatus4}}
+                            {{! Footer block 4 end }}
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="footer-bottom">
-                {{# copyrightfooter}}
-                    <p>{{{copyrightfooter}}}</p>
-                {{/ copyrightfooter}}
-                {{! Moodle footer debug footer }}
-                <div class="footer-content-debugging">
-                    <div class="container">{{{ output.debug_footer_html }}}</div>
+            {{/footerstatus}}
+            {{#footerbottomstatus}}
+                <div class="footer-bottom">
+                    {{# copyrightfooter}}
+                        <p>{{{copyrightfooter}}}</p>
+                    {{/ copyrightfooter}}
+                    {{! Moodle footer debug footer }}
+                    <div class="footer-content-debugging">
+                        <div class="container">{{{ output.debug_footer_html }}}</div>
+                    </div>
                 </div>
-            </div>
+            {{/footerbottomstatus}}
             {{! Moodle footer help icon popover }}
             <div data-region="footer-container-popover">
+                {{#output.has_communication_links}}
+                    <button onclick="window.open('{{output.communication_url}}', '_blank', 'noreferrer')" class="btn btn-icon bg-primary text-white icon-no-margin btn-footer-communication" aria-label="{{#str}}communicationroomlink, course{{/str}}">
+                        {{#pix}}t/messages-o, core{{/pix}}
+                    </button>
+                {{/output.has_communication_links}}
                 <button class="btn btn-icon bg-secondary icon-no-margin btn-footer-popover" data-action="footer-popover" aria-label="{{#str}}showfooter, theme_boost{{/str}}">
                     {{#pix}}e/question, core{{/pix}}
                 </button>
             </div>
             <div class="footer-content-popover container" data-region="footer-content-popover">
+                {{#output.has_communication_links}}
+                    <div class="footer-section p-3 border-bottom footer-link-communication">
+                        <div class="footer-support-link">{{{ output.communication_link }}}</div>
+                    </div>
+                {{/output.has_communication_links}}
                 {{# output.has_popover_links }}
                     <div class="footer-section p-3 border-bottom">
                         {{# output.page_doc_link }}
@@ -194,9 +208,7 @@
                 <div class="footer-section p-3">
                     <div>{{#str}}poweredbymoodle, core{{/str}}</div>
                     {{#output.moodle_release}}
-                        <div>
-                            {{#str}}version, core{{/str}} {{{ output.moodle_release }}}
-                        </div>
+                        <div>{{#str}}version, core{{/str}}{{{ output.moodle_release }}}</div>
                     {{/output.moodle_release}}
                 </div>
             </div>
@@ -204,9 +216,9 @@
     </footer>
 {{/footersmall}}
 
-{{# backtotopbtn }}
+{{#backtotopbtn}}
     <a id="backToTop" href="#" class="btn btn-primary btn-lg back-to-top " role="button"><span class="fa fa-angle-up"></span></a>
-{{/ backtotopbtn}}
+{{/backtotopbtn}}
 
 {{#js}}
 M.util.js_pending('theme_boost/loader');

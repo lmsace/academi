@@ -58,14 +58,13 @@ function socialmedia() {
  * @return array $templatecontext footer template contents.
  */
 function footer() {
-    global $PAGE;
+    global $OUTPUT, $CFG, $USER;
     $footerlogourl = theme_academi_get_logo_url('footer');
     $footlogostatus = theme_academi_get_setting('footlogostatus');
     $footerbgimg = theme_academi_get_setting('footerbgimg', 'file');
     $footerbgimgclass = (!empty($footerbgimg)) ? 'footer-image' : '';
     $footnote = theme_academi_lang(theme_academi_get_setting('footnote', 'format_html'));
-    $helperobj = new \theme_academi\helper();
-    $infolink = $helperobj->footer_infolink();
+    $infolink = $OUTPUT->footer_infolinks();
     $address = theme_academi_get_setting('address');
     $emailid = theme_academi_get_setting('emailid');
     $phoneno = theme_academi_get_setting('phoneno');
@@ -81,7 +80,7 @@ function footer() {
     $ftitle4 = theme_academi_get_setting('footerbtitle4');
 
     $phone = get_string('phone', 'theme_academi');
-    $email = get_string('email', 'theme_academi');
+    $email = get_string('emailid', 'theme_academi');
 
     $backtotopbtn = theme_academi_get_setting('backToTop_status');
 
@@ -107,6 +106,9 @@ function footer() {
             $colclass = 'col-md-4';
             break;
     }
+
+    $footerstatus = ($totalstatus == 0) ? false : true;
+    $footerbottomstatus = ((empty($copyrightfooter)) && (!is_siteadmin($USER->id) || $CFG->debug == 0)) ? false : true;
     $templatecontext = [
         "footerlogourl" => $footerlogourl,
         "footlogostatus" => $footlogostatus,
@@ -129,6 +131,8 @@ function footer() {
         "colclass" => $colclass,
         'footerbgimgclass' => $footerbgimgclass,
         'backtotopbtn' => $backtotopbtn,
+        'footerstatus' => $footerstatus,
+        'footerbottomstatus' => $footerbottomstatus,
     ];
     $templatecontext += socialmedia();
     return $templatecontext;

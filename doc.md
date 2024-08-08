@@ -139,6 +139,12 @@ With this setting, you can change how the combo lists are displayed, either as c
 
 ![combolsit](https://github.com/lmsace/academi/assets/98076459/128867da-76aa-43a3-9be7-f4f7f7764ad9)
 
+**Background Image**
+
+Here, you can upload a background image for the Moodle inner page.
+
+![page-background-image](https://github.com/Nithyanandan-lms/academi/assets/44221518/e013e978-7f53-4512-bfc6-2aca1a0e5845)
+
 **Login Background Image**
 
 Here, you can upload a background image for the login page.
@@ -334,10 +340,6 @@ Using this setting, you can choose to display the site feature as either an icon
 
 ![site-feature](https://github.com/lmsace/academi/assets/98076459/4189de64-4615-4782-b8e9-8d474c5f9ca7)
 
-***Image***: When you choose the "Image" option from the dropdown menu, the site feature will be presented with an image-based design on the front page.
-
-![Academi](https://github.com/lmsace/academi/assets/98076459/f0c0960d-9179-45b1-994e-64c6acaf55f1)
-
 **Number of Site Features**
 
 To utilize this setting, start by utilizing the "Select the number of site features" option, then proceed to click the "Save Changes" button located at the bottom of the settings page. Following this action, the page will refresh, and you will gain access to options and text fields for configuring the desired number of site features.
@@ -369,12 +371,6 @@ With this setting, you can enter the content for a specific site feature within 
 Using this setting, you can input the name of the icon you want to use for this particular site feature. Only enter what comes after "fa-".
 
 ![icon](https://github.com/lmsace/academi/assets/98076459/ee2c1e98-6214-4eb9-8579-35b7f35ad401)
-
-**Image**
-
-With this setting, you can upload a custom image for the "Featured element." We recommend using images with dimensions of 75 x 75 pixels.
-
-![image](https://github.com/lmsace/academi/assets/98076459/028f91fe-614b-47e1-928b-61d602fd1b35)
 
 ## Marketing Spot
 

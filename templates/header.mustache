@@ -40,14 +40,19 @@
                     hidden-sm-down
                 {{/ logourl }}
                     ">
-                {{# logourl }}
-                    <span class="logo">
-                        <img src="{{logourl}}" alt="{{sitename}}">
-                    </span>
-                {{/ logourl }}
-                {{^ logourl }}
-                    <span class="site-name hidden-sm-down">{{{ sitename }}}</span>
-                {{/ logourl }}
+                {{#showlogo}}
+                    {{# logourl }}
+                        <span class="logo">
+                            <img src="{{logourl}}" alt="{{sitename}}">
+                        </span>
+                    {{/ logourl }}
+                    {{^ logourl }}
+                        <span class="site-name hidden-sm-down">{{{ sitename }}}</span>
+                    {{/ logourl }}
+                {{/showlogo}}
+                {{#showsitename}}
+                    <span class="nav-site-name">{{{sitename}}}</span>
+                {{/showsitename}}
                 </a>
 
                 {{#primarymoremenu}}

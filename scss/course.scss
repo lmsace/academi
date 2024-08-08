@@ -72,15 +72,58 @@
         }
     }
 }
+
+.course-content {
+    .single-section ul {
+        &.topics,
+        &.weeks {
+            li.section {
+                margin-top: 0;
+            }
+        }
+    }
+}
 .path-course {
-    .main-inner {
+    .theme-container.limitedwidth #page.drawers .main-inner {
         #page-header,
         .secondary-navigation {
             max-width: none;
         }
     }
-    /* .tertiary-navigation > div:last-child .dropdown .dropdown-menu {
-        left: auto !important;
-        right: 0;
-    } */
+    .course-content .stickyfooter {
+        .sticky-footer-content {
+            .mx-auto {
+                width: 75%;
+                .actions {
+                    width: 100%;
+                    flex-wrap: nowrap;
+                    margin: 0 10px;
+                    li.nav-item {
+                        width: 100%;
+                        margin: 0 5px;
+                        .btn {
+                            width: 100%;
+                            align-items: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .course_category_tree .category {
+        > .info > .categoryname {
+            padding: 10px 15px;
+        }
+    }
+    &.limitedwidth.uses-drawers .course-content .stickyfooter .sticky-footer-content {
+        max-width: $modal-xl;
+    }
+    .category .course_category_tree .category.with_children > .info > .categoryname.aabtn {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
 }
+
+/* .path-grade-report-grader.hasstickyfooter .gradeparent tr.lastrow {
+    bottom: 0;
+} */

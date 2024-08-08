@@ -46,6 +46,10 @@ define('YES', 1);
 define('SAMEWINDOW', 0);
 define('NEWWINDOW', 1);
 
+define('LOGO', 0);
+define('SITENAME', 1);
+define('LOGOANDSITENAME', 2);
+
 /**
  * Load the Jquery and migration files
  * @param moodle_page $page
@@ -105,7 +109,7 @@ function theme_academi_set_customcss($css, $customcss) {
  */
 function theme_academi_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = []) {
     static $theme;
-    $bgimgs = ['footerbgimg', 'loginbg'];
+    $bgimgs = ['footerbgimg', 'loginbg', 'mspotmedia'];
 
     if (empty($theme)) {
         $theme = theme_config::load('academi');
@@ -193,7 +197,7 @@ function theme_academi_get_logo_url($type = 'header') {
  * @param bool $format
  * @return string
  */
-function theme_academi_get_setting($setting, $format = true) {
+function theme_academi_get_setting($setting, $format = '') {
     global $CFG, $PAGE;
     require_once($CFG->dirroot . '/lib/weblib.php');
     static $theme;

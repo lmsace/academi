@@ -143,88 +143,87 @@ class course_renderer extends \core_course_renderer {
      * @return string
      */
     public function promoted_courses() {
-        global $CFG , $DB;
+        global $CFG, $DB;
 
         $pcoursestatus = theme_academi_get_setting('pcoursestatus');
-        if (!$pcoursestatus) {
-            return false;
-        }
-        /* Get Featured courses id from DB */
-        $featuredids = theme_academi_get_setting('promotedcourses');
-        $rcourseids = (!empty($featuredids)) ? explode(",", $featuredids) : [];
-        if (empty($rcourseids)) {
-            return false;
-        }
-        $helperobj = new \theme_academi\helper();
-        $hcourseids = $helperobj->hidden_courses_ids();
-
-        if (!empty($hcourseids)) {
-            foreach ($rcourseids as $key => $val) {
-                if (in_array($val, $hcourseids)) {
-                    unset($rcourseids[$key]);
-                }
-            }
-        }
-
-        foreach ($rcourseids as $key => $val) {
-            $ccourse = $DB->get_record('course', ['id' => $val]);
-            if (empty($ccourse)) {
-                unset($rcourseids[$key]);
-                continue;
-            }
-        }
-
-        if (empty($rcourseids)) {
-            return false;
-        }
-
-        $fcourseids = $rcourseids;
-        $totalfcourse = count($fcourseids);
         $promotedtitle = theme_academi_get_setting('promotedtitle', 'format_html');
         $promotedtitle = theme_academi_lang($promotedtitle);
         $promotedcoursedesc = theme_academi_lang(theme_academi_get_setting('promotedcoursedesc'));
+        $featuredids = theme_academi_get_setting('promotedcourses');
+        $promotedcontent = empty($promotedtitle) && empty($promotedcoursedesc) ? false : true;
+        $blockisempty = empty($promotedtitle) && empty($promotedcoursedesc) && empty($featuredids) ? false : $pcoursestatus;
+        $blocks = [];
+        if (!empty($featuredids)) {
+            /* Get Featured courses id from DB */
+            $rcourseids = (!empty($featuredids)) ? explode(",", $featuredids) : [];
+            $helperobj = new \theme_academi\helper();
+            $hcourseids = $helperobj->hidden_courses_ids();
 
-        if (!empty($fcourseids)) {
-            $blocks = [];
-            $i = 0;
-            foreach ($fcourseids as $courseid) {
-                $info = [];
-                $course = get_course($courseid);
-                $noimgurl = $this->output->image_url('no-image', 'theme');
-                $courseurl = new moodle_url('/course/view.php', ['id' => $courseid]);
-
-                if ($course instanceof stdClass) {
-                    $course = new \core_course_list_element($course);
-                }
-
-                $imgurl = '';
-                $summary = $helperobj->strip_html_tags($course->summary);
-                $summary = $helperobj->course_trim_char($summary, 75);
-                foreach ($course->get_course_overviewfiles() as $file) {
-                    $isimage = $file->is_valid_image();
-                    $imgurl = file_encode_url("$CFG->wwwroot/pluginfile.php",
-                    '/'. $file->get_contextid(). '/'. $file->get_component(). '/'.
-                    $file->get_filearea(). $file->get_filepath(). $file->get_filename(), !$isimage);
-                    if (!$isimage) {
-                        $imgurl = $noimgurl;
+            if (!empty($hcourseids)) {
+                foreach ($rcourseids as $key => $val) {
+                    if (in_array($val, $hcourseids)) {
+                        unset($rcourseids[$key]);
                     }
                 }
-                if (empty($imgurl)) {
-                    $imgurl = $noimgurl;
-                }
-                $info['courseurl'] = $courseurl;
-                $info['imgurl'] = $imgurl;
-                $info['coursename'] = $course->get_formatted_name();
-                $info['active'] = ($i == 1) ? true : false;
-                $blocks[] = $info;
-                $i++;
             }
+
+            foreach ($rcourseids as $key => $val) {
+                $ccourse = $DB->get_record('course', ['id' => $val]);
+                if (empty($ccourse)) {
+                    unset($rcourseids[$key]);
+                    continue;
+                }
+            }
+
+            $fcourseids = $rcourseids;
+            $totalfcourse = count($fcourseids);
+            if (!empty($fcourseids)) {
+                $i = 0;
+                foreach ($fcourseids as $courseid) {
+                    $info = [];
+                    $course = get_course($courseid);
+                    $noimgurl = $this->output->image_url('no-image', 'theme');
+                    $courseurl = new moodle_url('/course/view.php', ['id' => $courseid]);
+
+                    if ($course instanceof stdClass) {
+                        $course = new \core_course_list_element($course);
+                    }
+
+                    $imgurl = '';
+                    $summary = $helperobj->strip_html_tags($course->summary);
+                    $summary = $helperobj->course_trim_char($summary, 75);
+                    foreach ($course->get_course_overviewfiles() as $file) {
+                        $isimage = $file->is_valid_image();
+                        $imgurl = file_encode_url("$CFG->wwwroot/pluginfile.php",
+                        '/'. $file->get_contextid(). '/'. $file->get_component(). '/'.
+                        $file->get_filearea(). $file->get_filepath(). $file->get_filename(), !$isimage);
+                        if (!$isimage) {
+                            $imgurl = $noimgurl;
+                        }
+                    }
+                    if (empty($imgurl)) {
+                        $imgurl = $noimgurl;
+                    }
+                    $info['courseurl'] = $courseurl;
+                    $info['imgurl'] = $imgurl;
+                    $info['coursename'] = $course->get_formatted_name();
+                    $info['active'] = ($i == 1) ? true : false;
+                    $blocks[] = $info;
+                    $i++;
+                }
+            }
+            $template['totalfcourse'] = $totalfcourse;
         }
+        $template['coursestatus'] = !empty($featuredids) ? true : false;
         $template['courses'] = array_chunk($blocks, 5);
-        $template['promatedcourse'] = true;
+        $template['promatedcourse'] = $pcoursestatus;
+        $template['blockisempty'] = $blockisempty;
+        if (!$blockisempty) {
+            $template['isblockempty'] = is_siteadmin() || $this->page->user_is_editing() ? true : false;
+        }
+        $template['promotedcontent'] = $promotedcontent;
         $template['promotedtitle'] = $promotedtitle;
         $template['promotedcoursedesc'] = $promotedcoursedesc;
-        $template['totalfcourse'] = $totalfcourse;
         $this->include_frontslide_js('promotedcourse');
         return $this->output->render_from_template("theme_academi/course_blocks", $template);
     }

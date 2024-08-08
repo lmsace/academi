@@ -40,6 +40,23 @@ h6 {
     }
 }
 
+/* Secondary navigation menu */
+.secondary-navigation .moremenu.navigation .nav-tabs .nav-item {
+    background-color: $wild_sand;
+    .nav-link {
+        &:before {
+            display: none;
+        }
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: $primary;
+        }
+    }
+}
+
+/* End of Secondary navigation menu */
+
 /* Site Features */
 .site-features.icon-block .custom-site-expo {
     .col-md-6 {
@@ -83,8 +100,10 @@ h6 {
         }
         .site-feature-body {
             text-align: left;
-            h6 {
+            h6,
+            h6 a {
                 color: $secondary;
+                font-weight: bold;
             }
         }
     }
@@ -148,32 +167,74 @@ h6 {
             animation: morph 15s linear infinite alternate, spin 20s linear infinite;
         }
         img {
+            max-width: 500px;
             border-radius: 10px;
+            margin: 0 auto;
         }
     }
 }
 /* End of Marketing Spot */
 
+/* Jumbotron */
+
+@media (max-width: 575px) {
+    .jumbotron-block .inner-wrap:hover:before {
+        height: 100%;
+        top: -30px;
+        right: -240px;
+    }
+}
+/* End of Jumbotron */
+
 /* Course category */
 .course_category_tree.frontpage-category-names .category {
     width: 48%;
     display: inline-block;
+    vertical-align: top;
     margin-right: 15px;
     > .info {
         .numberofcourse {
             width: 30px;
             height: 30px;
             line-height: 30px;
-            color: #fff;
+            color: $white;
             text-align: center;
-            background: #88b77b;
+            background: $primary;
             border-radius: 50%;
             padding: 0;
             margin-top: -5px;
             float: right;
         }
     }
+    .category {
+        width: 45%;
+    }
+    .subcategories .subcategories .category {
+        width: 100%;
+    }
 }
+
+@media (min-width: 992px) {
+    .course_category_tree.frontpage-category-names .category {
+        width: 45%;
+    }
+}
+
+@media (max-width: 991px) {
+    .course_category_tree.frontpage-category-names .category .category {
+        width: 100%;
+    }
+    .course_category_tree.frontpage-category-names .category {
+        width: 45%;
+    }
+}
+
+@media (max-width: 575px) {
+    .course_category_tree.frontpage-category-names .category {
+        width: 100%;
+    }
+}
+
 /* End of Course category */
 
 /* Combo courses */
@@ -219,9 +280,6 @@ h6 {
 /* Footer */
 #footer.footer-image {
     .foot-links ul li a:hover {
-        color: $white;
-    }
-    .contact-info a {
         color: $white;
     }
 }

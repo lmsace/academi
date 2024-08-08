@@ -56,14 +56,12 @@ class core_renderer extends \theme_boost\output\core_renderer {
     }
 
     /**
-     * Custom menu in header.
-     * @param custom_menu $menu
+     * Footer info links.
      * @return string
      */
-    public function custom_menu_render(custom_menu $menu) {
-        global $CFG;
-
-        $langs = get_string_manager()->get_list_of_translations();
+    public function footer_infolinks() {
+        $infolink = theme_academi_get_setting('infolink');
+        $menu = new custom_menu($infolink, current_language());
         $haslangmenu = $this->lang_menu() != '';
 
         if (!$menu->has_children() && !$haslangmenu) {

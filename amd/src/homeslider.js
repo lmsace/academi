@@ -89,9 +89,7 @@ define(['jquery', 'theme_academi/jquery.sudoSlider'], function($) {
     };
 
     return {
-        init: function(selector) {
-            var homecarouselconfig;
-            var options = homecarouselconfig;
+        init: function(selector, options) {
             return new Carousel(selector, options);
         }
     };

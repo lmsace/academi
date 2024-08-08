@@ -97,6 +97,22 @@
             }
         }
 
+        const drawerClass = () => {
+            var drawer = document.querySelector('#page');
+            console.log(drawer);
+            if (drawer.classList.contains('show-drawer-right')) {
+                $('.header-main').addClass('show-drawer-right');
+            } else {
+                $('.header-main').removeClass('show-drawer-right');
+            }
+        }
+        // Add a header class, whent the right drawer is open.
+        $('#page .drawer-right-toggle [data-toggler="drawers"], .drawer.drawer-right [data-toggler="drawers"]').click(function() {
+            setTimeout(drawerClass, 100);
+        });
+
+        drawerClass();
+
     };
 
     return {
