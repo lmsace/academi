@@ -74,7 +74,7 @@ Recent versions of all modern browsers
 
 <li>Cheers, you have done it !!!</li>
 
-For further details, Please review the academi theme documetation here: [https://github.com/lmsace/academi.wiki.git](https://github.com/lmsace/academi.wiki.git)
+For further details, Please review the academi theme documetation here: [https://github.com/lmsace/academi.wiki.git](https://github.com/lmsace/academi/wiki/Academi)
 
 <li>If you need any support related to this theme , kindly send a mail to <a href="mailto:info@lmsace.com">info@lmsace.com</a></li>
 
