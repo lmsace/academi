@@ -118,18 +118,17 @@ body {
             margin-left: 5px;
         }
         .slider-item .course-box {
-            height: 280px;
+            min-height: 230px;
             border-radius: 10px;
             background-color: $primary;
             overflow: hidden;
             z-index: 0;
             .thumb {
                 height: 160px;
-                position: absolute;
-                top: 10px;
-                bottom: auto;
-                left: 10px;
-                right: 10px;
+                margin: 15px;
+                a {
+                    width: 100%;
+                }
                 &:before {
                     display: none;
                 }
@@ -147,12 +146,8 @@ body {
                 transform: rotate(-55deg);
             }
             .info {
-                padding: 10px;
-                position: absolute;
-                top: auto;
-                bottom: 20px;
-                left: 10px;
-                right: auto;
+                padding: 0;
+                margin: 0 15px 15px;
             }
         }
     }
@@ -203,23 +198,46 @@ body {
 /* Marketing Spot */
 .marketing-spot .info-media {
     overflow: hidden;
-    img {
-        max-width: 500px;
-        border-radius: 10px;
-        margin: 0 auto;
-    }
 }
+/* End of Marketing spot */
 
 /* Course Category */
-.course_category_tree.frontpage-category-names {
-    .content > .subcategories {
+.course_category_tree .subcategories .category {
+    > .info > .categoryname {
+        margin: 0;
         display: flex;
-        flex-wrap: wrap;
+        align-items: center;
+        a {
+            line-height: 30px;
+            margin-left: 10px;
+        }
     }
-    .category {
+    &.with_children > .info > .categoryname:before {
+        content: '';
+        width: 30px;
+        height: 30px;
+        color: $white;
+        text-align: center;
+        line-height: 30px;
+        background: $black_20;
+        border-radius: 50%;
+        margin-right: 5px;
         display: inline-block;
-        vertical-align: top;
-        margin-right: 15px;
+        order: 1;
+        margin-left: auto;
+    }
+}
+.course_category_tree.frontpage-category-names {
+    .category {
+        &.with_children {
+            > .info > .categoryname:before {
+                content: '\f107';
+                font-family: $font_0;
+            }
+            &.collapsed > .info > .categoryname:before {
+                content: '\f105';
+            }
+        }
         > .info {
             border-radius: 40px;
             .categoryname {
@@ -236,19 +254,42 @@ body {
 /* End of Course Category */
 
 /* Enrolled coruses */
-.courses.frontpage-course-list-enrolled .coursebox .content .courseimage {
-    max-width: 180px;
-    img {
-        width: 180px;
+.pagelayout-frontpage #frontpage-course-list .courses.frontpage-course-list-enrolled {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px 15px;
+    .coursebox .content {
+        > div {
+            flex-direction: column;
+        }
+        .courseimage {
+            max-width: 180px;
+            img {
+                width: 180px;
+            }
+        }
     }
 }
 
-@media (min-width: 992px) {
-    #frontpage-course-list .coursebox {
-        width: 45%;
-        margin-right: 30px;
-        display: inline-block;
-        vertical-align: top;
+@media (max-width: 767px) {
+    .pagelayout-frontpage #frontpage-course-list {
+        .courses.frontpage-course-list-enrolled {
+            flex-direction: column;
+        }
+        .coursebox {
+            margin: 0;
+        }
+    }
+}
+
+@media (min-width: 578px) {
+    .pagelayout-frontpage #frontpage-course-list {
+        .coursebox {
+            margin: 0;
+            flex-basis: 48%;
+        }
     }
 }
 
@@ -269,23 +310,10 @@ body {
     > .info {
         border-radius: 25px;
         > .categoryname {
-            &:before {
-                width: 30px;
-                height: 30px;
-                text-align: center;
-                line-height: 30px;
-                background: $black_20;
-                border-radius: 50%;
-                margin-right: 5px;
-                float: right;
-            }
+            padding: 10px;
             &:after {
                 content: '';
                 clear: both;
-            }
-            a {
-                line-height: 30px;
-                margin-left: 10px;
             }
         }
     }
@@ -321,6 +349,13 @@ body {
 
 @media (max-width: 991px) {
     .jumbotron-block {
+        margin: 0;
+    }
+}
+
+@media (min-width: 992px) {
+    .jumbotron-block .inner-wrap .desc-wrap {
+        padding: 0;
         margin: 0;
     }
 }

@@ -150,6 +150,7 @@ class academi_blocks {
             $blockisempty = empty($jumbotron['title']) && empty($jumbotron['desc'])
                                 && empty($jumbotron['btntext']) ? false : $status;
             $jumbotron['blockisempty'] = $blockisempty;
+            $jumbotron['btnclass'] = empty($jumbotron['btntext']) ? 'jumbotron-text-block' : '';
             if (!$blockisempty) {
                 $jumbotron['isblockempty'] = is_siteadmin() || $PAGE->user_is_editing() ? true : false;
             }

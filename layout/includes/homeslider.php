@@ -72,6 +72,10 @@ function homeslider() {
             $slider = $slider + 1;
         }
 
+        if ((empty($slide['caption'])) && (empty($slide['desc'])) && (empty($slide['btntxt']))) {
+            $slide['slidecontentstatus'] = false;
+        }
+
         if ($contwidth == "auto") {
             $contwidth = "auto";
         } else {

@@ -50,6 +50,9 @@
         .divider {
             display: none;
         }
+        .navbar-toggler {
+            background: none;
+        }
     }
     .usermenu {
         .login {
@@ -162,6 +165,9 @@
         }
         .popover-region-container {
             top: 100%;
+            .popover-region-header-container h3 {
+                color: $primary;
+            }
         }
     }
     .right-menu .usermenu {

@@ -103,39 +103,6 @@ $fontsize: 16px !default;
 // Import Core moodle CSS
 @import "moodle";
 
-// Preset CSS
-
-@keyframes morph {
-    0% {
-        border-radius: 40% 60% 60% 40% / 70% 30%;
-    }
-
-    to {
-        border-radius: 40% 60%;
-    }
-}
-
-@keyframes move {
-    0% {
-        offset-distance: 0%;
-    }
-    100% {
-        offset-distance: 10%;
-    }
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0);
-    }
-    50% {
-        transform: rotate(.1turn);
-    }
-    100% {
-        transform: rotate(0);
-    }
-}
-
 body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

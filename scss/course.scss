@@ -82,6 +82,11 @@
             }
         }
     }
+    .course-content-item-content .divider .dropdown .dropdown-menu {
+        .dropdown-item:not(:hover) {
+            color: $primary;
+        }
+    }
 }
 .path-course {
     .theme-container.limitedwidth #page.drawers .main-inner {

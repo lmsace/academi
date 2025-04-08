@@ -67,11 +67,30 @@ class helper {
         $slideoverlayval = theme_academi_get_setting('slideOverlay');
         $slideopacity = (!empty($slideoverlayval)) ? $this->get_hexa('#000000', $slideoverlayval) : 0.4;
         $footerbgoverlayval = theme_academi_get_setting('footerbgOverlay');
+
+        if (empty($primary)) {
+            switch (theme_academi_get_setting('preset')) {
+                case 'eguru':
+                    $primary = '#a55ba5';
+                    break;
+                case 'klass':
+                    $primary = '#009fe5';
+                    break;
+                case 'enlightlite':
+                    $primary = '#39b3e6';
+                    break;
+                default:
+                    $primary = '#88b77b';
+                    break;
+            }
+        }
+
         $footerbgopacity = (!empty($footerbgoverlayval)) ? $this->get_hexa($primary, $footerbgoverlayval) : 0.4;
         $pagesizecustomval = theme_academi_get_setting('pagesizecustomval');
         $fontsize = theme_academi_get_setting('fontsize');
         $primary30 = $this->get_hexa($primary, '0.3');
         $secondary30 = $this->get_hexa($secondary, '0.3');
+        $primary50 = $this->get_hexa($primary, '0.5');
         $primary70 = $this->get_hexa($primary, '0.7');
         $secondary70 = $this->get_hexa($secondary, '0.7');
         $scss .= $primary ? '$primary:'.$primary.";\n" : "";
@@ -79,9 +98,11 @@ class helper {
         $scss .= $slideopacity ? '$url_1:'.$slideopacity.";\n" : "";
         $scss .= $pagesizecustomval ? '$custom-container:'.$pagesizecustomval."px;\n" : "";
         $scss .= $fontsize ? '$fontsize:'.$fontsize. "px;" : "";
+        $scss .= $footerbgopacity ? '$footerbgopacity:'.$footerbgopacity.";\n" : "";
+
         if (!empty($primary)) {
-            $scss .= $footerbgopacity ? '$footerbgopacity:'.$footerbgopacity.";\n" : "";
             $scss .= $primary30 ? '$primary_30:'.$primary30.";\n" : "";
+            $scss .= $primary50 ? '$primary_50:'.$primary50.";\n" : "";
             $scss .= $primary70 ? '$primary_70:'.$primary70.";\n" : "";
         }
         if (!empty($secondary)) {

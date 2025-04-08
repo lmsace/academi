@@ -24,7 +24,11 @@ legend {
     padding: 0 10px;
     position: fixed;
     right: 2rem;
-    bottom: 8rem;
+    bottom: 9rem;
+    z-index: 1;
+}
+#page.drawers.show-drawer-right #backToTop {
+    right: calc(315px + 2rem);
 }
 #recipientform,
 .langimport {
@@ -157,7 +161,13 @@ legend {
     background: none;
     border-top: 0;
 }
-
+#page-admin-index #page-content .alert a.download {
+    color: $white;
+}
+.alert .btn-close {
+    line-height: normal;
+    display: inline-block;
+}
 .dir-rtl {
     .blog_entry .audience {
         text-align: left;
@@ -251,13 +261,55 @@ legend {
     .tertiary-navigation-selector .dropdown-toggle {
         padding: 0 15px;
     }
-    .navitem .dropdown .dropdown-toggle {
-        border-color: transparent;
+    .navitem {
+        a.btn-link {
+            display: flex;
+            align-items: center;
+        }
+        .extrafilters {
+            .dropdown-toggle {
+                &:hover,
+                &:focus,
+                &:active {
+                    color: $gray-900;
+                    background: none;
+                }
+            }
+            .dropdown-menu .flex-column form .row {
+                padding: 0;
+            }
+        }
+        .dropdown .dropdown-toggle {
+            border-color: transparent;
+        }
+        form .me-1 {
+            margin-bottom: 0;
+        }
     }
 }
 #page-grade-report-grader-index #page.drawers.hasstickyfooter {
-    height: auto;
     margin-bottom: 90px;
+}
+.hasstickyfooter {
+    height: auto;
+    .btn-toolbar .btn {
+        height: auto;
+        border: 0;
+        margin-right: 10px;
+        &:last-child {
+            margin-right: 0;
+        }
+        &:hover {
+            color: $white;
+        }
+    }
+    .stickyfooter .ms-auto .btn {
+        padding-top: 0;
+        padding-left: .5rem;
+        &:hover {
+            color: $white;
+        }
+    }
 }
 .card.card-block .action-menu .menubar .dropdown a i.icon {
     margin-right: 5px;
@@ -422,13 +474,11 @@ body:not(.pagelayout-maintenance) #page-wrapper {
 /* End of Page Content */
 
 /* Site Admin */
-
 #page-site-index {
     #header {
         margin-bottom: 0;
     }
 }
-
 /* End of Site Admin */
 
 /* Quiz */
@@ -838,6 +888,26 @@ div.backup-section + form {
 }
 /* End of Forum page */
 
+/* Activity Submission */
+.path-mod-assign {
+    .quickgradingform form .gradingtable table {
+        tbody tr td {
+            &.grade input.quickgrade {
+                border-style: solid;
+            }
+            .submissionstatussubmitted,
+            .submissiongraded,
+            .submissionstatus {
+                padding: 5px;
+            }
+        }
+    }
+    .modal .modal-body form textarea {
+        width: 100%;
+    }
+}
+/* End of Activity Submission */
+
 /* Grade report */
 #page-grade-grading-manage .actions .action {
     height: auto;
@@ -1227,6 +1297,13 @@ div.backup-section + form {
         form .settingsform > h2 {
             margin-bottom: 30px;
         }
+        .card-grid .theme-card .card-body button {
+            background: none;
+        }
+    }
+    .singleselect form label {
+        margin-right: 5px;
+        margin-bottom: 0;
     }
     .block_myoverview {
         border: 1px solid $mercury;
@@ -1235,7 +1312,7 @@ div.backup-section + form {
 .pagelayout-frontpage #page.drawers div[role="main"] > br {
     display: none;
 }
-.theme-container #page.drawers .main-inner {
+.theme-container:not(.path-mod-assign) #page.drawers .main-inner {
     max-width: $modal-xl;
     margin-top: 0;
 }
@@ -1408,33 +1485,6 @@ body:not(.pagelayout-frontpage) {
         &.active:after,
         &:hover:after {
             left: 35%;
-        }
-    }
-}
-
-@media (min-width: 768px) {
-    #page-admin-search {
-        .moremenu .nav.nav-tabs {
-            > .nav-item {
-                &:not(.dropdownmoremenu) .nav-link {
-                    &.active:after,
-                    &:hover:after {
-                        width: 0;
-                        height: 0;
-                        content: '';
-                        border-left: 20px solid transparent;
-                        border-right: 20px solid transparent;
-                        border-top: 20px solid $primary;
-                        position: absolute;
-                        top: auto;
-                        bottom: -20px;
-                        left: 40%;
-                    }
-                }
-                &:last-child .nav-link {
-                    line-height: 50px;
-                }
-            }
         }
     }
 }
@@ -1767,6 +1817,7 @@ body:not(.pagelayout-frontpage) {
         color: $white;
         background: $primary;
         padding: 5px;
+        display: flex;
     }
     .drawercontent .courseindex {
         .courseindex-item:hover,
@@ -1803,3 +1854,23 @@ body:not(.pagelayout-frontpage) {
     }
 }
 /* End of Drawer */
+
+
+/* Summarise */
+.ai-course-summarise-controls button.btn.btn-outline-secondary {
+    &:hover {
+        color: $white;
+        background: $gray-600;
+    }
+    &:focus {
+        color: $white;
+        background: $gray-600;
+        .ai-course-summarise-sparkles-icon {
+            display: none;
+            &.white {
+                display: inline-block;
+            }
+        }
+    }
+}
+/* End of Summarise */

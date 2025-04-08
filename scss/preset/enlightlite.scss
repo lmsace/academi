@@ -175,6 +175,20 @@ h6 {
                 opacity: 0.8;
             }
         }
+        .info {
+            height: 86%;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            z-index: 1;
+            h5 {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: end;
+            }
+        }
         &:after {
             content: "";
             width: 130%;
@@ -297,6 +311,7 @@ h6 {
         z-index: -1;
     }
     .info-head {
+        margin-top: 30px;
         h2 {
             color: $primary;
         }
@@ -310,9 +325,11 @@ h6 {
     .info-content p {
         color: $color_mine_shaft_approx;
     }
-    .info-media img {
-        max-width: 500px;
-        margin: 0 auto;
+}
+
+@media (max-width: 991px) {
+    .marketing-spot:before {
+        width: 12%;
     }
 }
 /* End of Marketing Spot */
@@ -349,7 +366,6 @@ h6 {
         }
         &:hover {
             border: 1px solid $primary;
-            background-color: $white;
         }
     }
 }
@@ -358,14 +374,17 @@ h6 {
 /* Category combo */
 #frontpage-category-combo .course_category_tree .category {
     border-radius: 5px;
-    background-color: $white;
-    margin-bottom: 10px;
+    margin-top: 10px;
     > .info {
+        border: 1px solid transparent;
         border-radius: 5px;
         background-color: $primary_30;
         margin-bottom: 0;
+        &:hover {
+            border-color: $primary;
+        }
         > .categoryname {
-            padding: 20px 15px;
+            padding: 12px 15px;
             &:before {
                 color: $primary;
                 float: right;
@@ -388,8 +407,14 @@ h6 {
     }
     > .content {
         border-radius: 5px;
-        background-color: $white;
         padding: 0;
+        .courses {
+            background-color: $white;
+            margin-top: 15px;
+        }
+        .subcategories {
+            padding-left: 20px;
+        }
         .coursebox {
             border: 0;
             padding: 10px 20px;

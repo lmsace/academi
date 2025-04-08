@@ -4,11 +4,11 @@ on: [push, pull_request]
 
 jobs:
   test:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 
     services:
       postgres:
-        image: postgres:13.0
+        image: postgres:13
         env:
           POSTGRES_USER: 'postgres'
           POSTGRES_HOST_AUTH_METHOD: 'trust'
@@ -28,8 +28,8 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - php: '8.2'
-            moodle-branch: 'MOODLE_404_STABLE'
+          - php: '8.3'
+            moodle-branch: 'MOODLE_405_STABLE'
             database: 'mariadb'
 
     steps:

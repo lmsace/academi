@@ -21,6 +21,39 @@ $font_0: fontawesome;
 // Final Import.
 @import "includes";
 
+// Preset CSS
+
+@keyframes morph {
+    0% {
+        border-radius: 40% 60% 60% 40% / 70% 30%;
+    }
+
+    to {
+        border-radius: 40% 60%;
+    }
+}
+
+@keyframes move {
+    0% {
+        offset-distance: 0%;
+    }
+    100% {
+        offset-distance: 10%;
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0);
+    }
+    50% {
+        transform: rotate(.1turn);
+    }
+    100% {
+        transform: rotate(0);
+    }
+}
+
 // PRESET Customization content.
 h1,
 h2,
@@ -124,6 +157,10 @@ h6 {
         z-index: 1;
     }
     .info {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        right: 20px;
         z-index: 1;
     }
 }
@@ -166,11 +203,6 @@ h6 {
             z-index: -1;
             animation: morph 15s linear infinite alternate, spin 20s linear infinite;
         }
-        img {
-            max-width: 500px;
-            border-radius: 10px;
-            margin: 0 auto;
-        }
     }
 }
 /* End of Marketing Spot */
@@ -207,7 +239,7 @@ h6 {
         }
     }
     .category {
-        width: 45%;
+        width: 100%;
     }
     .subcategories .subcategories .category {
         width: 100%;
@@ -221,9 +253,6 @@ h6 {
 }
 
 @media (max-width: 991px) {
-    .course_category_tree.frontpage-category-names .category .category {
-        width: 100%;
-    }
     .course_category_tree.frontpage-category-names .category {
         width: 45%;
     }
@@ -266,13 +295,20 @@ h6 {
     }
     > .content {
         border-radius: 5px;
-        background-color: $white;
         .coursebox {
             border: 0;
+            border-radius: 5px;
+            background-color: $white;
             .info .coursename {
                 margin-bottom: 0;
             }
         }
+    }
+}
+
+@media (max-width: 575px) {
+    #frontpage-category-combo .course_category_tree .category > .info > .categoryname:before {
+        margin-left: -5px;
     }
 }
 /* End of Combo courses */
