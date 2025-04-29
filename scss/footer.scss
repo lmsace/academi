@@ -119,7 +119,6 @@
         color: $white;
     }
     ul {
-        /* text-align: center; */
         list-style: none;
         padding: 0;
         margin: 0;
@@ -200,16 +199,14 @@
                 color: $secondary;
             }
         }
-        .footer-content-debugging {
-            padding-bottom: 0 !important;
-        }
     }
     button.btn-footer-popover,
     button.btn-footer-popover:hover,
     button.btn-footer-popover:focus,
     button.btn-footer-popover:active {
+        height: auto;
         color: $white;
-        background: $primary !important;
+        background: $primary;
     }
 }
 
@@ -228,12 +225,6 @@
         }
     }
 }
-
-/* @media (min-width: 992px) {
-    body.pagelayout-frontpage #page.drawers.jumbotron-element .footer-popover {
-        margin-top: 210px;
-    }
-} */
 
 @media (max-width: 767px) {
     #footer {

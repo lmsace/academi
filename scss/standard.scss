@@ -46,6 +46,16 @@ legend {
 .moodle-dialogue-bd .nav-pills .nav-link.active {
     background: $primary;
 }
+.action-menu .menubar .action-menu-trigger .dropdown .dropdown-toggle {
+    border: 0;
+    background: none;
+}
+.collapsable-section a.btn-icon {
+    height: 34px;
+    span {
+        margin-right: 0 !important;
+    }
+}
 .listitem .action-menu .dropdown-toggle {
     box-shadow: none;
     i.icon {
@@ -63,6 +73,9 @@ legend {
             color: $primary;
         }
     }
+}
+.form-autocomplete-downarrow {
+    top: .5rem;
 }
 .form-autocomplete-suggestions,
 .form-autocomplete-selection {
@@ -135,6 +148,9 @@ legend {
     }
     div label {
         display: inline-block;
+    }
+    #userselector_options {
+        width: 100%;
     }
 }
 .generalbox form .userselector + p {
@@ -326,7 +342,6 @@ body:not(.pagelayout-maintenance) #page-wrapper {
         margin-bottom: 15px;
         padding-top: 0;
         .d-flex {
-            // margin-bottom: 10px;
             .header-actions-container .simplesearchform .input-group .input-group-append button {
                 border-top-right-radius: 5px;
                 border-bottom-right-radius: 5px;
@@ -793,12 +808,7 @@ div.backup-section + form {
         margin-left: 0;
     }
 }
-/* @media (min-width: 768px) {
-    .path-admin #page #page-footer {
-        margin: 0 -3rem;
-    }
-}
- */
+
 @media (max-width: 767px) {
     .block-region .block.card {
         border: 1px solid $mercury;
@@ -1041,6 +1051,9 @@ div.backup-section + form {
     }
     .fpassword .unmask {
         margin-left: 12px;
+    }
+    fieldset.collapsible .ftoggler .fheader {
+        height: 34px;
     }
 }
 .form-item {
@@ -1317,13 +1330,6 @@ div.backup-section + form {
     margin-top: 0;
 }
 .default-container {
-    /* &:not(.path-admin):not(#page-course-management):not(#page-course-view-participants) {
-        #page.drawers .main-inner {
-            max-width: $course-content-maxwidth;
-            margin-left: auto;
-            margin-right: auto;
-        }
-    } */
     &#page-admin-themeselector.path-admin #page {
         padding: 0;
         #page-footer {
@@ -1349,15 +1355,6 @@ body:not(.pagelayout-frontpage) {
             margin-right: auto;
         }
     }
-    /* &.default-container.limitedwidth #page.drawers {
-        .main-inner,
-        .secondary-navigation {
-            max-width: $course-content-maxwidth;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-    } */
     &.custom-container.limitedwidth #page.drawers {
         .main-inner,
         .secondary-navigation {
@@ -1465,6 +1462,7 @@ body:not(.pagelayout-frontpage) {
         h4,
         a {
             color: $color_charcoal;
+            text-decoration: none;
             &:hover,
             &:focus {
                 color: $secondary;
@@ -1548,7 +1546,6 @@ body:not(.pagelayout-frontpage) {
 @media (min-width: 768px) {
     .moremenu {
         .nav.nav-tabs {
-            /* flex-wrap: nowrap; */
             > .dropdownmoremenu .nav-item .nav-link {
                 padding: 10px 20px;
                 &:before {
@@ -1571,7 +1568,7 @@ body:not(.pagelayout-frontpage) {
             > .dropdownmoremenu .dropdown-menu {
                 .nav-link,
                 .dropdown-item {
-                    padding: 10px 20px;
+                    padding: 10px 25px;
                 }
             }
             > .nav-item .nav-link {
@@ -1643,6 +1640,7 @@ body:not(.pagelayout-frontpage) {
         color: $primary;
         border: 1px solid $primary;
         background-color: $white;
+        padding: 8px;
         &:hover,
         &:focus {
             color: $white;
@@ -1744,65 +1742,6 @@ body:not(.pagelayout-frontpage) {
 
 /* End of Message */
 
-/* Custom Control Switch & Radio toggle button*/
-.custom-control {
-    &.custom-radio,
-    &.custom-switch {
-        .custom-control-input {
-            &:focus ~ .custom-control-label:before {
-                border-color: $primary;
-                box-shadow: 0 0 0 0.2rem $primary_70;
-            }
-            &:checked + .custom-control-label:before {
-                background-color: $primary;
-                border-color: $primary;
-                box-shadow: none;
-            }
-            &:active + .custom-control-label:before {
-                background-color: rgba(136, 183, 123, .25);
-            }
-            &:checked:focus + .custom-control-label:before {
-                background-color: $primary;
-                box-shadow: 0 0 0 1px $white, 0 0 0 0.2rem rgba(136, 183, 123, .25);
-            }
-            &:not(:disabled):active ~ .custom-control-label:before {
-                border-color: $primary;
-                background-color: $primary;
-            }
-        }
-        .custom-control-label {
-            &:before {
-                background-color: $white;
-                border-color: $primary;
-                box-shadow: none;
-            }
-        }
-    }
-}
-.custom-control.custom-checkbox .custom-control-input:checked ~ .custom-control-label:before {
-    border-color: $primary;
-    background-color: $primary;
-    box-shadow: none;
-}
-.custom-control.custom-checkbox .custom-control-input:focus:not(:checked) ~ .custom-control-label:before {
-    border-color: $primary;
-    box-shadow: none;
-}
-.custom-control.custom-checkbox .custom-control-input:not(:disabled):active ~ .custom-control-label:before {
-    border-color: $primary_30;
-    background-color: $primary_30;
-}
-.switch input:checked + label:before {
-    background-color: $primary;
-}
-.switch input:focus + label:before {
-    box-shadow: 0 0 0 1px $white, 0 0 0 0.2rem rgba(136, 183, 123, .25);
-}
-.switch input:checked:focus + label:before {
-    box-shadow: 0 0 0 1px $white, 0 0 0 0.2rem rgba(136, 183, 123, .25);
-}
-/* End of Custom Control Switch & Radio toggle button*/
-
 /* Drawer */
 .drawer-left,
 .drawer-right {
@@ -1855,7 +1794,6 @@ body:not(.pagelayout-frontpage) {
 }
 /* End of Drawer */
 
-
 /* Summarise */
 .ai-course-summarise-controls button.btn.btn-outline-secondary {
     &:hover {
@@ -1874,3 +1812,24 @@ body:not(.pagelayout-frontpage) {
     }
 }
 /* End of Summarise */
+
+.data-registry .context-tree .nav-link {
+    padding: 0 5px;
+}
+.modal .btn-close {
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: transparent;
+    }
+}
+#id_contextlevelnamecontainer .fitem .felement .fitem .btn-secondary i.icon {
+    margin-right: 0;
+
+}
+.tour-actions ul li a {
+    i.icon,
+    div {
+        color: $primary;
+    }
+}

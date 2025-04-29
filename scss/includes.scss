@@ -133,7 +133,5 @@ body {
     @include button-outline-variant($warning-outline);
 }
 
-//@include bg-variant(".bg-gray", $gray-200, true);
-
 // Init the theme style rules.
 @import 'theme';

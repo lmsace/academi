@@ -68,23 +68,6 @@ class helper {
         $slideopacity = (!empty($slideoverlayval)) ? $this->get_hexa('#000000', $slideoverlayval) : 0.4;
         $footerbgoverlayval = theme_academi_get_setting('footerbgOverlay');
 
-        if (empty($primary)) {
-            switch (theme_academi_get_setting('preset')) {
-                case 'eguru':
-                    $primary = '#a55ba5';
-                    break;
-                case 'klass':
-                    $primary = '#009fe5';
-                    break;
-                case 'enlightlite':
-                    $primary = '#39b3e6';
-                    break;
-                default:
-                    $primary = '#88b77b';
-                    break;
-            }
-        }
-
         $footerbgopacity = (!empty($footerbgoverlayval)) ? $this->get_hexa($primary, $footerbgoverlayval) : 0.4;
         $pagesizecustomval = theme_academi_get_setting('pagesizecustomval');
         $fontsize = theme_academi_get_setting('fontsize');

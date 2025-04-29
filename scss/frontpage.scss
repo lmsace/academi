@@ -1,7 +1,7 @@
 .pagelayout-frontpage {
     background-image: none;
     .course-content {
-        max-width: $modal-xl;
+        max-width: 1320px;
         margin: 0 auto;
         .topics li.section {
             border: 0;
@@ -38,7 +38,7 @@
             padding: 0;
         }
         #page-content .box {
-            max-width: $modal-xl;
+            max-width: 1320px;
             margin: 0 auto;
             .simplesearchform {
                 width: 100%;
@@ -77,7 +77,7 @@
         margin-bottom: 0;
         border-radius: 0;
         .secondary-navigation {
-            max-width: $modal-xl;
+            max-width: 1320px;
             margin: 0 auto;
             display: none;
         }
@@ -93,7 +93,7 @@
         div[data-name="Site announcements"],
         .subscribelink,
         .frontpage-course-list-all {
-            max-width: $modal-xl;
+            max-width: 1320px;
             margin: 0 auto;
         }
     }
@@ -102,7 +102,7 @@
         background-color: $white;
     }
     .custom-alert-block {
-        max-width: $modal-xl;
+        max-width: 1320px;
         width: 100%;
         margin: 15px auto 15px;
         p {
@@ -569,9 +569,6 @@
                 color: $white;
                 background: $primary;
             }
-            // span {
-            //     margin: 5px 0;
-            // }
         }
         > div.d-flex .btn {
             color: $white;
@@ -1261,12 +1258,6 @@
     }
 }
 
-// @media (min-width: 1200px) {
-//     .course_category_tree .category > .content {
-//         margin-bottom: 10px;
-//     }
-// }
-
 @media (min-width: 768px) {
     .dir-rtl .course_category_tree .coursebox .content {
         .teachers {
@@ -1384,9 +1375,6 @@
 .marketing-spot {
     padding: 40px 0 0;
     background-color: $primary_70;
-    // .row .col-lg-6:last-child {
-    //     align-self: end;
-    // }
     *:empty {
         display: none;
     }

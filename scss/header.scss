@@ -324,32 +324,12 @@
 #header {
     .editmode-switch-form {
         margin-left: 10px;
-        .input-group label {
-            color: $white !important;
-        }
-        .custom-control {
-            .custom-control-input {
-                ~ .custom-control-label:before {
-                    border-color: $white;
-                    background: $white;
-                }
-                &:checked ~ .custom-control-label:before {
-                    background-color: $primary;
-                }
-                &:focus:not(:checked) ~ .custom-control-label:before,
-                &:focus ~ .custom-control-label:before,
-                &:not(:disabled):active ~ .custom-control-label:before {
-                    border-color: $white;
-                    box-shadow: none;
-                }
+        .input-group {
+            label {
+                color: $white !important;
             }
-            &.custom-switch {
-                .custom-control-label:after {
-                    background-color: $primary;
-                }
-                .custom-control-input:checked ~ .custom-control-label:after {
-                    background-color: $white;
-                }
+            .form-switch .form-check-input {
+                background-color: $white_50;
             }
         }
     }

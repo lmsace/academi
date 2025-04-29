@@ -57,11 +57,15 @@ img {
 /* Link tag */
 a {
     color: $primary;
+    text-decoration: none;
     &:hover,
     &:focus,
     &:active {
         color: $secondary;
         outline: none;
+    }
+    &.btn-link {
+        text-decoration: none;
     }
     &:first-of-type > .icon,
     span:first-of-type > .icon {
@@ -191,7 +195,7 @@ button {
     &.active,
     &:active {
         color: $white;
-        background: $color_charcoal;
+        background-color: $color_charcoal;
         outline: 0;
     }
     &.close:hover,
@@ -205,6 +209,9 @@ button {
     line-height: 2;
     border-radius: 5px;
     &.btn-link {
+        border: 0;
+    }
+    &.btn-link:has(:not(.text-danger)) {
         color: $primary;
         height: auto;
         border: 0;
@@ -250,6 +257,9 @@ button {
 }
 a.btn {
     height: auto;
+    &.btn-icon {
+        height: 34px;
+    }
 }
 
 /* Primary Button */
@@ -309,6 +319,7 @@ input[type="submit"].btn-link {
 
 /* Secondary Button */
 .btn-secondary {
+    color: $white;
     background-color: $secondary;
     &:hover,
     &:focus,
