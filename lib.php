@@ -197,7 +197,7 @@ function theme_academi_get_logo_url($type = 'header') {
  * @param bool $format
  * @return string
  */
-function theme_academi_get_setting($setting, $format = '') {
+function theme_academi_get_setting($setting, $format = true) {
     global $CFG, $PAGE;
     require_once($CFG->dirroot . '/lib/weblib.php');
     static $theme;
