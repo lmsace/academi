@@ -40,6 +40,8 @@ if ($ADMIN->fulltree) {
     include(dirname(__FILE__) . '/settings/marketingspot.php');
     // Jumbotron Settings.
     include(dirname(__FILE__) . '/settings/jumbotron.php');
+    // Course Settings.
+    include(dirname(__FILE__) . '/settings/course.php');
     // Footer Settings.
     include(dirname(__FILE__) . '/settings/footer.php');
 }
