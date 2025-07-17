@@ -56,6 +56,37 @@ class core_renderer extends \theme_boost\output\core_renderer {
     }
 
     /**
+     * Get the full header of the page.
+     *
+     * @return string HTML to display the main header of the page
+     */
+    public function full_header() {
+        global $COURSE;
+        
+        // Check if we should use course short name in header.
+        $useshortname = get_config('theme_academi', 'useshortnameinheader');
+        
+        if ($useshortname && $this->page->context->contextlevel == CONTEXT_COURSE && $COURSE->id != SITEID) {
+            // Store the original page heading.
+            $originalheading = $this->page->heading;
+            
+            // Set the page heading to the course short name.
+            $this->page->set_heading(format_string($COURSE->shortname, true, ['context' => $this->page->context]));
+            
+            // Get the header HTML.
+            $header = parent::full_header();
+            
+            // Restore the original heading.
+            $this->page->set_heading($originalheading);
+            
+            return $header;
+        }
+        
+        // Use default behavior.
+        return parent::full_header();
+    }
+
+    /**
      * Footer info links.
      * @return string
      */
