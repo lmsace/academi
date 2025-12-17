@@ -134,6 +134,12 @@ legend {
 .userlist table#participants th {
     vertical-align: middle;
 }
+.participationselectform > div {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
 .userselector {
     select[size] {
         max-width: none;
@@ -411,13 +417,21 @@ body:not(.pagelayout-maintenance) #page-wrapper {
     }
 }
 .filter-group .d-flex .text-reset {
+    border: 0;
     i {
         margin: 0;
     }
-    &:hover {
-        text-decoration: none;
-        span {
-            color: $primary;
+    .btn-icon {
+        &:hover,
+        &:focus {
+            text-decoration: none;
+            background: none;
+            span {
+                color: $primary;
+            }
+            i {
+                color: $black;
+            }
         }
     }
 }
@@ -759,7 +773,12 @@ div.backup-section + form {
 }
 #dateselector-calendar-panel * {
     font-weight: normal;
+    #dateselector-calendar-content {
+        border: 1px solid $mercury;
+        border-radius: 10px;
+    }
 }
+
 
 .messaging-area-container {
     .btn.btn-link {

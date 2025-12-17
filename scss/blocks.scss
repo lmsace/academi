@@ -18,8 +18,10 @@
             display: block !important;
             padding-right: 65px;
         }
-        .content {
+        > .content {
             padding: 10px 18px;
+        }
+        .content {
             margin: 0 !important;
             border-top: 1px solid $mercury;
             &:not(.activityiconcontainer) {

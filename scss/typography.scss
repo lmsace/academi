@@ -142,7 +142,7 @@ input {
     &[type="tel"],
     &[type="color"] {
         height: 45px;
-        border-color: $light_grey;
+        border: 1px solid $light_grey;
         box-shadow: none;
         &:focus {
             border-color: $black_20;
@@ -257,9 +257,9 @@ button {
 }
 a.btn {
     height: auto;
-    &.btn-icon {
-        height: 34px;
-    }
+}
+.btn-icon {
+    height: 34px;
 }
 
 /* Primary Button */

@@ -335,6 +335,7 @@
                 line-height: 16px;
                 background-color: $white_50;
                 &:checked {
+                    border-color: $white_50;
                     --bs-form-switch-bg: none;
                     &:before {
                         float: right;
