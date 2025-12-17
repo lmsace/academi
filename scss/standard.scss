@@ -649,13 +649,18 @@ td.submit input {
     }
 }
 tr.discussion {
-    td .dropdown .dropdown-menu .dropdown-item a.btn {
-        color: $primary;
-        &:hover,
-        &:focus,
-        &.btn:active {
-            color: $white;
-            background: $primary;
+    td .dropdown {
+        a.btn-link:hover {
+            background: none;
+        }
+        .dropdown-menu .dropdown-item a.btn {
+            color: $primary;
+            &:hover,
+            &:focus,
+            &.btn:active {
+                color: $white;
+                background: $primary;
+            }
         }
     }
     .btn i.icon {
@@ -751,6 +756,9 @@ div.backup-section + form {
     .calendarmonth td.today .day-number-circle {
         background: $primary;
     }
+}
+#dateselector-calendar-panel * {
+    font-weight: normal;
 }
 
 .messaging-area-container {
@@ -1304,6 +1312,15 @@ div.backup-section + form {
     }
     div[role="main"] {
         padding: 0;
+        div[data-content="forum-discussion"] {
+            > .d-flex {
+                align-items: center;
+            }
+            .forum-post-container {
+
+                margin-top: 20px;
+            }
+        }
         > .skip-block-to {
             height: auto;
         }

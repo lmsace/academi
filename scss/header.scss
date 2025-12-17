@@ -200,6 +200,9 @@
         height: 100%;
         color: $white;
         margin-right: 10px;
+        .btn .icon {
+            color: $white;
+        }
         a.btn-open {
             color: $white;
             border: 0;
@@ -329,7 +332,22 @@
                 color: $white !important;
             }
             .form-switch .form-check-input {
+                line-height: 16px;
                 background-color: $white_50;
+                &:checked {
+                    --bs-form-switch-bg: none;
+                    &:before {
+                        float: right;
+                    }
+                }
+                &:before {
+                    content: '';
+                    width: 13px;
+                    height: 13px;
+                    border-radius: 50%;
+                    background: $white;
+                    display: inline-flex;
+                }
             }
         }
     }

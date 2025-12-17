@@ -40,6 +40,11 @@
     color: $white;
 }
 #course-category-listings {
+    .listing-actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
     .moodle-actionmenu[data-enhance] .toggle-display.textmenu .caret {
         vertical-align: middle;
         margin-top: 0;
@@ -127,4 +132,7 @@
         padding-top: 10px;
         padding-bottom: 10px;
     }
+}
+.modchoosercontent .optionscontainer .option .optionactions .btn {
+    border: 0;
 }
