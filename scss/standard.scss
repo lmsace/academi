@@ -1869,3 +1869,9 @@ body:not(.pagelayout-frontpage) {
         color: $primary;
     }
 }
+.embedded-main .btn-toolbar .btn-group .btn {
+    background: $white;
+    &:hover {
+        background-color: $wild_sand;
+    }
+}

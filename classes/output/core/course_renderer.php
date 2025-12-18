@@ -109,9 +109,9 @@ class course_renderer extends \core_course_renderer {
         $noimgurl = $this->output->image_url('no-image', 'theme');
         foreach ($course->get_course_overviewfiles() as $file) {
             $isimage = $file->is_valid_image();
-            $imgurl = file_encode_url("$CFG->wwwroot/pluginfile.php",
-                '/'. $file->get_contextid(). '/'. $file->get_component(). '/'.
-                $file->get_filearea(). $file->get_filepath(). $file->get_filename(), !$isimage);
+            $imgurl = moodle_url::make_file_url("$CFG->wwwroot/pluginfile.php",
+                '/' . $file->get_contextid() . '/' . $file->get_component() . '/' .
+                $file->get_filearea() . $file->get_filepath() . $file->get_filename(), !$isimage);
             if (!$isimage) {
                 $imgurl = $noimgurl;
             }
@@ -194,9 +194,9 @@ class course_renderer extends \core_course_renderer {
                     $summary = $helperobj->course_trim_char($summary, 75);
                     foreach ($course->get_course_overviewfiles() as $file) {
                         $isimage = $file->is_valid_image();
-                        $imgurl = file_encode_url("$CFG->wwwroot/pluginfile.php",
-                        '/'. $file->get_contextid(). '/'. $file->get_component(). '/'.
-                        $file->get_filearea(). $file->get_filepath(). $file->get_filename(), !$isimage);
+                        $imgurl = \moodle_url::make_file_url("$CFG->wwwroot/pluginfile.php",
+                        '/' . $file->get_contextid() . '/' . $file->get_component() . '/' .
+                        $file->get_filearea() . $file->get_filepath() . $file->get_filename(), !$isimage);
                         if (!$isimage) {
                             $imgurl = $noimgurl;
                         }

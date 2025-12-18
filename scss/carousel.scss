@@ -16,27 +16,29 @@
                         object-fit: cover;
                     }
                 }
-                .slide-text .heading-content {
-                    width: auto;
+                .slide-text {
                     background: $url_1;
-                    padding: 30px;
-                    margin: 20px 0 10px;
-                    display: inline-block;
-                    h1 {
-                        color: $white;
-                        margin-bottom: 0;
-                    }
-                    p {
-                        font-size: 17px;
-                        color: $white;
-                        line-height: 22px;
-                        &:empty {
-                            display: none;
+                    .heading-content {
+                        width: auto;
+                        padding: 30px;
+                        margin: 20px 0 10px;
+                        display: inline-block;
+                        h1 {
+                            color: $white;
+                            margin-bottom: 0;
                         }
-                    }
-                    .link-button a {
-                        height: auto;
-                        padding: 10px 25px;
+                        p {
+                            font-size: 17px;
+                            color: $white;
+                            line-height: 22px;
+                            &:empty {
+                                display: none;
+                            }
+                        }
+                        .link-button a {
+                            height: auto;
+                            padding: 10px 25px;
+                        }
                     }
                 }
             }

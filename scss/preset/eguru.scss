@@ -213,7 +213,7 @@ body {
         }
     }
     &.with_children > .info > .categoryname:before {
-        content: '';
+        content: '\f0d7';
         width: 30px;
         height: 30px;
         color: $white;
