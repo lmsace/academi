@@ -67,6 +67,7 @@ class helper {
         $slideoverlayval = theme_academi_get_setting('slideOverlay');
         $slideopacity = (!empty($slideoverlayval)) ? $this->get_hexa('#000000', $slideoverlayval) : 0.4;
         $footerbgoverlayval = theme_academi_get_setting('footerbgOverlay');
+        $footerbgcolor = theme_academi_get_setting('footerbgcolor');
 
         $footerbgopacity = (!empty($footerbgoverlayval)) ? $this->get_hexa($primary, $footerbgoverlayval) : 0.4;
         $pagesizecustomval = theme_academi_get_setting('pagesizecustomval');
@@ -82,6 +83,7 @@ class helper {
         $scss .= $pagesizecustomval ? '$custom-container:'.$pagesizecustomval."px;\n" : "";
         $scss .= $fontsize ? '$fontsize:'.$fontsize. "px;" : "";
         $scss .= $footerbgopacity ? '$footerbgopacity:'.$footerbgopacity.";\n" : "";
+        $scss .= $footerbgcolor ? '$footerbgcolor:'.$footerbgcolor.";\n" : "";
 
         if (!empty($primary)) {
             $scss .= $primary30 ? '$primary_30:'.$primary30.";\n" : "";

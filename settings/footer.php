@@ -52,6 +52,15 @@ $setting = new admin_setting_configselect($name, $title, $description, '0.4', $o
 $setting->set_updatedcallback('theme_reset_all_caches');
 $temp->add($setting);
 
+// Footer background color.
+$name = 'theme_academi/footerbgcolor';
+$title = get_string('footerbgcolor', 'theme_academi');
+$description = get_string('footerbgcolor_desc', 'theme_academi');
+$default = '';
+$setting = new admin_setting_configcolourpicker($name, $title, $description, $default);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$temp->add($setting);
+
 // Copyright.
 $name = 'theme_academi/copyright_footer';
 $title = get_string('copyright_footer', 'theme_academi');
