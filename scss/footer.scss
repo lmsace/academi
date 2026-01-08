@@ -1,5 +1,6 @@
 /* Footer */
 $footerbgcolor: $night_rider !default;
+$footertitlecolor: $secondary !default;
 .empty-footer {
     display: none;
 }
@@ -59,6 +60,7 @@ $footerbgcolor: $night_rider !default;
             font-weight: bold;
             line-height: 36px;
             margin: 0 0 20px;
+            color: $footertitlecolor;
         }
         p {
             color: $white;
