@@ -165,6 +165,16 @@ $setting = new admin_setting_configstoredfile($name, $title, $description, 'logi
 $setting->set_updatedcallback('theme_reset_all_caches');
 $temp->add($setting);
 
+// Login background overlay opacity.
+$name = 'theme_academi/loginbgOverlay';
+$title = get_string('loginbgOverlay', 'theme_academi');
+$description = get_string('loginbgOverlay_desc', 'theme_academi');
+$opacity = [];
+$opacity = array_combine(range(0, 1, 0.1), range(0, 1, 0.1));
+$setting = new admin_setting_configselect($name, $title, $description, '1', $opacity);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$temp->add($setting);
+
 // Enable or disable option for "Back to top" option.
 $name = 'theme_academi/backToTop_status';
 $title = get_string('backToTop_status', 'theme_academi');
