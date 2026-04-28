@@ -56,21 +56,20 @@ $name = 'theme_academi/numberofsitefeature';
 $title = get_string('numberofsitef', 'theme_academi');
 $description = get_string('numberofsitef_desc', 'theme_academi');
 $default = 4;
-$choices = array_combine( range(1, 4), range(1, 4) );
+$choices = array_combine(range(1, 4), range(1, 4));
 $temp->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
 
 $sitefeatures = get_config('theme_academi', 'numberofsitefeature');
 for ($i = 1; $i <= $sitefeatures; $i++) {
-
     // Site feature heading.
-    $name = 'theme_academi_sitefblock'.$i.'heading';
+    $name = 'theme_academi_sitefblock' . $i . 'heading';
     $heading = get_string('sitefblock', 'theme_academi', ['block' => $i]);
     $information = '';
     $setting = new admin_setting_heading($name, $heading, $information);
     $temp->add($setting);
 
     // Site feature enable/disable option.
-    $name = 'theme_academi/sitefblock'.$i.'status';
+    $name = 'theme_academi/sitefblock' . $i . 'status';
     $title = get_string('status', 'theme_academi');
     $description = get_string('statusdesc', 'theme_academi');
     $default = YES;
@@ -78,15 +77,15 @@ for ($i = 1; $i <= $sitefeatures; $i++) {
     $temp->add($setting);
 
     // Site feature title.
-    $name = 'theme_academi/sitefblock'.$i.'title';
+    $name = 'theme_academi/sitefblock' . $i . 'title';
     $title = get_string('title', 'theme_academi');
     $description = get_string('titledesc', 'theme_academi');
-    $default = 'lang:sb'.$i.'_default_title';
+    $default = 'lang:sb' . $i . '_default_title';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $temp->add($setting);
 
     // Site feature content.
-    $name = 'theme_academi/sitefblock'.$i.'content';
+    $name = 'theme_academi/sitefblock' . $i . 'content';
     $title = get_string('content', 'theme_academi');
     $description = get_string('content_desc', 'theme_academi');
     $default = 'lang:sb_default_content';
@@ -94,15 +93,15 @@ for ($i = 1; $i <= $sitefeatures; $i++) {
     $temp->add($setting);
 
     // Site feature icon.
-    $name = 'theme_academi/sitefblock'.$i.'icon';
+    $name = 'theme_academi/sitefblock' . $i . 'icon';
     $title = get_string('icon', 'theme_academi');
     $description = get_string('icondesc', 'theme_academi');
-    $default = 'lang:sitefblockicon'.$i.'_default';
+    $default = 'lang:sitefblockicon' . $i . '_default';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $temp->add($setting);
 
     // Site feature url.
-    $name = 'theme_academi/sitefblock'.$i.'url';
+    $name = 'theme_academi/sitefblock' . $i . 'url';
     $title = get_string('url', 'theme_academi');
     $description = get_string('urldesc', 'theme_academi', ['block' => $i]);
     $default = 'http://www.example.com/';

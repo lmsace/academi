@@ -26,8 +26,16 @@ defined('MOODLE_INTERNAL') || die;
 
 // Home page slider.
 $temp = new admin_settingpage('theme_academi_slideshow', get_string('slideshowheading', 'theme_academi'));
-$temp->add(new admin_setting_heading('theme_academi_slideshow', get_string('slideshowheadingsub', 'theme_academi'),
-format_text(get_string('slideshowdesc', 'theme_academi'), FORMAT_MARKDOWN)));
+$temp->add(
+    new admin_setting_heading(
+        'theme_academi_slideshow',
+        get_string('slideshowheadingsub', 'theme_academi'),
+        format_text(
+            get_string('slideshowdesc', 'theme_academi'),
+            FORMAT_MARKDOWN
+        )
+    )
+);
 
 // Enable or disable option for slider show / hide in the home page.
 $name = 'theme_academi/toggleslideshow';
@@ -66,7 +74,7 @@ $name = 'theme_academi/slideOverlay';
 $title = get_string('slideOverlay', 'theme_academi');
 $description = get_string('slideOverlay_desc', 'theme_academi');
 $opacity = [];
-$opacity = array_combine(range(0, 1, 0.1 ), range(0, 1, 0.1 ));
+$opacity = array_combine(range(0, 1, 0.1), range(0, 1, 0.1));
 $setting = new admin_setting_configselect($name, $title, $description, '0.4', $opacity);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $temp->add($setting);
@@ -95,7 +103,6 @@ $temp->add(new admin_setting_configselect($name, $title, $description, $default,
 // Slideshow settings.
 $numberofslides = get_config('theme_academi', 'numberofslides');
 for ($i = 1; $i <= $numberofslides; $i++) {
-
     // This is the descriptor for Slide.
     $name = 'theme_academi/slide' . $i . 'info';
     $heading = get_string('slideno', 'theme_academi', ['slide' => $i]);
@@ -104,7 +111,7 @@ for ($i = 1; $i <= $numberofslides; $i++) {
     $temp->add($setting);
 
     // Enable or disable option for slide show.
-    $name = 'theme_academi/slide' . $i .'status';
+    $name = 'theme_academi/slide' . $i . 'status';
     $title = get_string('slideStatus', 'theme_academi', ['slide' => $i]);
     $description = get_string('slideStatus_desc', 'theme_academi', ['slide' => $i]);
     $default = YES;
@@ -124,7 +131,7 @@ for ($i = 1; $i <= $numberofslides; $i++) {
     $temp->add($setting);
 
     // Enable or disable option for SlideShow content.
-    $name = 'theme_academi/slide' . $i .'contentstatus';
+    $name = 'theme_academi/slide' . $i . 'contentstatus';
     $title = get_string('slidecontentstatus', 'theme_academi', ['slide' => $i]);
     $description = get_string('slidecontentstatus_desc', 'theme_academi', ['slide' => $i]);
     $default = YES;

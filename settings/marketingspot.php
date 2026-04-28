@@ -71,7 +71,15 @@ $name = 'theme_academi/mspotmedia';
 $title = get_string('media', 'theme_academi');
 $description = get_string('mspotmedia_desc', 'theme_academi');
 $default = '<img src="https://res.cloudinary.com/lmsace/image/upload/v1593602097/about-img_rztwgu.jpg">';
-$setting = new admin_setting_configstoredfile($name, $title, $description, 'mspotmedia', 0,
-                ['accepted_types' => 'web_image']);
+$setting = new admin_setting_configstoredfile(
+    $name,
+    $title,
+    $description,
+    'mspotmedia',
+    0,
+    [
+        'accepted_types' => 'web_image',
+    ]
+);
 $temp->add($setting);
 $settings->add($temp);

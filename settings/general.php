@@ -157,7 +157,24 @@ $setting = new admin_setting_configstoredfile($name, $title, $description, 'back
 $setting->set_updatedcallback('theme_reset_all_caches');
 $temp->add($setting);
 
-// Uploaded option for login page background image.
+// Login left Background image setting.
+$name = 'theme_boost/loginbackgroundimage';
+$title = get_string('loginbackgroundimage', 'theme_academi');
+$description = get_string('loginbackgroundimage_desc', 'theme_academi');
+$setting = new admin_setting_configstoredfile($name, $title, $description, 'loginbackgroundimage');
+$setting->set_updatedcallback('theme_reset_all_caches');
+$temp->add($setting);
+
+// Show default login left panel instructions.
+$name = 'theme_academi/showdefaultloginpanel';
+$title = get_string('showdefaultloginpanel', 'theme_academi');
+$description = get_string('showdefaultloginpanel_desc', 'theme_academi');
+$default = 1;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$temp->add($setting);
+
+// Uploaded option for login right background image.
 $name = 'theme_academi/loginbg';
 $title = get_string('loginbg', 'theme_academi');
 $description = get_string('loginbg_desc', 'theme_academi');
@@ -219,7 +236,16 @@ $temp->add($setting);
 $name = 'theme_academi/presetfiles';
 $title = get_string('presetfiles', 'theme_boost', null, true);
 $description = get_string('presetfiles_desc', 'theme_boost', null, true);
-$setting = new admin_setting_configstoredfile($name, $title, $description, 'preset', 0,
-        ['maxfiles' => 20, 'accepted_types' => ['.scss']]);
+$setting = new admin_setting_configstoredfile(
+    $name,
+    $title,
+    $description,
+    'preset',
+    0,
+    [
+        'maxfiles' => 20,
+        'accepted_types' => ['.scss'],
+    ]
+);
 $temp->add($setting);
 $settings->add($temp);

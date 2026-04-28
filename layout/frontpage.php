@@ -24,8 +24,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once(dirname(__FILE__) .'/includes/layoutdata.php');
-require_once(dirname(__FILE__) .'/includes/homeslider.php');
+require_once(dirname(__FILE__) . '/includes/layoutdata.php');
+require_once(dirname(__FILE__) . '/includes/homeslider.php');
 
 $PAGE->requires->css(new moodle_url('/theme/academi/style/slick.css'));
 $PAGE->requires->js_call_amd('theme_academi/frontpage', 'init');

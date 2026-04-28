@@ -55,7 +55,7 @@ $THEME->activityheaderconfig = [
     'notitle' => true,
 ];
 
-$THEME->scss = function($theme) {
+$THEME->scss = function ($theme) {
     return  theme_academi_get_main_scss_content($theme);
 };
 $THEME->prescsscallback = 'theme_academi_get_pre_scss';
@@ -199,4 +199,3 @@ $THEME->layouts = [
         'defaultregion' => 'side-pre',
     ],
 ];
-

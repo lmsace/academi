@@ -9,10 +9,15 @@
         margin-bottom: 0;
     }
     #page {
-        background-image: url($loginbg);
-        background-size: cover;
-        background-position: top;
-        background-repeat: no-repeat;
+        .login-layout-left {
+            height: stretch;
+        }
+        .login-layout-right {
+            background-image: url($loginbg);
+            background-size: cover;
+            background-position: top;
+            background-repeat: no-repeat;
+        }
     }
 }
 .login-wrapper {

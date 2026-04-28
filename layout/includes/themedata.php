@@ -22,8 +22,8 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 defined('MOODLE_INTERNAL') || die();
-require_once(dirname(__FILE__) .'/footer.php');
-require_once($CFG->dirroot.'/theme/academi/lib.php');
+require_once(dirname(__FILE__) . '/footer.php');
+require_once($CFG->dirroot . '/theme/academi/lib.php');
 
 $logourl = theme_academi_get_logo_url('header');
 $phoneno = theme_academi_get_setting('phoneno');

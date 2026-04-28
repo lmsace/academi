@@ -22,7 +22,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 defined('MOODLE_INTERNAL') || die();
-require_once($CFG->dirroot."/theme/academi/classes/helper.php");
+require_once($CFG->dirroot . "/theme/academi/classes/helper.php");
 
 /**
  * General config setting for the home page slider.
@@ -57,9 +57,9 @@ function homeslider() {
     (int) $slider = 0;
     for ($s = 1; $s <= $data['numofslide']; $s++) {
         $slide = [];
-        $slide['slidestatus'] = theme_academi_get_setting('slide' . $s .'status');
+        $slide['slidestatus'] = theme_academi_get_setting('slide' . $s . 'status');
         $slide['slideimg'] = $helperobj->render_slideimg($s, 'slide' . $s . 'image');
-        $slide['slidecontentstatus'] = theme_academi_get_setting('slide' . $s .'contentstatus');
+        $slide['slidecontentstatus'] = theme_academi_get_setting('slide' . $s . 'contentstatus');
         $slide['caption'] = theme_academi_lang(theme_academi_get_setting('slide' . $s . 'caption'));
         $slide['desc'] = theme_academi_lang(theme_academi_get_setting('slide' . $s . 'desc', 'format_html'));
         $slide['btntxt'] = theme_academi_lang(theme_academi_get_setting('slide' . $s . 'btntext'));
@@ -80,20 +80,20 @@ function homeslider() {
             $contwidth = "auto";
         } else {
             $contwidth = intval($contwidth);
-            if ($contwidth > '100' ) {
+            if ($contwidth > '100') {
                 $contwidth = '100%';
             } else if ($contwidth <= 0) {
                 $contwidth = "auto";
             } else {
-                $contwidth = $contwidth.'%';
+                $contwidth = $contwidth . '%';
             }
         }
         $slide['contentwidth'] = $contwidth;
         $slide['contentAnimation'] = "ScrollRight";
-        $slide['contentAclass'] = "animated ". $slide['contentAnimation'];
+        $slide['contentAclass'] = "animated " . $slide['contentAnimation'];
         $postition = theme_academi_get_setting('slide' . $s . 'contentPosition');
         $slide['contentpostion'] = $postition;
-        $slide['contentClass'] = (!empty($postition)) ? 'content-'.$postition : 'content-centerRight';
+        $slide['contentClass'] = (!empty($postition)) ? 'content-' . $postition : 'content-centerRight';
         if ($slide['slideimg']) {
             $data['slides'][] = $slide;
         }

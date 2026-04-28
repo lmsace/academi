@@ -36,7 +36,6 @@ use custom_menu;
  * $renderer = $PAGE->get_renderer('core','course');
  */
 class core_renderer extends \theme_boost\output\core_renderer {
-
     /**
      * Returns the moodle_url for the favicon.
      *

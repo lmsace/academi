@@ -29,7 +29,6 @@ namespace theme_academi;
  * Extra additional blocks content class for the theme academi.
  */
 class academi_blocks {
-
     /**
      * Return the html contents for the  Site features block.
      * @return type|string
@@ -45,10 +44,10 @@ class academi_blocks {
             $features = theme_academi_get_setting('numberofsitefeature');
             $block['class'] = 'icon-block';
             for ($i = 1; $i <= $features; $i++) {
-                $sfbstatus = theme_academi_get_setting('sitefblock'.$i.'status');
-                $sfbicon = theme_academi_get_setting('sitefblock'.$i.'icon');
-                $sfbtitle = theme_academi_get_setting('sitefblock'.$i.'title');
-                $sfbcontent = theme_academi_get_setting('sitefblock'.$i.'content');
+                $sfbstatus = theme_academi_get_setting('sitefblock' . $i . 'status');
+                $sfbicon = theme_academi_get_setting('sitefblock' . $i . 'icon');
+                $sfbtitle = theme_academi_get_setting('sitefblock' . $i . 'title');
+                $sfbcontent = theme_academi_get_setting('sitefblock' . $i . 'content');
                 if ((!empty($sfbstatus)) && (!empty($sfbtitle) || !empty($sfbcontent) || !empty($sfbicon))) {
                     $cs = $cs + 1;
                 }
@@ -71,15 +70,15 @@ class academi_blocks {
                     break;
             }
             for ($i = 1; $i <= $features; $i++) {
-                $sfbtitle = theme_academi_get_setting('sitefblock'.$i.'title');
+                $sfbtitle = theme_academi_get_setting('sitefblock' . $i . 'title');
                 $sfbtitle = theme_academi_lang($sfbtitle);
-                $sfbcontent = trim(theme_academi_get_setting('sitefblock'.$i.'content'));
+                $sfbcontent = trim(theme_academi_get_setting('sitefblock' . $i . 'content'));
                 $sfbcontent = theme_academi_lang($sfbcontent);
-                $sfbstatus = theme_academi_get_setting('sitefblock'.$i.'status');
-                $sfbicon = theme_academi_get_setting('sitefblock'.$i.'icon');
+                $sfbstatus = theme_academi_get_setting('sitefblock' . $i . 'status');
+                $sfbicon = theme_academi_get_setting('sitefblock' . $i . 'icon');
                 $sfbicon = theme_academi_lang($sfbicon);
                 $sfbbody = (!empty($sfbtitle) || (!empty($sfbcontent)) || (!empty($sfbicon))) ? true : false;
-                $sfurl = theme_academi_get_setting('sitefblock'.$i.'url');
+                $sfurl = theme_academi_get_setting('sitefblock' . $i . 'url');
 
                 $items[] = [
                     'status' => !$sfbbody ? false : $sfbstatus,
@@ -138,7 +137,7 @@ class academi_blocks {
     public function jumbotron() {
         global $OUTPUT, $PAGE;
         $status = theme_academi_get_setting('jumbotronstatus');
-        if ($status == 1 ) {
+        if ($status == 1) {
             $jumbotron['title'] = theme_academi_lang(theme_academi_get_setting('jumbotrontitle'));
             $jumbotron['desc'] = theme_academi_lang(theme_academi_get_setting('jumbotrondesc'));
             $jumbotron['btntext'] = theme_academi_lang(theme_academi_get_setting('jumbotronbtntext'));

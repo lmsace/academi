@@ -38,7 +38,6 @@ use context_course;
  * $renderer = $PAGE->get_renderer('core','course');
  */
 class course_renderer extends \core_course_renderer {
-
     /**
      * Call the frontpage slider js.
      * @param string $blockid
@@ -63,18 +62,22 @@ class course_renderer extends \core_course_renderer {
 
         $chelper = new \coursecat_helper();
         $chelper->set_show_courses(self::COURSECAT_SHOW_COURSES_EXPANDED)->set_courses_display_options(
-                [
-                    'recursive' => true,
-                    'limit' => $CFG->frontpagecourselimit,
-                    'viewmoreurl' => new moodle_url('/course/index.php'),
-                    'viewmoretext' => new lang_string('fulllistofcourses'),
-                ]);
+            [
+                'recursive' => true,
+                'limit' => $CFG->frontpagecourselimit,
+                'viewmoreurl' => new moodle_url('/course/index.php'),
+                'viewmoretext' => new lang_string('fulllistofcourses'),
+            ]
+        );
 
         $chelper->set_attributes(['class' => 'frontpage-course-list-all']);
         $courses = \core_course_category::top()->get_courses($chelper->get_courses_display_options());
         $totalcount = \core_course_category::top()->get_courses_count($chelper->get_courses_display_options());
-        if (!$totalcount && !$this->page->user_is_editing() &&
-            has_capability('moodle/course:create', \context_system::instance())) {
+        if (
+            !$totalcount
+            && !$this->page->user_is_editing()
+            && has_capability('moodle/course:create', \context_system::instance())
+        ) {
             // Print link to create a new course, for the 1st available category.
             return $this->add_new_course_button();
         }
@@ -109,9 +112,16 @@ class course_renderer extends \core_course_renderer {
         $noimgurl = $this->output->image_url('no-image', 'theme');
         foreach ($course->get_course_overviewfiles() as $file) {
             $isimage = $file->is_valid_image();
-            $imgurl = moodle_url::make_file_url("$CFG->wwwroot/pluginfile.php",
-                '/' . $file->get_contextid() . '/' . $file->get_component() . '/' .
-                $file->get_filearea() . $file->get_filepath() . $file->get_filename(), !$isimage);
+            $imgurl = moodle_url::make_file_url(
+                "$CFG->wwwroot/pluginfile.php",
+                '/'
+                    . $file->get_contextid() . '/'
+                    . $file->get_component() . '/'
+                    . $file->get_filearea()
+                    . $file->get_filepath()
+                    . $file->get_filename(),
+                !$isimage
+            );
             if (!$isimage) {
                 $imgurl = $noimgurl;
             }
@@ -194,9 +204,15 @@ class course_renderer extends \core_course_renderer {
                     $summary = $helperobj->course_trim_char($summary, 75);
                     foreach ($course->get_course_overviewfiles() as $file) {
                         $isimage = $file->is_valid_image();
-                        $imgurl = \moodle_url::make_file_url("$CFG->wwwroot/pluginfile.php",
-                        '/' . $file->get_contextid() . '/' . $file->get_component() . '/' .
-                        $file->get_filearea() . $file->get_filepath() . $file->get_filename(), !$isimage);
+                        $imgurl = \moodle_url::make_file_url(
+                            "$CFG->wwwroot/pluginfile.php",
+                            '/' . $file->get_contextid() . '/' .
+                            $file->get_component() . '/' .
+                            $file->get_filearea() .
+                            $file->get_filepath() .
+                            $file->get_filename(),
+                            !$isimage
+                        );
                         if (!$isimage) {
                             $imgurl = $noimgurl;
                         }
@@ -247,17 +263,23 @@ class course_renderer extends \core_course_renderer {
         }
         $academifrontpagelayout = array_merge($beforelayout, $frontpagelayout, $afterlayout);
         foreach ($academifrontpagelayout as $a) {
-            switch($a) {
+            switch ($a) {
                 // Display the main part of the front page.
                 case FRONTPAGENEWS:
                     if ($SITE->newsitems) {
                         // Print forums only when needed.
-                        require_once($CFG->dirroot .'/mod/forum/lib.php');
-                        if (($newsforum = forum_get_course_forum($SITE->id, 'news')) &&
-                                ($forumcontents = $this->frontpage_news($newsforum))) {
+                        require_once($CFG->dirroot . '/mod/forum/lib.php');
+                        if (
+                            ($newsforum = forum_get_course_forum($SITE->id, 'news'))
+                            && ($forumcontents = $this->frontpage_news($newsforum))
+                        ) {
                             $newsforumcm = get_fast_modinfo($SITE)->instances['forum'][$newsforum->id];
-                            $output .= $this->frontpage_part('skipsitenews', 'site-news-forum',
-                                $newsforumcm->get_formatted_name(), $forumcontents);
+                            $output .= $this->frontpage_part(
+                                'skipsitenews',
+                                'site-news-forum',
+                                $newsforumcm->get_formatted_name(),
+                                $forumcontents
+                            );
                         }
                     }
                     break;
@@ -265,25 +287,41 @@ class course_renderer extends \core_course_renderer {
                 case FRONTPAGEENROLLEDCOURSELIST:
                     $mycourseshtml = $this->frontpage_my_courses();
                     if (!empty($mycourseshtml)) {
-                        $output .= $this->frontpage_part('skipmycourses', 'frontpage-course-list',
-                            get_string('mycourses'), $mycourseshtml);
+                        $output .= $this->frontpage_part(
+                            'skipmycourses',
+                            'frontpage-course-list',
+                            get_string('mycourses'),
+                            $mycourseshtml
+                        );
                     }
                     break;
 
                 case FRONTPAGEALLCOURSELIST:
                     $availablecourseshtml = $this->frontpage_available_courses();
-                    $output .= $this->frontpage_part('skipavailablecourses', 'frontpage-available-course-list',
-                        get_string('availablecourses'), $availablecourseshtml);
+                    $output .= $this->frontpage_part(
+                        'skipavailablecourses',
+                        'frontpage-available-course-list',
+                        get_string('availablecourses'),
+                        $availablecourseshtml
+                    );
                     break;
 
                 case FRONTPAGECATEGORYNAMES:
-                    $output .= $this->frontpage_part('skipcategories', 'frontpage-category-names',
-                        get_string('categories'), $this->frontpage_categories_list());
+                    $output .= $this->frontpage_part(
+                        'skipcategories',
+                        'frontpage-category-names',
+                        get_string('categories'),
+                        $this->frontpage_categories_list()
+                    );
                     break;
 
                 case FRONTPAGECATEGORYCOMBO:
-                    $output .= $this->frontpage_part('skipcourses', 'frontpage-category-combo',
-                        get_string('courses'), $this->frontpage_combo_list());
+                    $output .= $this->frontpage_part(
+                        'skipcourses',
+                        'frontpage-category-combo',
+                        get_string('courses'),
+                        $this->frontpage_combo_list()
+                    );
                     break;
 
                 case FRONTPAGECOURSESEARCH:
@@ -323,12 +361,20 @@ class course_renderer extends \core_course_renderer {
         if (empty($coursecat->visible)) {
             $classes[] = 'dimmed_category';
         }
-        if ($chelper->get_subcat_depth() > 0 && $depth >= $chelper->get_subcat_depth()) {
+        if (
+            $chelper->get_subcat_depth() > 0
+            && $depth >= $chelper->get_subcat_depth()
+        ) {
             // Do not load content.
             $categorycontent = '';
             $classes[] = 'notloaded';
-            if ($coursecat->get_children_count() ||
-                    ($chelper->get_show_courses() >= self::COURSECAT_SHOW_COURSES_COLLAPSED && $coursecat->get_courses_count())) {
+            if (
+                $coursecat->get_children_count()
+                || (
+                    $chelper->get_show_courses() >= self::COURSECAT_SHOW_COURSES_COLLAPSED
+                    && $coursecat->get_courses_count()
+                )
+            ) {
                 $classes[] = 'with_children';
                 $classes[] = 'collapsed';
             }
@@ -360,13 +406,25 @@ class course_renderer extends \core_course_renderer {
 
         // Category name.
         $categoryname = $coursecat->get_formatted_name();
-        $categoryname = html_writer::link(new moodle_url('/course/index.php',
-                ['categoryid' => $coursecat->id]),
-                $categoryname);
-        if ($chelper->get_show_courses() == self::COURSECAT_SHOW_COURSES_COUNT
-                && ($coursescount = $coursecat->get_courses_count())) {
-            $categoryname .= html_writer::tag('span', ' ('. $coursescount.')',
-                    ['title' => get_string('numberofcourses'), 'class' => 'numberofcourse']);
+        $categoryname = html_writer::link(
+            new moodle_url(
+                '/course/index.php',
+                ['categoryid' => $coursecat->id]
+            ),
+            $categoryname
+        );
+        if (
+            $chelper->get_show_courses() == self::COURSECAT_SHOW_COURSES_COUNT
+            && ($coursescount = $coursecat->get_courses_count())
+        ) {
+            $categoryname .= html_writer::tag(
+                'span',
+                ' (' . $coursescount . ')',
+                [
+                    'title' => get_string('numberofcourses'),
+                    'class' => 'numberofcourse',
+                ]
+            );
         }
         $content .= html_writer::start_tag('div', ['class' => 'info']);
 

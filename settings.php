@@ -24,7 +24,7 @@
  */
 
 defined('MOODLE_INTERNAL') || die;
-require_once($CFG->dirroot.'/theme/academi/lib.php');
+require_once($CFG->dirroot . '/theme/academi/lib.php');
 
 if ($ADMIN->fulltree) {
     $settings = new theme_boost_admin_settingspage_tabs('themesettingacademi', get_string('configtitle', 'theme_academi'));

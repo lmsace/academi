@@ -23,7 +23,7 @@
  */
 
 defined('MOODLE_INTERNAL') || die();
-require_once($CFG->dirroot."/theme/academi/classes/helper.php");
+require_once($CFG->dirroot . "/theme/academi/classes/helper.php");
 
 /**
  * Return the soical media content for the theme academi footer.
@@ -34,11 +34,11 @@ function socialmedia() {
     $numofsocialmedia = theme_academi_get_setting('numofsocialmedia');
     $social = [];
     for ($sm = 1; $sm <= $numofsocialmedia; $sm++) {
-        $status = theme_academi_get_setting('socialmedia'.$sm.'_status');
-        $icon = theme_academi_get_setting('socialmedia'.$sm.'_icon');
+        $status = theme_academi_get_setting('socialmedia' . $sm . '_status');
+        $icon = theme_academi_get_setting('socialmedia' . $sm . '_icon');
         $sicon = (!empty($icon)) ? $icon : '';
-        $url = theme_academi_get_setting('socialmedia'.$sm.'_url');
-        $iconcolorval = theme_academi_get_setting('socialmedia'.$sm.'_iconcolor');
+        $url = theme_academi_get_setting('socialmedia' . $sm . '_url');
+        $iconcolorval = theme_academi_get_setting('socialmedia' . $sm . '_iconcolor');
         $iconcolor = (!empty($iconcolorval)) ? $iconcolorval : '';
         $socialmedia[] = [
             'socialstatus' => $status,

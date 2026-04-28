@@ -24,5 +24,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once(dirname(__FILE__) .'/layoutdata.php');
+require_once(dirname(__FILE__) . '/layoutdata.php');
 echo $OUTPUT->render_from_template('theme_academi/header', $templatecontext);

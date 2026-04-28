@@ -73,7 +73,7 @@ function theme_academi_process_css($css, $theme) {
     $css = theme_academi_pre_css_set_fontwww($css);
     // Set custom CSS.
     $customcss = $theme->settings->customcss;
-    $css = theme_academi_set_customcss($css , $customcss);
+    $css = theme_academi_set_customcss($css, $customcss);
     return $css;
 }
 
@@ -115,7 +115,6 @@ function theme_academi_pluginfile($course, $cm, $context, $filearea, $args, $for
         $theme = theme_config::load('academi');
     }
     if ($context->contextlevel == CONTEXT_SYSTEM) {
-
         if ($filearea === 'logo') {
             return $theme->setting_file_serve('logo', $args, $forcedownload, $options);
         } else if ($filearea === 'footerlogo') {
@@ -143,12 +142,12 @@ function theme_academi_pluginfile($course, $cm, $context, $filearea, $args, $for
 function theme_academi_pre_css_set_fontwww($css) {
     global $CFG;
     if (empty($CFG->themewww)) {
-        $themewww = $CFG->wwwroot."/theme";
+        $themewww = $CFG->wwwroot . "/theme";
     } else {
         $themewww = $CFG->themewww;
     }
     $tag = '[[setting:fontwww]]';
-    $css = str_replace($tag, $themewww.'/academi/fonts/', $css);
+    $css = str_replace($tag, $themewww . '/academi/fonts/', $css);
     return $css;
 }
 
@@ -159,11 +158,11 @@ function theme_academi_pre_css_set_fontwww($css) {
 function theme_academi_set_fontwww() {
     global $CFG;
     if (empty($CFG->themewww)) {
-        $themewww = $CFG->wwwroot."/theme";
+        $themewww = $CFG->wwwroot . "/theme";
     } else {
         $themewww = $CFG->themewww;
     }
-    $fontwww = '$fontwww: "'.$themewww.'/academi/fonts/"'.";\n";
+    $fontwww = '$fontwww: "' . $themewww . '/academi/fonts/"' . ";\n";
     return $fontwww;
 }
 
@@ -225,10 +224,10 @@ function theme_academi_get_setting($setting, $format = true) {
  * @param string $key
  * @return string
  */
-function theme_academi_lang($key='') {
+function theme_academi_lang($key = '') {
     $pos = strpos($key, 'lang:');
     if ($pos !== false) {
-        list($l, $k) = explode(":", $key);
+        [$l, $k] = explode(':', $key);
         if (get_string_manager()->string_exists($k, 'theme_academi')) {
             $v = get_string($k, 'theme_academi');
             return $v;
@@ -295,5 +294,25 @@ function theme_academi_get_extra_scss($theme) {
     // Load the settings from the parent.
     $theme = theme_config::load('boost');
     // Call the parent themes get_extra_scss function.
-    return theme_boost_get_extra_scss($theme);
+    $extrascss = theme_boost_get_extra_scss($theme);
+
+    // Remove Boost login background and watermark.
+    $extrascss .= 'body.pagelayout-login #page .login-layout-left::after { display: none; }';
+
+    // Add our custom login background logic.
+    $loginbackgroundimageurl = $theme->setting_file_url('loginbackgroundimage', 'loginbackgroundimage');
+    if (!empty($loginbackgroundimageurl)) {
+        $customloginbg = 'body.pagelayout-login #page .login-layout-left { ';
+        $customloginbg .= "background-image: url('$loginbackgroundimageurl'); ";
+        $customloginbg .= "background-size: cover; background-position: center; position: relative;";
+        $customloginbg .= ' }';
+        $extrascss .= $customloginbg;
+    } else {
+        $emptyloginbg = 'body.pagelayout-login #page .login-layout-left { ';
+        $emptyloginbg .= 'background-image: none; background-size: none; background-position: initial; position: relative;';
+        $emptyloginbg .= ' }';
+        $extrascss .= $emptyloginbg;
+    }
+
+    return $extrascss;
 }

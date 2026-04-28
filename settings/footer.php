@@ -47,7 +47,7 @@ $name = 'theme_academi/footerbgOverlay';
 $title = get_string('footerbgOverlay', 'theme_academi');
 $description = get_string('footerbgOverlay_desc', 'theme_academi');
 $opacity = [];
-$opacity = array_combine(range(0, 1, 0.1 ), range(0, 1, 0.1 ));
+$opacity = array_combine(range(0, 1, 0.1), range(0, 1, 0.1));
 $setting = new admin_setting_configselect($name, $title, $description, '0.4', $opacity);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $temp->add($setting);
@@ -62,7 +62,7 @@ $temp->add($setting);
 
 // Footer Block 1 heading.
 $name = 'theme_academi_footerblock1heading';
-$heading = get_string('footerblock', 'theme_academi').' 1 ';
+$heading = get_string('footerblock', 'theme_academi') . ' 1 ';
 $information = '';
 $setting = new admin_setting_heading($name, $heading, $information);
 $temp->add($setting);
@@ -110,7 +110,7 @@ $temp->add($setting);
 
 // Footer Block 2 heading.
 $name = 'theme_academi_footerblock2heading';
-$heading = get_string('footerblock', 'theme_academi').' 2 ';
+$heading = get_string('footerblock', 'theme_academi') . ' 2 ';
 $information = '';
 $setting = new admin_setting_heading($name, $heading, $information);
 $temp->add($setting);
@@ -141,7 +141,7 @@ $temp->add($setting);
 
 // Footer Block 3 heading.
 $name = 'theme_academi_footerblock3heading';
-$heading = get_string('footerblock', 'theme_academi').' 3 ';
+$heading = get_string('footerblock', 'theme_academi') . ' 3 ';
 $information = '';
 $setting = new admin_setting_heading($name, $heading, $information);
 $temp->add($setting);
@@ -188,7 +188,7 @@ $temp->add($setting);
 
 // Footer Block 4 heading.
 $name = 'theme_academi_footerblock4heading';
-$heading = get_string('footerblock', 'theme_academi').' 4 ';
+$heading = get_string('footerblock', 'theme_academi') . ' 4 ';
 $information = get_string('socialmediadesc', 'theme_academi');
 $setting = new admin_setting_heading($name, $heading, $information);
 $temp->add($setting);
@@ -214,22 +214,21 @@ $name = 'theme_academi/numofsocialmedia';
 $title = get_string('numofsocialmedia', 'theme_academi');
 $description = get_string('numofsocialmediadesc', 'theme_academi');
 $default = 4;
-$choices = array_combine( range(1, 8), range(1, 8) );
+$choices = array_combine(range(1, 8), range(1, 8));
 $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
 $temp->add($setting);
 
 $numofsocialmedia = get_config('theme_academi', 'numofsocialmedia');
 for ($f = 1; $f <= $numofsocialmedia; $f++) {
-
     // Social media heading.
-    $name = 'theme_academi_socialmeida'.$f;
+    $name = 'theme_academi_socialmeida' . $f;
     $heading = get_string('socialmeida', 'theme_academi', ['socialmedia' => $f]);
     $information = '';
     $setting = new admin_setting_heading($name, $heading, $information);
     $temp->add($setting);
 
     // Social media status (Enable or disable) option.
-    $name = 'theme_academi/socialmedia'.$f.'_status';
+    $name = 'theme_academi/socialmedia' . $f . '_status';
     $title = get_string('smediastatus', 'theme_academi');
     $description = get_string('smediastatus_desc', 'theme_academi');
     $default = 1;
@@ -237,26 +236,26 @@ for ($f = 1; $f <= $numofsocialmedia; $f++) {
     $temp->add($setting);
 
     // Social media icon.
-    $name = 'theme_academi/socialmedia'.$f.'_icon';
+    $name = 'theme_academi/socialmedia' . $f . '_icon';
     $title = get_string('icon', 'theme_academi');
     $description = get_string('socialmediaicon_desc', 'theme_academi');
-    $default = get_string('socialmediaicon'.$f.'_default', 'theme_academi');
+    $default = get_string('socialmediaicon' . $f . '_default', 'theme_academi');
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $temp->add($setting);
 
     // Social link URL.
-    $name = 'theme_academi/socialmedia'.$f.'_url';
+    $name = 'theme_academi/socialmedia' . $f . '_url';
     $title = get_string('url', 'theme_academi');
     $description = get_string('socialmediaurl_desc', 'theme_academi');
-    $default = get_string('socialmediaurl'.$f.'_default', 'theme_academi');
+    $default = get_string('socialmediaurl' . $f . '_default', 'theme_academi');
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $temp->add($setting);
 
     // Social link icon color.
-    $name = 'theme_academi/socialmedia'.$f.'_iconcolor';
+    $name = 'theme_academi/socialmedia' . $f . '_iconcolor';
     $title = get_string('iconcolor', 'theme_academi');
     $description = get_string('socialmediaiconcolor_desc', 'theme_academi');
-    $default = get_string('socialmediaiconcolor'.$f.'_default', 'theme_academi');
+    $default = get_string('socialmediaiconcolor' . $f . '_default', 'theme_academi');
     $setting = new admin_setting_configcolourpicker($name, $title, $description, $default);
     $temp->add($setting);
 }

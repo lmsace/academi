@@ -245,6 +245,10 @@ legend {
             background: $primary;
             box-shadow: none;
         }
+        span img {
+            margin-top: -5px;
+            filter: brightness(0) invert(1);
+        }
     }
     .secondary-navigation .moremenu .nav-link[data-toggle="tab"]:after {
         display: none;
@@ -437,9 +441,11 @@ body:not(.pagelayout-maintenance) #page-wrapper {
 }
 #region-main {
     float: none;
-    padding: 0 15px 15px;
     border-radius: 10px;
     overflow-x: visible;
+    &:not(.login-layout-right) {
+        padding: 0 15px 15px;
+    }
     .mform:not(.unresponsive) .fitem .fitemtitle label {
         font-weight: normal;
     }
@@ -891,6 +897,9 @@ div.backup-section + form {
 
 /* Forum page */
 .path-mod-forum {
+    .activity-header {
+        max-width: none;
+    }
     .discussion-settings-menu .dropdown {
         .dropdown-toggle {
             color: $secondary;
@@ -1088,9 +1097,15 @@ div.backup-section + form {
     .form-description {
         padding-top: 0;
     }
-    .form-setting .defaultsnext select {
-        max-width: 220px;
-        width: 100%;
+    .form-setting .defaultsnext {
+        display: block;
+        select {
+            max-width: 220px;
+            width: 100%;
+        }
+        > .d-flex {
+            gap: 5px;
+        }
     }
 }
 .editor_atto_menu .dropdown-menu > li > a {
@@ -1104,6 +1119,11 @@ div.backup-section + form {
     &focus {
         color: $white;
         background: $primary;
+    }
+}
+.customfield-category-list .categorieslist .categoryinstance .card-header .action-menu .action-menu-trigger {
+    .dropdown .dropdown-toggle {
+        color: $color_mine_shaft_approx;
     }
 }
 
@@ -1787,12 +1807,21 @@ body:not(.pagelayout-frontpage) {
     &#theme_boost-drawers-blocks:focus-within {
         position: fixed;
     }
-    .drawerheader .drawertoggle {
-        height: auto;
-        color: $white;
-        background: $primary;
-        padding: 5px;
-        display: flex;
+    .drawerheader {
+        .drawertoggle {
+            height: auto;
+            color: $white;
+            background: $primary;
+            padding: 5px;
+            display: flex;
+            > span img.icon {
+                margin-top: -5px;
+                filter: brightness(0) invert(1);
+            }
+        }
+        .draweractions .dropdown .btn-icon {
+            height: 45px;
+        }
     }
     .drawercontent .courseindex {
         .courseindex-item:hover,
