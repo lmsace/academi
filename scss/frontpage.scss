@@ -7,7 +7,8 @@
             border: 0;
         }
     }
-    &:not(.editing) .course-content {
+    // Hide the front page course content only when it holds no activity and edit mode is off.
+    &:not(.editing) .course-content:not(:has(ul.topics.frontpage ul.section.img-text > li)) {
         display: none;
     }
     &.course-content-element .course-content {
