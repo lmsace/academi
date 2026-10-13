@@ -9,11 +9,23 @@
  *   them to 'apple'. (Look around the choices for 'theme_boost/preset').
  */
 
+// Import Moodle Design System tokens.
+@import "design-system";
+
+// Import font stack.
+@import "moodle/font-stack";
+
+// Import fonts.
+@import "moodle/fonts";
+
 // Import FontAwesome.
 @import "fontawesome";
 
 // Import All of Bootstrap
 @import "bootstrap";
+
+// Import language-specific font stacks.
+@import "moodle/font-stack-lang";
 
 // Import Core moodle CSS
 @import "moodle";

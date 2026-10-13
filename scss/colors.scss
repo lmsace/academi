@@ -1,5 +1,12 @@
+// Import Moodle Design System tokens (Moodle 5.3+).
+// Must be imported before Bootstrap so that the design system tokens can be used to override Bootstrap variables.
+@import "design-system";
+
+// Import font stack.
+@import "moodle/font-stack";
+
 // Bootstrap variables - Boost default colors DONT ALTER the colors here.
-$white:    #fff !default;
+$white:   #fff !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #e9ecef !default;
 $gray-300: #dee2e6 !default;

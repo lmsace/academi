@@ -94,11 +94,17 @@ $font_0: var(--fa-style-family, "Font Awesome 6 Free", "Font Awesome 6 Brands", 
 $font_weight: var(--fa-style, 900);
 $fontsize: 16px !default;
 
+// Import fonts.
+@import "moodle/fonts";
+
 // Import FontAwesome.
 @import "fontawesome";
 
 // Import All of Bootstrap
 @import "bootstrap";
+
+// Import language-specific font stacks.
+@import "moodle/font-stack-lang";
 
 // Import Core moodle CSS
 @import "moodle";
