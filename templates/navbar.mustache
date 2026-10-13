@@ -112,6 +112,9 @@
                 {{> theme_boost/language_menu }}
             {{/langmenu}}
             {{{ output.search_box }}}
+            {{# output.colour_mode_menu }}
+                {{{ . }}}
+            {{/ output.colour_mode_menu }}
             {{{ output.navbar_plugin_output }}}
             <div class="d-flex align-items-stretch usermenu-container" data-region="usermenu">
                 {{#usermenu}}

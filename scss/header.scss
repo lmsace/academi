@@ -55,6 +55,10 @@
         }
     }
     .usermenu {
+        margin-right: 5px;
+        .userfirstname {
+            margin: 0;
+        }
         .login {
             color: $white;
             a {
@@ -150,7 +154,7 @@
     .popover-region {
         height: 100%;
         float: left;
-        margin: 0 5px 0 0;
+        margin: 0 8px 0 0;
         .content-item-container:hover {
             background: $primary;
             .view-more {
@@ -172,6 +176,28 @@
     }
     .right-menu .usermenu {
         float: right;
+    }
+    // Colour mode switcher (Moodle 5.3), shown when theme_boost | enablecolourmodes is on.
+    .colourmodemenu {
+        height: 100%;
+        .dropdown-toggle {
+            color: $white;
+            border: 0;
+            &:hover,
+            &:focus,
+            &[aria-expanded="true"] {
+                color: $white;
+                background-color: $secondary;
+            }
+        }
+        .dropdown-menu .dropdown-item {
+            &.active,
+            &:hover,
+            &:focus {
+                color: $white;
+                background-color: $primary;
+            }
+        }
     }
 }
 #header .nav.navbar-nav {
@@ -351,6 +377,9 @@
                 }
             }
         }
+        .mds-switch-control .mds-switch-label {
+            color: $white;
+        }
     }
 }
 
@@ -521,6 +550,18 @@
                 }
             }
         }
+    }
+}
+// Dark colour mode (Moodle 5.3): Boost sets data-bs-theme="dark" on the html tag,
+// and re-points --bs-white to its dark raised surface colour.
+[data-bs-theme="dark"] .header-main {
+    background: var(--#{$prefix}white);
+    border-bottom-color: var(--#{$prefix}border-color);
+    .navbar.navbar-light .primary-navigation .navigation .nav-link:not(.active) {
+        color: var(--#{$prefix}body-color);
+    }
+    .infoarea span {
+        color: var(--#{$prefix}secondary-color);
     }
 }
 .header-main {

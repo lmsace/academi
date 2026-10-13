@@ -226,13 +226,13 @@ legend {
             &.btn {
                 &:not(:disabled):not(.disabled) {
                     color: $white;
-                    border-color: $secondary;
-                    background-color: $secondary;
+                    border-color: $primary;
+                    background-color: $primary;
                 }
                 &:not(:disabled):not(.disabled):hover,
                 &:not(:disabled):not(.disabled):focus {
-                    border-color: $primary;
-                    background-color: $primary;
+                    border-color: $secondary;
+                    background-color: $secondary;
                 }
             }
         }
@@ -242,7 +242,7 @@ legend {
         &:hover,
         &:focus {
             color: $white;
-            background: $primary;
+            background: $secondary;
             box-shadow: none;
         }
         span img {
@@ -1808,12 +1808,19 @@ body:not(.pagelayout-frontpage) {
         position: fixed;
     }
     .drawerheader {
+        // Moodle 5.3 renders the close button inside .draweractions, where Boost gives it a grey background.
+        .draweractions .btn.drawertoggle,
         .drawertoggle {
             height: auto;
             color: $white;
             background: $primary;
             padding: 5px;
             display: flex;
+            &:hover,
+            &:focus {
+                color: $white;
+                background: $secondary;
+            }
             > span img.icon {
                 margin-top: -5px;
                 filter: brightness(0) invert(1);
@@ -1855,6 +1862,129 @@ body:not(.pagelayout-frontpage) {
 @media (max-width: 767px) {
     [data-region=right-hand-drawer].drawer {
         top: 60px;
+    }
+}
+
+// Moodle 5.3 anchors the course index and block drawers beside the main content
+// on standard and limited-width pages. Keep Academi's drawers fixed to the screen edges,
+// hidden off-screen when closed, as in Moodle 5.2.
+@mixin academi-edge-drawers() {
+    .drawer.drawer-left {
+        right: auto;
+        left: calc(-#{$drawer-left-width} + -10px);
+        width: $drawer-left-width;
+        overflow: visible;
+        @include transition(left 0.2s ease, top 0.2s ease, bottom 0.2s ease, visibility 0.2s ease);
+        &.show {
+            right: auto;
+            left: 0;
+        }
+    }
+    .drawer.drawer-right {
+        left: auto;
+        right: calc(-#{$drawer-right-width} + -10px);
+        clip-path: none;
+        @include transition(right 0.2s ease, top 0.2s ease, bottom 0.2s ease, visibility 0.2s ease, transform 0.5s ease);
+        &.show {
+            left: auto;
+            right: 0;
+        }
+    }
+    .drawer-toggles {
+        .drawer-left-toggle {
+            right: auto;
+            left: 0;
+        }
+        .drawer-right-toggle {
+            left: auto;
+            right: 0;
+        }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .pagelayout-standard,
+    body.limitedwidth {
+        .drawer.drawer-left,
+        .drawer.drawer-right {
+            z-index: $zindex-sticky - 5;
+            top: $navbar-height;
+            height: calc(100vh - #{$navbar-height});
+            max-height: none;
+            padding-bottom: 0;
+            border-radius: 0;
+            .drawerheader {
+                padding-top: 0;
+                .drawerheadertop {
+                    height: $navbar-height;
+                    padding-bottom: 0;
+                }
+            }
+            .drawercontent {
+                flex-basis: 0;
+            }
+        }
+        #page.drawers .main-inner {
+            margin-top: 1.5rem;
+        }
+        .drawer-toggles .drawer-toggler {
+            top: calc(#{$navbar-height} + 1rem);
+        }
+        // Move the footer buttons clear of the right drawer.
+        #page.drawers.show-drawer-right {
+            .popover-process-monitor,
+            .btn-footer-popover,
+            .btn-footer-communication {
+                right: calc(#{$drawer-right-width} + 2rem);
+            }
+        }
+        &:has(#page.drawers.show-drawer-right) .maintenancewarning {
+            right: calc(#{$drawer-right-width} + 5rem);
+        }
+
+        @include academi-edge-drawers();
+        &:has(#page.drawers.show-drawer-left):not(:has(#page.drawers.show-drawer-right)),
+        &:has(#page.drawers.show-drawer-right):not(:has(#page.drawers.show-drawer-left)),
+        &:has(#page.drawers.show-drawer-left.show-drawer-right) {
+            @include academi-edge-drawers();
+        }
+    }
+
+    // With the theme-based header, .header-main scrolls with the page below the fixed navbar
+    // and its height depends on the logo. Start the drawer toggles below it, then keep them
+    // below the navbar once it has scrolled away.
+    body.theme-based-header #page.drawers {
+        .drawer-toggles {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 3;
+            align-items: flex-start;
+            padding-top: 1rem;
+            pointer-events: none;
+            .drawer-toggler {
+                position: sticky;
+                top: calc(#{$navbar-height} + 1rem);
+                pointer-events: auto;
+            }
+            .drawer-right-toggle {
+                margin-left: auto;
+            }
+        }
+        // #page moves aside by the drawer width when a drawer opens, and slides back when it closes.
+        // Offset the toggles by the same amount, with the same transition, so they stay at the screen
+        // edges throughout and their tooltips are not left behind where the toggle started.
+        .drawer-toggles {
+            @include transition(left 0.2s, right 0.2s);
+        }
+        &.show-drawer-left .drawer-toggles {
+            left: -$drawer-left-width;
+        }
+        &.show-drawer-right .drawer-toggles {
+            right: -$drawer-right-width;
+        }
     }
 }
 /* End of Drawer */
