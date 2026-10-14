@@ -6,6 +6,11 @@ body {
     color: $color_storm_dust_approx;
     background-color: $white;
 }
+// Dark colour mode (Moodle 5.3): follow Boost's dark body colours instead of the fixed light ones.
+[data-bs-theme="dark"] body {
+    color: var(--#{$prefix}body-color);
+    background-color: var(--#{$prefix}body-bg);
+}
 /* End of page container size */
 
 * {
@@ -170,6 +175,32 @@ input {
     }
     &[type="submit"].btn-link {
         color: $white;
+    }
+}
+// Dark colour mode: the focus border above ($black_20) does not show on a dark page.
+[data-bs-theme="dark"] {
+    input {
+        &[type="text"],
+        &[type="password"],
+        &[type="datetime"],
+        &[type="datetime-local"],
+        &[type="date"],
+        &[type="month"],
+        &[type="time"],
+        &[type="week"],
+        &[type="number"],
+        &[type="email"],
+        &[type="url"],
+        &[type="search"],
+        &[type="tel"],
+        &[type="color"] {
+            &:focus {
+                border-color: $input-border-color;
+            }
+        }
+    }
+    textarea:focus {
+        border-color: $input-border-color;
     }
 }
 .uneditable-input {

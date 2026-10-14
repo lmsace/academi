@@ -1934,7 +1934,6 @@ body:not(.pagelayout-frontpage) {
     .drawer.drawer-right {
         left: auto;
         right: calc(-#{$drawer-right-width} + -10px);
-        -webkit-clip-path: none;
         clip-path: none;
         @include transition(right 0.2s ease, top 0.2s ease, bottom 0.2s ease, visibility 0.2s ease, transform 0.5s ease);
         &.show {
