@@ -47,6 +47,7 @@ legend {
     background: $primary;
 }
 .action-menu .menubar .action-menu-trigger .dropdown .dropdown-toggle {
+    height: 34px;
     border: 0;
     background: none;
 }
@@ -263,6 +264,7 @@ legend {
     }
     + #page-content #region-main {
         border-top: 0;
+        border-radius: 0;
         padding-top: 0;
         margin-top: 0;
         > div[role="main"] > .buttons {
@@ -276,6 +278,8 @@ legend {
             transform: none !important;
             left: auto !important;
             right: 0;
+            // Same background as the tab items (li.nav-item).
+            background-color: $wild_sand;
         }
     }
 }
@@ -586,9 +590,15 @@ body:not(.pagelayout-maintenance) #page-wrapper {
     background: $secondary;
     box-shadow: none;
 }
-.groupmanagementtable #buttonscell p.arrow_button input {
-    width: 100%;
-    margin: 10px auto 0;
+.groupmanagementtable {
+    #buttonscell p.arrow_button input {
+        width: 100%;
+        margin: 10px auto 0;
+    }
+    #existingcell select,
+    #potentialcell select {
+        height: 100%;
+    }
 }
 .calendar-event-panel {
     background: none;
@@ -844,7 +854,7 @@ div.backup-section + form {
 
 @media (max-width: 767px) {
     .block-region .block.card {
-        border: 1px solid $mercury;
+        border: 1px solid var(--#{$prefix}card-border-color);
     }
     #page-mod-quiz-mod #id_reviewoptionshdr .fitem {
         float: none;
@@ -1375,7 +1385,7 @@ div.backup-section + form {
         margin-bottom: 0;
     }
     .block_myoverview {
-        border: 1px solid $mercury;
+        border: 1px solid var(--#{$prefix}card-border-color);
     }
 }
 .pagelayout-frontpage #page.drawers div[role="main"] > br {
@@ -1533,6 +1543,20 @@ body:not(.pagelayout-frontpage) {
         }
     }
 }
+// Dark colour mode: the category links in the left column (AI, Competencies, Badges...) use the primary colour,
+// and secondary on hover, without the underline Boost adds to links in #region-main in dark mode.
+[data-bs-theme="dark"] #page-admin-search #region-main .tab-content .tab-pane h4 {
+    // Headings which are plain text (such as "Grades", "Report settings") rather than links.
+    color: $primary;
+    a {
+        color: $primary;
+        text-decoration: none;
+        &:hover,
+        &:focus {
+            color: $secondary;
+        }
+    }
+}
 
 @media (min-width: 992px) and (max-width: 1000px) {
     #page-admin-search .moremenu .nav.nav-tabs > .nav-item:not(.dropdownmoremenu) .nav-link {
@@ -1595,6 +1619,33 @@ body:not(.pagelayout-frontpage) {
         &.active:hover {
             color: $secondary;
             background: $wild_sand;
+        }
+    }
+}
+// Dark colour mode: the secondary navigation tabs use Boost's raised surface colour instead of the light $wild_sand.
+// Hover and the active tab keep the primary colour.
+// The tab items themselves (li.nav-item): the presets give them a light $wild_sand background.
+[data-bs-theme="dark"] .secondary-navigation .moremenu.navigation .nav-tabs .nav-item {
+    background: none;
+}
+// The "More" dropdown: the dark dropdown colour rather than the light $wild_sand it has in light mode.
+[data-bs-theme="dark"] .secondary-navigation .moremenu .nav-tabs .dropdownmoremenu .dropdown-menu {
+    background-color: var(--#{$prefix}dropdown-bg);
+}
+[data-bs-theme="dark"] .moremenu {
+    .nav.nav-tabs .nav-item .nav-link:not(:hover):not(:focus):not(:active):not(.active) {
+        color: $primary;
+        border-color: var(--#{$prefix}white);
+        background-color: var(--#{$prefix}white);
+    }
+    .dropdown-item {
+        &:hover,
+        &:focus,
+        &[aria-current="true"]:focus-within,
+        &[aria-current="true"]:hover,
+        &.active:focus-within,
+        &.active:hover {
+            background: var(--#{$prefix}tertiary-bg);
         }
     }
 }
@@ -1883,6 +1934,7 @@ body:not(.pagelayout-frontpage) {
     .drawer.drawer-right {
         left: auto;
         right: calc(-#{$drawer-right-width} + -10px);
+        -webkit-clip-path: none;
         clip-path: none;
         @include transition(right 0.2s ease, top 0.2s ease, bottom 0.2s ease, visibility 0.2s ease, transform 0.5s ease);
         &.show {
@@ -2034,3 +2086,212 @@ body:not(.pagelayout-frontpage) {
         background-color: $wild_sand;
     }
 }
+
+// Dark colour mode (Moodle 5.3): cards use Boost's raised surface colour, as Boost's own $card-bg does.
+[data-bs-theme="dark"] .card {
+    --#{$prefix}card-bg: var(--#{$prefix}white);
+    background-color: var(--#{$prefix}white);
+}
+
+// Dark colour mode: pagination buttons, which are white in light mode.
+[data-bs-theme="dark"] .pagination .page-item:not(.active) .page-link:not(:hover):not(:focus) {
+    background-color: var(--#{$prefix}body-bg);
+}
+
+// Dark colour mode: Boost's right drawer uses the page colour, and the drawers' black shadow does not show on a
+// dark page. Use the recessed surface colour and a visible edge so the drawers stand out from the page.
+[data-bs-theme="dark"] {
+    .drawer.drawer-left,
+    .drawer.drawer-right {
+        background-color: var(--#{$prefix}gray-200);
+        box-shadow: none;
+    }
+    .drawer.drawer-left {
+        border-right: 1px solid var(--#{$prefix}border-color);
+    }
+    .drawer.drawer-right {
+        border-left: 1px solid var(--#{$prefix}border-color);
+    }
+}
+
+/* TinyMCE editor */
+// The TinyMCE "oxide" skins hard-code a blue accent (#006ce7, #a6ccf7). Use the theme's primary colour instead.
+// The skin's CSS loads after the theme's, so "body" is added to each selector to outrank the skin's own rule.
+body .tox {
+    // Variables the skin reads for its buttons, checkboxes and keyboard focus rings.
+    --tox-private-color-tint: #{$primary};
+    --tox-private-keyboard-focus-outline-color: #{$primary};
+    --tox-private-checkbox-selected-color: #{$primary};
+    --tox-private-button-primary-background-color: #{$primary};
+    --tox-private-button-primary-border-color: #{$primary};
+    --tox-private-button-primary-hover-background-color: #{$secondary};
+    --tox-private-button-primary-hover-border-color: #{$secondary};
+    --tox-private-button-primary-focus-background-color: #{$secondary};
+    --tox-private-button-primary-focus-border-color: #{$secondary};
+    --tox-private-button-primary-active-background-color: #{$secondary};
+    --tox-private-button-primary-active-border-color: #{$secondary};
+    --tox-private-button-primary-enabled-background-color: #{$primary};
+    --tox-private-button-primary-enabled-border-color: #{$primary};
+    --tox-private-button-primary-disabled-background-color: #{$primary};
+    --tox-private-button-primary-disabled-border-color: #{$primary};
+
+    // Selected item in the menus (Edit, Insert, Tools...) and dropdowns, as in Moodle's own dropdown menus.
+    .tox-collection--list .tox-collection__item--active:not(.tox-collection__item--state-disabled) {
+        color: $dropdown-link-active-color;
+        background-color: $dropdown-link-active-bg;
+    }
+    // Open menu in the menubar, and toolbar buttons which are switched on.
+    .tox-mbtn--active,
+    .tox-mbtn:not(:disabled).tox-mbtn--active:focus,
+    .tox-tbtn--enabled,
+    .tox-tbtn--enabled:focus,
+    .tox-tbtn--enabled:hover,
+    .tox-collection--grid .tox-collection__item--enabled:not(.tox-collection__item--state-disabled),
+    .tox-collection--toolbar .tox-collection__item--enabled:not(.tox-collection__item--state-disabled) {
+        color: $body-color;
+        background: $primary-bg-subtle;
+    }
+    // Keyboard focus rings.
+    .tox-mbtn:focus:not(:disabled)::after,
+    .tox-tbtn:focus::after {
+        box-shadow: 0 0 0 $input-btn-focus-width $component-active-bg;
+    }
+    .tox-collection--grid .tox-collection__item--active:not(.tox-collection__item--state-disabled):focus::after {
+        box-shadow: 0 0 0 $input-btn-focus-width $component-active-bg inset;
+    }
+    .tox-collection--toolbar .tox-collection__item--active:not(.tox-collection__item--state-disabled):focus::after {
+        box-shadow: 0 0 0 $input-btn-focus-width $component-active-bg;
+    }
+    // Border shown around the editing area while it has focus.
+    .tox-edit-area::before {
+        border-color: $input-focus-border-color;
+    }
+    // Text fields and selects inside the editor's dialogs.
+    .tox-custom-editor:focus-within,
+    .tox-focusable-wrapper:focus,
+    .tox-listboxfield .tox-listbox--select:focus,
+    .tox-textarea-wrap:focus-within,
+    .tox-textarea:focus,
+    .tox-textfield:focus,
+    .tox-toolbar-textfield:focus,
+    .tox-selectfield select:focus {
+        border-color: $input-focus-border-color;
+        box-shadow: $input-focus-box-shadow;
+    }
+    .tox-insert-table-picker .tox-insert-table-picker__selected {
+        background-color: $component-active-bg;
+    }
+    .tox-naked-btn {
+        color: $primary;
+    }
+}
+// Dark colour mode.
+[data-bs-theme="dark"] body .tox {
+    // Open menu, pressed toolbar buttons and toolbar buttons which are switched on (such as the "..." button
+    // while the additional toolbar items are revealed): the theme's primary colour instead of the dark skin's blue.
+    .tox-mbtn--active,
+    .tox-mbtn:not(:disabled).tox-mbtn--active:focus,
+    .tox-tbtn:active,
+    .tox-tbtn--active,
+    .tox-tbtn--enabled,
+    .tox-tbtn--enabled:focus,
+    .tox-tbtn--enabled:hover,
+    .tox-collection--grid .tox-collection__item--enabled:not(.tox-collection__item--state-disabled),
+    .tox-collection--toolbar .tox-collection__item--enabled:not(.tox-collection__item--state-disabled) {
+        color: $component-active-color;
+        background: $component-active-bg;
+    }
+    // Format > Paragraph styles: TinyMCE previews each style with the content's computed styles, inline,
+    // including the dark content background. Drop that background so the options sit on the menu colour.
+    .tox-collection__item-label > * {
+        background-color: transparent !important; // stylelint-disable-line declaration-no-important
+    }
+}
+/* End of TinyMCE editor */
+
+// Dark colour mode: the folder path ("Files") in the file manager and file picker.
+[data-bs-theme="dark"] .fp-pathbar a.fp-path-folder-name {
+    color: $white;
+}
+// Dark colour mode: file manager icons in white.
+[data-bs-theme="dark"] {
+    // Drag and drop arrow (a font icon, which Boost colours $gray-500).
+    .dndupload-arrow {
+        color: $white;
+    }
+    // Folder icon before the path ("Files"), a black background image.
+    .fp-pathbar .fp-path-folder,
+    // Folder icons in the file area. Only folder icons are filtered, so uploaded image thumbnails keep their colours.
+    .filemanager img[src*="folder"],
+    .file-picker img[src*="folder"] {
+        filter: brightness(0) invert(1);
+    }
+}
+
+/* Form controls */
+// accent-color is the only CSS hook browsers offer for the native parts of form controls (checkboxes, radios,
+// range sliders, and in some browsers the highlighted option of an open select list).
+:root {
+    accent-color: $component-active-bg;
+}
+.form-select:focus,
+.custom-select:focus,
+select.form-control:focus {
+    border-color: $form-select-focus-border-color;
+    box-shadow: $form-select-focus-box-shadow;
+}
+/* End of Form controls */
+
+/* Gradebook */
+// Action menu (...) buttons in the grader report cells and column headers: no border.
+// Overrides the generic .btn:not(:disabled):not(.disabled) border colour.
+.btn.btn-icon.cellmenubtn:not(:disabled) {
+    border-color: transparent;
+}
+// Dark colour mode, Gradebook setup: the category expand/collapse arrow and the activity icons,
+// which are black monochrome icons, in white.
+[data-bs-theme="dark"] .setup-grades {
+    img.icon.itemicon {
+        filter: brightness(0) invert(1);
+    }
+}
+// Boost colours the expand/collapse arrow ($gray-900) with this long selector, so it is repeated in full to outrank it.
+[data-bs-theme="dark"] .path-grade-edit-tree .gradetree-wrapper .setup-grades.table tr.category td.column-name div a.toggle-category i {
+    color: $white;
+}
+/* End of Gradebook */
+
+/* LTI External tools */
+// Dark colour mode: mod_lti's styles.css gives the course tools table rows a white (#fff) background on hover.
+// Use a light tint of white instead (Bootstrap's table hover tint), which leaves the row content unchanged.
+[data-bs-theme="dark"] #page-mod-lti-coursetools {
+    table.table tbody tr:hover,
+    table.table-striped tbody tr:hover {
+        background: rgba(var(--#{$prefix}emphasis-color-rgb), $table-hover-bg-factor);
+    }
+}
+/* End of LTI External tools */
+
+/* File types (Site administration > Server > File types) */
+// Dark colour mode: the file type icons are images, which colour cannot change, so they are filtered to white.
+[data-bs-theme="dark"] #page-admin-tool-filetypes-index .generaltable td.icon-size-5 img.icon {
+    filter: brightness(0) invert(1);
+}
+/* End of File types */
+
+/* Content bank */
+// Dark colour mode: the content type thumbnails are black monochrome icons set as a background image,
+// which colour cannot change, so they are filtered to white.
+[data-bs-theme="dark"] .content-bank-container .cb-thumbnail {
+    filter: brightness(0) invert(1);
+}
+/* End of Content bank */
+
+/* Report builder */
+// Dark colour mode: the filters dropdown's scroll fades (top and bottom) and scrollbar track are drawn in $white by
+// Boost's scroll-shadow() and thin-scrolls() mixins. Redraw them in the dark dropdown colour.
+[data-bs-theme="dark"] .reportbuilder-filters-sidebar {
+    @include scroll-shadow($dark-surface-page);
+    @include thin-scrolls($dark-surface-page);
+}
+/* End of Report builder */

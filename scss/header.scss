@@ -4,7 +4,7 @@
     background: $primary;
     &.navbar.fixed-top {
         #usernavigation .nav-link {
-            padding: 0 5px;
+            padding: 0 $primary-nav-padding-x;
             border: 0;
             .count-container {
                 min-width: 14px;
@@ -47,18 +47,11 @@
             color: $white;
             border: 0;
         }
-        .divider {
-            display: none;
-        }
         .navbar-toggler {
             background: none;
         }
     }
     .usermenu {
-        margin-right: 5px;
-        .userfirstname {
-            margin: 0;
-        }
         .login {
             color: $white;
             a {
@@ -69,7 +62,7 @@
             color: $white;
             border: 0;
             border-radius: 5px;
-            padding: 0;
+            padding: 0 0 0 5px;
             box-shadow: none;
         }
         .moodle-actionmenu {
@@ -154,7 +147,6 @@
     .popover-region {
         height: 100%;
         float: left;
-        margin: 0 8px 0 0;
         .content-item-container:hover {
             background: $primary;
             .view-more {
@@ -352,7 +344,6 @@
 }
 #header {
     .editmode-switch-form {
-        margin-left: 10px;
         .input-group {
             label {
                 color: $white !important;
@@ -379,6 +370,15 @@
         }
         .mds-switch-control .mds-switch-label {
             color: $white;
+        }
+        // Edit mode switch: white track in every state, so it stands out on the header colour.
+        .mds-switch-track {
+            color: $white;
+            background-color: $white;
+        }
+        // Switched on: a primary thumb, as the default light thumb would not show on the white track.
+        .mds-switch-input:checked + .mds-switch-control .mds-switch-thumb {
+            background-color: $primary;
         }
     }
 }

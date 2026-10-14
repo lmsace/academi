@@ -23,7 +23,8 @@
         }
         .content {
             margin: 0 !important;
-            border-top: 1px solid $mercury;
+            // The line under the block header, in Boost's border colour so it follows the colour mode.
+            border-top: 1px solid var(--#{$prefix}border-color);
             &:not(.activityiconcontainer) {
                 background: $wild_sand;
             }
@@ -84,7 +85,7 @@
             }
         }
         .block-controls {
-            margin-top: 15px;
+            margin-top: 5px;
             margin-right: 10px;
             position: absolute;
             top: 5px;
@@ -267,7 +268,7 @@
             display: none;
         }
         .block-controls {
-            margin-top: 15px;
+            margin-top: 5px;
             margin-right: 10px;
         }
     }
@@ -383,9 +384,84 @@
         margin-left: 0;
     }
 }
+.admin-notification-ctas {
+    padding-left: 30px;
+    padding-right: 30px;
+}
 .jsenabled .block_navigation .block_tree .collapsed .tree_item.branch,
 .jsenabled .block_settings .block_tree .collapsed .tree_item.branch {
     background-position: 0 5px;
+}
+// Space between the expand/collapse arrows (and item icons) and the link text.
+.block_navigation,
+.block_settings {
+    .block_tree {
+        [aria-expanded="true"] > p:before,
+        [aria-expanded="false"] > p:before {
+            display: inline-block;
+            text-align: center;
+            margin-right: .5rem;
+        }
+        p.hasicon .icon {
+            margin-right: .5rem;
+        }
+    }
+}
+.dir-rtl {
+    .block_navigation,
+    .block_settings {
+        .block_tree {
+            [aria-expanded="true"] > p:before,
+            [aria-expanded="false"] > p:before {
+                margin-right: 0;
+                margin-left: .5rem;
+            }
+            p.hasicon .icon {
+                margin-right: 0;
+                margin-left: .5rem;
+            }
+        }
+    }
+}
+
+// Block move (drag) handle in the block header: no border, and no background on hover.
+.block .block-controls .moodle-core-dragdrop-draghandle {
+    border: 0;
+    box-shadow: none;
+    &:hover,
+    &:focus {
+        background-color: transparent;
+    }
+}
+
+// Course card action (⋮) button: only show the border on hover and focus.
+// Overrides the generic .btn:not(:disabled):not(.disabled) border colour.
+.btn.btn-icon.coursemenubtn:not(:hover):not(:focus) {
+    border-color: transparent;
+}
+
+// Dark colour mode: lighter borders on the inputs, selects and the All / Sort / Card select buttons inside blocks.
+[data-bs-theme="dark"] .block {
+    .form-control,
+    .form-select,
+    select,
+    textarea {
+        border-color: $gray-400;
+    }
+    .btn.btn-outline-secondary.dropdown-toggle:not(:hover):not(:focus) {
+        border-color: $gray-400;
+    }
+    // Calendar block previous / next month arrows.
+    .calendar-controls {
+        .previous,
+        .next {
+            color: $gray-400;
+        }
+    }
+}
+// Dark colour mode: navigation (and administration) block links.
+[data-bs-theme="dark"] .block_tree a {
+    color: $white;
 }
 
 /* Editing blocks */
@@ -465,5 +541,23 @@
     .block .minicalendar td {
         padding-right: 0;
         padding-left: 0;
+    }
+}
+
+// Course overview block: Boost's card style (rounded card, card padding, no separate inner panel),
+// in both light and dark colour modes.
+.block {
+    border-color: var(--#{$prefix}card-border-color);
+    border-radius: var(--#{$prefix}card-border-radius);
+    .card-body {
+        padding: var(--#{$prefix}card-spacer-y) var(--#{$prefix}card-spacer-x);
+        .card-title {
+            padding-bottom: 7px;
+            margin: 15px 15px var(--#{$prefix}card-title-spacer-y);
+        }
+        > .content,
+        .content:not(.activityiconcontainer) {
+            background: transparent;
+        }
     }
 }

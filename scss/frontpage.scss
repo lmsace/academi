@@ -179,7 +179,8 @@
 
 /* Jumbotron block */
 .jumbotron-block {
-    margin: 40px 0 30px;
+    padding-bottom: 30px;
+    margin: 40px 0 0;
     .container {
         padding: 0;
         position: relative;
@@ -1443,3 +1444,42 @@
     }
 }
 /* End of Marketing Spot */
+
+// Dark colour mode (Moodle 5.3): drop the light section backgrounds so the dark page background shows through.
+[data-bs-theme="dark"] {
+    #frontpage-available-course-list,
+    #frontpage-course-list,
+    #frontpage-category-combo,
+    #frontpage-category-names,
+    #site-news-forum,
+    .pagelayout-frontpage #frontpage-available-course-list,
+    .pagelayout-frontpage #site-news-forum {
+        background: transparent;
+    }
+
+    // Frontpage background: Boost's raised surface colour (--bs-white, the lighter dark grey in this mode).
+    body.pagelayout-frontpage,
+    .pagelayout-frontpage #region-main {
+        background-color: var(--#{$prefix}white);
+    }
+
+    // Course and category boxes: the darker page colour, so they stand out from the lighter background.
+    #frontpage-available-course-list .coursebox,
+    #frontpage-course-list .coursebox,
+    .course-search-result .coursebox,
+    .courses .coursebox.even,
+    #frontpage-category-combo .course_category_tree .category > .content .coursebox,
+    .course_category_tree.frontpage-category-names .category > .info {
+        background: var(--#{$prefix}body-bg);
+    }
+
+    // Course summary and "Teacher:" text inside the course boxes.
+    .courses .coursebox .content {
+        color: var(--#{$prefix}body-color);
+    }
+
+    // "Expand all" / "Collapse all" links.
+    .collapsible-actions a {
+        color: var(--#{$prefix}secondary-color);
+    }
+}
