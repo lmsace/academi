@@ -113,6 +113,29 @@
 
         drawerClass();
 
+        // With the theme-based header, .header-main scrolls with the page below the fixed navbar, and its height
+        // depends on the logo. Publish where it ends as --academi-drawer-top, so the styles can start the side
+        // drawers below it, and below the navbar once it has scrolled away.
+        const headerMain = document.querySelector('body.theme-based-header .header-main');
+        const navbar = document.querySelector('nav#header');
+        if (headerMain && navbar) {
+            let pending = false;
+            const setDrawerTop = () => {
+                pending = false;
+                const top = Math.max(navbar.getBoundingClientRect().bottom, headerMain.getBoundingClientRect().bottom);
+                document.documentElement.style.setProperty('--academi-drawer-top', Math.round(top) + 'px');
+            };
+            const requestDrawerTop = () => {
+                if (!pending) {
+                    pending = true;
+                    window.requestAnimationFrame(setDrawerTop);
+                }
+            };
+            window.addEventListener('scroll', requestDrawerTop, {passive: true});
+            window.addEventListener('resize', requestDrawerTop);
+            setDrawerTop();
+        }
+
     };
 
     return {

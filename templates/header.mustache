@@ -69,4 +69,16 @@
             </nav>
         </div>
     </div>
+    {{! Run straight away (not in a js block, which runs once the page has loaded), so the side drawers are first
+        drawn below .header-main instead of jumping there. theme_academi/theme keeps the value up to date. }}
+    <script>
+        (function() {
+            var headerMain = document.querySelector('.header-main');
+            var navbar = document.querySelector('nav#header');
+            if (headerMain && navbar) {
+                var top = Math.max(navbar.getBoundingClientRect().bottom, headerMain.getBoundingClientRect().bottom);
+                document.documentElement.style.setProperty('--academi-drawer-top', Math.round(top) + 'px');
+            }
+        })();
+    </script>
 {{/themestyleheader}}

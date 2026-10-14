@@ -1925,8 +1925,9 @@ body:not(.pagelayout-frontpage) {
         left: calc(-#{$drawer-left-width} + -10px);
         width: $drawer-left-width;
         overflow: visible;
-        @include transition(left 0.2s ease, top 0.2s ease, bottom 0.2s ease, visibility 0.2s ease);
+        @include transition(left 0.2s ease, visibility 0.2s ease);
         &.show {
+            border-bottom-right-radius: .5rem;
             right: auto;
             left: 0;
         }
@@ -1935,8 +1936,9 @@ body:not(.pagelayout-frontpage) {
         left: auto;
         right: calc(-#{$drawer-right-width} + -10px);
         clip-path: none;
-        @include transition(right 0.2s ease, top 0.2s ease, bottom 0.2s ease, visibility 0.2s ease, transform 0.5s ease);
+        @include transition(right 0.2s ease, visibility 0.2s ease, transform 0.5s ease);
         &.show {
+            border-bottom-left-radius: .5rem;
             left: auto;
             right: 0;
         }
@@ -1959,21 +1961,33 @@ body:not(.pagelayout-frontpage) {
         .drawer.drawer-left,
         .drawer.drawer-right {
             z-index: $zindex-sticky - 5;
-            top: $navbar-height;
-            height: calc(100vh - #{$navbar-height});
-            max-height: none;
+            // The drawer is as tall as its content, up to the bottom of the screen, stopping above the sticky footer
+            // (such as the activity Previous / Next bar) when there is one. Longer content scrolls inside the drawer.
+            --academi-drawer-offset: #{$navbar-height};
+            top: var(--academi-drawer-offset);
+            height: auto;
+            max-height: calc(100vh - var(--academi-drawer-offset) - var(--sticky-footer-total-height, 0px));
             padding-bottom: 0;
             border-radius: 0;
             .drawerheader {
                 padding-top: 0;
+                box-shadow: 2px 5px 5px $black_20;
                 .drawerheadertop {
                     height: $navbar-height;
                     padding-bottom: 0;
                 }
             }
             .drawercontent {
-                flex-basis: 0;
+                flex-basis: auto;
+                min-height: 0;
+                overflow-y: auto;
             }
+        }
+        // Theme-based header: start below .header-main, and below the navbar once it has scrolled away.
+        // --academi-drawer-top is kept up to date by theme_academi/theme.
+        &.theme-based-header .drawer.drawer-left,
+        &.theme-based-header .drawer.drawer-right {
+            --academi-drawer-offset: var(--academi-drawer-top, #{$navbar-height});
         }
         #page.drawers .main-inner {
             margin-top: 1.5rem;
