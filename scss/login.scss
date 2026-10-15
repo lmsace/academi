@@ -13,6 +13,7 @@
             height: stretch;
         }
         .login-layout-right {
+            border-radius: 0;
             background-image: url($loginbg);
             background-size: cover;
             background-position: top;

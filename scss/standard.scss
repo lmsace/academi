@@ -144,6 +144,7 @@ legend {
 .userselector {
     select[size] {
         max-width: none;
+        height: auto;
     }
     > .form-inline {
         display: block;
@@ -658,9 +659,16 @@ body {
         text-align: right;
         padding-left: 0;
     }
-
     &.path-admin-roles:not(.format-site) .secondary-navigation .navigation .nav-tabs {
         margin: 0;
+    }
+    .roleassigntable {
+        #removeselect_wrapper,
+        #addselect_wrapper {
+            select {
+                height: 100%;
+            }
+        }
     }
 }
 .path-admin .buttons input[type="submit"],
@@ -1305,6 +1313,7 @@ div.backup-section + form {
             color: $white;
             padding-left: 15px;
             padding-right: 10px;
+            border-radius: 0;
             background: $primary;
             &:before {
                 display: none;
@@ -1352,9 +1361,19 @@ div.backup-section + form {
     }
 }
 
+// Boost pads the whole of #page.drawers by 3rem on each side (room for the drawer toggles), which also narrows the
+// footer inside it. Keep that space around the page content only, so the footer runs the full width.
+@include media-breakpoint-up(md) {
+    body:not(.pagelayout-frontpage) #page.drawers {
+        padding-left: 0;
+        padding-right: 0;
+        > .main-inner {
+            width: calc(100% - 6rem);
+        }
+    }
+}
 #page.drawers {
     height: auto;
-    padding: 0;
     margin-top: 20px;
     .drawer-right-toggle {
         margin-right: 0;
@@ -1388,8 +1407,17 @@ div.backup-section + form {
         border: 1px solid var(--#{$prefix}card-border-color);
     }
 }
-.pagelayout-frontpage #page.drawers div[role="main"] > br {
-    display: none;
+#adminsettings .settingsform fieldset .form-item {
+    .form-control[size] {
+        max-width: none;
+        padding-right: .75rem;
+    }
+}
+.pagelayout-frontpage #page.drawers {
+    padding: 0;
+    div[role="main"] > br {
+        display: none;
+    }
 }
 .theme-container:not(.path-mod-assign) #page.drawers .main-inner {
     max-width: $modal-xl;
@@ -1935,6 +1963,7 @@ body:not(.pagelayout-frontpage) {
     .drawer.drawer-right {
         left: auto;
         right: calc(-#{$drawer-right-width} + -10px);
+        -webkit-clip-path: none;
         clip-path: none;
         @include transition(right 0.2s ease, visibility 0.2s ease, transform 0.5s ease);
         &.show {

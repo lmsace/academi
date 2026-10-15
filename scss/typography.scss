@@ -425,6 +425,7 @@ select {
     &[multiple] {
         width: 100%;
         max-width: 220px;
+        height: auto;
     }
 }
 .custom-select:focus {
