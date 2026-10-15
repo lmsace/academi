@@ -7,9 +7,41 @@
             border: 0;
         }
     }
-    // Hide the front page course content only when it holds no activity and edit mode is off.
-    &:not(.editing) .course-content:not(:has(ul.topics.frontpage ul.section.img-text > li)) {
+    // Outside edit mode, show the front page section only when it has something in it: activities, a summary,
+    // or a title. A section without a name of its own is given the default name "Site" (format_site), so that
+    // value does not count as a title.
+    &:not(.editing) .course-content:not(:has(
+        ul.section.img-text > li,
+        .summarytext,
+        li.section:not([data-sectionname=""]):not([data-sectionname="Site"])
+    )) {
         display: none;
+    }
+    &:not(.editing) .course-content li.section {
+        // No title of its own (only the default "Site" name): hide the header that would hold it.
+        &[data-sectionname=""],
+        &[data-sectionname="Site"] {
+            .course-section-header {
+                // !important to override the header's .d-flex utility class (display: flex !important).
+                display: none !important; // stylelint-disable-line declaration-no-important
+            }
+        }
+        // No description, availability information or warning: hide the empty section info area.
+        [data-for="sectioninfo"]:not(.description):not(:has(.summarytext, .alert)) {
+            display: none !important; // stylelint-disable-line declaration-no-important
+        }
+        // Neither a title nor a description: show the activities without the section's card frame.
+        &[data-sectionname=""]:not(:has(.summarytext)),
+        &[data-sectionname="Site"]:not(:has(.summarytext)) {
+            .section-item {
+                border: 0;
+            }
+            .section-content-inner {
+                padding: 0;
+                border: 0;
+                background-color: transparent;
+            }
+        }
     }
     &.course-content-element .course-content {
         display: block;

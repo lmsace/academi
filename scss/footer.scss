@@ -96,8 +96,35 @@
                         text-decoration: none;
                     }
                 }
-                a {
+                a:not(.dropdown-item) {
                     padding-left: 0;
+                }
+            }
+            // Matches the header nav's own dropdown (#header .nav.navbar-nav
+            // .dropdown .dropdown-menu in header.scss): divider lines between
+            // items, primary-green hover fill with white text. Left unstyled
+            // otherwise, the footer's dropdown fell back to Bootstrap's plain
+            // white/gray default, which read as off-theme against the rest of
+            // the site's branded dropdowns.
+            .dropdown-menu {
+                .dropdown-divider {
+                    margin: 0;
+                    border: 0;
+                }
+                a.dropdown-item {
+                    background: none;
+                    color: $primary;
+                    border-bottom: 1px solid $wild_sand;
+                    padding-top: 8px;
+                    padding-bottom: 8px;
+                    &:hover,
+                    &:focus {
+                        color: $white;
+                        background: $primary;
+                    }
+                    &:last-child {
+                        border-bottom: 0;
+                    }
                 }
             }
         }
