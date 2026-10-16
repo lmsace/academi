@@ -28,13 +28,6 @@ require_once($CFG->libdir . '/behat/lib.php');
 require_once($CFG->dirroot . '/course/lib.php');
 require_once(dirname(__FILE__) . '/themedata.php');
 
-$preset = optional_param('preset', 0, PARAM_TEXT);
-if (!empty($preset) && isset($preset)) {
-    set_config('preset', $preset, 'theme_academi');
-    // Purge the theme cache to show the old icons in the GUI.
-    theme_reset_all_caches();
-}
-
 // Add block button in editing mode.
 $addblockbutton = $OUTPUT->addblockbutton();
 // Add block button in editing mode.
