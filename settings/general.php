@@ -25,6 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die;
 
+require_once($CFG->dirroot.'/theme/academi/lib.php');
+
 // General section.
 $temp = new admin_settingpage('theme_academi_header', get_string('headerheading', 'theme_academi'));
 
