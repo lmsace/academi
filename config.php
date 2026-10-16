@@ -197,5 +197,10 @@ $THEME->layouts = [
         'file' => 'secure.php',
         'regions' => ['side-pre'],
         'defaultregion' => 'side-pre',
+        'options' => [
+            'activityheader' => [
+                'notitle' => false,
+            ],
+        ],
     ],
 ];

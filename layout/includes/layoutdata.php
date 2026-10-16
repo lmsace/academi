@@ -37,9 +37,6 @@ if (!empty($preset) && isset($preset)) {
 
 // Add block button in editing mode.
 $addblockbutton = $OUTPUT->addblockbutton();
-// Add block button in editing mode.
-$addblockbutton = $OUTPUT->addblockbutton();
-
 
 if (isloggedin()) {
     $courseindexopen = (get_user_preferences('drawer-open-index', true) == true);
@@ -49,7 +46,7 @@ if (isloggedin()) {
     $blockdraweropen = false;
 }
 
-if (defined('BEHAT_SITE_RUNNING')) {
+if (defined('BEHAT_SITE_RUNNING') && get_user_preferences('behat_keep_drawer_closed') != 1) {
     $blockdraweropen = true;
 }
 

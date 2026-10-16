@@ -30,4 +30,11 @@ $templatecontext = [
     'output' => $OUTPUT,
     'bodyattributes' => $bodyattributes,
 ];
+
+if (empty($PAGE->layout_options['noactivityheader'])) {
+    $header = $PAGE->activityheader;
+    $renderer = $PAGE->get_renderer('core');
+    $templatecontext['headercontent'] = $header->export_for_template($renderer);
+}
+
 echo $OUTPUT->render_from_template('theme_academi/columns1', $templatecontext);

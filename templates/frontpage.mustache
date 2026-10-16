@@ -60,6 +60,8 @@
         {{#courseindex}}
             {{< theme_boost/drawer }}
                 {{$id}}theme_boost-drawers-courseindex{{/id}}
+                {{$drawerheading}}{{> theme_boost/courseindexdrawerheading}}{{/drawerheading}}
+                {{$drawercontrols}}{{> theme_boost/courseindexdrawercontrols}}{{/drawercontrols}}
                 {{$drawerclasses}}drawer drawer-left {{#courseindexopen}}show{{/courseindexopen}}{{/drawerclasses}}
                 {{$drawercontent}}
                     {{{courseindex}}}
@@ -117,7 +119,7 @@
                         </div>
                     {{/courseindex}}
                     {{#hasblocks}}
-                        <div class="drawer-toggler drawer-right-toggle ml-auto d-print-none">
+                        <div class="drawer-toggler drawer-right-toggle ms-auto d-print-none">
                             <button
                                 class="btn btn-icon icon-size-3"
                                 data-toggler="drawers"
