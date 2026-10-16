@@ -29,9 +29,10 @@ define(['jquery', 'theme_academi/jquery.sudoSlider'], function($) {
                 $('.homecarousel-slide-item.carousel-item').not('[data-slide="' + t + '"]').removeClass('active');
                 $('.homecarousel-slide-item.carousel-item[data-slide="' + t + '"]').addClass('active');
                 $('.slide-text').show();
+                playTextAnimation(t);
             },
-            beforeAnimation: function() {
-                animation();
+            beforeAnimation: function(t) {
+                holdTextAnimation(t);
             }
         });
 
@@ -49,43 +50,56 @@ define(['jquery', 'theme_academi/jquery.sudoSlider'], function($) {
         });
 
         /**
-         * Animation for slider.
+         * The animated text (title, description, button) of a slide.
+         * @param {Number} slide Slide number.
+         * @return {jQuery}
          */
-        function animation() {
-            var $this = $('.slide-content .slide-text');
-            var $content = $this.find('.heading-content [data-animation ^= "animated"]');
-            var index = 0;
-            if ($content != "undefined" && $content.length != "") {
-                $content.css({'opacity': 0});
-                var $time = setInterval(function() {
-                    $this = $content;
-                    var da = $content.eq(index);
-                    var ani = da.attr('data-animation');
-                    da.addClass(ani);
-                    da.css({'opacity': 1});
-                    index++;
-                    if (index == $this.length) {
-                        clearInterval($time);
-                    }
-                    doAnimations(da);
-                }, 400);
-            }
+        function slideText(slide) {
+            return $('.homecarousel-slide-item.carousel-item[data-slide="' + slide + '"]')
+                .find('.heading-content [data-animation]');
         }
 
         /**
-         * Sider animation.
-         * @param {string} elems Elements.
+         * The overlay box (.content_overlayer) behind a slide's text.
+         * @param {Number} slide Slide number.
+         * @return {jQuery}
          */
-        function doAnimations(elems) {
-            var animEndEv = 'webkitAnimationEnd animationend';
-            elems.each(function() {
-              var $this = $(this),
-                  $animationType = $this.data('animation');
-              $this.addClass($animationType).one(animEndEv, function() {
-                $this.removeClass($animationType);
-              });
+        function slideOverlay(slide) {
+            return $('.homecarousel-slide-item.carousel-item[data-slide="' + slide + '"] .slide-text');
+        }
+
+        /**
+         * Before a slide moves in: keep its text hidden while it slides in. Other slides are left alone.
+         * @param {Number} slide Slide number.
+         */
+        function holdTextAnimation(slide) {
+            slideOverlay(slide).removeClass('overlay-in').addClass('slide-text-pending');
+            slideText(slide).each(function() {
+                $(this).removeClass($(this).attr('data-animation')).addClass('slide-text-pending');
             });
-          }
+        }
+
+        /**
+         * Once the slide is in place: play the text animation, which the styles (carousel.scss) run smoothly
+         * and stagger. The animation is restarted by removing its classes and adding them back after a reflow.
+         * @param {Number} slide Slide number.
+         */
+        function playTextAnimation(slide) {
+            // The overlay box behind the text fades in first, just before the text.
+            var $overlay = slideOverlay(slide);
+            $overlay.removeClass('overlay-in');
+            if ($overlay.length) {
+                void $overlay[0].offsetWidth;
+            }
+            $overlay.removeClass('slide-text-pending').addClass('overlay-in');
+            slideText(slide).each(function() {
+                var $item = $(this);
+                var animation = $item.attr('data-animation');
+                $item.removeClass(animation);
+                void this.offsetWidth;
+                $item.removeClass('slide-text-pending').addClass(animation);
+            });
+        }
     };
 
     return {

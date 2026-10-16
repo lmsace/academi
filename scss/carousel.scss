@@ -1,4 +1,55 @@
 /* Homepage carousel */
+// Slide text animation (contentAnimation "ScrollRight" in layout/includes/homeslider.php), played by
+// theme_academi/homeslider once a slide is in place: a short fade and slide in, with the description and
+// button following the title.
+@keyframes ScrollRight {
+    from {
+        opacity: 0;
+        transform: translate3d(-30px, 0, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+@keyframes OverlayIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+// The overlay box behind the text fades in first; the text follows shortly after.
+.homepage-carousel .slide-text.overlay-in {
+    animation: OverlayIn .3s ease-out both;
+}
+.homepage-carousel .heading-content {
+    .animated.ScrollRight {
+        animation: ScrollRight .7s ease-out .2s both;
+    }
+    p.animated.ScrollRight {
+        animation-delay: .35s;
+    }
+    .link-button .animated.ScrollRight {
+        animation-delay: .5s;
+    }
+}
+// Held hidden while the slide moves in: the overlay box and its text.
+.homepage-carousel {
+    .slide-text.slide-text-pending,
+    .heading-content .slide-text-pending {
+        opacity: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .homepage-carousel .slide-text.overlay-in,
+    .homepage-carousel .heading-content .animated.ScrollRight {
+        animation: none;
+    }
+}
+
 .homepage-carousel {
     height: 700px;
     position: relative;
