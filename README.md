@@ -14,7 +14,7 @@ Academi - a responsive moodle theme developed by LMSACE
 
 <li>Theme Version : &nbsp; 4.5.1</li>
 
-<li>Relesed on : &nbsp; 16 October 2026</li>
+<li>Relesed on : &nbsp; 17 October 2026</li>
 
 <li>Authors : &nbsp; LMSACE Dev Team</li>
 
