@@ -29,9 +29,10 @@ define(['jquery', 'theme_academi/jquery.sudoSlider'], function($) {
                 $('.homecarousel-slide-item.carousel-item').not('[data-slide="' + t + '"]').removeClass('active');
                 $('.homecarousel-slide-item.carousel-item[data-slide="' + t + '"]').addClass('active');
                 $('.slide-text').show();
+                playTextAnimation(t);
             },
-            beforeAnimation: function() {
-                animation();
+            beforeAnimation: function(t) {
+                holdTextAnimation(t);
             }
         });
 
