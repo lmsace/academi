@@ -24,7 +24,7 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version    = 2026101700; // This component release level.
+$plugin->version    = 2026101704; // This component release level.
 $plugin->maturity   = MATURITY_STABLE; // This version's maturity level.
 $plugin->release    = 'v5.3'; // This version's release version.
 $plugin->requires   = 2026100500; // This version's moodle require release.
