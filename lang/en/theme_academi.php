@@ -58,6 +58,8 @@ $string['content'] = 'Content';
 $string['content_desc'] = 'To set the content for the this block, enter the block content as plain text or use the "lang" prefix followed by the appropriate "language_key" for multi-lingual support. You can find the theme language keys for multi-lingual support in the "/theme/academi/lang/en/theme_academi.php" file.';
 $string['copyright_default'] = 'Copyright &copy; 2017 - Developed by <a href="http://lmsace.com">LMSACE.com</a>. Powered by <a href="https://moodle.org">Moodle</a>';
 $string['copyright_footer'] = 'Copyright';
+$string['courseheading'] = 'Course';
+$string['courseheaderheading'] = 'Course Header';
 $string['custom'] = "Custom";
 $string['customcss'] = 'Custom CSS';
 $string['customcssdesc'] = 'Whatever CSS rules you add to this textarea will be reflected in every page, making for easier customization of this theme.';
@@ -260,6 +262,8 @@ $string['toggleslideshowdesc'] = 'Choose if you wish to hide or show the slide s
 $string['topCenter'] = 'TopCenter';
 $string['topLeft'] = 'TopLeft';
 $string['topRight'] = 'TopRight';
+$string['useshortnameinheader'] = 'Show course short name in header';
+$string['useshortnameinheader_desc'] = 'When enabled, the course short name will be displayed in the header instead of the full course name. This is useful when course data comes from external systems where the short name field contains more appropriate display text.';
 $string['url'] = 'URL';
 $string['urldesc'] = 'Enter the URL to set the link for the title of this site feature {$a->block}';
 $string['viewallcourses'] = 'View all courses';

@@ -57,6 +57,8 @@ $string['container'] = 'حاوية';
 $string['content'] = 'محتوى';
 $string['copyright_default'] = 'حقوق النشر والنسخ؛ 2017 - تم تطويره بواسطة <a href="http://lmsace.com">LMSACE.com</a>. مدعوم من <a href="https://moodle.org">Moodle</a>';
 $string['copyright_footer'] = '';
+$string['courseheading'] = 'الدورة';
+$string['courseheaderheading'] = 'رأس الدورة';
 $string['custom'] = 'مخصص';
 $string['customcss'] = 'مخصصCSS';
 $string['customcssdesc'] = 'مهما كانت قواعد CSS التي تضيفها إلى منطقة النص هذه ، فسوف تنعكس في كل صفحة ، مما يسهل تخصيص هذا المظهر.';
@@ -257,6 +259,8 @@ $string['toggleslideshowdesc'] = 'اختر ما إذا كنت تريد إخفا�
 $string['topCenter'] = 'مركز أعلى';
 $string['topLeft'] = 'أعلى اليسار';
 $string['topRight'] = 'اعلى اليمين';
+$string['useshortnameinheader'] = 'إظهار الاسم المختصر للدورة في الرأس';
+$string['useshortnameinheader_desc'] = 'عند التمكين، سيتم عرض الاسم المختصر للدورة في الرأس بدلاً من الاسم الكامل للدورة. هذا مفيد عندما تأتي بيانات الدورة من أنظمة خارجية حيث يحتوي حقل الاسم المختصر على نص عرض أكثر ملاءمة.';
 $string['url'] = 'URL';
 $string['urldesc'] = 'أدخل عنوان URL لتعيين الرابط لعنوان ميزة هذا الموقع {$a->block}';
 $string['viewallcourses'] = 'عرض جميع الدورات';
